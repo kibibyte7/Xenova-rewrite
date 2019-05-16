@@ -7,7 +7,7 @@ defaultSetteings:{
 	systemNotice:true 
 	}, 
 	permLevels:[
-	  {level:0, name:"Utilisateur", check() => true}, 
+	  {level:0, name:"Utilisateur", check:() => true}, 
 	  {
 	  	level:1, 
 	  	name:"XenoModPerm", 
