@@ -7,7 +7,7 @@ class Command {
  	usage = "Aucune utilisation définie.", 
  	enable = true, 
  	guildOnly = false, 
- 	aliases = Array(), 
+ 	aliases = new Array(), 
  	permLevel = "Utilisateur" 
  	}
  	) {
