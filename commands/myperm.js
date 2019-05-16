@@ -6,7 +6,7 @@ class MyPerm extends Command {
       name: "myperm",
       description: "Affiche votre niveau de permission.",
       usage: "myperm",
-      guildOnly: true
+      guildOnly: false
     });
   }
 
