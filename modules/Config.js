@@ -2,7 +2,7 @@ const config = {
 defaultSetteings:{
 	prefix:"=", 
 	modLogChannel:"mod-logs", 
-	modRole:"XenoModPerm" 
+	modRole:"XenoModPerm", 
 	adminRole:"XenoAdminPerm", 
 	systemNotice:true 
 	}, 
