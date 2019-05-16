@@ -9,7 +9,7 @@ usage:"afk [texte]"
 
 } 
 
-run(message, args, level)
+run(message, args, level){
 
 const afkUrl = process.env.afk;
             request(afkUrl, (err, res, body) => {
@@ -27,7 +27,8 @@ const afkUrl = process.env.afk;
                 request({ url: afkUrl, method: 'PUT', json: afk})
 
                 message.reply(`Tu es maintenant en afk pour : **${afk[message.guild.id + message.author.id].reason}**.`)
-               }) 
+               })
+  } 
 } 
 
 module.exports = Afk;           
