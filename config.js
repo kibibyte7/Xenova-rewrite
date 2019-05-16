@@ -1,5 +1,5 @@
 const config = {
-defaultSetteings:{
+defaultSettings:{
 	prefix:"=", 
 	modLogChannel:"mod-logs", 
 	modRole:"XenoModPerm", 
