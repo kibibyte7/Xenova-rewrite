@@ -1,10 +1,10 @@
 class Command {
  constructor(
  	client, {
- 	name: null, 
- 	description:"Aucune description détectée.", 
- 	category:"Aucune catégorie détectée.", 
- 	usage:"Aucune utilisation détectée.", 
+ 	name: "Aucun nom défini.", 
+ 	description:"Aucune description définie.", 
+ 	category:"Aucune catégorie définie.", 
+ 	usage:"Aucune utilisation définie.", 
  	enable:true, 
  	guildOnly:false, 
  	aliases:Array(), 
