@@ -44,7 +44,7 @@ async run(message) {
    cmd.run(message, args, level) 
    }catch(e) {
    this.client.logger.log(`Une erreur est survenue : ${e} `, "error") 
-   } finaly {
+   } finally {
    this.client.logger.log(`${this.client.config.permLevels.find(l => l.level).name} ${message.author.username} a utilisé la commande ${cmd.help.name}`, "log")
   } 
 
