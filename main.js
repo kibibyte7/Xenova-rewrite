@@ -67,7 +67,7 @@ class Xenova extends Client {
  	getSettings(guild){
  	const defaults = this.config.defaultSettings || {}; 
  	const guildData = this.settings.get(guild.id) || {};
- 	const returnObject = {} 
+ 	const returnObject = {}; 
  	Object.keys(defaults).forEach(key => {
  		returnObject[key] = guildData[key] ? guildData[key] : defaults[key]; 
  		}) 
