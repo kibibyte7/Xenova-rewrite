@@ -7,7 +7,7 @@ async run(message) {
 	if(message.author.bot) return;
 	if(message.channel.type === "dm") return;
 	
-	if(message.channel.permissionsFor(message.guild.me).missing("SEND_MESSAGES")) return message.author.send(`Je n'ai pas la permission d'envoyer des messages dans ${message.channel.name}`);
+	if(!message.channel.permissionsFor(message.guild.me).missing("SEND_MESSAGES")) return message.author.send(`Je n'ai pas la permission d'envoyer des messages dans ${message.channel.name}`);
 
   const settings = this.client.getSettings(message.guild);
   this.settings = settings;
