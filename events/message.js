@@ -33,7 +33,7 @@ async run(message) {
   
   if(level < this.client.levelCache[cmd.conf.permLevel]){
   	
-  	if(settings.systemNotice === true) {
+  	if(settings.systemNotice === "true") {
   		
   		return message.channel.send(`${this.client.emojis.find("name","wrongMark")} Tu n'as pas la permission d'utiliser la commande\nTon niveau de permissions: **${level} ${this.client.permLevels.find(l => l.level === level).name}**\nLe niveau de permissions requis: **${this.client.levelCache[cmd.conf.permLevel]} ${cmd.conf.permLevel}**`) 
   		
