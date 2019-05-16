@@ -97,7 +97,7 @@ klaw("./commands").on('data', item => {
 		client.logger.log(`Chargement de l'événement: ${evtName}`,"log")
 		const event = new (require(`./events/${file}`))(client) 
 		client.on(evtName, (...args) => event.run(...args))
-		delete require.cache(require.resolve(`./events/${file}`))
+		delete require.cache[require.resolve(`./events/${file}`)] 
 		}) 
 		
 		client.levelCache = {} 
