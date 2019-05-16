@@ -76,7 +76,7 @@ class Xenova extends Client {
 } 
 
 const client = new Xenova()
-console.log(client.permLevels.map(p => `${p.level} : ${p.name}`))
+console.log(client.config.permLevels.map(p => `${p.level} : ${p.name}`))
 
 //Fonction d'initialisation
 
