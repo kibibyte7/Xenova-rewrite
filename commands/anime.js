@@ -80,7 +80,7 @@ anime.searchAnime(args.join(), 0).then(results => {
     	},
     	timestamp:new Date(), 
     	footer:{
-    	icon_url:client.user.avatarURL,
+    	icon_url:this.client.user.avatarURL,
     	text:"Anime" 
     	} 
     	}}) 
