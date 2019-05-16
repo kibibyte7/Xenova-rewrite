@@ -27,7 +27,7 @@ async run(message) {
   
   const level = this.client.permLevel(message)
   
-  const cmd = this.client.commands.get(command) || this.client.commands.get(this.aliases.get(command))
+  const cmd = this.client.commands.get(command) || this.client.commands.get(this.client.aliases.get(command))
  
   if(!cmd) return;
   
