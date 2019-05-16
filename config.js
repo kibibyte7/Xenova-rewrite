@@ -40,7 +40,7 @@ const config = {
     {
       level: 3,
       name: "XenoOwner",
-      check: message => message.author.id === "524996881198219276";
+      check: message => message.author.id === "524996881198219276"
     }
   ]
 };
