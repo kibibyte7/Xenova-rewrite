@@ -11,8 +11,7 @@ class MyPerm extends Command {
   }
 
   run(message, args, level) {
-    const perm = this.client.config.permLevels.find(l => l.level === level)
-      .name;
+    const perm = this.client.config.permLevels.find(l => l.level === level).name;
     message.reply(`ton niveau de permission est: ${level} - ${perm}.`);
   }
 }
