@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 module.exports = class {
   constructor(client) {
     this.client = client;
