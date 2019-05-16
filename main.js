@@ -55,7 +55,7 @@ class Xenova extends Client {
  	  	   props.init(this)
  	  	} 
  	  	this.commands.set(props.help.name)
- 	  	props.aliases.forEach(alias => {
+ 	  	propos.conf.aliases.forEach(alias => {
  	  	this.aliases.set(alias, props.help.name)
  	  }) 
  	  return false;
