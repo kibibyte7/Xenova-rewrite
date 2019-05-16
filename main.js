@@ -5,7 +5,7 @@ const Enmap = require("enmap");
 const klaw = require("klaw");
 const path = require("path");
 
-class Flareon extends Client {
+class Xenova extends Client {
   constructor(options) {
     super(options);
 
@@ -76,7 +76,7 @@ class Flareon extends Client {
   }
 }
 
-const client = new Flareon();
+const client = new Xenova();
 console.log(client.config.permLevels.map(p => `${p.level}: ${p.name}`));
 
 // Fonction d'initialisation
