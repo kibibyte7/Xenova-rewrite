@@ -46,7 +46,7 @@ class Xenova extends Client {
  	
  	loadCommands(commandPath, commandName) {
    	try{
- 	  const props = new (require(`${commandPath}${path.sep}${commandName}`)(
+ 	  const props = new (require(`${commandPath}${path.sep}${commandName}`))(
  	  	this
  	  	) 
  	  	this.logger.log(`Chargement de la commande: ${commandName}`, "log");
@@ -80,7 +80,7 @@ console.log(client.permLevels.map(p => `${p.level} : ${p.name}`))
 
 //Fonction d'initialisation
 
-const init = async (){
+const init = async () => {
 //recup des commandes
 klaw("./commands").on('data', item => {
 	const cmdFile = path.parse(item.path);
