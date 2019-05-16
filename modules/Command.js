@@ -12,9 +12,9 @@ class Command {
  	}
  	) {
  	this.client = client;
- 	this.conf = {enable, guildOnly, aliases, permLevel} 
- 	this.help = {name, description, category, usage} 
+ 	this.conf = {enabled, guildOnly, aliases, permLevel}; 
+ 	this.help = {name, description, category, usage};
  	} 
 }
 
-module.exports = Command
+module.exports = Command;
