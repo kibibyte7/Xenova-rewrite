@@ -5,7 +5,6 @@ this.client = client;
 
 async run(message) {
 	if(message.author.bot) return;
-	if(message.channel.type === "dm") return;
 	
 	if(!message.channel.permissionsFor(message.guild.me).missing("SEND_MESSAGES")) return;
 
