@@ -11,7 +11,7 @@ async run() {
 	this.client.fetchApplication()
 	}, 60000)
 	
-	this.client.user.setActivity(`${this.config.prefix}help | ${this.client.guilds.size} servs | ${this.client.users.size} utilisateurs`, {type:"STREAMING"})
+	this.client.user.setActivity(`${this.client.settings.prefix}help | ${this.client.guilds.size} servs | ${this.client.users.size} utilisateurs`, {type:"STREAMING"})
 	
 	this.client.logger.log(`${this.client.user.tag} lancé avec succès.`, "ready") 
 	
