@@ -5,7 +5,7 @@ class Command {
  	description = "Aucune description définie.", 
  	category = "Utilisateur", 
  	usage = "Aucune utilisation définie.", 
- 	enable = true, 
+ 	enabled = true, 
  	guildOnly = false, 
  	aliases = new Array(), 
  	permLevel = "Utilisateur" 
