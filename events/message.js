@@ -7,12 +7,8 @@ async run(message) {
 	if(message.author.bot) return;
 	if(message.channel.type === "dm") return;
 	
-	if(!message.channel.permissionsFor(message.guild.me).missing("SEND_MESSAGES")){
-		try{
-			message.author.send(`Je n'ai pas la permission d'envoyer des messages dans ${message.channel.name}`)
-       }catch(e) {
-  	return;
-  	}  
+	if(!message.channel.permissionsFor(message.guild.me).missing("SEND_MESSAGES")) return message.author.send(`Je n'ai pas la permission d'envoyer des messages dans ${message.channel.name}`);
+ 
   } 
 
   const settings = this.client.getSettings(message.guild);
@@ -46,14 +42,8 @@ async run(message) {
   	}
    
    message.author.permLevel = level;
-   
-   message.flags = [] 
-   
-   while(args[0] && args[0][0] === "-"){
-   	message.flags.push(args.shift().slice(1))
-   	}
    	
-   	this.client.logger.log(`${this.client.config.permLevels.find(l => l.level).name} ${message.author.username} a utilisé la commande ${cmd.help.name}`, "log")
+   this.client.logger.log(`${this.client.config.permLevels.find(l => l.level).name} ${message.author.username} a utilisé la commande ${cmd.help.name}`, "log")
    cmd.run(message, args, level) 
  } 
 } 
