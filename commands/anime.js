@@ -14,6 +14,7 @@ usage:"anime <texte>"
 }
 
 run (message, args, level) {
+if(!args || args.length == 0){
 
 message.channel.send(":x: Spécifie un anime à rechercher.") 
 	
