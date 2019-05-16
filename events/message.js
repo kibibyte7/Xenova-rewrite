@@ -15,7 +15,7 @@ async run(message) {
   	}  
   } 
 
-  const setting = this.client.getSettings(message.guild);
+  const settings = this.client.getSettings(message.guild);
   this.settings = settings;
   
   if(message.content.indexOf(settings.prefix) !== 0) return;
