@@ -1,9 +1,9 @@
 class Command {
  constructor(
  	client, {
- 	name = "Aucun nom défini.", 
+ 	name = null, 
  	description = "Aucune description définie.", 
- 	category = "Aucune catégorie définie.", 
+ 	category = "Utilisateur", 
  	usage = "Aucune utilisation définie.", 
  	enable = true, 
  	guildOnly = false, 
