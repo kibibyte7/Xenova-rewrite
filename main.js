@@ -9,7 +9,7 @@ class Xenova extends Client {
  constructor(option){ 
  super(option) 
  
- this.config = require("./config.js")
+ this.config = require("./modules/Config.js")
  
  this.commands = new Collection() 
  this.aliases = new Collection() 
