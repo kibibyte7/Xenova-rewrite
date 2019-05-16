@@ -10,10 +10,11 @@ async run(message) {
 	if(!message.channel.permissionsFor(message.guild.me).missing("SEND_MESSAGES")){
 		try{
 			message.author.send(`Je n'ai pas la permission d'envoyer des messages dans ${message.channel.name}`)
-  }catch(e) {
+       }catch(e) {
   	return;
   	}  
-  	
+  } 
+
   const setting = this.client.getSettings(message.guild);
   this.settings = settings;
   
