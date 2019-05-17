@@ -17,9 +17,9 @@ run(message, args, level) {
 
       if (typeof evaled !== "string")
         evaled = require("util").inspect(evaled);
-      message.channel.send("``résultat``"+ `\`\`\`xl\n${clean(evaled)}\n\`\`\``) 
+      message.channel.send("``résultat``\n"+ `\`\`\`xl\n${clean(evaled)}\n\`\`\``) 
     } catch (err) {
-      message.channel.send("``erreur``" +  `\`\`\`xl\n${clean(err)}\n\`\`\``)
+      message.channel.send("``erreur``\n" +  `\`\`\`xl\n${clean(err)}\n\`\`\``)
     }
   
   function clean(text) {
