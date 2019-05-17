@@ -32,7 +32,7 @@ const collector = m.createReactionCollector(f => f)
 
 collector.on('collect', r => {
 console.log(r.emoji.name)
-console.log(r.user.id)
+//console.log(r.user.id)
 if(r.emoji.name === "checkMark"){
 collector.stop()
 console.log("reçu") 
