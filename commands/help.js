@@ -28,7 +28,7 @@ constructor(client) {
 			  sorted.forEach(c => {
 			  const cat = c.help.category
 			  if(currentCat != cat) {
-			   output += `${cat}`
+			   output += `${cat}\n\n`
 			   currentCat = cat;
 			  } 
 			  output += `${settings.prefix}${c.help.name}${" ".repeat(longest - c.help.name.length)} : ${c.help.description}\n`
