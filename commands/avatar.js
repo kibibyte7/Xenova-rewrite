@@ -45,7 +45,7 @@ class Avatar extends Command {
 		 }, 
 		 timestamp: new Date(), 
 		 footer: { 
-		 icon_url: client.user.avatarURL, 
+		 icon_url: this.client.user.avatarURL, 
 		 text: `avatar`
 		 }
 		 }}) 
@@ -65,7 +65,7 @@ class Avatar extends Command {
 		 }, 
 		 timestamp: new Date(),
 		 footer: {
-		 icon_url: client.user.avatarURL,text: `avatar`
+		 icon_url: this.client.user.avatarURL,text: `avatar`
 		 }
 		 }})
 		 } 
