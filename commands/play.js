@@ -21,7 +21,6 @@ class Play extends Command {
   const serverQueue = message.client.queue.get(message.guild.id) 
   const songInfo = ytdl.getInfo(args[0]);
   const song = {
-  id:songInfo.video_id,
   title:songInfo.title,
   url:songInfo.video_url,
   requester:message.author.username
