@@ -31,8 +31,6 @@ m.react(wrong)
 const collector = m.createReactionCollector(f => f) 
 
 collector.on('collect', r => {
-if(r.user.id === this.client.user.id)return;
-
 console.log(r.emoji.name)
 //console.log(r.user.id)
 if(r.emoji.name === "checkMark"){
