@@ -15,12 +15,13 @@ class Play extends Command {
 	} 
 	
 	
-  async run(message, args, level){
-	 const { voiceChannel } = message.member;
-	 if(!voiceChannel) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Tu n'es pas dans un channel vocal.`);
+async run(message, args, level){
+const { voiceChannel } = message.member;
+if(!voiceChannel) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Tu n'es pas dans un channel vocal.`);
   const serverQueue = message.client.queue.get(message.guild.id) 
   const songInfo = ytdl.getInfo(args[0]);
   const song = {
+  id:songInfo.video_id,
   title:songInfo.title,
   url:songInfo.video_url,
   requester:message.author.username
@@ -32,7 +33,7 @@ class Play extends Command {
   } 
   
   const queueConstruct = {
-  textChannel:message.channel.id,
+  textChannel:message.channel,
   voiceChannel,
   connection:null,
   songs:[], 
@@ -61,7 +62,7 @@ class Play extends Command {
   			play(queue.songs[0])
   			}).on("error", e => console.log(e)) 
   			dispatcher.setVolumeLogarithmic(queue.volume / 5)
-  			this.client.channels.get(queue.textChannel).send(`Je joue **${song.title}** demandé par **${song.requester}**.`)
+  			queue.textChannel.send(`Je joue **${song.title}** demandé par **${song.requester}**.`)
   	} 
   	try{
   	const connection = voiceChannel.join();
