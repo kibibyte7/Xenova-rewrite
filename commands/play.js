@@ -22,7 +22,7 @@ class Play extends Command {
   const songInfo = ytdl.getInfo(args[0]);
   const song = {
   id:songInfo.video_id,
-  title:Util.escapeMarkdown(songInfo.title),
+  title:songInfo.title,
   url:songInfo.video_url,
   requester:message.author.username
   } 
