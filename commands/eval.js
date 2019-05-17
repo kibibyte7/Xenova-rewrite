@@ -6,7 +6,7 @@ super(client, {
 name:"eval", 
 description:"Teste un code donné par le Owner.", 
 usage:"eval <code>", 
-permLevel:"XenoOwner
+permLevel:"XenoOwner" 
 }) 
 } 
 
@@ -28,7 +28,8 @@ run(message, args, level) {
   else
       return text;
   }
- 
+} 
+
 }
 
 module.exports = Eval;
