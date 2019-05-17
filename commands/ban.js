@@ -11,15 +11,16 @@ permLevel:"XenoAdminPerm"
 
 
 run(message, args, level) {
+
 const mention = message.mentions.members.first();
 	   		
-const wrong = client.emojis.find("name", "wrongMark")
+const wrong = this.client.emojis.find("name", "wrongMark")
 	   		
-const check = client.emojis.find("name", "checkMark")
+const check = this.client.emojis.find("name", "checkMark")
 	   			
 if(!mention) return message.channel.send(`${wrong} Mentionne un utilisateur à ban.`) 
 	   	
-message.channel.send(`${client.emojis.find("name", "typing")} ${message.author} veux tu vraiment ban ${mention.user.username} ?`).then(m => {
+message.channel.send(`${this.client.emojis.find("name", "typing")} ${message.author} veux tu vraiment ban ${mention.user.username} ?`).then(m => {
 	   	 
 m.react(check)
 	   	 
