@@ -40,7 +40,11 @@ m.edit(`${check} **${mention.user.tag}** a été ban !`)
 
 r.remove(message.author)  
 
+mention.user.send("Tu as été ban du serveur: **${message.guild.name}**`) 
+
 message.guild.ban(mention.user.id, `Banni par : ${message.author.tag}` , 7)
+
+m.clearReactions();
 
 CheckReact.stop();
 WrongReact.stop();
@@ -54,6 +58,8 @@ const WrongReact = m.createReactionCollector(filterWrong)
 WrongReact.on('collect', r => {
 
 m.edit(`${wrong} Le ban de **${mention.user.tag}** a été annulé.`)
+
+m.clearReactions();
 
 CheckReact.stop();
 WrongReact.stop();
