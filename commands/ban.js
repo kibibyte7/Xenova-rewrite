@@ -14,22 +14,26 @@ run(message, args, level) {
 
 const mention = message.mentions.members.first();
 	   		
-const wrong = this.client.emojis.find("name", "wrongMark")
-	   		
 const check = this.client.emojis.find("name", "checkMark")
-	   			
+
+const wrong = this.client.emojis.find("name", "wrongMark")
+	   			   			
 if(!mention) return message.channel.send(`${wrong} Mentionne un utilisateur à ban.`) 
 	   	
 message.channel.send(`${this.client.emojis.find("name", "typing")} ${message.author} veux tu vraiment ban ${mention.user.username} ?`).then(m => {
 	   	 
-m.react(check).then(m.react(wrong)) 
+m.react(check)
 
-const filter = (reaction, user) => {user.id === message.author.id} 
+this.client.wait(1000)
+
+m.react(wrong)   
+
+const filter = (reaction, user) => {reaction.emoji.name == check.name && user.id === message.author.id || reaction.emoji.name == wrong.name && user.id === message.author.id} 
 
 const collector = m.createReactionCollector(filter, {time:10000}) 
 
 collector.on('collect', r => {
-if(r.emoji.name === check.name){
+if(r.emoji.name == check.name){
 collect.stop()
 console.log("reçu") 
 }
