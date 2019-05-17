@@ -28,7 +28,7 @@ m.react(wrong)
 
 const filter = (reaction, user) => {user.id === message.author.id} 
 
-const collector = m.createReactionsCollector(filter, {10000}) 
+const collector = m.createReactionsCollector(filter, {time:10000}) 
 
 collect.on('collect', r => {
 if(r.emoji.name === check.name){
