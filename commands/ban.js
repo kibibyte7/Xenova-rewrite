@@ -33,6 +33,7 @@ const filter = (reaction, user) => {reaction.emoji.name === "checkMark" && user.
 const collector = m.createReactionCollector(filter, {time:10000}) 
 
 collector.on('collect', r => {
+console.log(r)
 if(r.emoji.name === "checkMark"){
 collect.stop()
 console.log("reçu") 
