@@ -28,10 +28,10 @@ this.client.wait(1000)
 
 m.react(wrong)   
 
-const collector = m.createReactionCollector(f => f) 
+const collector = m.createReactionCollector(user => user.id === message.author.id) 
 
-collector.on('collect', (r, u) => {
-if(u === this.client)return;
+collector.on('collect', r => {
+
 console.log(r.emoji.name)
 //console.log(r.user.id)
 if(r.emoji.name === "checkMark"){
