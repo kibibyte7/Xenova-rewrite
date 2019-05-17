@@ -31,7 +31,7 @@ constructor(client) {
 			   output += `${cat}`
 			   currentCat = cat;
 			  } 
-			  output += `${settings.prefix}${c.help.name}${" ".repeat(longest - c.help.name.length)} : ${c.help.description}`
+			  output += `${settings.prefix}${c.help.name}${" ".repeat(longest - c.help.name.length)} : ${c.help.description}\n`
 		  	})		  			  	
 			
 			message.channel.send({embed:{
