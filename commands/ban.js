@@ -38,7 +38,7 @@ m.edit(`${check} **${mention.user.tag}** a été ban !`)
 
 if(!mention.bannable){
 
-m.edit(`${wrong} Je n'ai pas la permission de ban **${mention.user.username}**.`);
+message.channel.send(`${wrong} Je n'ai pas la permission de ban **${mention.user.username}**.`);
 
 CheckReact.stop();
 WrongReact.stop();
@@ -54,7 +54,7 @@ WrongReact.stop();
 
 const filterWrong = (reaction, user) => reaction.emoji.name === "wrongMark" && user.id === message.author.id;
 
-const WrongReact = m.createReactionCollector(filterCheck) 
+const WrongReact = m.createReactionCollector(filterWrong) 
 
 WrongReact.on('collect', r => {
 
