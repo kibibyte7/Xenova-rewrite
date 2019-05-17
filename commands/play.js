@@ -8,7 +8,8 @@ class Play extends Command {
     super(client, {
       name: "play",
       description: "Jouer et ajouter de la musique.",
-      usage: "play"
+      usage: "play", 
+      enabled:false
     });
   }
 
