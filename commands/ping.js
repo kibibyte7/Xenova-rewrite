@@ -10,8 +10,10 @@ usage:"ping"
 } 
 
 async run(message, args, level) {
-const msg = await message.channel.send(this.client.emojis.find("name","typing") + "**Pong ! **") 
+try] 
+const msg = await message.channel.send(this.client.emojis.find("name","typing") + "**Pong ! **");
 
-msg.edit(`Latence:** ${message.createdTimestamp - message.createdTimestamp}ms**\nApi: **${Math.round(this.client.ping)}ms**
+msg.edit(`Latence:** ${message.createdTimestamp - message.createdTimestamp}ms**\nApi: **${Math.round(this.client.ping)}ms**`); 
+
 } 
 } 
