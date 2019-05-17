@@ -21,11 +21,11 @@ if(!voiceChannel) return message.channel.send(`${this.client.emojis.find("name",
   const serverQueue = this.client.queue.get(message.guild.id) 
   const songInfo = ytdl.getInfo(args[0]);
   const song = {
-  title:songInfo.title,
+  title:"non défini" 
   url:args[0],
   requester:message.author.username
   } 
-  console.log(songInfo) 
+  
   if(serverQueue) {
   serverQueue.songs.push(song)
   return message.channel.send(`${this.client.emojis.find("name", "checkMark")} **${song.title}** a été ajouté à la playlist.`)
