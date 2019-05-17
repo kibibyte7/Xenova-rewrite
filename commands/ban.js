@@ -37,6 +37,7 @@ console.log(r.emoji.name)
 //console.log(r.user.id)
 if(r.emoji.name === "checkMark"){
 collector.stop()
+m.edit(`${check} **${mention.user.tag}** a été ban !`) 
 console.log("reçu") 
 }
 }, {time:10000}) 	   	  
