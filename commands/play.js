@@ -43,7 +43,7 @@ if(!voiceChannel) return message.channel.send(`${this.client.emojis.find("name",
   
   message.client.queue.set(message.guild.id, queueConstruct) 
   queueConstruct.songs.push(song)
-  
+  console.log(queueConstruct) 
   const play = async song => {
   	const queue = message.client.queue.get(message.guil.id)
   	if(!queue){
