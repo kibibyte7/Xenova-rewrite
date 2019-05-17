@@ -36,11 +36,19 @@ CheckReact.on('collect', r => {
 
 m.edit(`${check} **${mention.user.tag}** a été ban !`)
 
-if(!mention.bannable) return m.edit(`${wrong} Je n'ai pas la permission de ban **${mention.user.username}**.`) 
+if(!mention.bannable){
+
+m.edit(`${wrong} Je n'ai pas la permission de ban **${mention.user.username}**.`);
+
+CheckReact.stop();
+WrongReact.stop();
+return;
+} 
 
 message.guild.ban(mention.user.id, `Banni par : ${message.author.tag}` , 7)
 
 CheckReact.stop();
+WrongReact.stop();
 
 }, {time:10000})
 
@@ -52,6 +60,7 @@ WrongReact.on('collect', r => {
 
 m.edit(`${check} Le ban de **${mention.user.tag}** a été annulé.`)
 
+CheckReact.stop();
 WrongReact.stop();
 
 }, {time:10000}) 
