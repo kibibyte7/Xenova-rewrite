@@ -26,7 +26,7 @@ m.react(check)
 	   	 
 m.react(wrong)
 
-const filtrer = (reaction, user) => {user.id === message.author.id} 
+const filter = (reaction, user) => {user.id === message.author.id} 
 
 const collector = m.createReactionsCollector(filter, {10000}) 
 
