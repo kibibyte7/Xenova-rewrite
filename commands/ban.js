@@ -40,7 +40,7 @@ m.edit(`${check} **${mention.user.tag}** a été ban !`)
 
 r.remove(message.author)  
 
-mention.user.send("Tu as été ban du serveur: **${message.guild.name}**`) 
+mention.user.send(`Tu as été ban du serveur: **${message.guild.name}**`) 
 
 message.guild.ban(mention.user.id, `Banni par : ${message.author.tag}` , 7)
 
