@@ -1,4 +1,4 @@
-const Command = require("../../modules/Command.js");
+const Command = require("../modules/Command.js");
 const ytdl = require("ytdl-core");
 const ytdlDiscord = require("ytdl-core-discord");
 const { Util } = require("discord.js");
