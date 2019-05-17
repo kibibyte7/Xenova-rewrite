@@ -22,15 +22,13 @@ if(!mention) return message.channel.send(`${wrong} Mentionne un utilisateur à b
 	   	
 message.channel.send(`${this.client.emojis.find("name", "typing")} ${message.author} veux tu vraiment ban ${mention.user.username} ?`).then(m => {
 	   	 
-m.react(check)
-	   	 
-m.react(wrong)
+m.react(check).then(m.react(wrong)) 
 
 const filter = (reaction, user) => {user.id === message.author.id} 
 
 const collector = m.createReactionCollector(filter, {time:10000}) 
 
-collect.on('collect', r => {
+collector.on('collect', r => {
 if(r.emoji.name === check.name){
 collect.stop()
 console.log("reçu") 
