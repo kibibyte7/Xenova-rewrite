@@ -28,9 +28,7 @@ this.client.wait(1000)
 
 m.react(wrong)   
 
-const filter = (user) => {user.id === message.author.id} 
-
-const collector = m.createReactionCollector(filter, {time:10000}) 
+const collector = m.createReactionCollector(f => f) 
 
 collector.on('collect', r => {
 console.log(r)
@@ -38,7 +36,7 @@ if(r.emoji.name === "checkMark"){
 collect.stop()
 console.log("reçu") 
 }
-}) 	   	  
+}, {time:10000}) 	   	  
 })
  	   	 
 } 
