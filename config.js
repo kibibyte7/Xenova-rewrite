@@ -1,6 +1,6 @@
 const config = {
   defaultSettings: {
-    prefix: "=",
+    prefix: "+",
     modLogChannel: "mod-logs",
     modRole: "XenoModPerm",
     adminRole: "XenoAdminPerm",
