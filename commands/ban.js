@@ -31,7 +31,8 @@ m.react(wrong)
 const collector = m.createReactionCollector(f => f) 
 
 collector.on('collect', r => {
-console.log(r)
+console.log(r.emoji)
+console.log(r.user)
 if(r.emoji.name === "checkMark"){
 collect.stop()
 console.log("reçu") 
