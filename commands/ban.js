@@ -19,6 +19,8 @@ const check = this.client.emojis.find("name", "checkMark")
 const wrong = this.client.emojis.find("name", "wrongMark")
 	   			   			
 if(!mention) return message.channel.send(`${wrong} Mentionne un utilisateur à ban.`) 
+
+if(!mention.bannable) return message.channel.send(`${wrong} Je n'ai pas la permission de ban **${mention.user.username}**.`); 
 	   	
 message.channel.send(`${this.client.emojis.find("name", "typing")} ${message.author} veux tu vraiment ban ${mention.user.username} ?`).then(m => {
 	   	 
@@ -36,15 +38,7 @@ CheckReact.on('collect', r => {
 
 m.edit(`${check} **${mention.user.tag}** a été ban !`)
 
-if(!mention.bannable){
-
-m.edit(`${wrong} Je n'ai pas la permission de ban **${mention.user.username}**.`);
-
-r.remove(message.author) 
-CheckReact.stop();
-WrongReact.stop();
-
-} 
+r.remove(message.author)  
 
 message.guild.ban(mention.user.id, `Banni par : ${message.author.tag}` , 7)
 
