@@ -1,4 +1,5 @@
 const Command = require("../modules/Command.js") 
+const sm = require("string-similarity")
 class Avatar extends Command {
 constructor(client) {
 super(client, {
