@@ -36,7 +36,7 @@ constructor(client) {
 			
 			message.channel.send({embed:{
 			color:Math.floor(Math.random() * 16777214) + 1,
-			title:`Liste des commandes de ${this.client.user.username} [${this.client.commands.size}],
+			title:`Liste des commandes de ${this.client.user.username} [${this.client.commands.size}]`,
 		 		
                         description:output, 
 			timestamp:new Date(), 
