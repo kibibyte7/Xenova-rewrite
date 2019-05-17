@@ -17,20 +17,12 @@ constructor(client) {
 				
 		 const settings = message.settings;
 		 
-		 const myCommands = message.guild ? 
-		 this.client.commands.filter(
-		 	cmd => this.client.levelCache[cmd.conf.permLevel] <= level
-		 	)	: this.client.commands.filter(
-		 	cmd => this.client.levelCache[cmd.conf.permLevel] <= level && cmd.conf.guildOnly !== true
-		 	) 
+		 const myCommands = message.guild ? this.client.commands.filter(cmd => this.client.levelCache[cmd.conf.permLevel] <= level)	: this.client.commands.filter(cmd => this.client.levelCache[cmd.conf.permLevel] <= level && cmd.conf.guildOnly !== true) 
 		 	
 		 	const commandsNames = myCommands.keyArray()
-		 	const longest = commandsNames.reduce(
-		 	(long, str) => Math.max(long, str.length), 
-		 	0	
-		 		);
+		 	const longest = commandsNames.reduce((long, str) => Math.max(long, str.length), 0	);
 		 		let currentCat = "";
-		 		let output = `Liste des commandes de ${this.client.user.username} [${this.client.commands.size}]\n\nUtilise: [${this.client.config.defaultSettings.prefix}help <Nom de la commande> pour plus de détails\n`;
+		 		let output = `Liste des commandes de ${this.client.user.username} [${this.client.commands.size}]\n\nUtilise: [${this.client.config.defaultSettings.prefix}help <Nom de la commande> pour plus de détails]\n`;
 		 		
 		 		const sorted = myCommands.array().sort((p, c) => p.help.category > c.help.category ? 1: p.help.category > c.help.category && p.help.category === c.help.category ? 1 : -1);
 			  
