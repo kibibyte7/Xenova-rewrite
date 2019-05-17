@@ -34,14 +34,24 @@ const CheckReact = m.createReactionCollector(filterCheck)
 
 CheckReact.on('collect', r => {
 
-r.remove(message.author) 
-
 m.edit(`${check} **${mention.user.tag}** a été ban !`)
- 
-console.log("reçu")
 
-this.client.wait(1000)
+message.guild.ban(mention.user.id, "banni par :" +message.author.tag, 7)
+
 CheckReact.stop();
+
+}, {time:10000}) 	   	  
+})
+
+const filterWrong = (reaction, user) => reaction.emoji.name === "wrongMark" && user.id === message.author.id;
+
+const WrongReact = m.createReactionCollector(filterCheck) 
+
+WrongReact.on('collect', r => {
+
+m.edit(`${check} Le ban de **${mention.user.tag}** a été annulé.`)
+
+WrongReact.stop();
 
 }, {time:10000}) 	   	  
 })
