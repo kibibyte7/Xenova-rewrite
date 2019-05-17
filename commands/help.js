@@ -63,7 +63,7 @@ constructor(client) {
 				},
 				{
 				name:"Utilisation:"	,
-				value:this.settings.prefix+command.help.usage
+				value:settings.prefix+command.help.usage
 				}, 
 				{
 				name:"Aliases:", 
