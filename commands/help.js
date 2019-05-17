@@ -21,14 +21,14 @@ constructor(client) {
 		 	const commandsNames = myCommands.keyArray()
 		 	const longest = commandsNames.reduce((long, str) => Math.max(long, str.length), 0);
 		 		let currentCat = "";
-		 		let output = `Liste des commandes de ${this.client.user.username} [${this.client.commands.size}]\n\nUtilise: [${this.client.config.defaultSettings.prefix}help <Nom de la commande> pour plus de détails]\n`;
+		 		let output = ``;
 		 		
 		 		const sorted = myCommands.array().sort((p, c) => p.help.category > c.help.category ? 1: p.help.category > c.help.category && p.help.category === c.help.category ? 1 : -1);
 			  
 			  sorted.forEach(c => {
 			  const cat = c.help.category
 			  if(currentCat != cat) {
-			   output += `${cat}\n\n`
+			   output += `${cat}`
 			   currentCat = cat;
 			  } 
 			  output += `${settings.prefix}${c.help.name}${" ".repeat(longest - c.help.name.length)} : ${c.help.description}\n`
@@ -36,11 +36,13 @@ constructor(client) {
 			
 			message.channel.send({embed:{
 			color:Math.floor(Math.random() * 16777214) + 1,
-			description:output, 
+			title:`Liste des commandes de ${this.client.user.username} [${this.client.commands.size}],
+		 		
+                        description:output, 
 			timestamp:new Date(), 
 			footer:{
 			icon_url:this.client.user.avatarURL,
-			text:"help"
+			text:`Utilise: [${this.client.config.defaultSettings.prefix}help <Nom de la commande> pour plus de détails]`
 			}
 			}})
 				
