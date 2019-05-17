@@ -13,6 +13,8 @@ class Xenova extends Client {
 
     this.commands = new Collection();
     this.aliases = new Collection();
+    
+    this.queue = new Map();
 
     this.settings = new Enmap({
       name: "settings",
