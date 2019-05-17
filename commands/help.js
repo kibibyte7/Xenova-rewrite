@@ -6,7 +6,7 @@ constructor(client) {
 	 name:"help", 
 	 description:"Affiche la page d'aide ou l'aide d'une commande.",
 	 usage:"help [commande]", 
-	 aliases:[h] 
+	 aliases:["h"] 
 		}) 
 	}
 	
