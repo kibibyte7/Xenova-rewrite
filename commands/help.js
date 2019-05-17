@@ -63,12 +63,12 @@ constructor(client) {
 				value:command.help.description
 				},
 				{
-				name:"Utilisation:"	,
+				name:"Utilisation:",
 				value:settings.prefix+command.help.usage
 				}, 
 				{
 				name:"Aliases:", 
-				value:command.conf.aliases.join	(", ") 
+				value:command.conf.aliases.length == 0 ? "Pas d'ailias" : command.conf.aliases.join	(", ") 
 				}], 
 				timestamp:new Date(), 
 				footer:{
