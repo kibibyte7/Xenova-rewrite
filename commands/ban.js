@@ -30,12 +30,12 @@ m.react(wrong)
 
 const filterCheck = (reaction, user) => {reaction.emoji.name === "checkMark" && user.id === message.author.id} 
 
-const check = m.createReactionCollector(filterCheck) 
+const CheckReact = m.createReactionCollector(filterCheck) 
 
-check.on('collect', r => {
+CheckReact.on('collect', r => {
 
 console.log(r.emoji.name)
-check.stop()
+CheckReact.stop()
 m.edit(`${check} **${mention.user.tag}** a été ban !`) 
 console.log("reçu") 
 
