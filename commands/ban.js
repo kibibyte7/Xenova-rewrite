@@ -28,16 +28,20 @@ this.client.wait(1000)
 
 m.react(wrong)   
 
-const filterCheck = (reaction, user) => {reaction.emoji.name === "checkMark" && user.id === message.author.id} 
+const filterCheck = (reaction, user) => reaction.emoji.name === "checkMark" && user.id === message.author.id;
 
 const CheckReact = m.createReactionCollector(filterCheck) 
 
 CheckReact.on('collect', r => {
 
-console.log(r.emoji.name)
-CheckReact.stop()
-m.edit(`${check} **${mention.user.tag}** a été ban !`) 
-console.log("reçu") 
+r.remove(message.author) 
+
+m.edit(`${check} **${mention.user.tag}** a été ban !`)
+ 
+console.log("reçu")
+
+this.client.wait(1000)
+CheckReact.stop();
 
 }, {time:10000}) 	   	  
 })
