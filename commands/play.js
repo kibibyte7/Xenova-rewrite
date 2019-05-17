@@ -17,7 +17,7 @@ class Play extends Command {
 	
   async run(message, args, level){
 	 const { voiceChannel } = message.member;
-	 if(!voiceChannel) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Tu n'es pas dans un channel vocal.`
+	 if(!voiceChannel) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Tu n'es pas dans un channel vocal.`);
   const serverQueue = message.client.queue.get(message.guild.id) 
   const songInfo = ytdl.getInfo(args[0]);
   const song = {
