@@ -25,7 +25,17 @@ message.channel.send(`${this.client.emojis.find("name", "typing")} ${message.aut
 m.react(check)
 	   	 
 m.react(wrong)
-	   	  
+
+const filtrer = (reaction, user) => {user.id === message.author.id} 
+
+const collector = m.createReactionsCollector(filter, {10000}) 
+
+collect.on('collect', r => {
+if(r.emoji.name === check.name){
+collect.stop()
+console.log("reçu") 
+}
+}) 	   	  
 })
  	   	 
 } 
