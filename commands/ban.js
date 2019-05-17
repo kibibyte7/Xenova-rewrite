@@ -31,10 +31,10 @@ m.react(wrong)
 const collector = m.createReactionCollector(f => f) 
 
 collector.on('collect', r => {
-console.log(r.emoji)
-console.log(r.user)
+console.log(r.emoji.name)
+console.log(r.user.id)
 if(r.emoji.name === "checkMark"){
-collect.stop()
+collector.stop()
 console.log("reçu") 
 }
 }, {time:10000}) 	   	  
