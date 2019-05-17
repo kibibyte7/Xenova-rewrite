@@ -23,9 +23,10 @@ class Play extends Command {
     const songInfo = await ytdl.getInfo(args[0]);
     const song = {
       id: songInfo.video_id,
-      title: Util.escapeMarkdown(songInfo.title),
+      title: songInfo.title,
       url: songInfo.video_url
     };
+    console.log(song) 
 
     if (serverQueue) {
       serverQueue.songs.push(song);
