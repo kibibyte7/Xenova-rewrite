@@ -18,15 +18,14 @@ class Play extends Command {
 async run(message, args, level){
 const { voiceChannel } = message.member;
 if(!voiceChannel) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Tu n'es pas dans un channel vocal.`);
-  const serverQueue = message.client.queue.get(message.guild.id) 
+  const serverQueue = this.client.queue.get(message.guild.id) 
   const songInfo = ytdl.getInfo(args[0]);
   const song = {
-  id:songInfo.video_id,
   title:songInfo.title,
   url:args[0],
   requester:message.author.username
   } 
-  
+  console.log(songInfo) 
   if(serverQueue) {
   serverQueue.songs.push(song)
   return message.channel.send(`${this.client.emojis.find("name", "checkMark")} **${song.title}** a été ajouté à la playlist.`)
@@ -41,14 +40,13 @@ if(!voiceChannel) return message.channel.send(`${this.client.emojis.find("name",
   voulume:1
   } 
   
-  message.client.queue.set(message.guild.id, queueConstruct) 
-  queueConstruct.songs.push(song)
-  console.log(queueConstruct) 
+  this.client.queue.set(message.guild.id, queueConstruct) 
+  queueConstruct.songs.push(song) 
   const play = async song => {
-  	const queue = message.client.queue.get(message.guil.id)
+  	const queue = this.client.queue.get(message.guil.id)
   	if(!queue){
   	 queue.voiceChannel.leave()
-  	 message.client.queue.delete(message.guild.id)
+  	 this.client.queue.delete(message.guild.id)
   	 return;
   		}
   		
@@ -70,7 +68,7 @@ if(!voiceChannel) return message.channel.send(`${this.client.emojis.find("name",
   	play(queueConstruct.songs[0])
   	} catch (e) {
   	message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Je n'ai pas pu rejoindre le channel vocal: **${e}**`)
-  	message.client.queue.delete(message.guild.id)
+  	this.client.queue.delete(message.guild.id)
   	await voiceChannel.leave()
   	} 
   
