@@ -29,3 +29,5 @@ m.react(wrong)
  	   	 
 } 
 } 
+
+module.exports = Ban;
