@@ -19,3 +19,5 @@ message.channel.send(`${this.client.emojis.find("name","wrongMark")} Une erreur 
 
 } 
 } 
+
+module.exports = Ping
