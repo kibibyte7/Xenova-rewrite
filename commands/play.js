@@ -33,7 +33,7 @@ class Play extends Command {
   } 
   
   const queueConstruct = {
-  textChannel:message.channel,
+  textChannel:message.channel.id,
   voiceChannel,
   connection:null,
   songs:[], 
@@ -62,7 +62,7 @@ class Play extends Command {
   			play(queue.songs[0])
   			}).on("error", e => console.log(e)) 
   			dispatcher.setVolumeLogarithmic(queue.volume / 5)
-  			queue.textChannel.send(`Je joue **${song.title}** demandé par **${song.requester}**.`)
+  			this.client.channels.get(queue.textChannel).send(`Je joue **${song.title}** demandé par **${song.requester}**.`)
   	} 
   	try{
   	const connection = voiceChannel.join();
