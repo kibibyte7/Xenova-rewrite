@@ -41,8 +41,6 @@ message.guild.ban(mention.user.id, `Banni par : ${message.author.tag}` , 7)
 CheckReact.stop();
 
 }, {time:10000})
- 	   	  
-})
 
 const filterWrong = (reaction, user) => reaction.emoji.name === "wrongMark" && user.id === message.author.id;
 
@@ -55,8 +53,8 @@ m.edit(`${check} Le ban de **${mention.user.tag}** a été annulé.`)
 WrongReact.stop();
 
 }, {time:10000}) 
-	   	  
-})
+
+})	   	  
  	   	 
 } 
 } 
