@@ -38,11 +38,12 @@ m.edit(`${check} **${mention.user.tag}** a été ban !`)
 
 if(!mention.bannable){
 
-message.channel.send(`${wrong} Je n'ai pas la permission de ban **${mention.user.username}**.`);
+m.edit(`${wrong} Je n'ai pas la permission de ban **${mention.user.username}**.`);
 
+r.remove(message.author) 
 CheckReact.stop();
 WrongReact.stop();
-return;
+
 } 
 
 message.guild.ban(mention.user.id, `Banni par : ${message.author.tag}` , 7)
@@ -58,7 +59,7 @@ const WrongReact = m.createReactionCollector(filterWrong)
 
 WrongReact.on('collect', r => {
 
-m.edit(`${check} Le ban de **${mention.user.tag}** a été annulé.`)
+m.edit(`${wrong} Le ban de **${mention.user.tag}** a été annulé.`)
 
 CheckReact.stop();
 WrongReact.stop();
