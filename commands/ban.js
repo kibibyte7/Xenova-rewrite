@@ -28,17 +28,17 @@ this.client.wait(1000)
 
 m.react(wrong)   
 
-const collector = m.createReactionCollector(user => user.id === message.author.id) 
+const filterCheck = (reaction, user) => {reaction.emoji.name === "checkMark" && user.id === message.author.id} 
 
-collector.on('collect', r => {
+const check = m.createReactionCollector(filterCheck) 
+
+check.on('collect', r => {
 
 console.log(r.emoji.name)
-//console.log(r.user.id)
-if(r.emoji.name === "checkMark"){
-collector.stop()
+check.stop()
 m.edit(`${check} **${mention.user.tag}** a été ban !`) 
 console.log("reçu") 
-}
+
 }, {time:10000}) 	   	  
 })
  	   	 
