@@ -23,7 +23,7 @@ if(!voiceChannel) return message.channel.send(`${this.client.emojis.find("name",
   const song = {
   id:songInfo.video_id,
   title:songInfo.title,
-  url:songInfo.video_url,
+  url:args[0],
   requester:message.author.username
   } 
   
