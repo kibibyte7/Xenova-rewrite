@@ -78,9 +78,10 @@ constructor(client) {
 				
 			
 			
-		} 
-		
-		} 
+       } 
+   }
+ 
+} 
 }
 
 module.exports = Help;
