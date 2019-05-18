@@ -19,14 +19,33 @@ constructor(client) {
 		 
 			message.channel.send({embed:{
 			color:Math.floor(Math.random() * 16777214) + 1,
-			title:`Liste des commandes de ${this.client.user.username} [${this.client.commands.size}]`,	
-                        description:`Bienvenue dans l'interface help de **${this.client.user}**\n\nDans le bot il y a un total de **${this.client.commands.size} commandes**.\n\nVoici une liste de réactions pour les différentes catégories de commandes.\n\n⚙️ = Système (Seul le owner du bot peut utiliser ces commandes.)\n\n⚡ = Admin (Seul un membre ayant un rôle nommé **XenoAdminPerm** peut les utiliser.)\n\n🔧 = Modérateur (Il faut un rôle nommé: **XenoModPerm** ou **XenoAdminPerm** pour utiliser ces commandes.)\n\n📄 = Informations (Informations sur une commande, serveur et autre.)\n\n📁 = Utilitaires (Commandes de recherches, math et autres.)\n\n🎵 = Musique (Commandes musique.)\n\n🎉 = Fun (Commandes funs, jeux, event.)\n\nNote:\nUtilise: **${this.client.config.defaultSettings.prefix}help <Nom de la commande> pour plus de détails.**`, 
+			title:`Menu de ${this.client.user.username}`,	
+                        description:`Bienvenue dans l'interface help de **${this.client.user.username}**\n\nDans le bot il y a un total de **${this.client.commands.size} commandes**.\n\nVoici une liste de réactions pour les différentes catégories de commandes.\n\n⚙️ = Système (Seul le owner du bot peut utiliser ces commandes.)\n\n⚡ = Admin (Seul un membre ayant un rôle nommé **XenoAdminPerm** peut les utiliser.)\n\n🔧 = Modérateur (Il faut un rôle nommé: **XenoModPerm** ou **XenoAdminPerm** pour utiliser ces commandes.)\n\n📄 = Informations (Informations sur une commande, serveur et autre.)\n\n📁 = Utilitaires (Commandes de recherches, math et autres.)\n\n🎵 = Musique (Commandes musique.)\n\n🎉 = Fun (Commandes funs, jeux, event.)\n\nNote:\nUtilise: **${this.client.config.defaultSettings.prefix}help <Nom de la commande> pour plus de détails.**`, 
 			timestamp:new Date(), 
 			footer:{
 			icon_url:this.client.user.avatarURL,
 			text:`©️ Help | Xenova`
 			}
-			}})
+			}}).then(m => {
+                        
+                        m.react("⚙️")
+                        .then(m.react("⚡")
+                        .then(m.react("🔧")
+                        .then(m.react("📄")
+                        .then(m.react("📁")
+                        .then(m.react("🎵")
+                        .then(m.react("🎉")
+                        ))))))
+
+                        //const filter = (reaction, user) => reaction.emoji.name === "⚙️" && user.id === message.author.id || reaction.emoji.name === "⚡" && user.id === message.author.id || reaction.emoji.name === "🔧" && user.id === message.author.id || reaction.emoji.name === "📄" && user.id === message.author.id || reaction.emoji.name === "📁" && user.id === message.author.id || reaction.emoji.name === "🎵" && user.id === message.author.id || reaction.emoji.name === "🎉" && user.id === message.author.id;
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                        }) 
 				
 			}else{
 			
