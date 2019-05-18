@@ -1,7 +1,7 @@
 const superagent = require("superagent") 
 const request = require("request") 
 
-const Command = require("../modules/Command.js");
+const Command = require("../../modules/Command.js");
 class Afk extends Command {
 constructor(client) {
 super(client, {
