@@ -2,7 +2,7 @@ const anime = require("node-kitsu");
 
 const moment = require("moment");
 
-const Command = require("../modules/Command.js")
+const Command = require("../../modules/Command.js")
 
 class Anime extends Command {
 constructor(client) {
