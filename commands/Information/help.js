@@ -2,47 +2,29 @@ const Command =require("../../modules/Command.js")
 
 class Help extends Command {
 constructor(client) {
-	super(client, {
+	 super(client, {
 	 name:"help", 
 	 description:"Affiche la page d'aide ou l'aide d'une commande.",
+         category:"Information", 
 	 usage:"help [commande]", 
 	 aliases:["h"] 
-		}) 
+	 }) 
 	}
 	
 	run(message, args, level) {
 	 	
 	const settings = message.settings;
 		 
-			if(!args[0]){
-				
-		 const myCommands = message.guild ? this.client.commands.filter(cmd => this.client.levelCache[cmd.conf.permLevel] <= level): this.client.commands.filter(cmd => this.client.levelCache[cmd.conf.permLevel] <= level && cmd.conf.guildOnly !== true) 
-		 	
-		 	const commandsNames = myCommands.keyArray()
-		 	const longest = commandsNames.reduce((long, str) => Math.max(long, str.length), 0);
-		 		let currentCat = "";
-		 		let output = ``;
-		 		
-		 		const sorted = myCommands.array().sort((p, c) => p.help.category > c.help.category ? 1: p.help.category > c.help.category && p.help.category === c.help.category ? 1 : -1);
-			  
-			  sorted.forEach(c => {
-			  const cat = c.help.category
-			  if(currentCat != cat) {
-			   output += `${cat}`
-			   currentCat = cat;
-			  } 
-			  output += `${settings.prefix}${c.help.name}${" ".repeat(longest - c.help.name.length)} : ${c.help.description}\n`
-		  	})		  			  	
-			
+	         if(!args[0]){
+		 
 			message.channel.send({embed:{
 			color:Math.floor(Math.random() * 16777214) + 1,
-			title:`Liste des commandes de ${this.client.user.username} [${this.client.commands.size}]`,
-		 		
-                        description:output, 
+			title:`Liste des commandes de ${this.client.user.username} [${this.client.commands.size}]`,	
+                        description:`Bienvenue dans l'interface help de **${this.client.user}**\n\nDans le bot il y a un total de **${this.client.commands.size} commandes**.\n\nVoici une liste de réactions pour les différentes catégories de commandes.\n\n⚙️ = Système (Seul le owner du bot peut utiliser ces commandes.)\n\n⚡ = Admin (Seul un membre ayant un rôle nommé **XenoAdminPerm** peut les utiliser.)\n\n🔧 = Modérateur (Il faut un rôle nommé: **XenoModPerm** ou **XenoAdminPerm** pour utiliser ces commandes.)\n\n📄 = Informations (Informations sur une commande, serveur et autre.)\n\n📁 = Utilitaires (Commandes de recherches, math et autres.)\n\n🎵 = Musique (Commandes musique.)\n\n🎉 = Fun (Commandes funs, jeux, event.)\n\nNote:\nUtilise: **${this.client.config.defaultSettings.prefix}help <Nom de la commande> pour plus de détails.**`, 
 			timestamp:new Date(), 
 			footer:{
 			icon_url:this.client.user.avatarURL,
-			text:`Utilise: [${this.client.config.defaultSettings.prefix}help <Nom de la commande> pour plus de détails]`
+			text:`©️ Help | Xenova`
 			}
 			}})
 				
