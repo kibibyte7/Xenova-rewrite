@@ -40,7 +40,6 @@ module.exports = class {
       } else {
         return;
       }
-      if(cmd.conf.enabled == false) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Cette commande est désactivée suite à des bugs.`)
     }
 
     message.author.permLevel = level;
@@ -49,7 +48,13 @@ module.exports = class {
     while (args[0] && args[0][0] === "-") {
       message.flags.push(args.shift().slice(1));
     }
-
+   
+    if(cmd.conf.enabled === false){
+    if(systemNotice == true) {
+        return message.channel
+         .send(`${this.client.emojis.find("name", "wrongMark")} Cette commande est désactivée suite à des bugs.`)
+       } 
+     } 
     // Lancement de la commande
     this.client.logger.log(
       `${message.author.username} (${message.author.id} - ${
