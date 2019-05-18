@@ -50,7 +50,7 @@ module.exports = class {
     }
    
     if(cmd.conf.enabled === false){
-    if(sttings.systemNotice == true) {
+    if(settings.systemNotice == true) {
         return message.channel
          .send(`${this.client.emojis.find("name", "wrongMark")} Cette commande est désactivée suite à des bugs.`)
        } 
