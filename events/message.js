@@ -36,10 +36,11 @@ module.exports = class {
     if (level < this.client.levelCache[cmd.conf.permLevel]) {
       if (settings.systemNotice == true) {
         return message.channel
-          .send(`Tu n'as pas la permission pour utiliser cette commande.\nTon niveau de permission est **${level} (${this.client.config.permLevels.find(l => l.level === level).name})**\nCette commande requirt le niveau de permission: **${ this.client.levelCache[cmd.conf.permLevel]} (${cmd.conf.permLevel})**`);
+          .send(`${this.client.emojis.find("name", "wrongMark")} Tu n'as pas la permission pour utiliser cette commande.\nTon niveau de permission est **${level} (${this.client.config.permLevels.find(l => l.level === level).name})**\nCette commande requirt le niveau de permission: **${ this.client.levelCache[cmd.conf.permLevel]} (${cmd.conf.permLevel})**`);
       } else {
         return;
       }
+      if(cmd.conf.enabled == false) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Cette commande est désactivée suite à des bugs.`)
     }
 
     message.author.permLevel = level;
