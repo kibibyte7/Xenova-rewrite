@@ -11,7 +11,7 @@ constructor(client) {
 	 }) 
 	}
 	
-	async run(message, args, level) {
+        run(message, args, level) {
 	 	
 	const settings = message.settings;
 		 
@@ -29,18 +29,117 @@ constructor(client) {
 			}}).then(m => {
                         
                         m.react("⚙")
-                        .then(await m.react("⚡")
-                        .then(await m.react("🔧")
-                        .then(await m.react("📄")
-                        .then(await m.react("📁")
-                        .then(await m.react("🎵")
-                        .then(await m.react("🎉")
+                        .then(m.react("⚡")
+                        .then(m.react("🔧")
+                        .then(m.react("📄")
+                        .then(m.react("📁")
+                        .then(m.react("🎵")
+                        .then(m.react("🎉")
                         ))))))
 
-                        //const filter = (reaction, user) => reaction.emoji.name === "⚙️" && user.id === message.author.id || reaction.emoji.name === "⚡" && user.id === message.author.id || reaction.emoji.name === "🔧" && user.id === message.author.id || reaction.emoji.name === "📄" && user.id === message.author.id || reaction.emoji.name === "📁" && user.id === message.author.id || reaction.emoji.name === "🎵" && user.id === message.author.id || reaction.emoji.name === "🎉" && user.id === message.author.id;
+                        const filter = (reaction, user) => reaction.emoji.name === "⚙️" && user.id === message.author.id || reaction.emoji.name === "⚡" && user.id === message.author.id || reaction.emoji.name === "🔧" && user.id === message.author.id || reaction.emoji.name === "📄" && user.id === message.author.id || reaction.emoji.name === "📁" && user.id === message.author.id || reaction.emoji.name === "🎵" && user.id === message.author.id || reaction.emoji.name === "🎉" && user.id === message.author.id;
  
- 
- 
+                        const collect = m.createReactionsCollector(filter) 
+
+                        collect.on('collect', r => {
+                         
+                        if(r.emoji.name === "⚙"){
+                        m.edit({embed:{
+			color:Math.floor(Math.random() * 16777214) + 1,
+			title:`⚙ Commandes Système`,	
+                        description:`${this.client.commands.filter(c => c.help.category === "Système").map(cmd => `\`\`${this.client.config.defaultSettings.prefix}${cmd.help.name}\`\` : ${c.help.description}`)
+                        timestamp:new Date(), 
+			footer:{
+			icon_url:this.client.user.avatarURL,
+			text:`©️ Help | Xenova`
+			}
+			}})
+                        } 
+
+                        if(r.emoji.name === "⚡"){
+                        m.edit({embed:{
+			color:Math.floor(Math.random() * 16777214) + 1,
+			title:`⚡ Commandes Admin`,	
+                        description:`${this.client.commands.filter(c => c.help.category === "Admin").map(cmd => `\`\`${this.client.config.defaultSettings.prefix}${cmd.help.name}\`\` : ${c.help.description}`)
+                        timestamp:new Date(), 
+			footer:{
+			icon_url:this.client.user.avatarURL,
+			text:`©️ Help | Xenova`
+			}
+			}})
+                        } 
+    
+                        if(r.emoji.name === "🔧"){
+                        m.edit({embed:{
+			color:Math.floor(Math.random() * 16777214) + 1,
+			title:`🔧 Commandes Modérateur`,	
+                        description:`${this.client.commands.filter(c => c.help.category === "Modérateur").map(cmd => `\`\`${this.client.config.defaultSettings.prefix}${cmd.help.name}\`\` : ${c.help.description}`)
+                        timestamp:new Date(), 
+			footer:{
+			icon_url:this.client.user.avatarURL,
+			text:`©️ Help | Xenova`
+			}
+			}})
+                        } 
+    
+                        if(r.emoji.name === "📄"){
+                        m.edit({embed:{
+			color:Math.floor(Math.random() * 16777214) + 1,
+			title:`📄 Commandes Information`,	
+                        description:`${this.client.commands.filter(c => c.help.category === "Information").map(cmd => `\`\`${this.client.config.defaultSettings.prefix}${cmd.help.name}\`\` : ${c.help.description}`)
+                        timestamp:new Date(), 
+			footer:{
+			icon_url:this.client.user.avatarURL,
+			text:`©️ Help | Xenova`
+			}
+			}})
+                        } 
+    
+                        if(r.emoji.name === "📁"){
+                        m.edit({embed:{
+			color:Math.floor(Math.random() * 16777214) + 1,
+			title:`📁 Commandes Utilitaires`,	
+                        description:`${this.client.commands.filter(c => c.help.category === "Utilitare").map(cmd => `\`\`${this.client.config.defaultSettings.prefix}${cmd.help.name}\`\` : ${c.help.description}`)
+                        timestamp:new Date(), 
+			footer:{
+			icon_url:this.client.user.avatarURL,
+			text:`©️ Help | Xenova`
+			}
+			}})
+                        } 
+     
+                        if(r.emoji.name === "🎵"){
+                        m.edit({embed:{
+			color:Math.floor(Math.random() * 16777214) + 1,
+			title:`🎵 Commandes Musique`,	
+                        description:`${this.client.commands.filter(c => c.help.category === "Musique").map(cmd => `\`\`${this.client.config.defaultSettings.prefix}${cmd.help.name}\`\` : ${c.help.description}`)
+                        timestamp:new Date(), 
+			footer:{
+			icon_url:this.client.user.avatarURL,
+			text:`©️ Help | Xenova`
+			}
+			}})
+                        } 
+             
+                        if(r.emoji.name === "🎉"){
+                        m.edit({embed:{
+			color:Math.floor(Math.random() * 16777214) + 1,
+			title:`🎉 Commandes Fun`,	
+                        description:`${this.client.commands.filter(c => c.help.category === "Fun").map(cmd => `\`\`${this.client.config.defaultSettings.prefix}${cmd.help.name}\`\` : ${c.help.description}`)
+                        timestamp:new Date(), 
+			footer:{
+			icon_url:this.client.user.avatarURL,
+			text:`©️ Help | Xenova`
+			}
+			}})
+                        } 
+
+                        }, 300000).then(x => {
+
+                        message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Temps écoulé ! paginateur a été fermé après 5 minutes.`) 
+                        
+                       m.clearReactions()
+                       }) 
  
  
  
