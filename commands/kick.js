@@ -57,7 +57,7 @@ const WrongReact = m.createReactionCollector(filterWrong)
 
 WrongReact.on('collect', r => {
 
-m.edit(`${wrong} Le ban de **${mention.user.tag}** a été annulé.`)
+m.edit(`${wrong} Le kick de **${mention.user.tag}** a été annulé.`)
 
 m.clearReactions();
 
