@@ -47,7 +47,7 @@ constructor(client) {
                         m.edit({embed:{
 			color:Math.floor(Math.random() * 16777214) + 1,
 			title:`⚙ Commandes Système`,	
-                        description:this.client.commands.filter(c => c.help.category === "Système").map(cmd => `\`\`${this.client.config.defaultSettings.prefix}${cmd.help.name}\`\` : ${cmd.help.description}`), 
+                        description:this.client.commands.filter(c => c.help.category === "Système").map(cmd => `\`\`${this.client.config.defaultSettings.prefix}${cmd.help.name}\`\` : ${cmd.help.description}`).join("\n"), 
                         timestamp:new Date(), 
 			footer:{
 			icon_url:this.client.user.avatarURL,
@@ -60,7 +60,7 @@ constructor(client) {
                         m.edit({embed:{
 			color:Math.floor(Math.random() * 16777214) + 1,
 			title:`⚡ Commandes Admin`,	
-                        description:this.client.commands.filter(c => c.help.category === "Admin").map(cmd => `\`\`${this.client.config.defaultSettings.prefix}${cmd.help.name}\`\` : ${cmd.help.description}`), 
+                        description:this.client.commands.filter(c => c.help.category === "Admin").map(cmd => `\`\`${this.client.config.defaultSettings.prefix}${cmd.help.name}\`\` : ${cmd.help.description}`).join("\n"), 
                         timestamp:new Date(), 
 			footer:{
 			icon_url:this.client.user.avatarURL,
@@ -73,7 +73,7 @@ constructor(client) {
                         m.edit({embed:{
 			color:Math.floor(Math.random() * 16777214) + 1,
 			title:`🔧 Commandes Modérateur`,	
-                        description:this.client.commands.filter(c => c.help.category === "Modérateur").map(cmd => `\`\`${this.client.config.defaultSettings.prefix}${cmd.help.name}\`\` : ${cmd.help.description}`), 
+                        description:this.client.commands.filter(c => c.help.category === "Modérateur").map(cmd => `\`\`${this.client.config.defaultSettings.prefix}${cmd.help.name}\`\` : ${cmd.help.description}`).join("\n"), 
                         timestamp:new Date(), 
 			footer:{
 			icon_url:this.client.user.avatarURL,
@@ -86,7 +86,7 @@ constructor(client) {
                         m.edit({embed:{
 			color:Math.floor(Math.random() * 16777214) + 1,
 			title:`📄 Commandes Information`,	
-                        description:this.client.commands.filter(c => c.help.category === "Information").map(cmd => `\`\`${this.client.config.defaultSettings.prefix}${cmd.help.name}\`\` : ${cmd.help.description}`), 
+                        description:this.client.commands.filter(c => c.help.category === "Information").map(cmd => `\`\`${this.client.config.defaultSettings.prefix}${cmd.help.name}\`\` : ${cmd.help.description}`).join("\n"), 
                         timestamp:new Date(), 
 			footer:{
 			icon_url:this.client.user.avatarURL,
@@ -99,7 +99,7 @@ constructor(client) {
                         m.edit({embed:{
 			color:Math.floor(Math.random() * 16777214) + 1,
 			title:`📁 Commandes Utilitaires`,	
-                        description:this.client.commands.filter(c => c.help.category === "Utilitare").map(cmd => `\`\`${this.client.config.defaultSettings.prefix}${cmd.help.name}\`\` : ${cmd.help.description}`), 
+                        description:this.client.commands.filter(c => c.help.category === "Utilitare").map(cmd => `\`\`${this.client.config.defaultSettings.prefix}${cmd.help.name}\`\` : ${cmd.help.description}`).join("\n"), 
                         timestamp:new Date(), 
 			footer:{
 			icon_url:this.client.user.avatarURL,
@@ -112,7 +112,7 @@ constructor(client) {
                         m.edit({embed:{
 			color:Math.floor(Math.random() * 16777214) + 1,
 			title:`🎵 Commandes Musique`,	
-                        description:this.client.commands.filter(c => c.help.category === "Musique").map(cmd => `\`\`${this.client.config.defaultSettings.prefix}${cmd.help.name}\`\` : ${cmd.help.description}`), 
+                        description:this.client.commands.filter(c => c.help.category === "Musique").map(cmd => `\`\`${this.client.config.defaultSettings.prefix}${cmd.help.name}\`\` : ${cmd.help.description}`).join("\n"), 
                         timestamp:new Date(), 
 			footer:{
 			icon_url:this.client.user.avatarURL,
@@ -125,7 +125,7 @@ constructor(client) {
                         m.edit({embed:{
 			color:Math.floor(Math.random() * 16777214) + 1,
 			title:`🎉 Commandes Fun`,	
-                        description:this.client.commands.filter(c => c.help.category === "Fun").map(cmd => `\`\`${this.client.config.defaultSettings.prefix}${cmd.help.name}\`\` : ${cmd.help.description}`), 
+                        description:this.client.commands.filter(c => c.help.category === "Fun").map(cmd => `\`\`${this.client.config.defaultSettings.prefix}${cmd.help.name}\`\` : ${cmd.help.description}`).join("\n"), 
                         timestamp:new Date(), 
 			footer:{
 			icon_url:this.client.user.avatarURL,
