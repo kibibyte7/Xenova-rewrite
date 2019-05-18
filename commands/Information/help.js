@@ -11,7 +11,7 @@ constructor(client) {
 	 }) 
 	}
 	
-	run(message, args, level) {
+	async run(message, args, level) {
 	 	
 	const settings = message.settings;
 		 
@@ -29,12 +29,12 @@ constructor(client) {
 			}}).then(m => {
                         
                         m.react("⚙")
-                        .then(m.react("⚡")
-                        .then(m.react("🔧")
-                        .then(m.react("📄")
-                        .then(m.react("📁")
-                        .then(m.react("🎵")
-                        .then(m.react("🎉")
+                        .then(await m.react("⚡")
+                        .then(await m.react("🔧")
+                        .then(await m.react("📄")
+                        .then(await m.react("📁")
+                        .then(await m.react("🎵")
+                        .then(await m.react("🎉")
                         ))))))
 
                         //const filter = (reaction, user) => reaction.emoji.name === "⚙️" && user.id === message.author.id || reaction.emoji.name === "⚡" && user.id === message.author.id || reaction.emoji.name === "🔧" && user.id === message.author.id || reaction.emoji.name === "📄" && user.id === message.author.id || reaction.emoji.name === "📁" && user.id === message.author.id || reaction.emoji.name === "🎵" && user.id === message.author.id || reaction.emoji.name === "🎉" && user.id === message.author.id;
