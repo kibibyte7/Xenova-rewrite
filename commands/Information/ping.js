@@ -1,4 +1,4 @@
-const Command = require("../modules/Command.js")
+const Command = require("../../modules/Command.js")
 
 class Ping extends Command {
 constructor(client) {
@@ -20,4 +20,4 @@ message.channel.send(`${this.client.emojis.find("name","wrongMark")} Une erreur 
 } 
 } 
 
-module.exports = Ping
+module.exports = Ping;
