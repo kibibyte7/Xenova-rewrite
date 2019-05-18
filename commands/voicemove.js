@@ -41,7 +41,7 @@ run(message, args, level) {
  
  message.member.voiceChannel.members.map(c => c.setVoiceChannel(nextvoice))
 	   	 	
-	message.channel.send(`${bot.emojis.find("name", "checkMark")} Je move **${message.member.voiceChannel.members.size} membres** dans **${bot.channels.get(nextvoice).name}**`) 
+	message.channel.send(`${this.client.emojis.find("name", "checkMark")} Je move **${message.member.voiceChannel.members.size} membres** dans **${bot.channels.get(nextvoice).name}**`) 
 	
 } 
 
@@ -59,7 +59,7 @@ run(message, args, level) {
  
  message.member.voiceChannel.members.map(c => c.setVoiceChannel(previousvoice))
 	   	 	
-	message.channel.send(`${bot.emojis.find("name", "checkMark")} Je move **${message.member.voiceChannel.members.size} membres** dans **${bot.channels.get(previousvoice).name}**`) 
+	message.channel.send(`${this.client.emojis.find("name", "checkMark")} Je move **${message.member.voiceChannel.members.size} membres** dans **${bot.channels.get(previousvoice).name}**`) 
    
 	} 
 	
