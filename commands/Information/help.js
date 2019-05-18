@@ -134,12 +134,14 @@ constructor(client) {
 			}})
                         } 
 
-                        }, 300000).then(x => {
+                        }, 300000)
+                      
+                        collecte.on('end',x => {
 
                         message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Temps écoulé ! paginateur a été fermé après 5 minutes.`) 
                         
-                       m.clearReactions()
-                       }) 
+                        m.clearReactions()
+                        }) 
  
  
  
