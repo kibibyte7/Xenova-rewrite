@@ -39,7 +39,7 @@ constructor(client) {
 
                         const filter = (reaction, user) => reaction.emoji.name === "⚙️" && user.id === message.author.id || reaction.emoji.name === "⚡" && user.id === message.author.id || reaction.emoji.name === "🔧" && user.id === message.author.id || reaction.emoji.name === "📄" && user.id === message.author.id || reaction.emoji.name === "📁" && user.id === message.author.id || reaction.emoji.name === "🎵" && user.id === message.author.id || reaction.emoji.name === "🎉" && user.id === message.author.id;
  
-                        const collect = m.createReactionsCollector(filter) 
+                        const collect = m.createReactionCollector(filter) 
 
                         collect.on('collect', r => {
                          
