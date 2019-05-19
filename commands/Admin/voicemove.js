@@ -5,6 +5,7 @@ constructor(client) {
 super(client, {
 name:"voicemove", 
 description:"Move les utilisateurs dans le prochain channel.",
+category:"Admin", 
 usage:"voicemove", 
 permLevel:"XenoAdminPerm", 
 aliases:["vm"] 
