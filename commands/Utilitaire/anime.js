@@ -9,6 +9,7 @@ constructor(client) {
 super(client, {
 name:"anime", 
 description:"Donne des infos sur l'anime en question.",
+category:"Utilitaire", 
 usage:"anime <texte>" 
 }) 
 }
