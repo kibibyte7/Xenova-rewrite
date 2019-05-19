@@ -4,7 +4,8 @@ class Avatar extends Command {
 	constructor(client) {
 	super(client, {
 	name:"avatar",
-	description:"Montre l'avatar",
+	description:"Montre l'avatar", 
+        category:Information", 
 	usage:"avatar [@mention]", 
 	aliases:["pp"] 
 	}) 
