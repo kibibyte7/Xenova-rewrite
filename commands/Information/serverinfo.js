@@ -84,10 +84,10 @@ inline: false
 },
 {
 name: ':gear: -> Liste des rôles',
-value: message.guild.roles.size > 15 ? "Trop de rôles" : message.guild.roles.map(r => r.name),
+value: message.guild.roles.size > 15 ? "Trop de rôles" : message.guild.roles.map(r => r.name).join("\n"),
 inline: false
 }],
-description:message.guild.emojis.size == 0 ? "Aucun emojis." : message.guild.emojis.map(e => e),
+description:message.guild.emojis.size == 0 ? "Aucun emojis." : message.guild.emojis.map(e => e).join(" "),
 timestamp:new Date(), 
 footer: {
 icon_url: this.client.user.avatarURL,
