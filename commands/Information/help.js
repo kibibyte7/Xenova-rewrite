@@ -29,13 +29,13 @@ constructor(client) {
 			}}).then(m => {
                         
                         m.react("⚙") 
-                        .then(m.react("⚡") && this.client.wait(1000)
-                        .then(m.react("🔧") && this.client.wait(1000)
-                        .then(m.react("📄") && this.client.wait(1000)
-                        .then(m.react("📁") && this.client.wait(1000)
-                        .then(m.react("🎵") && this.client.wait(1000)
-                        .then(m.react("🎉") && this.client.wait(1000)
-                        .then(m.react("❌") && this.client.wait(1000)
+                        .then(m.react("⚡") && this.client.wait(2000)
+                        .then(m.react("🔧") && this.client.wait(2000)
+                        .then(m.react("📄") && this.client.wait(2000)
+                        .then(m.react("📁") && this.client.wait(2000)
+                        .then(m.react("🎵") && this.client.wait(2000)
+                        .then(m.react("🎉") && this.client.wait(2000)
+                        .then(m.react("❌") && this.client.wait(2000)
                         )))))))
 
                         const filter = (reaction, user) => reaction.emoji.name === "⚙" && user.id === message.author.id || reaction.emoji.name === "⚡" && user.id === message.author.id || reaction.emoji.name === "🔧" && user.id === message.author.id || reaction.emoji.name === "📄" && user.id === message.author.id || reaction.emoji.name === "📁" && user.id === message.author.id || reaction.emoji.name === "🎵" && user.id === message.author.id || reaction.emoji.name === "🎉" && user.id === message.author.id || reaction.emoji.name === "❌" && user.id === message.author.id;
@@ -143,16 +143,7 @@ constructor(client) {
                         } 
 
                         if(r.emoji.name === "❌"){
-                        m.edit({embed:{
-			color:Math.floor(Math.random() * 16777214) + 1,
-			title:`❌ Paginateur fermé`,	
-                        description:`${this.client.emojis.find("name", "wrongMark")} Le paginateur a été fermé.`, 
-                        timestamp:new Date(), 
-			footer:{
-			icon_url:this.client.user.avatarURL,
-			text:`©️ Help | Xenova`
-			}
-			}})
+                        r.remove(message.author)
                         m.clearReactions();
                         collect.stop();
                         } 
@@ -164,7 +155,7 @@ constructor(client) {
                         m.edit({embed:{
 			color:Math.floor(Math.random() * 16777214) + 1,
 			title:`❌ Paginateur fermé`,	
-                        description:`${this.client.emojis.find("name", "wrongMark")} Temps écoulé ! Le paginateur a été fermé après 5 minutes d'ouverture.`, 
+                        description:`${this.client.emojis.find("name", "wrongMark")} Le paginateur a été fermé`, 
                         timestamp:new Date(), 
 			footer:{
 			icon_url:this.client.user.avatarURL,
@@ -172,7 +163,6 @@ constructor(client) {
 			}
 			}})
                         
-                        m.clearReactions();
                         }) 
  
  
