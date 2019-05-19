@@ -16,7 +16,7 @@ run(message, args, level) {
 if(!message.member(client.user).hasPermission("MANAGE_CHANNELS")) {
       message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Je n'ai pas la permission de gérer les salons.`) 
       return;
-      }else{ 
+      } else { 
 if(!args || args.length < 1){
          message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Spécifie le nom du channel vocal à créer.`)
          return;
