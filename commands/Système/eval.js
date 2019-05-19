@@ -5,6 +5,7 @@ constructor(client) {
 super(client, {
 name:"eval", 
 description:"Teste un code donné par le Owner.", 
+category:"Système", 
 usage:"eval <code>", 
 permLevel:"XenoOwner" 
 }) 
