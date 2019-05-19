@@ -5,6 +5,7 @@ class MyPerm extends Command {
     super(client, {
       name: "myperm",
       description: "Affiche votre niveau de permission.",
+      category:"Information", 
       usage: "myperm",
       guildOnly: false
     });
