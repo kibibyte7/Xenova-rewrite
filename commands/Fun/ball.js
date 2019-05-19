@@ -8,7 +8,7 @@ name:"ball",
 description:"Le bot répond à la question posée.", 
 category:"Fun", 
 usage:"ball <texte>", 
-aliases:["ball"] 
+aliases:["b"] 
 })
 } 
 
