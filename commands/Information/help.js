@@ -147,8 +147,8 @@ constructor(client) {
                         m.clearReactions();
                         collect.stop();
                         } 
-
-                        }, 300000)
+                        setTimeout(() =>{collec.stop()},300000) 
+                        })
                       
                         collect.on('end',x => {
 
