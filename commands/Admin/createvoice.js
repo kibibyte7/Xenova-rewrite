@@ -13,16 +13,16 @@ aliases:["addvoice"]
 } 
 
 run(message, args, level) {
-if(!args || args.length < 1){
-         message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Spécifie le nom de la catégorie à créer.`)
-         return;
-    }else{
-      if(!message.member(client.user).hasPermission("MANAGE_CHANNELS")) {
+if(!message.member(client.user).hasPermission("MANAGE_CHANNELS")) {
       message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Je n'ai pas la permission de gérer les salons.`) 
       return;
+      }else{ 
+if(!args || args.length < 1){
+         message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Spécifie le nom du channel vocal à créer.`)
+         return;
       } else {
        message.guild.createChannel(args.join(" "), "voice")
-       message.channel.send(`${this.client.emojis.find("name", "checkMark")} Catégorie: **${args.join(" ")}** créée avec succès !`)
+       message.channel.send(`${this.client.emojis.find("name", "checkMark")} Channel vocal: **${args.join(" ")}** créée avec succès !`)
         }
       }
 } 
