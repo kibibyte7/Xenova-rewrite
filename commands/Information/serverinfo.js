@@ -90,7 +90,7 @@ inline: false
 description:message.guild.emojis.size == 0 ? "Aucun emojis." : message.guild.emojis.map(e => e),
 timestamp:new Date(), 
 footer: {
-icon_url: client.user.avatarURL,
+icon_url: this.client.user.avatarURL,
 text: `©️ Serverinfo | Xenova`
 }
 }})
