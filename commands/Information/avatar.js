@@ -5,7 +5,7 @@ class Avatar extends Command {
 	super(client, {
 	name:"avatar",
 	description:"Montre l'avatar", 
-        category:Information", 
+        category:"Information", 
 	usage:"avatar [@mention]", 
 	aliases:["pp"] 
 	}) 
