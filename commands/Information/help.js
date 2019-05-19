@@ -203,7 +203,11 @@ constructor(client) {
 				{
 				name:"Aliases:", 
 				value:command.conf.aliases.length == 0 ? "Pas d'ailias" : command.conf.aliases.join	(", ") 
-				}], 
+				},
+                                {
+                                name:"Note:", 
+                                value:"Tout ce qui se trouve dans des **<>** sont obligatoires et ce qui se trouve dans des **[]** sont optionnels." 
+                                }], 
 				timestamp:new Date(), 
 				footer:{
 				icon_url:this.client.user.avatarUrl,
