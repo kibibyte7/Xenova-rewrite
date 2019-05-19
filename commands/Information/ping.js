@@ -5,6 +5,7 @@ constructor(client) {
 super(client, {
 name:"ping", 
 description:"Affiche le ping du bot.",
+category:"Information", 
 usage:"ping"
 }) 
 } 
