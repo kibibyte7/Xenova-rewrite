@@ -97,3 +97,5 @@ text: `©️ Serverinfo | Xenova`
 
 } 
 } 
+
+module.exports = ServerInfo;
