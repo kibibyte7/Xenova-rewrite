@@ -105,7 +105,7 @@ constructor(client) {
                         m.edit({embed:{
 			color:Math.floor(Math.random() * 16777214) + 1,
 			title:`📁 Commandes Utilitaires [${this.client.commands.filter(c => c.help.category === "Utilitaire").size}]`,	
-                        description:this.client.commands.filter(c => c.help.category === "Utilitare").map(cmd => `\`\`${this.client.config.defaultSettings.prefix}${cmd.help.name}\`\` : ${cmd.help.description}`).join("\n"), 
+                        description:this.client.commands.filter(c => c.help.category === "Utilitaire").map(cmd => `\`\`${this.client.config.defaultSettings.prefix}${cmd.help.name}\`\` : ${cmd.help.description}`).join("\n"), 
                         timestamp:new Date(), 
 			footer:{
 			icon_url:this.client.user.avatarURL,
