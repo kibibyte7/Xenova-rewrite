@@ -7,6 +7,7 @@ constructor(client) {
 super(client, {
 name:"afk",
 description:"Met un message de afk quand l'utilisateur est mentionné.",
+category:"Utilitaire", 
 usage:"afk [texte]"
 })
 
