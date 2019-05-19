@@ -23,11 +23,11 @@ if(!args || args.length < 1){
       } else {
        message.guild.createChannel(args.join(" "), "voice")
        message.channel.send(`${this.client.emojis.find("name", "checkMark")} Channel vocal: **${args.join(" ")}** créée avec succès !`)
-        }
+        
       }
 } 
 
 } 
 }
 
-module.exports = CreateVoice
+module.exports = CreateVoice;
