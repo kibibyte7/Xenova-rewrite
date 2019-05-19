@@ -13,7 +13,7 @@ aliases:["sl"]
 
 run(message, args, level) {
 
-var guilds = client.guilds.array().sort((a , b) => { 
+var guilds = this.client.guilds.array().sort((a , b) => { 
         if(a.members.size > b.members.size){ 
           return -1;
         }else if (a.members.size + b.members.size){
