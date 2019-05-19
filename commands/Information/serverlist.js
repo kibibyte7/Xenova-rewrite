@@ -1,6 +1,6 @@
 const Command =require("../../modules/Command.js") 
 
-class SeverList extends Command {
+class ServerList extends Command {
 constructor(client) {
 super(client, {
 name:"serverlist", 
