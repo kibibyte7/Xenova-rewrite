@@ -1,4 +1,4 @@
-const Command = require("../modules/Command.js");
+const Command = require("../../modules/Command.js");
 const ytdl = require("ytdl-core");
 const ytdlDiscord = require("ytdl-core-discord");
 const { Util } = require("discord.js");
@@ -8,6 +8,7 @@ class Play extends Command {
     super(client, {
       name: "play",
       description: "Jouer et ajouter de la musique.",
+      category:"Musique", 
       usage: "play", 
       enabled:false
     });
