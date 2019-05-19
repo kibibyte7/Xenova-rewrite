@@ -5,6 +5,7 @@ constructor (client) {
 super(client, {
 name:"ban",
 description:"Bannir un membre du serveur.",
+category:"Admin", 
 permLevel:"XenoAdminPerm"
 })
 } 
