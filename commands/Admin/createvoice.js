@@ -3,8 +3,8 @@ const Command = require("../../modules/Command.js")
 class CreateVoice extends Command {
 constructor(client) {
 super(client, {
-name:"createcategory", 
-description:"Le bot crée une catégorie.", 
+name:"createvoice", 
+description:"Le bot crée un channel vocal.", 
 category:"Admin", 
 usage:"createvoice <nom du channel>",
 permLevel:"XenoAdminPerm", 
