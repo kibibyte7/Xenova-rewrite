@@ -146,7 +146,7 @@ constructor(client) {
                         m.edit({embed:{
 			color:Math.floor(Math.random() * 16777214) + 1,
 			title:`❌ Paginateur fermé`,	
-                        description:`${this.client.emojis.find("name", "wrongMark")} Temps écoulé ! Le paginateur a été fermé après 5 minutes d'ouverture.`, 
+                        description:`${this.client.emojis.find("name", "wrongMark")} Le paginateur a été fermé.`, 
                         timestamp:new Date(), 
 			footer:{
 			icon_url:this.client.user.avatarURL,
