@@ -4,7 +4,9 @@ class Kick extends Command {
 constructor (client) {
 super(client, {
 name:"kick",
+category:"Modérateur", 
 description:"Kick un membre du serveur.",
+usage:"kick <@mention>",
 permLevel:"XenoModPerm"
 })
 } 
