@@ -147,14 +147,18 @@ constructor(client) {
                         m.clearReactions();
                         collect.stop();
                         } 
-                        setTimeout(() =>{collect.stop()},300000) 
+                        setTimeout(() =>{
+                        collect.stop();
+                        m.clearReations();
+                        },300000) 
+
                         })
                       
                         collect.on('end',x => {
 
                         m.edit({embed:{
 			color:Math.floor(Math.random() * 16777214) + 1,
-			title:`❌ Paginateur fermé`,	
+			title:`Paginateur fermé`,	
                         description:`${this.client.emojis.find("name", "wrongMark")} Le paginateur a été fermé`, 
                         timestamp:new Date(), 
 			footer:{
