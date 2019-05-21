@@ -67,7 +67,7 @@ message.channel.send({embed:{
       }, 
         {
         name:"Invite", 
-        value:`[invitation du bot](https://discordapp.com/oauth2/authorize?client_id=${client.user.id}&scope=bot&permissions=-1)`, 
+        value:`[invitation du bot](https://discordapp.com/oauth2/authorize?client_id=${this.client.user.id}&scope=bot&permissions=-1)`, 
         inline:false
       }
     ],
