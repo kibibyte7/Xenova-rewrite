@@ -72,7 +72,7 @@ message.channel.send({embed:{
       }
     ],
     thumbnail:{
-        url:client.user.avatarURL
+        url:this.client.user.avatarURL
     },
     timestamp:new Date,
     footer:{
