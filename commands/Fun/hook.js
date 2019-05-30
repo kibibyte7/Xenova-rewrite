@@ -19,9 +19,7 @@ message.delete()
  			
  			let role = message.member.roles.last();
 
- 			WH.hook(message.channel, message.author.username, args.join(" "), role.hexColor.slice(1), message.author.avatarURL)
- 
-} 
+ 			WH.hook(message.channel, message.author.username, args.join(" "), role.hexColor.slice(1), message.author.avatarURL) 
 
 function WH(channel, title, message, color, avatar) {
 if(!channel) return console.log("Pas de channel spécifié.")
@@ -90,7 +88,7 @@ channel.fetchWebhooks()
 
 } 
 
-
+} 
 
 }
 
