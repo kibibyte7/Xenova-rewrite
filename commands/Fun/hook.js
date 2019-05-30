@@ -9,7 +9,7 @@ category:"Fun"
 }) 
 } 
 
-run(client, message, args) {
+run(message, args, level) {
 
 
 message.delete();
