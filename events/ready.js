@@ -19,7 +19,7 @@ async run() {
 		description:"Bot démarré avec succès !",
 		timestamp:new Date(),
 		footer:{
-                icon_url:client.user.avatarURL,text:"lancé"
+                icon_url:this.client.user.avatarURL,text:"lancé"
 		} 
 
 	this.client.user.setActivity(`${this.client.config.defaultSettings.prefix}help | ${this.client.guilds.size} servs | ${this.client.users.size} utilisateurs`, {type:"STREAMING"})
