@@ -23,7 +23,7 @@ if(!mention) return message.channel.send(`${wrong} Mentionne quelqu'un.`)
 
 if(!message.guild.me.hasPermission("MANAGE_CHANNELS")) return message.channel.send(`${wrong} Je n'ai pas la permission de gérer les channels.`)
 
-if(mention.hasPermission("SEND_MESSAGES")) return message.channel.send(`${wrong} Cet utilisateur n'est pas mute.`) 
+if(!message.channel.permissionsFor(mention)) return message.channel.send(`${wrong} Cet utilisateur n'est pas mute.`) 
 
 message.channel.send(`${this.client.emojis.find("name", "typing")} Veux tu vraiment unmute **${mention.user.username}** ?`).then(m => {
 
