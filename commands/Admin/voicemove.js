@@ -24,26 +24,76 @@ run(message, args, level) {
  
  var previousvoice = voices[message.member.voiceChannel.position-1];
  
- if(args[0] === "next") {
+if(args[0] === "next") {
 
- var maxmove = message.guild.channels.filter(v => v.type === "voice").size-1
- 
- console.log(maxmove) 
- 
- var currentvoiceposition = message.member.voiceChannel.position;
- 
- if(currentvoiceposition == maxmove){
+if(currentvoiceposition == maxmove){
  
  message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Tu es déjà tout en bas, utilise **${prefix}voicemove previous** pour aller dans le channel précédent`) 
  
  return;
 
  }
+
+if(currentvoiceposition == maxmove){
  
- message.member.voiceChannel.members.map(c => c.setVoiceChannel(nextvoice))
+ message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Tu es déjà tout en bas, utilise **${prefix}voicemove previous** pour aller dans le channel précédent`) 
+ 
+ return;
+
+ }
+
+var maxmove = message.guild.channels.filter(v => v.type === "voice").size-1
+ 
+console.log(maxmove) 
+ 
+var currentvoiceposition = message.member.voiceChannel.position;
+ 
+message.channel.send(`${this.client.emojis.find("name","typing")} Veux tu move ${message.member.voiceChannel.members.size} Membres dans le prochain channel ? `).then(m => {
+
+m.react(check)
+
+setTimeout(() => {
+m.react(wrong)   
+}, 1000)
+
+const filterCheck = (reaction, user) => reaction.emoji.name === "checkMark" && user.id === message.author.id;
+
+const CheckReact = m.createReactionCollector(filterCheck) 
+
+CheckReact.on('collect', r => {
+
+r.remove(message.author)  
+
+message.member.voiceChannel.members.map(c => c.setVoiceChannel(nextvoice))
 	   	 	
-	message.channel.send(`${this.client.emojis.find("name", "checkMark")} Je move **${message.member.voiceChannel.members.size} membres** dans **${bot.channels.get(nextvoice).name}**`) 
+m.edit(`${this.client.emojis.find("name", "checkMark")} Je move **${message.member.voiceChannel.members.size} membres** dans **${bot.channels.get(nextvoice).name}**`) 
 	
+m.clearReactions();
+
+CheckReact.stop();
+WrongReact.stop();
+
+}, {time:10000})
+
+const filterWrong = (reaction, user) => reaction.emoji.name === "wrongMark" && user.id === message.author.id;
+
+const WrongReact = m.createReactionCollector(filterWrong) 
+
+WrongReact.on('collect', r => {
+
+m.edit(`${wrong} Le move de **${message.member.voiceChannel.members.size} membres** a été annulé.`)
+
+m.clearReactions();
+
+CheckReact.stop();
+WrongReact.stop();
+
+}, {time:10000}) 
+
+})	   	
+
+}) 
+        
 } 
 
  if(args[0] === "previous") {
@@ -57,11 +107,52 @@ run(message, args, level) {
  return;
  
  } 
- 
- message.member.voiceChannel.members.map(c => c.setVoiceChannel(previousvoice))
-	   	 	
-	message.channel.send(`${this.client.emojis.find("name", "checkMark")} Je move **${message.member.voiceChannel.members.size} membres** dans **${bot.channels.get(previousvoice).name}**`) 
+ message.channel.send(`${this.client.emojis.find("name","typing")} Veux tu move ${message.member.voiceChannel.members.size} Membres dans le prochain channel ? `).then(m => {
+
+m.react(check)
+
+setTimeout(() => {
+m.react(wrong)   
+}, 1000)
+
+const filterCheck = (reaction, user) => reaction.emoji.name === "checkMark" && user.id === message.author.id;
+
+const CheckReact = m.createReactionCollector(filterCheck) 
+
+CheckReact.on('collect', r => {
+
+r.remove(message.author)  
+
+message.member.voiceChannel.members.map(c => c.setVoiceChannel(previousvoice))	   	 	 
    
+m.edit(`${this.client.emojis.find("name", "checkMark")} Je move **${message.member.voiceChannel.members.size} membres** dans **${bot.channels.get(previousvoice).name}**`) 
+	
+m.clearReactions();
+
+CheckReact.stop();
+WrongReact.stop();
+
+}, {time:10000})
+
+const filterWrong = (reaction, user) => reaction.emoji.name === "wrongMark" && user.id === message.author.id;
+
+const WrongReact = m.createReactionCollector(filterWrong) 
+
+WrongReact.on('collect', r => {
+
+m.edit(`${wrong} Le move de **${message.member.voiceChannel.members.size} membres** a été annulé.`)
+
+m.clearReactions();
+
+CheckReact.stop();
+WrongReact.stop();
+
+}, {time:10000}) 
+
+})	   	
+
+}) 
+
 	} 
 	
 	} 
