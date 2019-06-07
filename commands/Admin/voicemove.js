@@ -32,7 +32,8 @@ class VoiceMove extends Command {
 	 
 	 var maxmove = message.guild.channels.filter(v => v.type === "voice").size 
 	 	
-	 
+	 var currentvoiceposition = message.member.voiceChannel.position;
+
 	 if(currentvoiceposition == maxmove){
 	 	
 	 	message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Tu es déjà tout en bas, utilise **${this.client.config.defaultSettings.prefix}voicemove previous** pour aller dans le channel précédent`) 
@@ -43,9 +44,7 @@ class VoiceMove extends Command {
 	 	
 	 	console.log(maxmove) 
 	 	
-	 	var currentvoiceposition = message.member.voiceChannel.position;
-	 
-	  message.channel.send(`${this.client.emojis.find("name","typing")} Veux tu move **${message.member.voiceChannel.members.size} membres** dans le prochain channel ? `).then(m => { 
+	        message.channel.send(`${this.client.emojis.find("name","typing")} Veux tu move **${message.member.voiceChannel.members.size} membres** dans le prochain channel ? `).then(m => { 
 	 			 		
 	 		m.react(check) 
 	 		
