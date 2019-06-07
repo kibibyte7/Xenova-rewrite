@@ -102,7 +102,7 @@ class VoiceMove extends Command {
 	 			
 	 			if(currentvoiceposition == 0){ 
 	 				
-	 			message.channel.send(`${bot.emojis.find("name", "wrongMark")} Tu es déjà tout en haut, utilise **${prefix}voicemove next** pour aller dans le prochain channel. `)
+	 			message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Tu es déjà tout en haut, utilise **${prefix}voicemove next** pour aller dans le prochain channel. `)
 	 			
 	 			return; 
 	 			
