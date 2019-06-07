@@ -108,7 +108,7 @@ class VoiceMove extends Command {
 	 			
 	 			} 
 	 			
-	 			message.channel.send(`${this.client.emojis.find("name","typing")} Veux tu move ${message.member.voiceChannel.members.size} Membres dans le prochain channel ? `).then(m => { 
+	 			message.channel.send(`${this.client.emojis.find("name","typing")} Veux tu move ${message.member.voiceChannel.members.size} Membres dans le channel précédent ? `).then(m => { 
 	 				
 	 			m.react(check) 
 	 			
@@ -124,7 +124,7 @@ class VoiceMove extends Command {
 	 			
 	 			message.member.voiceChannel.members.map(c => c.setVoiceChannel(previousvoice))	 	 	 
 	 			
-	 			m.edit(`${this.client.emojis.find("name", "checkMark")} Je move **${message.member.voiceChannel.members.size} membres** dans **${bot.channels.get(previousvoice).name}**`) 
+	 			m.edit(`${this.client.emojis.find("name", "checkMark")} Je move **${message.member.voiceChannel.members.size} membres** dans **${this.client.channels.get(previousvoice).name}**`) 
 	 			
 	 			m.clearReactions(); 
 	 			
