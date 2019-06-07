@@ -5,6 +5,7 @@ constructor(client){
 super(client,{
 name:"purge",
 description:"Supprime des messages, par défaut 100.", 
+category:"Modérateur", 
 permLevel:"XenoModPerm", 
 usage:"purge [nombre]", 
 aliases:["clear"] 
