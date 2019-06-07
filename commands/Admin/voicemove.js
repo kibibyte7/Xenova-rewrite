@@ -43,7 +43,7 @@ class VoiceMove extends Command {
 	 	
 	 	var currentvoiceposition = message.member.voiceChannel.position;
 	 
-	  message.channel.send(`${this.client.emojis.find("name","typing")} Veux tu move ${message.member.voiceChannel.members.size} Membres dans le prochain channel ? `).then(m => { 
+	  message.channel.send(`${this.client.emojis.find("name","typing")} Veux tu move **${message.member.voiceChannel.members.size} membres** dans le prochain channel ? `).then(m => { 
 	 			 		
 	 		m.react(check) 
 	 		
@@ -108,7 +108,7 @@ class VoiceMove extends Command {
 	 			
 	 			} 
 	 			
-	 			message.channel.send(`${this.client.emojis.find("name","typing")} Veux tu move ${message.member.voiceChannel.members.size} Membres dans le channel précédent ? `).then(m => { 
+	 			message.channel.send(`${this.client.emojis.find("name","typing")} Veux tu move **${message.member.voiceChannel.members.size} membres** dans le channel précédent ? `).then(m => { 
 	 				
 	 			m.react(check) 
 	 			
