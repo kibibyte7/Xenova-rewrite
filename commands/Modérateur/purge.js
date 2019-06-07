@@ -2,8 +2,8 @@ const Command = require("../../modules/Command.js")
 
 class Purge extends Command {
 constructor(client){
-super(client, 
-name:"purge",{ 
+super(client,{
+name:"purge",
 description:"Supprime des messages, par défaut 100."
 permLevel:"XenoModPerm", 
 usage:"purge [nombre]", 
