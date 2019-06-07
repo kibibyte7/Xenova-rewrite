@@ -4,7 +4,7 @@ class Purge extends Command {
 constructor(client){
 super(client,{
 name:"purge",
-description:"Supprime des messages, par défaut 100."
+description:"Supprime des messages, par défaut 100.", 
 permLevel:"XenoModPerm", 
 usage:"purge [nombre]", 
 aliases:["clear"] 
