@@ -33,7 +33,7 @@ class VoiceMove extends Command {
 	 
 	 if(currentvoiceposition == maxmove){
 	 	
-	 	message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Tu es déjà tout en bas, utilise **${prefix}voicemove previous** pour aller dans le channel précédent`) 
+	 	message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Tu es déjà tout en bas, utilise **${this.client.config.defaultSettings.prefix}voicemove previous** pour aller dans le channel précédent`) 
 	 	
 	 	return; 
 	 	
@@ -102,7 +102,7 @@ class VoiceMove extends Command {
 	 			
 	 			if(currentvoiceposition == 0){ 
 	 				
-	 			message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Tu es déjà tout en haut, utilise **${prefix}voicemove next** pour aller dans le prochain channel. `)
+	 			message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Tu es déjà tout en haut, utilise **${this.client.config.defaultSettings.prefix}voicemove next** pour aller dans le prochain channel. `)
 	 			
 	 			return; 
 	 			
