@@ -11,7 +11,7 @@ async run() {
 	this.client.fetchApplication()
 	}, 60000)
 	
-        this.client.channels.get("564478327914627082").send({embed:{
+        this.client.channels.get("586596535165386759").send({embed:{
 		color:0x010101, 
 		author:{
                 name:"Lancement réussi"
