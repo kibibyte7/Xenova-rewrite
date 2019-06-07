@@ -149,7 +149,7 @@ constructor(client) {
                         } 
                         setTimeout(() =>{
                         collect.stop();
-                        m.clearReations();
+                        m.clearReactions();
                         },300000) 
 
                         })
