@@ -30,7 +30,7 @@ class VoiceMove extends Command {
 	 
 	 if(args[0] === "next") { 
 	 
-	 var maxmove = message.guild.channels.filter(v => v.type === "voice").size 
+	 var maxmove = message.guild.channels.filter(v => v.type === "voice").size-1
 	 	
 	 var currentvoiceposition = message.member.voiceChannel.position;
 
