@@ -1,4 +1,4 @@
-const Command = require(../../modules/Command.js")
+const Command = require("../../modules/Command.js")
 
 class Purge extends Command {
 constructor(client){
