@@ -110,7 +110,7 @@ var mention = message.mentions.members.first();
         
       	}) 
       	} 
-        } 
+        
       	
 
 
