@@ -13,7 +13,11 @@ class VoiceMove extends Command {
 	 } 
 	 
 	 run(message, args, level) {		
-	 	
+	 
+         const check = this.client.emojis.find("name", "checkMark")
+
+         const wrong = this.client.emojis.find("name", "wrongMark")
+	
 	 if(!message.member.voiceChannel) message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Tu n'es pas dans un channel vocal.`);	
 	 
 	 if(!args[0]) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Spécifie la direction : **previous** ou **next**.`); 	
