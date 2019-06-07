@@ -61,3 +61,5 @@ const check = this.client.emojis.find("name", "checkMark")
    
 } 
 } 
+
+module.exports = Purge;
