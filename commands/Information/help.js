@@ -29,14 +29,14 @@ constructor(client) {
 			}}).then(m => {
                         
                         m.react("⚙") 
-                        .then(m.react("⚡") && this.client.wait(2000)
-                        .then(m.react("🔧") && this.client.wait(2000)
-                        .then(m.react("📄") && this.client.wait(2000)
-                        .then(m.react("📁") && this.client.wait(2000)
-                        .then(m.react("🎵") && this.client.wait(2000)
-                        .then(m.react("🎉") && this.client.wait(2000)
-                        .then(m.react("❌") && this.client.wait(2000)
-                        )))))))
+                        setTimeout(() => {m.react("⚡")}, 1000)
+                        setTimeout(() => {m.react("🔧")}, 2000)
+                        setTimeout(() => {m.react("📄")}, 3000)
+                        setTimeout(() => {m.react("📁")}, 4000)
+                        setTimeout(() => {m.react("🎵")}, 5000)
+                        setTimeout(() => {m.react("🎉")}, 6000)
+                        setTimeout(() => {m.react("❌")}, 7000)
+                        
 
                         const filter = (reaction, user) => reaction.emoji.name === "⚙" && user.id === message.author.id || reaction.emoji.name === "⚡" && user.id === message.author.id || reaction.emoji.name === "🔧" && user.id === message.author.id || reaction.emoji.name === "📄" && user.id === message.author.id || reaction.emoji.name === "📁" && user.id === message.author.id || reaction.emoji.name === "🎵" && user.id === message.author.id || reaction.emoji.name === "🎉" && user.id === message.author.id || reaction.emoji.name === "❌" && user.id === message.author.id;
  
