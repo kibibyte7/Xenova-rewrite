@@ -21,6 +21,7 @@ async run() {
 		footer:{
                 icon_url:this.client.user.avatarURL,text:"lancé"
 		} 
+                }) 
 
 	this.client.user.setActivity(`${this.client.config.defaultSettings.prefix}help | ${this.client.guilds.size} servs | ${this.client.users.size} utilisateurs`, {type:"STREAMING"})
 	
