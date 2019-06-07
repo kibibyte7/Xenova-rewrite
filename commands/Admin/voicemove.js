@@ -20,6 +20,8 @@ class VoiceMove extends Command {
 	
 	 if(!message.member.voiceChannel) message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Tu n'es pas dans un channel vocal.`);	
 	 
+         if(message.guild.channels.filter("type","voice").size == 1) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Il n'y a pas assez de salons vocaux.`);
+
 	 if(!args[0]) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Spécifie la direction : **previous** ou **next**.`); 	
 	  
 	 var voices = message.guild.channels.filter(v => v.type === "voice").array().sort((p, c) => p.position > c.position ? 1 : -1).map(vc => vc.id) 
