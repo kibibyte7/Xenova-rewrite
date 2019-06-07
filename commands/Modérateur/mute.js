@@ -21,7 +21,7 @@ var mention = message.mentions.members.first();
 
     if(!mention || isNaN(args[1]) || !args[2]){
       
-      message.channel.send(`${wrong} Utilise la commande comme ceci : **${this.client.config.defaultSettings.prefix}${this.client.commands.get("mute").usage}**`);
+      message.channel.send(`${wrong} Utilise la commande comme ceci : **${this.client.config.defaultSettings.prefix}${this.client.commands.get("mute").help.usage}**`);
       
       return;
       
