@@ -13,7 +13,7 @@ module.exports = class {
     
     const prefixMention = new RegExp(`^<@!?${this.client.user.id}>( |)$`);
     if (message.content.match(prefixMention)) {
-      return message.reply(`Mon prefix est \`${settings.prefix}\``);
+      return message.reply(`Mon prefix est \`${this.client.config.defaultSettings.prefix}\``);
     }
 
     // Paramètres
