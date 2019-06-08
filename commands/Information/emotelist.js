@@ -30,11 +30,11 @@ name:message.author.username
 }, 
 color:0xffff00,
 fields:[{
-name:"gear -> Nom :", 
+name:":gear: -> Nom :", 
 value:e.name
 },
 {
-name:"gear -> ID :",
+name:":gear: -> ID :",
 value:e.id
 }], 
 image:{
