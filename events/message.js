@@ -11,10 +11,12 @@ module.exports = class {
     )
       return;
     
-    const prefixes = ['Xeno', '\\XENO', '\\+', `<@!?${this.client.user.id}> `];
-    const prefixRegex = new RegExp(`^(${prefixes.join('|')})`);
-    const prefix = message.content.match(prefixRegex);
-
+      const prefixes = ['Xeno ', 'XENO ', '°'];
+      let prefix = false;
+      for(const thisPrefix of prefixes) {
+      if(message.content.startsWith(thisPrefix)) prefix = thisPrefix;
+      }
+      if(!prefix) return;
 
     // Paramètres
     const settings = this.client.getSettings(message.guild);
