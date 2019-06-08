@@ -11,10 +11,10 @@ module.exports = class {
     )
       return;
     
-    const prefixMention = new RegExp(`^<@!?${this.client.user.id}>( |)$`);
-    if (message.content.match(prefixMention)) {
-      return message.reply(`Mon prefix est \`${this.client.config.defaultSettings.prefix}\``);
-    }
+    const prefixes = ['Xeno', '\\XENO', '\\+', `<@!?${client.user.id}> `];
+    const prefixRegex = new RegExp(`^(${prefixes.join('|')})`);
+    const prefix = message.content.match(prefixRegex);
+
 
     // Paramètres
     const settings = this.client.getSettings(message.guild);
