@@ -11,18 +11,16 @@ module.exports = class {
     )
       return;
     
-      const prefixes = ['Xeno ', 'XENO ', '°'];
-      let prefix = false;
-      for(const thisPrefix of prefixes) {
-      if(message.content.startsWith(thisPrefix)) prefix = thisPrefix;
-      }
-      if(!prefix) return;
+      
 
     // Paramètres
     const settings = this.client.getSettings(message.guild);
     message.settings = settings;
 
-    if (message.content.indexOf(prefix) !== 0) return;
+    if (message.content.indexOf(settings.const prefixMention = new RegExp(`^<@!?${this.client.user.id}>( |)$`);
+    if (message.content.match(prefixMention)) {
+      return message.channel.send(`${this.client.emojis.find("name", "checkMark")} Le préfixe du serveur est \`${settings.prefix}\``);
+    }prefix) !== 0) return;
 
     const args = message.content
       .slice(settings.prefix.length)
