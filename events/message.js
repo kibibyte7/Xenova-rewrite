@@ -10,6 +10,11 @@ module.exports = class {
       !message.channel.permissionsFor(message.guild.me).missing("SEND_MESSAGES")
     )
       return;
+    
+    const prefixMention = new RegExp(`^<@!?${this.client.user.id}>( |)$`);
+    if (message.content.match(prefixMention)) {
+      return message.reply(`Mon prefix est \`${settings.prefix}\``);
+    }
 
     // Paramètres
     const settings = this.client.getSettings(message.guild);
