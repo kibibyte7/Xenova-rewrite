@@ -6,8 +6,8 @@ module.exports = class {
   async run(reaction, user) {
     const message = reaction.message;
     if (reaction.emoji.name !== '⭐') return;
-    if (message.author.id === user.id) return message.channel.send(`${user}, you cannot star your own messages.`);
-    if (message.author.bot) return message.channel.send(`${user}, you cannot star bot messages.`);
+    if (message.author.id === user.id) return message.channel.send(`${this.client.emojis.find("name","wrongMark")} ${user}, Tu ne peux pas mettre d'étoiles sous tes propres messages.`);
+    if (message.author.bot) return message.channel.send(`${this.client.emojis.find("name","wrongMark")} ${user}, Tu ne peux pas mettre d'étoiles sous les messages des bots.`);
     const { starboardChannel } = this.client.settings.get(message.guild.id);
     const starChannel = message.guild.channels.find(channel => channel.name === starboardChannel)
     if (!starChannel) return message.channel.send(`It appears that you do not have a \`${starboardChannel}\` channel.`); 
