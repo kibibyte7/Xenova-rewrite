@@ -11,7 +11,7 @@ module.exports = class {
     )
       return;
     
-    const prefixes = ['Xeno', '\\XENO', '\\+', `<@!?${client.user.id}> `];
+    const prefixes = ['Xeno', '\\XENO', '\\+', `<@!?${this.client.user.id}> `];
     const prefixRegex = new RegExp(`^(${prefixes.join('|')})`);
     const prefix = message.content.match(prefixRegex);
 
