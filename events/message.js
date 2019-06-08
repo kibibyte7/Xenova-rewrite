@@ -22,7 +22,7 @@ module.exports = class {
     const settings = this.client.getSettings(message.guild);
     message.settings = settings;
 
-    if (message.content.indexOf(settings.prefix) !== 0) return;
+    if (message.content.indexOf(prefix) !== 0) return;
 
     const args = message.content
       .slice(settings.prefix.length)
