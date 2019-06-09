@@ -31,7 +31,7 @@ const BingoUrl = process.env.bingourl;
             return;
         }else{
        
-        message.channel.send(`${this.client.emojis.find("name", "typing")} Veux tu lancer un bingo entre 0 et ${nombre} ?`).then(m => {
+        message.channel.send(`${this.client.emojis.find("name", "typing")} Veux tu lancer un bingo entre 0 et ${!isNaN(args[0]) ? args[0] : 100} ?`).then(m => {
         
         const check = this.client.emojis.find("name", "checkMark")
 
