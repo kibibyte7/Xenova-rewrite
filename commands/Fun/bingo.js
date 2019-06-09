@@ -36,6 +36,10 @@ const BingoUrl = process.env.bingourl;
         const check = this.client.emojis.find("name", "checkMark")
 
         const wrong = this.client.emojis.find("name", "wrongMark")
+        
+        m.react(check) 
+       
+        setTimeout(() =>{ m.react(wrong)},1000)      
 
          const filter = (reaction, user) => reaction.emoji.name == check.name && user.id == message.author.id || reaction.emoji.name == wrong.name && user.id == message.author.id;
 	     
