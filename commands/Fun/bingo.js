@@ -91,3 +91,5 @@ const BingoUrl = process.env.bingourl;
 
 } 
 } 
+
+module.exports = Bingo;
