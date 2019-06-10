@@ -27,7 +27,25 @@ return message.channel.send(`${this.client.emojis.find("name", "checkMark")} Le 
   } 
 
   //système afk
+  var mention = message.mentions.members.first();
+   if(mention){
+   	const afkUrl = process.env.afk;
+            request(afkUrl, (err, res, body) => {
+        
+                
+                console.log('chargement !')
+                
+                if(err || res.statusCode!== 200)return
+                
+                console.log('chargé avec succés')
+                var afk = JSON.parse(body)
+                if(afk[message.guild.id + mention.id]){
+                message.channel.send(`**${mention.user.tag}** est en afk :**${afk[message.guild.id + mention.id].reason}**.`)
+               }
+               }) 
+   	}
 
+     
   const afkUrl = process.env.afk;
             request(afkUrl, (err, res, body) => {
         
