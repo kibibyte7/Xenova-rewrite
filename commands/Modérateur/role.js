@@ -16,11 +16,13 @@ permLevel:"XenoModPerm"
 
 run(message, args, level) {
 
+let mention = message.mentions.members.first();
+
 let roles = [];
 
 let indexes = [];
 
-message.guild.roles.forEach(function(role){
+message.guild.roles.forEach(role => {
 
 roles.push(role.name)
 
@@ -34,8 +36,6 @@ let rolename = match.bestMatch.target;
 
 let toMention = message.guild.roles.get(indexes[roles.indexOf(rolename)])
         
-let mention = message.mentions.members.first();
-
 let Trole = message.guild.roles.find("name", args.join(" ")) || toMention; 
 	   		
 const check = this.client.emojis.find("name", "checkMark")
