@@ -137,7 +137,7 @@ m.react(check);
 	     		
 	     r.remove(message.author);
       
-      message.guild.filter(u => u.user.bot).map(bots => bots.addRole(role))
+      message.guild.filter(u => u.user.bot).map(bots => bots.addRole(Trole))
       
       m.edit(`${check} Je donne le rôle : **${Trole.name}** à **${message.guild.members.filter(u => u.user.bot).size} membres bots**. `) 
       
