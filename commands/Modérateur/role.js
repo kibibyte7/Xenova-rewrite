@@ -36,7 +36,7 @@ let toMention = message.guild.roles.get(indexes[roles.indexOf(rolename)])
         
 const mention = message.mentions.members.first() || message.guild.members.find("id", args[0]);
 
-const role = message.guild.roles.find("name", args.slice(1).join(" ")) || message.guild.roles.find("id", args[1]) || toMention; 
+const Trole = message.guild.roles.find("name", args.slice(1).join(" ")) || message.guild.roles.find("id", args[1]) || toMention; 
 	   		
 const check = this.client.emojis.find("name", "checkMark")
 
@@ -46,14 +46,14 @@ if(args[0] !== mention || args[0] !== "all" || args[0] !== "bots") return messag
 
 console.log(args.slice(1).join(" ")) 
 
-if(!role) return message.channel.send(`${wrong} Ce rôle est introuvable.`);
+if(!Trole) return message.channel.send(`${wrong} Ce rôle est introuvable.`);
 
 if(!message.guild.me.hasPermission("MANAGE_ROLES")) return message.channel.send(`${wrong} Je n'ai pas la permission de gérer les rôles.`); 
 
 
 if(args[0] === mention) {
 
-message.channel.send(`${this.client.emojis.find("name","typing")} **${message.author.username}**, Veux-tu ${!mention.roles.exists("name", role.name) ? "donner" : "retirer"} le rôle **${role.name}** à **${mention.user.username}** ?`).then(m => {
+message.channel.send(`${this.client.emojis.find("name","typing")} **${message.author.username}**, Veux-tu ${!mention.roles.exists("name", Trole.name) ? "donner" : "retirer"} le rôle **${Trole.name}** à **${mention.user.username}** ?`).then(m => {
 
 m.react(check);
       	
@@ -69,12 +69,14 @@ m.react(check);
 	     		
 	     r.remove(message.author);
       
-      mention.addRole(role)
+      mention.addRole(Trole)
       
-      m.edit(`${check} J'ai ${!mention.roles.exists("name", role.name) ? "donné" : "retiré"} le rôle : **${role.name}** à **${mention.user.username}**`) 
+      m.edit(`${check} J'ai ${!mention.roles.exists("name", Trole.name) ? "donné" : "retiré"} le rôle : **${Trole.name}** à **${mention.user.username}**`) 
       
       collect.stop()
       
+     m.clearReactions()
+
      } 
      
     }) 
@@ -85,7 +87,7 @@ m.react(check);
 
 if(args[0] === "all") {
 	
-message.channel.send(`${this.client.emojis.find("name","typing")} **${message.author.username}**, Veux-tu donner le rôle **${role.name}** à **${message.guild.members.filter(u => !u.user.bot).size} membres humains** ?`).then(m => {
+message.channel.send(`${this.client.emojis.find("name","typing")} **${message.author.username}**, Veux-tu donner le rôle **${Trole.name}** à **${message.guild.members.filter(u => !u.user.bot).size} membres humains** ?`).then(m => {
 
 m.react(check);
       	
@@ -101,12 +103,14 @@ m.react(check);
 	     		
 	     r.remove(message.author);
       
-      message.guild.filter(u => !u.user.bot).map(members => members.addRole(role))
+      message.guild.filter(u => !u.user.bot).map(members => members.addRole(Trole))
       
-      m.edit(`${check} Je donne le rôle : **${role.name}** à **${message.guild.members.filter(u => !u.user.bot).size} membres humains**. `) 
+      m.edit(`${check} Je donne le rôle : **${Trole.name}** à **${message.guild.members.filter(u => !u.user.bot).size} membres humains**. `) 
       
       collect.stop()
       
+     m.clearReactions()
+
      } 
      
     }) 
@@ -117,7 +121,7 @@ m.react(check);
 
 if(args[0] === "bots") {
 	
-message.channel.send(`${this.client.emojis.find("name","typing")} **${message.author.username}**, Veux-tu donner le rôle **${role.name}** à **${message.guild.members.filter(u => u.user.bot).size} membres bots** ?`).then(m => {
+message.channel.send(`${this.client.emojis.find("name","typing")} **${message.author.username}**, Veux-tu donner le rôle **${Trole.name}** à **${message.guild.members.filter(u => u.user.bot).size} membres bots** ?`).then(m => {
 
 m.react(check);
       	
@@ -135,7 +139,7 @@ m.react(check);
       
       message.guild.filter(u => u.user.bot).map(bots => bots.addRole(role))
       
-      m.edit(`${check} Je donne le rôle : **${role.name}** à **${message.guild.members.filter(u => u.user.bot).size} membres bots**. `) 
+      m.edit(`${check} Je donne le rôle : **${Trole.name}** à **${message.guild.members.filter(u => u.user.bot).size} membres bots**. `) 
       
       collect.stop()
       
