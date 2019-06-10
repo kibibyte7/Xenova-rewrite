@@ -1,3 +1,6 @@
+const superagent = require("superagent") 
+const request = require("request") 
+
 module.exports = class {
   constructor(client) {
     this.client = client;
@@ -23,6 +26,42 @@ module.exports = class {
 return message.channel.send(`${this.client.emojis.find("name", "checkMark")} Le préfixe du serveur est \`${settings.prefix}\``);
   } 
 
+  //système afk
+
+  const afkUrl = process.env.afk;
+            request(afkUrl, (err, res, body) => {
+        
+                
+                console.log('chargement !')
+                
+                if(err || res.statusCode!== 200)return
+                
+                console.log('chargé avec succés')
+                var afk = JSON.parse(body)
+                if(!afk[message.guild.id + message.author.id]) return ;
+                 
+                if(afk[message.guild.id + message.author.id]) {
+                
+    var now = new Date().getTime();
+    var distance = afk[message.guild.id + message.author.id].time - now;
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    if((afk[message.guild.id + message.author.id].time > Date.now()) && (afk[message.guild.id + message.author.id].time !== 0)){
+        return;
+    }else{
+    delete afk[message.guild.id + message.author.id]
+    request({ url: afkUrl, method: 'PUT', json: afk})
+    message.channel.send(`Re ! ${message.author} j'ai retiré ton afk.`).then(m => m.delete(5000))
+
+}      
+}
+                         
+
+}) 
+
+  //commandes
 if (message.content.indexOf(settings.prefix) !== 0) return;
 
     const args = message.content
