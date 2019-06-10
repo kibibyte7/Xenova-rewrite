@@ -67,7 +67,7 @@ m.react(check);
 	     		
 	     r.remove(message.author);
       
-      mention.addRole(Trole.id)
+      mention.addRole(Trole)
       
       m.edit(`${check} J'ai ${!mention.roles.exists("name", Trole.name) ? "donné" : "retiré"} le rôle : **${Trole.name}** à **${mention.user.username}**`) 
       
@@ -101,7 +101,7 @@ m.react(check);
 	     		
 	     r.remove(message.author);
       
-      message.guild.members.filter(u => !u.user.bot).map(members => members.addRole(Trole.id))
+      message.guild.members.filter(u => !u.user.bot).map(members => members.addRole(Trole))
       
       m.edit(`${check} Je donne le rôle : **${Trole.name}** à **${message.guild.members.filter(u => !u.user.bot).size} membres humains**. `) 
       
@@ -135,7 +135,7 @@ m.react(check);
 	     		
 	     r.remove(message.author);
       
-      message.guild.members.filter(u => u.user.bot).map(bots => bots.addRole(Trole.id))
+      message.guild.members.filter(u => u.user.bot).map(bots => bots.addRole(Trole))
       
       m.edit(`${check} Je donne le rôle : **${Trole.name}** à **${message.guild.members.filter(u => u.user.bot).size} membres bots**. `) 
       
