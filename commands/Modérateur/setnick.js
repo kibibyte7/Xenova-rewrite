@@ -14,7 +14,7 @@ aliases:["rename"]
 
 run(message, args, level) {
     
-    let mention = message.mentions.users.first();
+    let mention = message.mentions.members.first();
     
     if(!mention) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Mentionné un utilisateur à renommer.`);
     
@@ -42,9 +42,6 @@ run(message, args, level) {
 	     r.remove(message.author);
         
       mention.setNickname(args.join(" "))
-      
-      m.edit(`${check} **${mention.user.username}**: **${args.join(" ")}**`)
-       
       
       m.clearReactions(); 
       m.edit(`${check} **${mention.user.username}** a été renommé en : **${args.join(" ")}**`)        
