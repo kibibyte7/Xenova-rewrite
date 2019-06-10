@@ -28,7 +28,7 @@ indexes.push(role.id)
 
 })
 
-let match = sm.findBestMatch(args.join(" "), roles);
+let match = sm.findBestMatch(args.slice(1).join(" "), roles);
 
 let rolename = match.bestMatch.target;
 
@@ -36,7 +36,7 @@ let toMention = message.guild.roles.get(indexes[roles.indexOf(rolename)])
         
 const mention = message.mentions.members.first() || message.guild.members.find("id", args[0]);
 
-const role = message.guild.roles.find("name", args.join(" ")) || message.guild.roles.find("id", args.join(" ")) || toMention; 
+const role = message.guild.roles.find("name", args.slice(1).join(" ")) || message.guild.roles.find("id", args[1]) || toMention; 
 	   		
 const check = this.client.emojis.find("name", "checkMark")
 
