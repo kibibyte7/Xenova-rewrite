@@ -28,7 +28,7 @@ indexes.push(role.id)
 
 })
 
-let match = sm.findBestMatch(args.join(" "), roles);
+let match = sm.findBestMatch(args[1], roles);
 
 let rolename = match.bestMatch.target;
 
