@@ -67,7 +67,7 @@ m.react(check);
 	     		
 	     r.remove(message.author);
       
-      mention.addRole(Trole)
+     !mention.roles.exists("name", Trole.name) ? mention.addRole(Trole) : mention.removeRole(Trole)
       
       m.edit(`${check} J'ai ${!mention.roles.exists("name", Trole.name) ? "donné" : "retiré"} le rôle : **${Trole.name}** à **${mention.user.username}**`) 
       
