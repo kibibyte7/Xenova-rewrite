@@ -44,6 +44,8 @@ const wrong = this.client.emojis.find("name", "wrongMark")
 	   			   			
 if(args[0] !== mention || args[0] !== "all" || args[0] !== "bots") return message.channel.send(`${wrong} Utilisateur introuvable essaie de le mentionner, l'id ou les options all et bots. (all, bots et id juste après ${this.client.config.defaultSettings.prefix}role)`) 
 
+console.log(args.slice(1).join(" ")) 
+
 if(!role) return message.channel.send(`${wrong} Ce rôle est introuvable.`);
 
 if(!message.guild.me.hasPermission("MANAGE_ROLES")) return message.channel.send(`${wrong} Je n'ai pas la permission de gérer les rôles.`); 
