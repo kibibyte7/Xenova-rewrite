@@ -36,7 +36,7 @@ let rolename = match.bestMatch.target;
 
 let toMention = message.guild.roles.get(indexes[roles.indexOf(rolename)])
         
-let Trole = message.guild.roles.exists(r => r.name === args[1]) || toMention; 
+let Trole = message.guild.roles.find(r => r.name === args[1]) || toMention; 
 	   		
 const check = this.client.emojis.find(c => c.name === "checkMark")
 
@@ -49,7 +49,7 @@ if(!Trole) return message.channel.send(`${wrong} Ce rôle est introuvable.`);
 if(!message.guild.me.hasPermission("MANAGE_ROLES")) return message.channel.send(`${wrong} Je n'ai pas la permission de gérer les rôles.`); 
 
 
-if(args[0] === mention) {
+if(mention) {
 
 message.channel.send(`${this.client.emojis.find("name","typing")} **${message.author.username}**, Veux-tu ${!mention.roles.exists("name", Trole.name) ? "donner" : "retirer"} le rôle **${Trole.name}** à **${mention.user.username}** ?`).then(m => {
 
