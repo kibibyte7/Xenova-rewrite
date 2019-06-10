@@ -42,7 +42,7 @@ const check = this.client.emojis.find("name", "checkMark")
 
 const wrong = this.client.emojis.find("name", "wrongMark")
 	   			   			
-if(!mention || args[0] !== "all" || args[0] !== "bots") return message.channel.send(`${wrong} Utilisateur introuvable essaie de le mentionner, l'id ou les options all et bots. (all, bots et id juste après ${this.client.config.defaultSettings.prefix}role)`)  
+if(!mention || !args[0] === "all" || !args[0] === "bots") return message.channel.send(`${wrong} Utilisateur introuvable essaie de le mentionner, l'id ou les options all et bots. (all, bots et id juste après ${this.client.config.defaultSettings.prefix}role)`)  
 
 if(!Trole) return message.channel.send(`${wrong} Ce rôle est introuvable.`);
 
