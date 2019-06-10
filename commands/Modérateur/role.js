@@ -161,4 +161,5 @@ return;
 
 } 
 
+} 
 module.exports = Role;
