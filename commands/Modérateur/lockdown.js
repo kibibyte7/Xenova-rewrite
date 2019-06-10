@@ -28,7 +28,7 @@ var mention = message.mentions.members.first();
       
     }else{
     	  if(args[1] == "s") {
-    	  	message.channel.send(`${this.client.emojis.find("name","typing")} Veux tu vraiment bloquer le channel **${message.channel.name}** pour une durée de **${parseInt(args[0])} ${parseInt(args[0]) == 1 ? "heure" : "heures"}** ?`).then(m => {
+    	  	message.channel.send(`${this.client.emojis.find("name","typing")} Veux tu vraiment bloquer le channel **${message.channel.name}** pour une durée de **${parseInt(args[0])} ${parseInt(args[0]) == 1 ? "seconde" : "secondes"}** ?`).then(m => {
       
       m.react(check);
       	
@@ -77,7 +77,7 @@ var mention = message.mentions.members.first();
     	
     	
       if(args[1] == "min") {
-      message.channel.send(`${this.client.emojis.find("name","typing")} Veux tu vraiment bloquer le channel **${message.channel.name}** pour une durée de **${parseInt(args[0])} ${parseInt(args[0]) == 1 ? "heure" : "heures"}** ?`).then(m => {
+      message.channel.send(`${this.client.emojis.find("name","typing")} Veux tu vraiment bloquer le channel **${message.channel.name}** pour une durée de **${parseInt(args[0])} ${parseInt(args[0]) == 1 ? "minute" : "minutes"}** ?`).then(m => {
       
       m.react(check);
       	
