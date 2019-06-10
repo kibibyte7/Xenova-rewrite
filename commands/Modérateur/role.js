@@ -36,7 +36,7 @@ let rolename = match.bestMatch.target;
 
 let toMention = message.guild.roles.get(indexes[roles.indexOf(rolename)])
         
-let Trole = message.guild.roles.find(r => r.name === args.join(" ")) || toMention; 
+let Trole = message.guild.roles.exists(r => r.name === args[1]) || toMention; 
 	   		
 const check = this.client.emojis.find(c => c.name === "checkMark")
 
