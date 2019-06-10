@@ -28,7 +28,7 @@ indexes.push(role.id)
 
 })
 
-let match = sm.findBestMatch(args.slice(1).join(" "), roles);
+let match = sm.findBestMatch(args.join(" "), roles);
 
 let rolename = match.bestMatch.target;
 
@@ -36,15 +36,13 @@ let toMention = message.guild.roles.get(indexes[roles.indexOf(rolename)])
         
 const mention = message.mentions.members.first() || message.guild.members.find("id", args[0]);
 
-const Trole = message.guild.roles.find("name", args.slice(1).join(" ")) || message.guild.roles.find("id", args[1]) || toMention; 
+const Trole = message.guild.roles.find("name", args.join(" ")) || message.guild.roles.find("id", args[1]) || toMention; 
 	   		
 const check = this.client.emojis.find("name", "checkMark")
 
 const wrong = this.client.emojis.find("name", "wrongMark")
 	   			   			
-if(args[0] !== mention || args[0] !== "all" || args[0] !== "bots") return message.channel.send(`${wrong} Utilisateur introuvable essaie de le mentionner, l'id ou les options all et bots. (all, bots et id juste après ${this.client.config.defaultSettings.prefix}role)`) 
-
-console.log(args.slice(1).join(" ")) 
+if(args[0] !== mention || args[0] !== "all" || args[0] !== "bots") return message.channel.send(`${wrong} Utilisateur introuvable essaie de le mentionner, l'id ou les options all et bots. (all, bots et id juste après ${this.client.config.defaultSettings.prefix}role)`)  
 
 if(!Trole) return message.channel.send(`${wrong} Ce rôle est introuvable.`);
 
