@@ -22,7 +22,7 @@ let roles = [];
 
 let indexes = [];
 
-message.guild.roles.forEach(role => {
+message.guild.roles.forEach(function(role){
 
 roles.push(role.name)
 
