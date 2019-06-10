@@ -18,14 +18,14 @@ run(message, args, level) {
     
     if(!mention) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Mentionné un utilisateur à renommer.`);
     
-    if(!args[1] || args.join(" ").length > 32) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Le surnom doit contenir entre un et 32 caractères.`) 
+    if(!args[1] || args.slice(1).join(" ").length > 32) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Le surnom doit contenir entre un et 32 caractères.`) 
     
     const check = this.client.emojis.find("name", "checkMark")
 
     const wrong = this.client.emojis.find("name", "wrongMark")
 
     
-   	  	message.channel.send(`${this.client.emojis.find("name","typing")} Veux tu vraiment renommer **${mention.user.username}** en : **${args.join(" ")}**?`).then(m => {
+   	  	message.channel.send(`${this.client.emojis.find("name","typing")} Veux tu vraiment renommer **${mention.user.username}** en : **${args.slice(1).join(" ")}**?`).then(m => {
       
       m.react(check);
       	
@@ -41,10 +41,10 @@ run(message, args, level) {
 	     		
 	     r.remove(message.author);
         
-      mention.setNickname(args.join(" "))
+      mention.setNickname(args.slice(1).join(" "))
       
       m.clearReactions(); 
-      m.edit(`${check} **${mention.user.username}** a été renommé en : **${args.join(" ")}**`)        
+      m.edit(`${check} **${mention.user.username}** a été renommé en : **${args.slice(1).join(" ")}**`)        
       collect.stop();
       } else {
       	m.edit(`${wrong} Changement de surnom annulé. `) 
