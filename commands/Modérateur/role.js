@@ -34,9 +34,9 @@ let rolename = match.bestMatch.target;
 
 let toMention = message.guild.roles.get(indexes[roles.indexOf(rolename)])
         
-const mention = message.mentions.members.first() || message.guild.members.find("id", args[0]);
+const mention = message.mentions.members.first();
 
-const Trole = message.guild.roles.find("name", args.join(" ")) || message.guild.roles.find("id", args[1]) || toMention; 
+const Trole = message.guild.roles.find("name", args.join(" ")) || toMention; 
 	   		
 const check = this.client.emojis.find("name", "checkMark")
 
