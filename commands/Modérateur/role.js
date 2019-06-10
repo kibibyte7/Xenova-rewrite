@@ -36,11 +36,11 @@ let rolename = match.bestMatch.target;
 
 let toMention = message.guild.roles.get(indexes[roles.indexOf(rolename)])
         
-let Trole = message.guild.roles.find("name", args.join(" ")) || toMention; 
+let Trole = message.guild.roles.find(r => r.name === args.join(" ")) || toMention; 
 	   		
-const check = this.client.emojis.find("name", "checkMark")
+const check = this.client.emojis.find(c => c.name === "checkMark")
 
-const wrong = this.client.emojis.find("name", "wrongMark")
+const wrong = this.client.emojis.find(w => w.name === "wrongMark")
 	   			   			
 if(mention || args[0] === "all" || args[0] === "bots") {
 
@@ -67,7 +67,7 @@ m.react(check);
 	     		
 	     r.remove(message.author);
       
-      mention.addRole(Trole)
+      mention.addRole(Trole.id)
       
       m.edit(`${check} J'ai ${!mention.roles.exists("name", Trole.name) ? "donné" : "retiré"} le rôle : **${Trole.name}** à **${mention.user.username}**`) 
       
@@ -101,7 +101,7 @@ m.react(check);
 	     		
 	     r.remove(message.author);
       
-      message.guild.members.filter(u => !u.user.bot).map(members => members.addRole(Trole))
+      message.guild.members.filter(u => !u.user.bot).map(members => members.addRole(Trole.id))
       
       m.edit(`${check} Je donne le rôle : **${Trole.name}** à **${message.guild.members.filter(u => !u.user.bot).size} membres humains**. `) 
       
@@ -135,7 +135,7 @@ m.react(check);
 	     		
 	     r.remove(message.author);
       
-      message.guild.members.filter(u => u.user.bot).map(bots => bots.addRole(Trole))
+      message.guild.members.filter(u => u.user.bot).map(bots => bots.addRole(Trole.id))
       
       m.edit(`${check} Je donne le rôle : **${Trole.name}** à **${message.guild.members.filter(u => u.user.bot).size} membres bots**. `) 
       
