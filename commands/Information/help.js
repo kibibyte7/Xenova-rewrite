@@ -165,8 +165,17 @@ constructor(client) {
 			icon_url:this.client.user.avatarURL,
 			text:`©️ Help | Xenova`
 			}
+                        
+
+                        
 			}})
                         
+
+                        setTimeout(() => { 
+                        m.delete();
+                        message.delete();
+                        }) 
+
                         }) 
  
  
