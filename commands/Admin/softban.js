@@ -47,7 +47,7 @@ mention.user.send(`Tu as été ban du serveur: **${message.guild.name}**`)
 
 message.guild.ban(mention.user.id, `Softban par : ${message.author.tag}` , 7)
 
-message.guild.unban(mention.user.id, `Softban par : ${message.author.tag} )
+message.guild.unban(mention.user.id, `Softban par : ${message.author.tag}`)
 
 m.clearReactions();
 
