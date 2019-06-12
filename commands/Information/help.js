@@ -174,7 +174,7 @@ constructor(client) {
                         setTimeout(() => { 
                         m.delete();
                         message.delete();
-                        }) 
+                        }, 3000) 
 
                         }) 
  
