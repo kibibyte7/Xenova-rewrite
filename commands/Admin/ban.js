@@ -21,6 +21,8 @@ const wrong = this.client.emojis.find("name", "wrongMark")
 	   			   			
 if(!mention) return message.channel.send(`${wrong} Mentionne un utilisateur à ban.`) 
 
+if(mention.user.id == message.author.id) return message.channel.send(`${wrong} Tu ne peux pas te bannir toi même.`) 
+
 if(!mention.bannable) return message.channel.send(`${wrong} Je n'ai pas la permission de ban **${mention.user.username}**.`); 
 	   	
 message.channel.send(`${this.client.emojis.find("name", "typing")} ${message.author} veux tu vraiment ban ${mention.user.username} ?`).then(m => {
