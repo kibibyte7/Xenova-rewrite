@@ -122,7 +122,7 @@ async awaitReply (msg, question, limit = 60000) {
   }
 }
 
-const client = new Xenova();
+const client = new Xenova({disableEveryone:true});
 console.log(client.config.permLevels.map(p => `${p.level}: ${p.name}`));
 
 // Fonction d'initialisation
