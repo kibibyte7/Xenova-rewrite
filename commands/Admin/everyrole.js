@@ -95,6 +95,8 @@ message.guild.members.forEach(member => {
 	
 if(member.roles.exists("name", everyrole.name)) {
 
+if(member.user.bot) return;
+
 member.addRole(everyrole.id)
 	
 }
@@ -105,7 +107,7 @@ everyrole.setMentionnable(true);
 
 message.channel.send(`${check} ${everyrole}^`) 
 
-everyrole.setMentionnable(true);
+everyrole.setMentionnable(false);
 
 m.clearReactions()
 
