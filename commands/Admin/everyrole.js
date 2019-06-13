@@ -73,7 +73,7 @@ var everyrole = message.guild.roles.find(role => role.name === "Everyrole")
 	
 if(!everyrole) return message.channel.send(`${wrong} Le rôle \`Everyrole\` n'existe pas, entre la commande ${this.client.config.defaultSettings.prefix}everyrole.`) 	
 
-message.channel.send(`${this.client.emojis.find("name", "typing")} Veux tu vraiment créer un rôle \`Everyrole\` et le donner à **${message.guild.members.filter(membres => !membres.user.bot).size} membres humains** ?`).then(m => {
+message.channel.send(`${this.client.emojis.find("name", "typing")} Veux tu vraiment mentionner **${message.guild.members.filter(membres => !membres.user.bot).size} membres humains** par everyrole ?`).then(m => {
 
 m.react(check)
 
