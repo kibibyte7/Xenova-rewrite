@@ -13,6 +13,10 @@ permLevel:"XenoAdminPerm"
 		
 run(message, args, level) {
 
+const check = this.client.emojis.find("name", "checkMark")
+
+const wrong = this.client.emojis.find("name", "wrongMark")
+
 if(!args[0]){
 
 message.channel.send(`${this.client.emojis.find("name", "typing")} Veux tu vraiment créer un rôle \`Everyrole\` et le donner à **${message.guild.members.filter(membre => !membre.user.bot).size} membres humains** ?`).then(m => {
