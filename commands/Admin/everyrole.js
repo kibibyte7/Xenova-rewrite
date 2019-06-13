@@ -97,17 +97,17 @@ if(member.roles.exists("name", everyrole.name)) {
 
 if(member.user.bot) return;
 
-member.addRole(everyrole.id)
+member.addRole(everyrole.id, `Rajout de everyrole par : ${message.author.tag}`)
 	
 }
 
 }) 
 
-everyrole.setMentionnable(true);
+everyrole.setMentionable(true, `Mention everyrole par : ${message.author.tag} `);
 
 message.channel.send(`${check} ${everyrole}^`) 
 
-everyrole.setMentionnable(false);
+everyrole.setMentionable(false, `Mention everyrole par : ${message.author.tag}`);
 
 m.clearReactions()
 
