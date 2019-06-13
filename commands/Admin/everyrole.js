@@ -3,11 +3,11 @@ const Command = require("../../modules/Command.js")
 class Everyrole extends Command {
 constructor(client){
 super(client, {
-name :"unmute",
-description :"Démute un utilisateur.",
-usage:"unmute <@mention>",
-category:"Modérateur", 
-permLevel:"XenoModPerm"
+name :"everyrole",
+description :"Crée un rôle mentionnable et mentionne.",
+usage:"everyrole [mention]",
+category:"Admin", 
+permLevel:"XenoAdminPerm"
 })
 } 
 		
