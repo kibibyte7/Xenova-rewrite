@@ -15,7 +15,7 @@ run(message, args, level) {
 
 if(!args[0]){
 
-message.channel.send(`${this.client.emojis.find("name", "typing")} Veux tu vraiment créer un rôle \`Everyrole\` et le donner à **${message.guild.members.filter().size} membres humains** ?`).then(m => {
+message.channel.send(`${this.client.emojis.find("name", "typing")} Veux tu vraiment créer un rôle \`Everyrole\` et le donner à **${message.guild.members.filter(membre => !membre.user.bot).size} membres humains** ?`).then(m => {
 
 m.react(check)
 
@@ -37,7 +37,7 @@ name:"Everyrole"
 
 }).then(role => {
 
-message.guild.members.filter(member => !member.user.bot).map(everyrole => everyrole.addRole(role.id))
+message.guild.members.filter(membres => !membres.user.bot).map(everyrole => everyrole.addRole(role.id))
 
 }) 
 
@@ -69,7 +69,7 @@ var everyrole = message.guild.roles.find(role => role.name === "Everyrole")
 	
 if(!everyrole) return message.channel.send(`${wrong} Le rôle \`Everyrole\` n'existe pas, entre la commande ${this.client.config.defaultSettings.prefix}everyrole.`) 	
 
-message.channel.send(`${this.client.emojis.find("name", "typing")} Veux tu vraiment créer un rôle \`Everyrole\` et le donner à **${message.guild.members.filter().size} membres humains** ?`).then(m => {
+message.channel.send(`${this.client.emojis.find("name", "typing")} Veux tu vraiment créer un rôle \`Everyrole\` et le donner à **${message.guild.members.filter(membres => !membres.user.bot).size} membres humains** ?`).then(m => {
 
 m.react(check)
 
