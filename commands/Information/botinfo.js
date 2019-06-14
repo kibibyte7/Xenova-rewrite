@@ -1,5 +1,6 @@
 const Command = require("../../modules/Command.js")
 const moment = require("moment")
+const { version } = require("discord.js") 
 
 class BotInfo extends Command {
 constructor(client) {
@@ -32,12 +33,12 @@ message.channel.send({embed:{
         }, 
         {
         name: "Version de node",
-        value: process.version, //version du processus
+        value: process.version,//version du processus
         inline: false
         },
         {
         name: "Mémoire utilisée",
-        value: Math.round(process.memoryUsage().rss/1000000) + "MB",
+        value: `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`,
         inline: false
         },
         {
@@ -47,17 +48,17 @@ message.channel.send({embed:{
        }, 
          {
         name:"Date de création", 
-        value:`J'ai été créé le : ${moment(this.client.user.createdAt).format("Y-M-D à HH:mm:ss")}`, 
+        value:`J'ai été créé le : ${moment(this.client.user.createdAt).format("DD/MM/YY à HH:mm:ss")}`, 
         inline:false
       }, 
        {
         name:"Nombre de serveurs", 
-        value:`Je suis dans : ${this.client.guilds.size} serveurs `, 
+        value:`Je suis dans : ${this.client.guilds.size} serveurs.`, 
         inline:false
        }, 
         {
         name:"Nombre d'utilisateurs", 
-        value:`Je suis avec : ${this.client.users.size} utilisateurs`, 
+        value:`Je suis avec : ${this.client.users.size} utilisateurs.`, 
         inline:false
       },
         {
