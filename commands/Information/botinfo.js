@@ -28,6 +28,11 @@ message.channel.send({embed:{
         inline: false //field en ligne : Vrai ou Faux true/false
         },
         {
+        name:"Discord.js", 
+        value:`v${version}`, 
+        inline:false
+        }, 
+        {
         name:"Uptime:", 
         value:`${h}:${m}:${s}`
         }, 
