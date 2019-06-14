@@ -22,7 +22,7 @@ if(!args || args.length < 1){
          return;
       } else {
        message.guild.createChannel(args.join(" "), "voice")
-       message.channel.send(`${this.client.emojis.find("name", "checkMark")} Channel vocal: **${args.join(" ")}** créée avec succès !`)
+       message.channel.send(`${this.client.emojis.find("name", "checkMark")} J'ai créé le channel vocal: **${args.join(" ")}**.`)
         
       }
 } 
