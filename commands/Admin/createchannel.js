@@ -13,7 +13,7 @@ aliases:["addchan"]
 } 
 
 run(message, args, level) {
-if(!message.member(client.user).hasPermission("MANAGE_CHANNELS")) {
+if(!message.member(this.client.user).hasPermission("MANAGE_CHANNELS")) {
       message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Je n'ai pas la permission de gérer les salons.`) 
       return;
       } else { 
