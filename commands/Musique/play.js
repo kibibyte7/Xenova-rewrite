@@ -9,7 +9,7 @@ class Play extends Command {
       description: "Jouer et ajouter de la musique.",
       category:"Musique", 
       usage: "play", 
-      enabled:false
+      enabled:true
     });
   }
 
