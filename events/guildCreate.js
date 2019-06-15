@@ -5,7 +5,7 @@ module.exports = class {
 
   async run (guild) {
 
-    this.client.user.setActivity(`${this.client.config.defaultSttings.prefix}help | ${this.client.guilds.size} servs | ${this.client.users.size} utilisateurs`, {type:"STREAMING"});
+    this.client.user.setActivity(`${this.client.config.defaultSettings.prefix}help | ${this.client.guilds.size} servs | ${this.client.users.size} utilisateurs`, {type:"STREAMING"});
     this.client.channels.get("586596533701443594").send(`[+] Le bot a rejoint une nouvelle guilde : **${guild.name} (${guild.id})** avec **${guild.memberCount - 1} membres**`);
   }
 };
