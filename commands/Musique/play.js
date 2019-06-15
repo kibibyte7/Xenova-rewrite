@@ -20,7 +20,7 @@ class Play extends Command {
         "Tu dois être dans un salon vocal pour utiliser cette commande !"
       );
 
-    const serverQueue = message.client.queue.get(message.guild.id);
+    //const serverQueue = message.client.queue.get(message.guild.id);
     //const song = {
       //,
       //title: songInfo.title,
@@ -31,7 +31,7 @@ class Play extends Command {
     //if (serverQueue) {
       //serverQueue.songs.push(song);
       //return message.channel.send(
-        `✅ **${song.title}** est ajoutée à la queue !`
+        //`✅ **${song.title}** est ajoutée à la queue !`
       //);
     //}
 
@@ -39,7 +39,7 @@ class Play extends Command {
       //textChannel: message.channel,
       //voiceChannel,
       //connection: null,
-      /songs: [],
+      //songs: [],
       //volume: 1,
       //playing: true
     //};
