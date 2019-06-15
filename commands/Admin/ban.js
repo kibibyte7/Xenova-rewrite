@@ -45,7 +45,7 @@ r.remove(message.author)
 
 mention.user.send(`Tu as été ban du serveur: **${message.guild.name}**`) 
 
-message.guild.ban(mention.user.id, `Banni par : ${message.author.tag}` , 7)
+message.guild.ban(mention.user.id, {days: 7, reason:`Ban par : ${message.author.tag}`})
 
 m.clearReactions();
 
