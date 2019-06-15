@@ -13,7 +13,7 @@ usage:"ping"
 async run(message, args, level) {
 try{
 const msg = await message.channel.send(this.client.emojis.find("name","typing") + "**Pong ! **");
-msg.edit(`Latence:** ${new Date().getTime() - message.createdTimestamp}ms**\nApi: **${Math.round(this.client.ping)}ms**`); 
+msg.edit(`Latence:** ${message.createdTimetamp - message.createdTimestamp}ms**\nApi: **${Math.round(this.client.ping)}ms**`); 
 }catch (e) {
 message.channel.send(`${this.client.emojis.find("name","wrongMark")} Une erreur est survenue: **${e.message}**`) 
 } 
