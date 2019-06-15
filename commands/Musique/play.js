@@ -54,13 +54,12 @@ class Play extends Command {
         //return;
       //}
 
-    try {
+    
     var connection = message.member.voiceChannel.join();
     ksoft.lyrics.searchAndPlay(args.join(" "), connection) 
     
-  } catch (e) {
-  console.log(e) 
 } 
+
 }
 
 module.exports = Play;
