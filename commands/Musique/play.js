@@ -57,7 +57,7 @@ class Play extends Command {
         const voiceChannel = message.member.voiceChannel;
         const connection = await voiceChannel.join();
         ksoft.lyrics.searchAndPlay(query, connection).then(res => {
-        console.log(res.json())
+        console.log(res.json)
             const embed = new Discord.MessageEmbed()
                 .setTitle('Song Info')
                 .setColor('ce0202')
