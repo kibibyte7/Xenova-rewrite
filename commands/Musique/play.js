@@ -55,9 +55,22 @@ class Play extends Command {
       //}
 
     
-    var connection = message.member.voiceChannel.join();
-    ksoft.lyrics.searchAndPlay(args.join(" "), connection) 
-    
+    const query = args.join(" ") ;
+        if (!message.member.voice.channel) return message.channel.send('Please join a voice channel');
+        const voiceChannel = message.member.voice.channel;
+        const voiceConnection = await voiceChannel.join();
+        ksoft.lyrics.searchAndPlay(query, voiceConnection).then(res => {
+            const embed = new Discord.MessageEmbed()
+                .setTitle('Song Info')
+                .setColor('ce0202')
+                .setDescription(`[${res.apiResponse.name}](${res.youtubeResult.url})`)
+                .addField('Song Duration:', res.youtubeResult.duration)
+                //.addField('Artist:', res.apiResponse.artist)
+                .addField('Lyrics:', res.apiResponse.lyrics)
+                .setThumbnail(res.apiResponse.album_art)
+                .setFooter('Powered by: Ksoft.si');
+            message.channel.send(embed);
+        });
 } 
 
 }
