@@ -15,11 +15,7 @@ class Play extends Command {
   }
 
   async run(message, args) {
-    const { voiceChannel } = message.member;
-    if (!voiceChannel)
-      return message.channel.send(
-        "Tu dois être dans un salon vocal pour utiliser cette commande !"
-      );
+    
 
     //const serverQueue = message.client.queue.get(message.guild.id);
     //const song = {
