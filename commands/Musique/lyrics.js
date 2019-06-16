@@ -23,7 +23,7 @@ class Lyrics extends Command {
         
     fetch(`https://api.ksoft.si/lyrics/search?q=${encodeURIComponent(args.join(" "))}`, {
     method: "GET",
-    headers: {  Authorization: "Token "+process.env.ksoft }
+    headers: {  Authorization: process.env.ksoft }
     }).then(res => {
     res.json().then(lyrics => {
     	
