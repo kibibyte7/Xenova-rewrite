@@ -56,14 +56,16 @@ const BingoUrl = process.env.bingourl;
         message.author.send(`le nombre est : **${nombre}**`)
         m.edit(`${check} Le bingo est lancé devinez le nombre entre **0 et ${!isNaN(args[0]) ? args[0] : "100"}**.`)
         
+        var collect = message.channel.createCollector(m => m);
+   
         var timer = setTimeout(() => {
         delete bingo[message.guild.id]
         request({ url: BingoUrl, method: 'PUT', json: bingo})
         message.channel.send("Zetes des noob à ne pas trouver le nombre au bout de 2 minutes, la réponse était : **"+nombre+"**")
+        collect.stop();
      }, 120000);
 
-    var collect = message.channel.createCollector(m => m);
-    collect.on("collect", m => {
+     collect.on("collect", m => {
             if(m.content === `${nombre}`){
                 console.log("Reçu")
                 clearTimeout(timer)
