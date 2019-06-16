@@ -54,9 +54,9 @@ class Play extends Command {
     
     const query = args.join(" ") ;
         if (!message.member.voice.channel) return message.channel.send('Please join a voice channel');
-        const voiceChannel = message.member.voice.channel;
-        const voiceConnection = await voiceChannel.join();
-        ksoft.lyrics.searchAndPlay(query, voiceConnection).then(res => {
+        const voiceChannel = message.member.voiceChannel;
+        const connection = await voiceChannel.join();
+        ksoft.lyrics.searchAndPlay(query, connection).then(res => {
             const embed = new Discord.MessageEmbed()
                 .setTitle('Song Info')
                 .setColor('ce0202')
