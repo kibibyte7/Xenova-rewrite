@@ -1,6 +1,7 @@
 const Command = require("../../modules/Command.js");
 const Ksoft = require("ksoft.js");
 const ksoft = new Ksoft(process.env.ksoft);
+const { MessageEmbed } = require("discord.js") 
 
 class Play extends Command {
   constructor(client) {
