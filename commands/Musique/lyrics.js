@@ -19,7 +19,7 @@ class Lyrics extends Command {
 
     if(!args[0] || args.length < 1) return message.channel.send(`${bot.emojis.find("name", "wrongMark")} Tu dois entrer une recherche.`); 
     
-    message.channel.send(`${bot.emojis.find("name", "typing")} Recherche de \`${args.join(" ")}\`.`).then(m => m.delete(4000))
+    message.channel.send(`${this.client.emojis.find("name", "typing")} Recherche de \`${args.join(" ")}\`.`).then(m => m.delete(4000))
         
     fetch(`https://api.ksoft.si/lyrics/search?q=${encodeURIComponent(args.join(" "))}`, {
     method: "GET",
@@ -27,7 +27,7 @@ class Lyrics extends Command {
     }).then(res => {
     res.json().then(lyrics => {
     	
-        if(!lyrics.data[0]) return message.channel.send(`${bot.emojis.find("name", "wrongMark")} Aucuns résultats trouvés.`); 
+        if(!lyrics.data[0]) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Aucuns résultats trouvés.`); 
         
         message.channel.send({embed:{
         title:`Lyrics de la musique : ${lyrics.data[0].artist} - ${lyrics.data[0].name}`,      
@@ -44,7 +44,7 @@ class Lyrics extends Command {
         description:lyrics.data[0].lyrics.slice(2000),
         timestamp:new Date(),
         footer:{
-        icon_url:bot.user.avatarURL,
+        icon_url:this.client.user.avatarURL,
         text:"© Lyrics | Propulsé par l'api Ksoft.si" 
         } 
         }})        
@@ -62,7 +62,7 @@ class Lyrics extends Command {
         description:lyrics.data[0].lyrics.slice(4000),
         timestamp:new Date(),
         footer:{
-        icon_url:bot.user.avatarURL,
+        icon_url:this.client.user.avatarURL,
         text:"© Lyrics | Propulsé par l'api Ksoft.si" 
         } 
         }})
