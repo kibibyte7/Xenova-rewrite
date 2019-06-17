@@ -17,7 +17,7 @@ aliases:["bi", "infos"]
 run(message, args, level){
  
 
-const duration = moment.duration(this.client.uptime).format("D:H:m:s")
+const duration = moment.duration(this.client.uptime).format("D [J], H [h], m [mins], s [secs] ")
 message.channel.send({embed:{
         color: Math.floor(Math.random() * 16777214) + 1, //pour une couleur en mode random
         fields:[{
