@@ -1,5 +1,6 @@
 const Command = require("../../modules/Command.js")
 const moment = require("moment")
+require("moment-duration-format")
 const { version } = require("discord.js") 
 
 class BotInfo extends Command {
@@ -14,12 +15,9 @@ aliases:["bi", "infos"]
 } 
 
 run(message, args, level){
-var s = (Math.round(this.client.uptime / 1000) % 60)
-var m = (Math.round(this.client.uptime / (1000 * 60)) % 60)
-var h = (Math.round(this.client.uptime / (1000 * 60 * 60)))
-m = (m < 10) ? "0" + m : m;
-s = (s < 10) ? "0" + s : s;
+ 
 
+const duration = moment.duration(this.client.uptime).format("D:H:m:s")
 message.channel.send({embed:{
         color: Math.floor(Math.random() * 16777214) + 1, //pour une couleur en mode random
         fields:[{
@@ -34,7 +32,7 @@ message.channel.send({embed:{
         }, 
         {
         name:"Uptime:", 
-        value:`${h}:${m}:${s}`
+        value:`${duration}`
         }, 
         {
         name: "Version de node",
