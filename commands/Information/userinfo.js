@@ -74,10 +74,6 @@ name:":gear: -> Jeu:",
 value: !User.presence.game ? "Pas de jeu." : User.presence.game.name
 },
 {
-name:":gear: -> Dernier message:", 
-value: User.lastMessage.content == null ? "Aucun messages pour l'instant.": User.lastMessage.content
-}, 
-{
 name:":gear: -> Liste de rôles:", 
 value:mention.roles.size > 25 ? "Il a trop de rôles." : mention.roles.map(r => r).join(" ")
 }, 
