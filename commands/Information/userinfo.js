@@ -32,7 +32,7 @@ let username = match.bestMatch.target;
 
 let ToShow = message.guild.members.get(indexes[membres.indexOf(username)]); 
 
-var mention = message.mentions.members.first() || message.member || ToShow;
+var mention = message.mentions.members.first() || ToShow || message.member ;
  
 var User = mention.user;
   
@@ -75,7 +75,7 @@ value: !User.presence.game ? "Pas de jeu." : User.presence.game.name
 },
 {
 name:":gear: -> Dernier message:", 
-value: !User.lastMessage.content ? "Aucun messages pour l'instant.": User.lastMessage.content
+value: User.lastMessage.content == null ? "Aucun messages pour l'instant.": User.lastMessage.content
 }, 
 {
 name:":gear: -> Liste de rôles:", 
