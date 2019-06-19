@@ -153,5 +153,6 @@ text:"© Userinfo | Xenova"
 }
 
 } 
+} 
 
 module.exports = Userinfo;
