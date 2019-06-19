@@ -63,7 +63,7 @@ value:moment(mention.joinedAt).format("D/M/Y à HH:mm:ss")
 }, 
 {
 name:":gear: -> Nickname:", 
-value: mention.nickname == undefined ? "Aucun surnom" : mention.nickname
+value: mention.nickname == undefined ? "Aucun surnom." : mention.nickname
 }, 
 {
 name:":gear: -> Statut:", 
@@ -71,15 +71,15 @@ value:User.presence.status
 }, 
 {
 name:":gear: -> Jeu:", 
-value: !User.presence.game ? "Pas de jeu" : User.presence.game.name
+value: !User.presence.game ? "Pas de jeu." : User.presence.game.name
 },
 {
 name:":gear: -> Dernier message:", 
-value: User.lastMessage.content
+value: !User.lastMessage.content : "Aucun messages pour l'instant.": User.lastMessage.content
 }, 
 {
 name:":gear: -> Liste de rôles:", 
-value:mention.roles.size > 25 ? "Il a trop de rôles" : mention.roles.map(r => r).join(" ")
+value:mention.roles.size > 25 ? "Il a trop de rôles." : mention.roles.map(r => r).join(" ")
 }, 
 {
 name:":gear: -> Liste de permissions", 
