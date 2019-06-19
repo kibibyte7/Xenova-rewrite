@@ -89,7 +89,7 @@ value:mention.permissions.toArray().join(", ").toLowerCase()
 timestamp:new Date(), 
 footer:{
 icon_url:this.client.user.avatarURL,
-text:"userinfo" 
+text:"© Userinfo | Xenova" 
 } 
 }}) 
 
