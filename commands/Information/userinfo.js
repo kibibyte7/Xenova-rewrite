@@ -75,7 +75,7 @@ value: !User.presence.game ? "Pas de jeu." : User.presence.game.name
 },
 {
 name:":gear: -> Dernier message:", 
-value: !User.lastMessage.content : "Aucun messages pour l'instant.": User.lastMessage.content
+value: !User.lastMessage.content ? "Aucun messages pour l'instant.": User.lastMessage.content
 }, 
 {
 name:":gear: -> Liste de rôles:", 
