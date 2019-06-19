@@ -32,7 +32,7 @@ let username = match.bestMatch.target;
 
 let ToShow = message.guild.members.get(indexes[membres.indexOf(username)]); 
 
-var mention = message.mentions.members.first() || message.member || toShow;
+var mention = message.mentions.members.first() || message.member || ToShow;
  
 var User = mention.user;
   
