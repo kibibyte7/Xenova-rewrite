@@ -107,7 +107,7 @@ everyrole.setMentionable(true, `Mention everyrole par : ${message.author.tag} `)
 
 message.channel.send(`${check} ${everyrole} ^`)
 
-setTimeout(() => {everyrole.setMentionable(false, `Mention everyrole par : ${message.author.tag}`)}, 1500);
+setTimeout(() => {everyrole.setMentionable(false, `Mention everyrole par : ${message.author.tag}`)}, 2500);
 
 m.clearReactions()
 
