@@ -93,7 +93,7 @@ m.edit(`${check} Mention de **${message.guild.members.filter(member => !member.u
 
 message.guild.members.forEach(member => {
 	
-if(!member.roles.exists("name", everyrole.name)) {
+if(!member.roles.find(r => r.name === everyrole.name)) {
 
 if(member.user.bot) return;
 
