@@ -8,16 +8,18 @@ const klaw = require("klaw");
 const path = require("path");
 const mysql = require("mysql") 
 
-var con = mysql.createConnection({
-host:process.env.host, 
-user:process.env.user, 
-password:process.env.password, 
-database:process.env.database
-}) 
+
 
 class Xenova extends Client {
   constructor(options) {
     super(options);
+    
+    var con = mysql.createConnection({
+    host:process.env.host, 
+    user:process.env.user, 
+    password:process.env.password, 
+    database:process.env.database
+    }) 
 
     this.config = require("./config.js");
 
