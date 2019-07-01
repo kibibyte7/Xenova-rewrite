@@ -301,7 +301,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	
 	})
 
-        con.shutdown();
+        con.close();
 
 
 } 
