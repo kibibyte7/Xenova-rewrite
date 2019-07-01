@@ -6,7 +6,7 @@ super(client, {
 name:"inventory", 
 description:"Sert à entrer dans le jeu ou montrer l'inventaire", 
 category:"Game", 
-usage:"inventory" 
+usage:"inventory", 
 aliases:["inv", "i"] 
 }) 
 } 
@@ -305,3 +305,5 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 
 } 
 } 
+
+module.exports = Inventory; 
