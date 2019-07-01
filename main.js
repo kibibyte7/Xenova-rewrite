@@ -6,6 +6,19 @@ const readdir = promisify(require("fs").readdir);
 const Enmap = require("enmap");
 const klaw = require("klaw");
 const path = require("path");
+const mysql = require("mysql") 
+
+var con = mysql.createConnection({
+host:process.env.host, 
+user:process.env.user, 
+password:process.env.password, 
+database:process.env.database
+}) 
+
+con.connect(err => {
+if(err) throw err;
+console.log("Base de données connecté.") 
+})
 
 class Xenova extends Client {
   constructor(options) {
@@ -17,6 +30,8 @@ class Xenova extends Client {
     this.aliases = new Collection();
     
     this.queue = new Map();
+    
+    this.db = con;
 
     this.settings = new Enmap({
       name: "settings",
