@@ -197,8 +197,6 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
         
 	}) 
         
-        setTimeout(()=> {con.end()}, 1000*60*3)
-	
 	} else {
  
 	message.channel.send({embed:{
