@@ -5,6 +5,18 @@ module.exports = class {
   constructor(client) {
     this.client = client;
   }
+  
+  var con = mysql.createConnection({
+host:process.env.host, 
+user:process.env.user, 
+password:process.env.password, 
+database:process.env.database
+}) 
+
+con.connect(err => {
+if(err) throw err;
+console.log("Base de données connecté.") 
+})
 
   async run(message) {
     if (message.author.bot) return;
@@ -23,62 +35,9 @@ module.exports = class {
     const prefixMention = new RegExp(`^<@!?${this.client.user.id}>( |)$`);
     if (message.content.match(prefixMention)) {
       
-return message.channel.send(`${this.client.emojis.find("name", "checkMark")} Le préfixe du serveur est \`${settings.prefix}\``);
+    return message.channel.send(`${this.client.emojis.find("name", "checkMark")} Le préfixe du serveur est \`${settings.prefix}\``);
   } 
-
-  //système afk
-  var mention = message.mentions.members.first();
-   if(mention){
-   	const afkUrl = process.env.afk;
-            request(afkUrl, (err, res, body) => {
-        
-                
-                console.log('chargement !')
-                
-                if(err || res.statusCode!== 200)return
-                
-                console.log('chargé avec succés')
-                var afk = JSON.parse(body)
-                if(afk[message.guild.id + mention.id]){
-                message.channel.send(`**${mention.user.tag}** est en afk :**${afk[message.guild.id + mention.id].reason}**.`)
-               }
-               }) 
-   	}
-
-     
-  const afkUrl = process.env.afk;
-            request(afkUrl, (err, res, body) => {
-        
-                
-                console.log('chargement !')
-                
-                if(err || res.statusCode!== 200)return
-                
-                console.log('chargé avec succés')
-                var afk = JSON.parse(body)
-                if(!afk[message.guild.id + message.author.id]) return ;
-                 
-                if(afk[message.guild.id + message.author.id]) {
-                
-    var now = new Date().getTime();
-    var distance = afk[message.guild.id + message.author.id].time - now;
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    if((afk[message.guild.id + message.author.id].time > Date.now()) && (afk[message.guild.id + message.author.id].time !== 0)){
-        return;
-    }else{
-    delete afk[message.guild.id + message.author.id]
-    request({ url: afkUrl, method: 'PUT', json: afk})
-    message.channel.send(`Re ! ${message.author} j'ai retiré ton afk.`).then(m => m.delete(5000))
-
-}      
-}
-                         
-
-}) 
-
+  
   //commandes
 if (message.content.indexOf(settings.prefix) !== 0) return;
 
@@ -126,6 +85,6 @@ if (message.content.indexOf(settings.prefix) !== 0) return;
         this.client.config.permLevels.find(l => l.level === level).name
       }) lance la commande ${cmd.help.name}`
     );
-    cmd.run(message, args, level);
+    cmd.run(message, args, level, con);
   }
 };
