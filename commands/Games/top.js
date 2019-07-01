@@ -32,7 +32,7 @@ let resp = ``;
  		
 for(var i in rows){
 	
-resp += `[${parseInt(i)+1}] - **${bot.users.get(rows[i].id).tag}:** Niveau - **${rows[i].xp}**\n`
+resp += `[${parseInt(i)+1}] - **${bot.users.get(rows[i].id).tag} - **Niveau: **${rows[i].niveau}**\n`
 		
 } 
 	
