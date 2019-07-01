@@ -6,20 +6,11 @@ const readdir = promisify(require("fs").readdir);
 const Enmap = require("enmap");
 const klaw = require("klaw");
 const path = require("path");
-const mysql = require("mysql") 
-
 
 
 class Xenova extends Client {
   constructor(options) {
     super(options);
-    
-    var con = mysql.createConnection({
-    host:process.env.host, 
-    user:process.env.user, 
-    password:process.env.password, 
-    database:process.env.database
-    }) 
 
     this.config = require("./config.js");
 
@@ -28,7 +19,6 @@ class Xenova extends Client {
     
     this.queue = new Map();
     
-    this.db = con;
 
     this.settings = new Enmap({
       name: "settings",
