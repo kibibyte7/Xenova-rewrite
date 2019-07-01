@@ -52,7 +52,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
  setTimeout(() => {m.react("❄")}, 5000)
  setTimeout(() => {m.react("🖤")}, 6000)
  setTimeout(() => {m.react("🔥")}, 7000)
- setTimeout(() => {m.react("🌸")}, 7000)                      	
+ setTimeout(() => {m.react("🌸")}, 8000)                      	
 	
  const filter = (reaction, user) =>  reaction.emoji.name === "❤" && user.id === message.author.id ||  reaction.emoji.name === "💛" && user.id === message.author.id ||  reaction.emoji.name === "💙" && user.id === message.author.id || reaction.emoji.name === "💜" && user.id === message.author.id || reaction.emoji.name === "☀" && user.id === message.author.id || reaction.emoji.name === "❄" && user.id === message.author.id || reaction.emoji.name === "🖤" && user.id === message.author.id || reaction.emoji.name === "🔥" && user.id === message.author.id || reaction.emoji.name === "🌸" && user.id === message.author.id;
  
@@ -115,8 +115,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	
 	m.edit(`${message.author}, tu as choisi la catégorie **Nain**, ton inscription est terminé fais la même commande pour voir ton inventaire.`)
 
-	setTimeout(()=> {con.end()}, 15000)
-
+	
 	} 
 	
 	if(r.emoji.name === "☀") {
