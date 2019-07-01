@@ -40,7 +40,7 @@ message.channel.send(resp)
 	
 }) 
 
-setTimeout(() => {con.end()}, 1000*60*1) 
+setTimeout(() => {con.end()}, 1000*5) 
 
 }
 }
