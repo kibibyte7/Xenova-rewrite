@@ -166,7 +166,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	
 	collect.stop()
 	
- m.clearReactions();	
+        m.clearReactions();	
 	
 	m.edit(`${message.author}, tu as choisi la catégorie **Berserk**, ton inscription est terminé fais la même commande pour voir ton inventaire.`)
 	
@@ -180,7 +180,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	
 	collect.stop()
 	
- m.clearReactions();	
+        m.clearReactions();	
 	
 	m.edit(`${message.author}, tu as choisi la catégorie **Humain**, ton inscription est terminé fais la même commande pour voir ton inventaire.`)
 	
@@ -190,9 +190,9 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	
 	
 	}) 
-	
-	con.end()
-	
+
+	setTimeout(()=> {con.end()}, 15000)
+
 	} else {
  
 	message.channel.send({embed:{
@@ -299,7 +299,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 		
 	} 
 	
-	con.end()
+	setTimeout(()=> {con.end()}, 5000)
 
 	});
 
