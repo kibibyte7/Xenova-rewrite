@@ -34,7 +34,7 @@ for(var i in rows){
 	
 resp += `[${parseInt(i)+1}] - **${this.client.users.find("id", `${rows[i].id}`).tag} - **Niveau: **${rows[i].niveau}**\n`
 
-if(!this.client.users.find("id", rows[i].id)) return resp += `null\n;
+if(!this.client.users.find("id", rows[i].id)) return resp += `null\n`;
 		
 } 
 	
