@@ -290,7 +290,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	url:message.author.avatarURL
 	}, 
 	footer:{
-	icon_url:bot.user.avatarURL,
+	icon_url:this.client.user.avatarURL,
 	text:"© Inventory | Xenova" 
 	} 
 	
