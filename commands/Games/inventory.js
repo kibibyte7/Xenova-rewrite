@@ -1,4 +1,5 @@
 const Command = require("../../modules/Command.js")
+const mysql = require("mysql") 
 
 class Inventory extends Command {
 constructor(client){
