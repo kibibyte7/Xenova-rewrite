@@ -1,5 +1,4 @@
-const superagent = require("superagent") 
-const request = require("request") 
+const mysql = require("mysql") 
 
 module.exports = class {
   constructor(client) {
