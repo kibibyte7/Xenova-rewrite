@@ -37,6 +37,7 @@
     "moment": "^2.22.2",
     "moment-duration-format": "^2.2.2",
     "ms": "^2.1.1", 
+    "mysql" :"^2.17.1", 
     "nekos.life": "^1.0.5",
     "node-fetch":"^2.3.0",
     "node-gyp": "^3.8.0",
