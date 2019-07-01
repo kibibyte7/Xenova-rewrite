@@ -72,6 +72,8 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	
 	m.edit(`${message.author}, tu as choisi la catégorie **Elfe**, ton inscription est terminé fais la même commande pour voir ton inventaire.`)
 	
+        setTimeout(()=> {con.end()}, 15000)
+
 	} 
 	
 	if(r.emoji.name === "💛") {
@@ -86,20 +88,24 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	
 	m.edit(`${message.author}, tu as choisi la catégorie **Sorcier**, ton inscription est terminé fais la même commande pour voir ton inventaire.`)
 	
+        setTimeout(()=> {con.end()}, 15000)
+
 	} 
 	
 	if(r.emoji.name === "💜") {
 	
- con.query(`UPDATE inventory SET category = 'Orc' WHERE id = ${message.author.id}`, console.log)	
+        con.query(`UPDATE inventory SET category = 'Orc' WHERE id = ${message.author.id}`, console.log)	
 	
 	con.query(`UPDATE inventory SET pv = 50 WHERE id = ${message.author.id}`) 
 	
 	collect.stop()
 	
- m.clearReactions();	
+        m.clearReactions();	
  
 	m.edit(`${message.author}, tu as choisi la catégorie **Orc**, ton inscription est terminé fais la même commande pour voir ton inventaire.`)
 	
+        setTimeout(()=> {con.end()}, 15000)
+
 	} 
 	
 	if(r.emoji.name === "💙") {
@@ -110,10 +116,12 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	
 	collect.stop()
 	
- m.clearReactions();	
+        m.clearReactions();	
 	
 	m.edit(`${message.author}, tu as choisi la catégorie **Nain**, ton inscription est terminé fais la même commande pour voir ton inventaire.`)
-	
+
+	setTimeout(()=> {con.end()}, 15000)
+
 	} 
 	
 	if(r.emoji.name === "☀") {
@@ -124,10 +132,12 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	
 	collect.stop()
 	
- m.clearReactions();	
+        m.clearReactions();	
  
 	m.edit(`${message.author}, tu as choisi la catégorie **Titan**, ton inscription est terminé fais la même commande pour voir ton inventaire.`)
 	
+        setTimeout(()=> {con.end()}, 15000)
+
 	} 
 	
 	if(r.emoji.name === "❄") {
@@ -138,10 +148,12 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	
 	collect.stop()
 	
- m.clearReactions();	
+        m.clearReactions();	
 	
 	m.edit(`${message.author}, tu as choisi la catégorie **Géant**, ton inscription est terminé fais la même commande pour voir ton inventaire.`)
 	
+        setTimeout(()=> {con.end()}, 15000)
+
 	} 
 	
 	if(r.emoji.name === "🖤") {
@@ -152,10 +164,12 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	
 	collect.stop()
 	
- m.clearReactions();	
+        m.clearReactions();	
  
 	m.edit(`${message.author}, tu as choisi la catégorie **Assassin**, ton inscription est terminé fais la même commande pour voir ton inventaire.`)
 	
+        setTimeout(()=> {con.end()}, 15000)
+
 	} 
 	
 	if(r.emoji.name === "🔥") {
@@ -170,6 +184,8 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	
 	m.edit(`${message.author}, tu as choisi la catégorie **Berserk**, ton inscription est terminé fais la même commande pour voir ton inventaire.`)
 	
+        setTimeout(()=> {con.end()}, 15000)
+
 	} 
 	
 	if(r.emoji.name === "🌸") {
@@ -184,14 +200,14 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	
 	m.edit(`${message.author}, tu as choisi la catégorie **Humain**, ton inscription est terminé fais la même commande pour voir ton inventaire.`)
 	
+        setTimeout(()=> {con.end()}, 15000)
+
 	} 
 	
 	}) 
 	
 	
 	}) 
-
-	setTimeout(()=> {con.end()}, 15000)
 
 	} else {
  
