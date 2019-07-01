@@ -32,7 +32,7 @@ let resp = ``;
  		
 for(var i in rows){
 			
-resp += `[${parseInt(i)+1}] - **${this.client.users.find("id", `${rows[i].id}`) == null ? "null" : this.client.users.find("id", `${rows[i].id}`).tag} - **Niveau: **${this.client.users.find("id", `${rows[i].id}`) == null ? "null" : rows[i].niveau}**\n`
+resp += `[${isNaN(parseInt(i)+1) ? "-" : parseInt(I)+1}] - **${this.client.users.find("id", `${rows[i].id}`) == null ? "NULL" : this.client.users.find("id", `${rows[i].id}`).tag} - **Niveau: **${this.client.users.find("id", `${rows[i].id}`) == null ? "/": rows[i].niveau}**\n`
 
 } 
 	
