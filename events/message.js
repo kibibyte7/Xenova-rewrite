@@ -1,4 +1,3 @@
-const mysql = require("mysql") 
 
 module.exports = class {
   constructor(client) {
@@ -72,6 +71,6 @@ if (message.content.indexOf(settings.prefix) !== 0) return;
         this.client.config.permLevels.find(l => l.level === level).name
       }) lance la commande ${cmd.help.name}`
     );
-    cmd.run(message, args, level, con);
+    cmd.run(message, args, level);
   }
 };
