@@ -31,10 +31,8 @@ con.query("SELECT * FROM inventory ORDER BY cast (niveau as SIGNED) DESC LIMIT 1
 let resp = ``;
  		
 for(var i in rows){
-
-if(!this.client.users.find("id", `${rows[i].id}`)) resp += `null\n`;
 			
-resp += `[${parseInt(i)+1}] - **${this.client.users.find("id", `${rows[i].id}`).tag} - **Niveau: **${rows[i].niveau}**\n`
+resp += `[${parseInt(i)+1}] - **${this.client.users.find("id", `${rows[i].id}`) == null ? "null" : this.client.users.find("id", `${rows[i].id}`).tag} - **Niveau: **${this.client.users.find("id", `${rows[i].id}`) == null ? "null" : rows[i].niveau}**\n`
 
 } 
 	
