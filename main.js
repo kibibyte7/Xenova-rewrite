@@ -15,11 +15,6 @@ password:process.env.password,
 database:process.env.database
 }) 
 
-con.connect(err => {
-if(err) throw err;
-console.log("Base de données connecté.") 
-})
-
 class Xenova extends Client {
   constructor(options) {
     super(options);
