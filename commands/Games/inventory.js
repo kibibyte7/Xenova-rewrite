@@ -68,7 +68,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	
 	collect.stop()
 	
- m.clearReactions();	
+        m.clearReactions();	
 	
 	m.edit(`${message.author}, tu as choisi la catégorie **Elfe**, ton inscription est terminé fais la même commande pour voir ton inventaire.`)
 	
@@ -76,13 +76,13 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	
 	if(r.emoji.name === "💛") {
 	
- con.query(`UPDATE inventory SET category = 'Sorcier' WHERE id = ${message.author.id}`, console.log)	
+        con.query(`UPDATE inventory SET category = 'Sorcier' WHERE id = ${message.author.id}`, console.log)	
 	
 	con.query(`UPDATE inventory SET pv = 75 WHERE id = ${message.author.id}`) 
 	
 	collect.stop()
 	
- m.clearReactions();	
+        m.clearReactions();	
 	
 	m.edit(`${message.author}, tu as choisi la catégorie **Sorcier**, ton inscription est terminé fais la même commande pour voir ton inventaire.`)
 	
@@ -191,7 +191,8 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	
 	}) 
 	
-		
+	con.end()
+	
 	} else {
  
 	message.channel.send({embed:{
@@ -298,10 +299,9 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 		
 	} 
 	
-	
-	})
+	con.end()
 
-        con.end();
+	});
 
 
 } 
