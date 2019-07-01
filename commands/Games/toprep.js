@@ -32,7 +32,7 @@ let resp = ``;
  		
 for(var i in rows){
 	
-resp += `[${parseInt(i)+1}] - **${bot.users.get(rows[i].id).tag} - **Reps: **${rows[i].rep}**\n`
+resp += `[${parseInt(i)+1}] - **${this.client.users.get(rows[i].id).tag} - **Reps: **${rows[i].rep}**\n`
 		
 } 
 	
