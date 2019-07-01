@@ -4,18 +4,6 @@ module.exports = class {
   constructor(client) {
     this.client = client;
   }
-  
-  var con = mysql.createConnection({
-host:process.env.host, 
-user:process.env.user, 
-password:process.env.password, 
-database:process.env.database
-}) 
-
-con.connect(err => {
-if(err) throw err;
-console.log("Base de données connecté.") 
-})
 
   async run(message) {
     if (message.author.bot) return;
