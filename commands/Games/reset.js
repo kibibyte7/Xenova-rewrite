@@ -27,13 +27,13 @@ if(err) throw err;
 console.log("Base de données connecté.") 
 })
 
-var mention = message.mentions.members.first() ? message.mentions.members.first() : this.client.users.find("id", args[0]);
+var mention = message.mentions.users.first();
 
 if(!mention) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Mentionne ou id un utilisateur.`);
 	  
-con.query(`DELETE FROM inventory WHERE id = ${mention.user.id}`)
+con.query(`DELETE FROM inventory WHERE id = ${mention.id}`)
 		 
-message.channel.send(`**${mention.user.tag}** a été reset !`)
+message.channel.send(`**${mention.tag}** a été reset !`)
 
 setTimeout(() => {con.end()}, 1000*5) 
 
