@@ -36,15 +36,21 @@ con.query("SELECT * FROM tresor", (err, rows) => {
       return;   
 	  }else{
 	  
-	  con.query(`UPDATE tresor SET TEMPS = '${randtime}', taker = '${message.author.username}', server = '${message.guild.name}'`)	  
+	  con.query(`UPDATE tresor SET TEMPS = '${randtime}', taker = '${message.author.username}' COLLATE utf8_general_ci, server = '${message.guild.name}'`)	  
   	  	
 	  con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, player) => {
-	 	
-	 	var randxp = Math.floor(Math.random()*100)*(player[0].tresors+1)
+	 
+          if(player.length == 0) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Tu n'es pas`) 
+	
+          var randxp = Math.floor(Math.random()*100)*(player[0].tresors+1)
 	   
 	  con.query(`UPDATE inventory SET xp = ${parseInt(player[0].xp)+randxp}, tresors = ${parseInt(player[0].tresors)+1} WHERE id = ${message.author.id}`) 	  
 	  
-	  message.reply(`GG! Tu as eu le trésor, tu as gagné: **${randxp} xp** [COMBO=${player[0].tresors}]`) 
+	  const nxtLvl = 500 * (Math.pow(2, player[0].xp) - 1);
+
+	  if(player[0].xp < nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(player[0].niveau)+1} WHERE id = ${message.author.id}`)
+	  
+	  message.reply(`GG! Tu as eu le trésor, tu as gagné: **${randxp} xp**`) 
 	  	
 	  }) 
 	  	
