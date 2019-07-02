@@ -27,7 +27,7 @@ if(err) throw err;
 console.log("Base de données connecté.") 
 })
 
-var mention = !message.mentions.members.first() ? this.client.users.find("id", args[0]) : message.mentions.members.first();
+var mention = message.mentions.members.first() ? message.mentions.members.first() : this.client.users.find("id", args[0]);
 
 if(!mention) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Mentionne ou id un utilisateur.`);
 	  
