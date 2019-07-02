@@ -1,5 +1,4 @@
 const Command = require("../../modules/Command.js")
-const mysql = require("mysql") 
 
 class Toprep extends Command {
 constructor(client){
@@ -12,7 +11,7 @@ aliases:[]
 }) 
 } 
 
-run(message, args, level) {
+run(message, args, level, con) {
 
 con.query("SELECT * FROM inventory ORDER BY cast (rep as SIGNED) DESC LIMIT 25", (err, rows) => {
  
