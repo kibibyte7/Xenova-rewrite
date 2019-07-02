@@ -1,5 +1,4 @@
 const Command = require("../../modules/Command.js")
-const mysql = require("mysql") 
 
 class Inventory extends Command {
 constructor(client){
@@ -12,19 +11,7 @@ aliases:["inv", "i"]
 }) 
 } 
 
-run(message, args, level) {
-
-var con = mysql.createConnection({
-host:process.env.host, 
-user:process.env.user, 
-password:process.env.password, 
-database:process.env.database 
-}) 
-
-con.connect(err => {
-if(err) throw err;
-console.log("Base de données connecté.") 
-}) 
+run(message, args, level, con) {
 
 con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows) => {
 	
@@ -309,8 +296,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	
 	});
 
-        setTimeout(()=> {con.end()}, 1000*50)
-	
+        
 } 
 } 
 
