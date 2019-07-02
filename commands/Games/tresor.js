@@ -36,7 +36,7 @@ con.query("SELECT * FROM tresor", (err, rows) => {
       return;   
 	  }else{
 	  
-	  con.query(`UPDATE tresor SET TEMPS = '${randtime}', taker = '${message.author.username}' COLLATE utf8_general_ci, server = '${message.guild.name}'`)	  
+	  con.query(`UPDATE tresor SET TEMPS = '${randtime}', taker = "${message.author.username}", server = '${message.guild.name}'`)	  
   	  	
 	  con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, player) => {
 	 
