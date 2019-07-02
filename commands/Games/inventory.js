@@ -205,6 +205,10 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	}, 
 	color:0xff0000, 
 	fields:[
+        {
+        name:"Mana:", 
+        value:rows[0].mana+"/"+rows[0].maxmana
+        }, 
 	{
  name:"Niveau:", 
  value:rows[0].niveau
