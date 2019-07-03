@@ -4,11 +4,11 @@ const pioches = require("../../pioches.json")
 class Craft extends Command {
 constructor(client){
 super(client, {
-name:"mine", 
-description:"Miner des ressources.", 
+name:"craft", 
+description:"Amélioration d'arme, armure et pioche.", 
 category:"Game", 
-usage:"mine", 
-aliases:["m", "mi"] 
+usage:"craft <objet> <level>", 
+aliases:["fabriquer"] 
 }) 
 } 
 
