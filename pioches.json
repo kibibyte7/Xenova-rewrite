@@ -1,0 +1,41 @@
+{
+"pioche":[
+
+"none":{
+"name":"mains nues", 
+"level" :"1" 
+}, 
+
+"bois":{
+"name":"pioche en bois", 
+"level":"2",
+"costwood":"30" 
+}, 
+
+"stone":{
+"name":"pioche en stone", 
+"level":"3", 
+"costwood":"100", 
+"coststone":"50" 
+}, 
+
+"fer":{
+"name":"pioche en fer", 
+"level":"4	",
+"costwood":"500", 
+"coststone":"250",
+"costfer":"125" 
+}, 
+
+"gold":{
+"name":"pioche en or", 
+"level":"5",
+"costwood":"1250",
+"coststone":"750", 
+"costfer":"500", 
+"costgold":"250"
+}
+
+] 
+
+}
