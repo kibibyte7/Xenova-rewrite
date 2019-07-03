@@ -1,5 +1,5 @@
 {
-"pioche":[
+"pioche":{
 
 "none":{
 "name":"mains nues", 
@@ -36,6 +36,6 @@
 "costgold":"250"
 }
 
-] 
+} 
 
 }
