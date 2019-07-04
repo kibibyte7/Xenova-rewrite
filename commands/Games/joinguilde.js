@@ -44,7 +44,8 @@ if(player.length == 0) return message.channel.send(`${this.client.emojis.find("n
 	 	} 
 	 	
 	 	message.channel.send(`${this.client.emojis.find("name", "typing")} ${mention}, ${message.author.tag} Souhaite rejoindre ta guilde, clique sur les réactions pour accepter ou refuser.`).then(m => {
-	 	
+	 	m.react(check)
+                setTimeout(() =>{m.react(wrong)}) 
 	  const filter = (reaction, user) => reaction.emoji.name == check.name && user.id == mention.id || reaction.emoji.name == wrong.name && user.id == mention.id;
 	     
    var collect = m.createReactionCollector(filter)
@@ -55,7 +56,7 @@ if(player.length == 0) return message.channel.send(`${this.client.emojis.find("n
 	     		
  r.remove(message.author);
 
- con.query(`UPDATE inventory SET guilde = '${rows[0].name}', guildowner = rows[0].ownerid`) 
+ con.query(`UPDATE inventory SET guilde = '${rows[0].name}', guildowner = ${rows[0].ownerid}`) 
 
  con.query(`UPDATE ${"guilde"+mention.id} SET members = ${parseInt(rows[0].members)+1}`)
  
