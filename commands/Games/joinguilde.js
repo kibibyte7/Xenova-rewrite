@@ -20,15 +20,19 @@ const wrong = this.client.emojis.find("name", "wrongMark")
 let mention = message.mentions.members.first();
 
 if(!mention) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Mentionne un utilisateur.`); 
- 	 	
-con.query(`SELECT * FROM inventory WHERE id = ${mention.user.id}`, (err, player) => {
+
+con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, player) => {
+
+if(me.length == 0) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Cet utilisateur n'est pas inscrit dans le jeu.`) 
+
+if(me[0].niveau < 40) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Tu n'as pas le niveau pour cette fonction, tu dois être niveau 40.`);
 	  
-	  if(player.length == 0) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Cet utilisateur n'est pas inscrit dans le jeu.`) 
+if(parseInt(me[0].guilde) !== 0) return message.channel.send(":x: Tu as déjà une guilde.");
+	 	  	 	
+con.query(`SELECT * FROM inventory WHERE id = ${mention.user.id}`, (err, me) => {
 	  
-	  if(player[0].niveau < 40) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Tu n'as pas le niveau pour cette fonction, tu dois être niveau 40.`);
-	  
-	  if(parseInt(player[0].guilde) !== 0) return message.channel.send(":x: Tu as déjà une guilde.");
-	 
+if(player.length == 0) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Cet utilisateur n'est pas inscrit dans le jeu.`) 
+
 	 	con.query(`SELECT * FROM ${"guilde"+mention.user.id} WHERE ownerid = ${mention.user.id}`, (err, rows) => {
 	 	
 	 	if(rows[0].members == rows[0].maxmember) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Cette guilde a atteint son nombre maximum de personnes.`)
@@ -73,6 +77,8 @@ collect.stop();
 	 	
 }) 
 	 	
+}) 
+
 }) 
 
 }) 
