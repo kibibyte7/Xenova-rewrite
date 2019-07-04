@@ -1,6 +1,6 @@
 const Command = require("../../modules/Command.js")
 
-class Guildinfo extends Command {
+class Guildeinfo extends Command {
 constructor(client){
 super(client, {
 name:"guildeinfo", 
