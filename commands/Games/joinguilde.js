@@ -21,7 +21,7 @@ let mention = message.mentions.members.first();
 
 if(!mention) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Mentionne un utilisateur.`); 
 
-con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, player) => {
+con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, me) => {
 
 if(me.length == 0) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Cet utilisateur n'est pas inscrit dans le jeu.`) 
 
@@ -29,7 +29,7 @@ if(me[0].niveau < 40) return message.channel.send(`${this.client.emojis.find("na
 	  
 if(parseInt(me[0].guilde) !== 0) return message.channel.send(":x: Tu as déjà une guilde.");
 	 	  	 	
-con.query(`SELECT * FROM inventory WHERE id = ${mention.user.id}`, (err, me) => {
+con.query(`SELECT * FROM inventory WHERE id = ${mention.user.id}`, (err, player) => {
 	  
 if(player.length == 0) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Cet utilisateur n'est pas inscrit dans le jeu.`) 
 
