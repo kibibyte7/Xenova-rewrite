@@ -15,12 +15,12 @@ run(message, args, level, con) {
 
 con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, player) => {
 	  
-	  if(player.length == 0) return message.channel.send(":x: Cet utilisateur n'est pas inscrit dans le jeu.") 
+	  if(player.length == 0) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} tu n'es pas inscrit dans le jeu fais +i pour commander le jeu.`) 
 	   	 	
 	 	con.query(`SELECT * FROM ${"guilde"+player[0].guildowner} WHERE ownerid = ${player[0].guildowner}`, (err, rows) => {
 	 	
 	 	if(err) {
-	 	if(err.code === 'ER_NO_SUCH_TABLE') return message.channel.send("Cet utilisateur n'est pas le owner d'une guilde ou n'en a pas.") 
+	 	if(err.code === 'ER_NO_SUCH_TABLE') return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Tu n'as pas de guilde.`) 
 	 	} 
 	 	
 	 	message.channel.send({embed:{
@@ -40,7 +40,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, playe
 	 	},
 	 	{
 	 	name:"Propriétaire :", 
-	 	value:bot.users.get(rows[0].ownerid).tag
+	 	value:this.client.users.get(rows[0].ownerid).tag
 	 	},
 	 	{
 	 	name:"Nombre de victoires :", 
