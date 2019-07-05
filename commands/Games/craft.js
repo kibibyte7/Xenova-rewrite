@@ -14,11 +14,14 @@ aliases:["fabriquer"]
 
 run(message, args, level, con) {
 
+con.query(`SELECT * FROM inventory WHERE id = ${message.author.id} `, (err, rows) => {
+   
+if(rows.length == 0) return message.channel.send("Tu n'es pas entré dans le jeu, fais +i pour t'inscrire.")
+	  
 if(!args[0] || args.length == 0) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} ${message.author}, spécifié un objet à crafter entre: **pioche, épée, bouclier**`);
 
 if(args[0] === "pioche") {
-con.query(`SELECT * FROM inventory WHERE id = ${message.author.id} `, (err, rows) => {
-   		
+		
    console.log(pioches.pioches[rows[0].pickaxe+1].cost)
    
    var cost = pioches.pioches[rows[0].pickaxe+1].cost[0]
@@ -110,11 +113,12 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id} `, (err, rows
    }) 
    
    }) 
-   	
-   }) 
-} 
+   	   
+}
 
+ 
 
+}) 
    	
 }
 
