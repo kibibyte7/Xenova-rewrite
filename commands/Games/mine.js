@@ -227,9 +227,9 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	 	
 	 	else if(chance > 60) gold();
 	 	
-	 	else if(chance > 55) diamant();
+	 	else if(chance > 49) diamant();
 	 	
-	 	else if(chance > 40) emeraude();
+	 	else if(chance > 35) emeraude();
 	 	 	
 	 	else if(chance > 20) prismes();
 	 	 
