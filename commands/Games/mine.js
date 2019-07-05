@@ -141,7 +141,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	 	
 	 	var randxp = Math.floor(Math.random()*10*rows[0].pickaxe+1)
 	 	
-	 	con.query(`UPDATE inventory SET mana = ${parseInt(rows[0].mana)-1}, stone = ${parseInt(rows[0].emeraude)+randem}, xp = ${parseInt(rows[0].xp)+randxp} WHERE id = ${message.author.id}`)
+	 	con.query(`UPDATE inventory SET mana = ${parseInt(rows[0].mana)-1}, emeraude = ${parseInt(rows[0].emeraude)+randem}, xp = ${parseInt(rows[0].xp)+randxp} WHERE id = ${message.author.id}`)
 	 	
 	 	const nxtLvl = 500 * (Math.pow(2, rows[0].xp) - 1);
 
