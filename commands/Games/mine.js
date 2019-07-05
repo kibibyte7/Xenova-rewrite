@@ -125,7 +125,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 
 	 	if(rows[0].xp > nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(rows[0].niveau)+1} WHERE id = ${message.author.id}`)
 	  
-	 	message.reply(`tu as miné ${randdiam} *diamant** et gagné ${randxp} xp ! [Mana restant : **${rows[0].mana}/${rows[0].maxmana}**]`) 
+	 	message.reply(`tu as miné ${randdiam} **diamant** et gagné ${randxp} xp ! [Mana restant : **${rows[0].mana}/${rows[0].maxmana}**]`) 
 	 	
 	 	}) 
 	 	
