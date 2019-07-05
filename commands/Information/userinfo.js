@@ -81,7 +81,7 @@ value: !Author.presence.game ? "Pas de jeu." : Author.presence.game.name
 },
 {
 name:":gear: -> Liste de rôles:", 
-value:message.member.roles.size > 25 ? "Il a trop de rôles." : mention.roles.map(r => r).join(" ")
+value:message.member.roles.size > 25 ? "Il a trop de rôles." : message.member.roles.map(r => r).join(" ")
 }, 
 {
 name:":gear: -> Liste de permissions", 
