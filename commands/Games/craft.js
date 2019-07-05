@@ -7,13 +7,16 @@ super(client, {
 name:"craft", 
 description:"Améliorer la pioche", 
 category:"Game", 
-usage:"craft", 
+usage:"craft <objet>", 
 aliases:["fabriquer"] 
 }) 
 } 
 
 run(message, args, level, con) {
 
+if(!args[0] || args.length == 0) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} ${message.author}, spécifié un objet à crafter entre: **pioche, épée, bouclier**`);
+
+if(args[0] === "pioche") {
 con.query(`SELECT * FROM inventory WHERE id = ${message.author.id} `, (err, rows) => {
    		
    console.log(pioches.pioches[rows[0].pickaxe+1].cost)
@@ -109,6 +112,9 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id} `, (err, rows
    }) 
    	
    }) 
+} 
+
+
    	
 }
 
