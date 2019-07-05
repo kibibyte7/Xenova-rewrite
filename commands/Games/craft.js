@@ -44,7 +44,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id} `, (err, rows
 
    const wrong = this.client.emojis.find("name", "wrongMark")
 
-   message.channel.send(`La prochain niveau de pioche est : **${nextpioche}**\n\n**Coût:**\n- ${wood} Bois\n- ${stone} Pierre\n- ${fer} Fer\n- ${gold} Or\n- ${diamant} Diamants\n- ${emeraude} Émeraudes\n- ${prismes} Prismes-parfaits\n- ${antimatter} Anti-matières\n- ${osrizk} Osrizk`).then(m => {  
+   message.channel.send(`${this.client.emojis.find("name", "typing")} ${message.author}, Le prochain niveau de pioche est : **${nextpioche}**\n\n**Coût:**\n- ${wood} Bois\n- ${stone} Pierre\n- ${fer} Fer\n- ${gold} Or\n- ${diamant} Diamants\n- ${emeraude} Émeraudes\n- ${prismes} Prismes-parfaits\n- ${antimatter} Anti-matières\n- ${osrizk} Osrizk\n\n**Clique sur les réactions pour confirmer ou annuler.**`).then(m => {  
    
    function craft() {
    	
