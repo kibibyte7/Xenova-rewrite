@@ -1,4 +1,5 @@
 const Command = require("../../modules/Command.js")
+const pioches = require("../../pioches.json") 
 
 class Inventory extends Command {
 constructor(client){
@@ -185,7 +186,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	}) 
         
 	} else {
- 
+        var pioche = pioches.pioches[rows[0].pickaxe]
 	message.channel.send({embed:{
 	author:{
 	name:`Inventaire de ${message.author.tag}`	
@@ -264,6 +265,10 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
  name:"Monstres tués:", 
  value:rows[0].kills
 	},
+{
+ name:"Pioche:", 
+ value:`${pioche.name} (Level  - ${pioche.level})`
+	}, 
 	{
  name:"Niveau d'arme:", 
  value:rows[0].weaponlevel
