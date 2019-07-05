@@ -3,30 +3,30 @@
 "pioches":[
 
 {
-"name":"mains nues", 
+"name":"Mains nues", 
 "level" :"0" 
 }, 
 
 {
-"name":"pioche en bois", 
+"name":"Pioche en bois", 
 "level":"1",
 "cost":[{"wood":"30"}]
 }, 
 
 {
-"name":"pioche en stone", 
+"name":"Pioche en stone", 
 "level":"2", 
 "cost":[{"wood":"100", "stone":"50"}] 
 }, 
 
 {
-"name":"pioche en fer", 
+"name":"Pioche en fer", 
 "level":"3",
 "cost":[{"wood":"500", "stone":"250", "fer":"125"}] 
 }, 
 
 {
-"name":"pioche en or", 
+"name":"Pioche en or", 
 "level":"4",
 "cost":[{"wood":"1250","stone":"750", "fer":"500", "gold":"250"}] 
 }
