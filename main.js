@@ -40,7 +40,7 @@ class Xenova extends Client {
   }
 
   handleDisconnect(con) {
-  con; // Recreate the connection, since
+  con = mysql.createConnection(db_config); // Recreate the connection, since
                                                   // the old one cannot be reused.
 
   con.connect(function(err) {              // The server is either down
