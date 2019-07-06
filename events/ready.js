@@ -5,7 +5,8 @@ this.client = client
 
 async run() {
 	await this.client.wait(1000)
-	
+	this.client.handleDisconnect();
+        this.client.regenMana();
 	this.client.appInfo = this.client.fetchApplication();
 	setInterval(async () => {
 	this.client.fetchApplication()
