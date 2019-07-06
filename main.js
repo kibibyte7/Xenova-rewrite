@@ -6,7 +6,16 @@ const readdir = promisify(require("fs").readdir);
 const Enmap = require("enmap");
 const klaw = require("klaw");
 const path = require("path");
+const mysql = require("mysql") 
+var db_config = {
+host:process.env.host, 
+user:process.env.user, 
+password:process.env.password, 
+database:process.env.database, 
+useUnicode:true
+} 
 
+var con;
 
 class Xenova extends Client {
   constructor(options) {
@@ -19,6 +28,7 @@ class Xenova extends Client {
     
     this.queue = new Map();
     
+    this.con = con;
 
     this.settings = new Enmap({
       name: "settings",
@@ -31,8 +41,41 @@ class Xenova extends Client {
     this.wait = require("util").promisify(setTimeout);
   }
 
-  // Permission
+  handleDisconnect(con) {
+  con = mysql.createConnection(db_config); // Recreate the connection, since
+                                                  // the old one cannot be reused.
 
+  con.connect(function(err) {              // The server is either down
+    if(err) {                                     // or restarting (takes a while sometimes).
+      console.log('error when connecting to db:', err);
+      setTimeout(handleDisconnect, 2000); // We introduce a delay before attempting to reconnect,
+    }                                     // to avoid a hot loop, and to allow our node script to
+  });                                     // process asynchronous requests in the meantime.
+                                          // If you're also serving http, display a 503 error.
+  con.on('error', function(err) {
+    console.log('db error', err);
+    if(err.code === 'PROTOCOL_CONNECTION_LOST') { // Connection to the MySQL server is usually
+      handleDisconnect();                         // lost due to either server restart, or a
+    } else {                                      // connnection idle timeout (the wait_timeout
+      throw err;                                  // server variable configures this)
+    }
+  });
+}
+
+  RegenMana(con){
+ 
+ con.query("SELECT * FROM inventory", (err, rows) => {
+ 	
+ for(var i in rows) {
+ 
+ con.query(`UPDATE inventory SET mana = ${parseInt(rows[i].mana)+1} WHERE id = ${rows[i].id}`)
+ 
+ if(rows[0].mana > rows[0].maxmana) return;
+ }
+setTimeout(RegenMana, 1000*60)
+}) 
+} 
+  // Permission
   permlevel(message) {
     let permlvl = 0;
 
