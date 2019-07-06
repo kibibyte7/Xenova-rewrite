@@ -42,7 +42,7 @@ function RegenMana(){
  
  if(rows[0].mana > rows[0].maxmana) return;
  }
-setTimeout(() => RegenMana()}, 1000*60)
+setTimeout(RegenMana, 1000*60)
 }) 
 } 
 
