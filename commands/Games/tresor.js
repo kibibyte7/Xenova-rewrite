@@ -26,7 +26,7 @@ con.query("SELECT * FROM tresor", (err, rows) => {
 	 	var distance = rows[0].TEMPS - now;
    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-   var randtime = Date.now()+Math.floor(Math.random()+1000*60*40) 
+   var randtime = Date.now()+Math.floor(Math.random()*1000*60*40) 
 	  	 
    if((rows[0].TEMPS > Date.now()) && (rows[0].TEMPS !== 0)){         
       message.channel.send(`Le trésor n'est pas disponible, il le sera dans **${minutes == 0 ? "" : minutes + " minutes"} ${seconds == 0 ? "" : seconds + " secondes"}**, le dernier trésor a été pris par ${this.client.users.find("id", `${rows[0].taker}`).tag} depuis le serveur ${rows[0].server}\nNOTE: Les messages envoyés par l'utilisateur et le bot sont supprimés pour réduire au maximum leurs nombres.`).then(m => {
