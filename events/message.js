@@ -63,7 +63,7 @@ if (message.content.indexOf(settings.prefix) !== 0) return;
       .trim()
       .split(/ +/g);
     const command = args.shift().toLowerCase();
-    const con = this.client.con;
+    
     if (message.guild && !message.member)
       await message.guild.fetchMember(message.author);
 
