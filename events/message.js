@@ -31,6 +31,7 @@ function handleDisconnect() {
 }
 
 handleDisconnect();
+
 function regenmana(){
  
  con.query("SELECT * FROM inventory", (err, rows) => {
@@ -41,6 +42,8 @@ function regenmana(){
  
  if(rows[0].mana > rows[0].maxmana) return;
  } 
+}) 
+} 
 
 setInterval(regenmana, 1000*60)
 //setInterval(regenpv, 1000*60)
