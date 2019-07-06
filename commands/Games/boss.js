@@ -56,7 +56,7 @@ con.query(`SELECT * FROM inventory WHERE id =${message.author.id}`, (err, rows) 
     	con.query(`UPDATE inventory SET pv = ${playerpv < 0 ? 0 : playerpv} WHERE id = ${message.author.id}`)
   
     	if(bosspv == 0) con.query(`UPDATE inventory SET kills = ${parseInt(rows[0].kills)+1}, xp = ${parseInt(rows[0].xp)+bossxp} WHERE id = ${message.author.id}`) 
-    	if(rows[0].xp > nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(rows[0].niveau)+1}, attack = ${parseInt(rows[0].attack)*rows[0].niveau+3}, defense = ${parseInt(rows[0].defense)*rows[0].niveau+3)+3} WHERE id = ${message.author.id}`)
+    	if(rows[0].xp > nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(rows[0].niveau)+1}, attack = ${parseInt(rows[0].attack)*rows[0].niveau+3}, defense = ${parseInt(rows[0].defense)*rows[0].niveau+3} WHERE id = ${message.author.id}`)
 	  
     	})
 
