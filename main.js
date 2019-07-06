@@ -40,6 +40,24 @@ const mysql = require("mysql")
   });
 }
 
+handleDisconnect();
+
+function regenMana(){
+ 
+ con.query("SELECT * FROM inventory", (err, rows) => {
+ 	
+ for(var i in rows) {
+ 
+ con.query(`UPDATE inventory SET mana = ${parseInt(rows[i].mana)+1} WHERE id = ${rows[i].id}`)
+ 
+ if(rows[0].mana > rows[0].maxmana) return;
+ }
+setTimeout(RegenMana, 1000*60)
+}) 
+} 
+
+regenMana();
+
 class Xenova extends Client {
   constructor(options) {
     super(options);
@@ -64,19 +82,6 @@ class Xenova extends Client {
     this.wait = require("util").promisify(setTimeout);
   }
 
-  regenMana(){
- 
- this.con.query("SELECT * FROM inventory", (err, rows) => {
- 	
- for(var i in rows) {
- 
- this.con.query(`UPDATE inventory SET mana = ${parseInt(rows[i].mana)+1} WHERE id = ${rows[i].id}`)
- 
- if(rows[0].mana > rows[0].maxmana) return;
- }
-setTimeout(RegenMana, 1000*60)
-}) 
-} 
   // Permission
   permlevel(message) {
     let permlvl = 0;
