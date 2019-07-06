@@ -39,18 +39,18 @@ class Xenova extends Client {
     this.wait = require("util").promisify(setTimeout);
   }
 
-  handleDisconnect() {
-  this.con; // Recreate the connection, since
+  handleDisconnect(con) {
+  con; // Recreate the connection, since
                                                   // the old one cannot be reused.
 
-  this.con.connect(function(err) {              // The server is either down
+  con.connect(function(err) {              // The server is either down
     if(err) {                                     // or restarting (takes a while sometimes).
       console.log('error when connecting to db:', err);
       setTimeout(handleDisconnect, 2000); // We introduce a delay before attempting to reconnect,
     }                                     // to avoid a hot loop, and to allow our node script to
   });                                     // process asynchronous requests in the meantime.
                                           // If you're also serving http, display a 503 error.
-  this.con.on('error', function(err) {
+  con.on('error', function(err) {
     console.log('db error', err);
     if(err.code === 'PROTOCOL_CONNECTION_LOST') { // Connection to the MySQL server is usually
       handleDisconnect();                         // lost due to either server restart, or a
@@ -60,13 +60,13 @@ class Xenova extends Client {
   });
 }
 
-  regenMana(){
+  regenMana(con){
  
- this.con.query("SELECT * FROM inventory", (err, rows) => {
+ con.query("SELECT * FROM inventory", (err, rows) => {
  	
  for(var i in rows) {
  
- this.con.query(`UPDATE inventory SET mana = ${parseInt(rows[i].mana)+1} WHERE id = ${rows[i].id}`)
+ con.query(`UPDATE inventory SET mana = ${parseInt(rows[i].mana)+1} WHERE id = ${rows[i].id}`)
  
  if(rows[0].mana > rows[0].maxmana) return;
  }
