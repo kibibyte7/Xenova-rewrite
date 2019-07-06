@@ -30,6 +30,30 @@ const mysql = require("mysql")
 
 handleDisconnect()
 
+setInterval(() => {
+con.query("SELECT * FROM inventory", (err, rows) => {
+ 	
+ for(var i in rows) {
+ 
+ con.query(`UPDATE inventory SET mana = ${parseInt(rows[i].mana)+1} WHERE id = ${rows[i].id}`)
+ 
+ } 
+ 
+ }) 
+}, 60000)
+
+setInterval(() => {
+con.query("SELECT * FROM inventory", (err, rows) => {
+ 	
+ for(var i in rows) {
+ 
+ con.query(`UPDATE inventory SET pv = ${parseInt(rows[i].pv)+1} WHERE id = ${rows[i].id}`)
+ 
+ } 
+ 
+ }) 
+}, 60000)
+
 module.exports = class {
   constructor(client) {
     this.client = client;
