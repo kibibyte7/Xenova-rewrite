@@ -1,0 +1,93 @@
+{
+
+"bosses":[
+
+{
+"name":"Blob",
+"level":"1"	,
+"attack" :"2",
+"defense":"0",
+"hp":"10", 
+"xp":"5"
+}, 
+{
+"name":"Blob renforcé",
+"level":"2"	,
+"attack" :"5",
+"defense":"5",
+"hp":"20", 
+"xp":"15"
+},
+{
+"name":"Blob bleu",
+"level":"3"	,
+"attack" :"10",
+"defense":"10",
+"hp":"50", 
+"xp":"30"
+}, 
+{
+"name":"Grand blob",
+"level":"4"	,
+"attack" :"25",
+"defense":"25",
+"hp":"100", 
+"xp":"60"
+}, 
+
+{
+"name":"Grand blob renforcé",
+"level":"5"	,
+"attack" :"40",
+"defense":"40",
+"hp":"150", 
+"xp":"120"
+},  
+
+{
+"name":"Grand blob bleu",
+"level":"6"	,
+"attack" :"80",
+"defense":"80",
+"hp":"200", 
+"xp":"240"
+}, 
+
+{
+"name":"Blob de lave",
+"level":"7"	,
+"attack" :"160",
+"defense":"160",
+"hp":"300", 
+"xp":"500"
+}, 
+
+{
+"name":"Blob de lave renforcé",
+"level":"8"	,
+"attack" :"320",
+"defense":"320",
+"hp":"600", 
+"xp":"1000"
+}, 
+{
+"name":"Blob géant",
+"level":"9"	,
+"attack" :"620",
+"defense":"620",
+"hp":"1200", 
+"xp":"1000"
+},
+ 
+{
+"name":"Blob de lave géant",
+"level":"10"	,
+"attack" :"1240",
+"defense":"1240",
+"hp":"2400", 
+"xp":"1000"
+}
+
+]
+
+} 
