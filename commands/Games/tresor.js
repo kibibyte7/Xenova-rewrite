@@ -40,15 +40,17 @@ con.query("SELECT * FROM tresor", (err, rows) => {
   	  	
 	  con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, player) => {
 	 
-          if(player.length == 0) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Tu n'es pas`) 
+          if(player.length == 0) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Tu n'es pas entré dans le jeu fais +i pour t'inscrire.`) 
 	
           var randxp = Math.floor(Math.random()*100)*(player[0].tresors+1)
 	   
 	  con.query(`UPDATE inventory SET xp = ${parseInt(player[0].xp)+randxp}, tresors = ${parseInt(player[0].tresors)+1} WHERE id = ${message.author.id}`) 	  
 	  
-	  const nxtLvl = 500 * (Math.pow(2, player[0].xp) - 1);
-
-	  if(player[0].xp < nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(player[0].niveau)+1} WHERE id = ${message.author.id}`)
+	  let level = player[0].niveau;
+    	
+    	  const nxtLvl = 500 * (Math.pow(2, player[0].xp) - 1)*level;
+    	
+	  if(rows[0].xp > nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(player[0].niveau)+1} WHERE id = ${message.author.id}`)
 	  
 	  message.reply(`GG! Tu as eu le trésor, tu as gagné: **${randxp} xp**`) 
 	  	
