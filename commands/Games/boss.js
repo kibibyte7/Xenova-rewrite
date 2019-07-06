@@ -1,7 +1,7 @@
 const Command = require("../../modules/Command.js")
 const bosses = require("../../bosses.json")
 
-class Craft extends Command {
+class Boss extends Command {
 constructor(client){
 super(client, {
 name:"boss", 
