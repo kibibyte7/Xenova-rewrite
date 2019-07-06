@@ -43,6 +43,13 @@ class Xenova extends Client {
   }
 
   handleDisconnect(con) {
+   var db_config = {
+    host:process.env.host, 
+    user:process.env.user, 
+    password:process.env.password, 
+    database:process.env.database, 
+    useUnicode:true
+    } 
   con = mysql.createConnection(db_config); // Recreate the connection, since
                                                   // the old one cannot be reused.
 
