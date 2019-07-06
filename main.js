@@ -7,17 +7,18 @@ const Enmap = require("enmap");
 const klaw = require("klaw");
 const path = require("path");
 const mysql = require("mysql") 
-var db_config = {
-host:process.env.host, 
-user:process.env.user, 
-password:process.env.password, 
-database:process.env.database, 
-useUnicode:true
-} 
 
 class Xenova extends Client {
   constructor(options) {
     super(options);
+
+    var db_config = {
+    host:process.env.host, 
+    user:process.env.user, 
+    password:process.env.password, 
+    database:process.env.database, 
+    useUnicode:true
+    } 
 
     this.config = require("./config.js");
 
