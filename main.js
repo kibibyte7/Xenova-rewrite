@@ -12,6 +12,7 @@ class Xenova extends Client {
   constructor(options) {
     super(options);
 
+
     var db_config = {
     host:process.env.host, 
     user:process.env.user, 
@@ -20,6 +21,7 @@ class Xenova extends Client {
     useUnicode:true
     } 
 
+
     this.config = require("./config.js");
 
     this.commands = new Collection();
@@ -27,7 +29,7 @@ class Xenova extends Client {
     
     this.queue = new Map();
 
-    this.con = mysql.createConnection();
+    this.con = mysql.createConnection(db_config);
     this.con.on('error',err=>{con.end()})
     this.settings = new Enmap({
       name: "settings",
