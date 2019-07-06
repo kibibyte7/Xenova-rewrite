@@ -62,7 +62,7 @@ class Xenova extends Client {
   });
 }
 
-  RegenMana(con){
+  regenMana(con){
  
  con.query("SELECT * FROM inventory", (err, rows) => {
  	
