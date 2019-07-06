@@ -32,7 +32,7 @@ function handleDisconnect() {
 
 handleDisconnect();
 
-function regenmana(){
+function RegenMana(){
  
  con.query("SELECT * FROM inventory", (err, rows) => {
  	
@@ -41,12 +41,13 @@ function regenmana(){
  con.query(`UPDATE inventory SET mana = ${parseInt(rows[i].mana)+1} WHERE id = ${rows[i].id}`)
  
  if(rows[0].mana > rows[0].maxmana) return;
- } 
+ }
+setTimeout(() => RegenMana()}, 1000*60)
 }) 
 } 
 
-setInterval(regenmana, 1000*60)
-//setInterval(regenpv, 1000*60)
+RegenMana();
+
 module.exports = class {
   constructor(client) {
     this.client = client;
