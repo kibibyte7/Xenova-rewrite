@@ -14,10 +14,10 @@ password:process.env.password,
 database:process.env.database, 
 useUnicode:true
 } 
-var con;
+
 class Xenova extends Client {
-  constructor(options, con) {
-    super(options, con);
+  constructor(options) {
+    super(options);
 
     this.config = require("./config.js");
 
@@ -26,7 +26,7 @@ class Xenova extends Client {
     
     this.queue = new Map();
 
-    this.con = this.con;
+    this.con = mysql.createConnection(db_config);
 
     this.settings = new Enmap({
       name: "settings",
@@ -40,7 +40,7 @@ class Xenova extends Client {
   }
 
   handleDisconnect() {
-  this.con = mysql.createConnection(db_config); // Recreate the connection, since
+  this.con; // Recreate the connection, since
                                                   // the old one cannot be reused.
 
   con.connect(function(err) {              // The server is either down
