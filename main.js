@@ -15,8 +15,6 @@ database:process.env.database,
 useUnicode:true
 } 
 
-var con;
-
 class Xenova extends Client {
   constructor(options) {
     super(options);
@@ -28,8 +26,6 @@ class Xenova extends Client {
     
     this.queue = new Map();
     
-    this.con = con;
-
     this.settings = new Enmap({
       name: "settings",
       cloneLevel: "deep",
@@ -41,8 +37,8 @@ class Xenova extends Client {
     this.wait = require("util").promisify(setTimeout);
   }
 
-  handleDisconnect(con) {
-  con = mysql.createConnection(db_config); // Recreate the connection, since
+  handleDisconnect() {
+  this.con = mysql.createConnection(db_config); // Recreate the connection, since
                                                   // the old one cannot be reused.
 
   con.connect(function(err) {              // The server is either down
@@ -62,13 +58,13 @@ class Xenova extends Client {
   });
 }
 
-  regenMana(con){
+  regenMana(){
  
- con.query("SELECT * FROM inventory", (err, rows) => {
+ this.con.query("SELECT * FROM inventory", (err, rows) => {
  	
  for(var i in rows) {
  
- con.query(`UPDATE inventory SET mana = ${parseInt(rows[i].mana)+1} WHERE id = ${rows[i].id}`)
+ this.con.query(`UPDATE inventory SET mana = ${parseInt(rows[i].mana)+1} WHERE id = ${rows[i].id}`)
  
  if(rows[0].mana > rows[0].maxmana) return;
  }
