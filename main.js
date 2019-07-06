@@ -26,8 +26,8 @@ class Xenova extends Client {
     
     this.queue = new Map();
 
-    this.con = this.con;
-
+    this.con = mysql.createConnection();
+    this.con.on('error',err=>{con.end()})
     this.settings = new Enmap({
       name: "settings",
       cloneLevel: "deep",
