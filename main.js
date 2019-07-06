@@ -14,10 +14,10 @@ password:process.env.password,
 database:process.env.database, 
 useUnicode:true
 } 
-
+var con;
 class Xenova extends Client {
-  constructor(options) {
-    super(options);
+  constructor(options, con) {
+    super(options, con);
 
     this.config = require("./config.js");
 
@@ -26,7 +26,7 @@ class Xenova extends Client {
     
     this.queue = new Map();
 
-    this.con;
+    this.con = this.con;
 
     this.settings = new Enmap({
       name: "settings",
