@@ -31,7 +31,7 @@ class Search extends Command {
    	
    	} 
    	
-   	resp += `\`Choisi un résultat de entre 1 et ${videos.length} ou cancel pour annuler\`` 
+   	resp += isNaN(i) ? `` : `\`Choisi un résultat de entre 1 et ${videos.length} ou cancel pour annuler\`` 
    	
    	message.channel.send(resp) 
    	
