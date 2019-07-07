@@ -16,15 +16,16 @@ class Play extends Command {
   }
 
   async run(message, args) {
+  	
     const { voiceChannel } = message.member;
     if (!voiceChannel)
       return message.channel.send(
         "Tu dois être dans un salon vocal pour utiliser cette commande !"
       );
       
-    async search(args.join(" "), opts, function(err, res) {
-
+    
     const serverQueue = message.client.queue.get(message.guild.id);
+    search(args.join(" "), opts, async function(err, res) {
     const songInfo = await ytdl.getInfo(!res[0].link ? args[0] : res[0].link);
     const song = {
       id: songInfo.video_id,
@@ -33,7 +34,8 @@ class Play extends Command {
       requester:message.author.username
     };
     console.log(song) 
-
+    }) 
+    
     if (serverQueue) {
       serverQueue.songs.push(song);
       return message.channel.send(
@@ -84,7 +86,6 @@ class Play extends Command {
       await voiceChannel.leave();
     }
   }
-})
 }
 
 module.exports = Play;
