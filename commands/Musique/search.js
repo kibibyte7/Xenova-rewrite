@@ -55,9 +55,9 @@ class Search extends Command {
    		
    		}
         
-            let commandFile = require("./play.js")
+            let command = new Play();
 
-            return commandFile.run(message,  [this.videos[parseInt(m.content-1)].url])
+            return command.run(message,  [this.videos[parseInt(m.content-1)].url])
 
  }) 
  
