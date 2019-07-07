@@ -21,6 +21,7 @@ class Lyrics extends Command {
     if(!serverQueue) {
     if(!args[0] || args.length < 1) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Tu dois entrer une recherche.`); 
     } else {
+    	
     message.channel.send(`${this.client.emojis.find("name", "typing")} Recherche de \`${!args[0] ? serverQueue.songs[0].title : args.join(" ")}\`.`).then(m => m.delete(4000))
         
     fetch(`https://api.ksoft.si/lyrics/search?q=${encodeURIComponent(!args[0]? serverQueue.songs[0].title :args.join(" "))}`, {
@@ -69,11 +70,12 @@ class Lyrics extends Command {
         } 
         }})
         } 
-        } 
-    });
-});
-	
-}
+        }) 
+       }) 
+       
+    }
+
+}	
 
 }
 
