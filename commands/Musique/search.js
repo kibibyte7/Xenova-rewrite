@@ -55,7 +55,7 @@ class Search extends Command {
    		
    		}
 
-            let Play = require("play.js")
+            let Play = require("./play.js")
         
             let command = new Play();
 
