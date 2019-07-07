@@ -15,7 +15,7 @@ class Play extends Command {
     });
   }
 
-  asyncrun(message, args) {
+  async run(message, args) {
     const { voiceChannel } = message.member;
     if (!voiceChannel)
       return message.channel.send(
