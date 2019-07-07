@@ -25,6 +25,10 @@ class Play extends Command {
       
     
     const serverQueue = message.client.queue.get(message.guild.id);
+    var opts = {
+        maxResults: 10,
+        key: process.env.ytkey
+      };
     search(args.join(" "), opts, async function(err, res) {
     const songInfo = await ytdl.getInfo(!res[0].link ? args[0] : res[0].link);
     const song = {
