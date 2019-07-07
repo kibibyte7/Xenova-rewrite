@@ -1,6 +1,7 @@
 const Command = require("../../modules/Command.js");
 const ytdl = require("ytdl-core");
 const ytdlDiscord = require("ytdl-core-discord");
+const search = require("yt-search");
 const { Util } = require("discord.js");
 
 class Play extends Command {
@@ -20,9 +21,11 @@ class Play extends Command {
       return message.channel.send(
         "Tu dois être dans un salon vocal pour utiliser cette commande !"
       );
+      
+    search(args.join(" "), opts, function(err, res) {
 
     const serverQueue = message.client.queue.get(message.guild.id);
-    const songInfo = await ytdl.getInfo(args[0]);
+    const songInfo = await ytdl.getInfo(!res[0].link ? args[0] : res[0].link);
     const song = {
       id: songInfo.video_id,
       title: songInfo.title,
@@ -81,6 +84,7 @@ class Play extends Command {
       await voiceChannel.leave();
     }
   }
+})
 }
 
 module.exports = Play;
