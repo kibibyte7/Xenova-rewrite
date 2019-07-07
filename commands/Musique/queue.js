@@ -18,8 +18,8 @@ class Queue extends Command {
       return message.channel.send("Il n'y a aucune musique en cours !");
     let songs = serverQueue.songs;
     for(var i in songs){
-    if(songs[i] == undefined) resp += ``;
-    resp += `[${parseInt(i)+1}] - **${songs[i].title}** - Demandé par: **{songs[i].requester}**`
+    if(songs[i] == undefined) return;
+    resp += `[${parseInt(i)+1}] - **${songs[i].title}** - Demandé par: **${songs[i].requester}**`
     } 
     
 message.channel.send(`
