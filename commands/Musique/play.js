@@ -1,7 +1,7 @@
 const Command = require("../../modules/Command.js");
-const Ksoft = require("ksoft.js");
-const ksoft = new Ksoft(process.env.ksoft);
-const { MessageEmbed } = require("discord.js") 
+const ytdl = require("ytdl-core");
+const ytdlDiscord = require("ytdl-core-discord");
+const { Util } = require("discord.js");
 
 class Play extends Command {
   constructor(client) {
@@ -10,67 +10,76 @@ class Play extends Command {
       description: "Jouer et ajouter de la musique.",
       category:"Musique", 
       usage: "play", 
-      enabled:false
+      enabled:true
     });
   }
 
   async run(message, args) {
-    
+    const { voiceChannel } = message.member;
+    if (!voiceChannel)
+      return message.channel.send(
+        "Tu dois être dans un salon vocal pour utiliser cette commande !"
+      );
 
-    //const serverQueue = message.client.queue.get(message.guild.id);
-    //const song = {
-      //,
-      //title: songInfo.title,
-      //url: songInfo.video_url
-   // };
-   // console.log(song) 
+    const serverQueue = message.client.queue.get(message.guild.id);
+    const songInfo = await ytdl.getInfo(args[0]);
+    const song = {
+      id: songInfo.video_id,
+      title: songInfo.title,
+      url: songInfo.video_url
+    };
+    console.log(song) 
 
-    //if (serverQueue) {
-      //serverQueue.songs.push(song);
-      //return message.channel.send(
-        //`✅ **${song.title}** est ajoutée à la queue !`
-      //);
-    //}
+    if (serverQueue) {
+      serverQueue.songs.push(song);
+      return message.channel.send(
+        `✅ **${song.title}** est ajoutée à la queue !`
+      );
+    }
 
-    //const queueConstruct = {
-      //textChannel: message.channel,
-      //voiceChannel,
-      //connection: null,
-      //songs: [],
-      //volume: 1,
-      //playing: true
-    //};
-    //message.client.queue.set(message.guild.id, queueConstruct);
-    //queueConstruct.songs.push(song);
+    const queueConstruct = {
+      textChannel: message.channel,
+      voiceChannel,
+      connection: null,
+      songs: [],
+      volume: 1,
+      playing: true
+    };
+    message.client.queue.set(message.guild.id, queueConstruct);
+    queueConstruct.songs.push(song);
 
-    //const play = async song => {
-      //const queue = message.client.queue.get(message.guild.id);
-      //if (!song) {
-        //queue.voiceChannel.leave();
-        //message.client.queue.delete(message.guild.id);
-        //return;
-      //}
+    const play = async song => {
+      const queue = message.client.queue.get(message.guild.id);
+      if (!song) {
+        queue.voiceChannel.leave();
+        message.client.queue.delete(message.guild.id);
+        return;
+      }
 
-    
-    const query = args.join(" ") ;
-        if (!message.member.voiceChannel) return message.channel.send('Please join a voice channel');
-        const voiceChannel = message.member.voiceChannel;
-        const connection = await voiceChannel.join();
-        ksoft.lyrics.searchAndPlay(query, connection).then(res => {
-        console.log(JSON.stringify(res))
-            const embed = new Discord.MessageEmbed()
-                .setTitle('Song Info')
-                .setColor('ce0202')
-                .setDescription(`[${res.apiResponse.name}](${res.youtubeResult.url})`)
-                .addField('Song Duration:', res.youtubeResult.duration)
-                //.addField('Artist:', res.apiResponse.artist)
-                .addField('Lyrics:', res.apiResponse.lyrics)
-                .setThumbnail(res.apiResponse.album_art)
-                .setFooter('Powered by: Ksoft.si');
-            message.channel.send(embed);
-        });
-} 
+      const dispatcher = queue.connection
+        .playOpusStream(await ytdlDiscord(song.url), { passes: 3 })
+        .on("end", reason => {
+          if (reason === "Récupération trop lente !")
+            console.log("La musique s'est arrêtée !");
+          else console.log(reason);
+          queue.songs.shift();
+          play(queue.songs[0]);
+        })
+        .on("error", error => console.error(error));
+      dispatcher.setVolumeLogarithmic(queue.volume / 5);
+      queue.textChannel.send(`🎶 Je joue: **${song.title}**`);
+    };
 
+    try {
+      const connection = await voiceChannel.join();
+      queueConstruct.connection = connection;
+      play(queueConstruct.songs[0]);
+    } catch (error) {
+      console.error(`Je n'ai pas pu rejoindre le salon: ${error}`);
+      message.client.queue.delete(message.guild.id);
+      await voiceChannel.leave();
+    }
+  }
 }
 
 module.exports = Play;
