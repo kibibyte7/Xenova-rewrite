@@ -23,7 +23,7 @@ class Play extends Command {
         "Tu dois être dans un salon vocal pour utiliser cette commande !"
       );
       
-      let validate = yt.validateURL(args[0]);
+      let validate = ytdl.validateURL(args[0]);
 
         if(!validate){
 
