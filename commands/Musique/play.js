@@ -25,12 +25,9 @@ class Play extends Command {
       
     
     const serverQueue = message.client.queue.get(message.guild.id);
-    var opts = {
-        maxResults: 10,
-        key: process.env.ytkey
-      };
-    search(args.join(" "), opts, async (err, res) => {
-    const songInfo = await ytdl.getInfo(!res[0].link ? args[0] : res[0].link);
+    
+ 
+    const songInfo = await ytdl.getInfo(args[0]);
     const song = {
       id: songInfo.video_id,
       title: songInfo.title,
@@ -46,7 +43,7 @@ class Play extends Command {
         `✅ **${song.title}** est ajoutée à la queue !`
       );
     }
-    })
+    
 
     const queueConstruct = {
       textChannel: message.channel,
