@@ -15,14 +15,14 @@ class Play extends Command {
     });
   }
 
-  async run(message, args) {
+  asyncrun(message, args) {
     const { voiceChannel } = message.member;
     if (!voiceChannel)
       return message.channel.send(
         "Tu dois être dans un salon vocal pour utiliser cette commande !"
       );
       
-    search(args.join(" "), opts, function(err, res) {
+    async search(args.join(" "), opts, function(err, res) {
 
     const serverQueue = message.client.queue.get(message.guild.id);
     const songInfo = await ytdl.getInfo(!res[0].link ? args[0] : res[0].link);
