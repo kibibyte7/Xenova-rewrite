@@ -26,7 +26,8 @@ class Play extends Command {
     const song = {
       id: songInfo.video_id,
       title: songInfo.title,
-      url: songInfo.video_url
+      url: songInfo.video_url, 
+      requester:message.author.username
     };
     console.log(song) 
 
@@ -43,7 +44,7 @@ class Play extends Command {
       connection: null,
       songs: [],
       volume: 1,
-      playing: true
+      playing: true  
     };
     message.client.queue.set(message.guild.id, queueConstruct);
     queueConstruct.songs.push(song);
@@ -67,7 +68,7 @@ class Play extends Command {
         })
         .on("error", error => console.error(error));
       dispatcher.setVolumeLogarithmic(queue.volume / 5);
-      queue.textChannel.send(`🎶 Je joue: **${song.title}**`);
+      queue.textChannel.send(`🎶 Je joue: **${song.title}** demandé par : **${song.requester}**`);
     };
 
     try {
