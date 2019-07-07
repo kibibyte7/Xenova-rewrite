@@ -17,7 +17,7 @@ class Resume extends Command {
       return message.channel.send("⏯ Je remets en marche la musique !");
     }
     return message.channel.send(
-      `${this.client.emojis.find("name", "wrongMark")} Il y a aucune musique dans la playlist."
+      `${this.client.emojis.find("name", "wrongMark")} Il y a aucune musique dans la playlist.`
     );
   }
 }
