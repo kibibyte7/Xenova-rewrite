@@ -18,7 +18,7 @@ class Pause extends Command {
       return message.channel.send("⏸ La musique à été en pause !");
     }
     return message.channel.send(
-      `${this.client.emojis.find("name", "wrongMark")} Il y a aucune musique dans la playlist."
+      `${this.client.emojis.find("name", "wrongMark")} Il y a aucune musique dans la playlist.`
     );
   }
 }
