@@ -4,7 +4,7 @@ const ytdlDiscord = require("ytdl-core-discord");
 const search = require("yt-search");
 const { Util } = require("discord.js");
 
-class Play extends Command {
+class Search extends Command {
   constructor(client) {
     super(client, {
       name: "search",
