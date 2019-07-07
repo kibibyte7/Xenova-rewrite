@@ -23,7 +23,18 @@ class Play extends Command {
         "Tu dois être dans un salon vocal pour utiliser cette commande !"
       );
       
-    
+      let validate = yt.validateURL(args[0]);
+
+        if(!validate){
+
+            let commandFile = require("./search.js")
+
+            return commandFile.run(message, args)
+
+                
+
+        }
+
     const serverQueue = message.client.queue.get(message.guild.id);
     
  
