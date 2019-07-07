@@ -29,7 +29,7 @@ class Play extends Command {
         maxResults: 10,
         key: process.env.ytkey
       };
-    search(args.join(" "), opts, async function(err, res) {
+    search(args.join(" "), opts, function(err, res) {
     const songInfo = await ytdl.getInfo(!res[0].link ? args[0] : res[0].link);
     const song = {
       id: songInfo.video_id,
