@@ -27,6 +27,8 @@ class Play extends Command {
 
         if(!validate){
 
+            let Search = require("./search.js")
+
             let command = new Search() 
 
             return command.run(message, args)
