@@ -38,7 +38,7 @@ class Play extends Command {
       requester:message.author.username
     };
     console.log(song) 
-    }) 
+     
     
     if (serverQueue) {
       serverQueue.songs.push(song);
@@ -46,6 +46,7 @@ class Play extends Command {
         `✅ **${song.title}** est ajoutée à la queue !`
       );
     }
+    })
 
     const queueConstruct = {
       textChannel: message.channel,
@@ -55,6 +56,7 @@ class Play extends Command {
       volume: 1,
       playing: true  
     };
+
     message.client.queue.set(message.guild.id, queueConstruct);
     queueConstruct.songs.push(song);
 
