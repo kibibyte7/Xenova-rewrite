@@ -11,11 +11,12 @@ class Queue extends Command {
 
   run(message) {
     let resp = `**Playlist:**\n`;
-    let songs = serverQueue.songs;
+    
     const serverQueue = message.client.queue.get(message.guild.id);
+    
     if (!serverQueue)
       return message.channel.send("Il n'y a aucune musique en cours !");
-    
+    let songs = serverQueue.songs;
     for(var i in songs){
     if(songs[i] == undefined) resp += ``;
     resp += `[${parseInt(i)+1}] - **${songs[i].title}** - Demandé par: **{songs[i].requester}**`
