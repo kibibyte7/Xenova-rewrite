@@ -11,7 +11,7 @@ class Stop extends Command {
   }
 
   run(message) {
-    const stop = this.client.emojis.find("name","stop")
+    const stop = message.client.emojis.find("name","Stop")
     const { voiceChannel } = message.member;
     if (!voiceChannel)
       return message.channel.send(
