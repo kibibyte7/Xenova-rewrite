@@ -11,15 +11,16 @@ class Loop extends Command {
   }
 
   run(message) {
+    const loop = this.client.emojis.find("name","loop")
     const serverQueue = message.client.queue.get(message.guild.id);
     if (serverQueue){     
     if(serverQueue.loop  === false) {
       serverQueue.loop = true;
-      message.channel.send("🔄 boucle activée !");
+      message.channel.send(`${loop} boucle activée !`);
       return;
     } else {
     serverQueue.loop = false;
-    message.channel.send("🔄 boucle désactivée !");
+    message.channel.send(`${loop} boucle désactivée !`);
     } 
     }else{
     message.channel.send(
