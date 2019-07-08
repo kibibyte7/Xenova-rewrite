@@ -15,11 +15,9 @@ class Loop extends Command {
     if (serverQueue && serverQueue.loop){
       if(serverQueue.loop  == false) {
       serverQueue.loop = true;
-      serverQueue.connection.dispatcher.pause();
       return message.channel.send("🔄 boucle activée !");
     } else {
     serverQueue.loop = false;
-    serverQueue.connection.dispatcher.pause();
     return message.channel.send("🔄 boucle désactivée !");
     } 
     return message.channel.send(
