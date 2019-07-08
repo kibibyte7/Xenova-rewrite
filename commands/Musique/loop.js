@@ -12,8 +12,8 @@ class Loop extends Command {
 
   run(message) {
     const serverQueue = message.client.queue.get(message.guild.id);
-    if (serverQueue && serverQueue.loop)
-      if(serverQueue.loop  == false) {
+    if (serverQueue && serverQueue.loop){     
+    if(serverQueue.loop  == false) {
       serverQueue.loop = true;
       serverQueue.connection.dispatcher.pause();
       return message.channel.send("🔄 boucle activée !");
@@ -22,9 +22,11 @@ class Loop extends Command {
     serverQueue.connection.dispatcher.pause();
     return message.channel.send("🔄 boucle désactivée !");
     } 
-    return message.channel.send(
+    }else{
+   return message.channel.send(
       `${this.client.emojis.find("name", "wrongMark")} Il y a aucune musique dans la playlist.`
     );
+   } 
   }
 }
 
