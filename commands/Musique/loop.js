@@ -11,7 +11,7 @@ class Loop extends Command {
   }
 
   run(message) {
-    const loop = this.client.emojis.find("name","loop")
+    const loop = message.client.emojis.find("name","Loop")
     const serverQueue = message.client.queue.get(message.guild.id);
     if (serverQueue){     
     if(serverQueue.loop  === false) {
