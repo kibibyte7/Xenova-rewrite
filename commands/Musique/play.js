@@ -64,7 +64,8 @@ class Play extends Command {
       connection: null,
       songs: [],
       volume: 1,
-      playing: true  
+      playing: true, 
+      loop:false
     };
 
     message.client.queue.set(message.guild.id, queueConstruct);
@@ -84,6 +85,9 @@ class Play extends Command {
           if (reason === "Récupération trop lente !")
             console.log("La musique s'est arrêtée !");
           else console.log(reason);
+          if(queue.loop == true) {
+          return play(queue.songs[0])
+          } 
           queue.songs.shift();
           play(queue.songs[0]);
         })
