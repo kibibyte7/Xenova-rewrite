@@ -18,7 +18,6 @@
     "express-passport": "^0.1.0",
     "express-session": "^1.15.6", 
     "ffmpeg": "0.0.4",
-    "ffmpeg-static": "^2.5.0",
     "flip-text": "^1.1.0",
     "fs": "0.0.1-security",
     "giphy-api": "^1.2.8",
