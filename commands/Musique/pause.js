@@ -15,7 +15,7 @@ class Pause extends Command {
     if (serverQueue && serverQueue.playing) {
       serverQueue.playing = false;
       serverQueue.connection.dispatcher.pause();
-      return message.channel.send(`${this.client.emojis.find("name", "Pause")} La musique à été en pause !");
+      return message.channel.send(`${message.client.emojis.find("name", "Pause")} La musique à été en pause !");
     }
     return message.channel.send(
       `${this.client.emojis.find("name", "wrongMark")} Il y a aucune musique dans la playlist.`
