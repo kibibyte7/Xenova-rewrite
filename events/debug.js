@@ -3,4 +3,6 @@ constructor(client){
 this.client = client
 }
 
-run(console.log)
+run(){
+console.log 
+} 
