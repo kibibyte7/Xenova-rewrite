@@ -86,11 +86,14 @@ class Play extends Command {
             console.log("La musique s'est arrêtée !");
           else console.log(reason);
           if(queue.loop == true) {
-          play(queue.songs[0])
-          } else{
+          return play(queue.songs[0])
+          }
+
+          if(queue.loop == false) {
           queue.songs.shift();
           play(queue.songs[0]);
           } 
+          
         })
         .on("error", error => console.error(error));
       dispatcher.setVolumeLogarithmic(queue.volume / 5);
