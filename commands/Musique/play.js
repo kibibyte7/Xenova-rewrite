@@ -53,7 +53,7 @@ class Play extends Command {
     if (serverQueue) {
       serverQueue.songs.push(song);
       return message.channel.send(
-        `✅ **${song.title}** est ajoutée à la queue !`
+        `${this.client.emojis.find("name","add")} **${song.title}** est ajoutée à la queue !`
       );
     }
     
@@ -97,7 +97,7 @@ class Play extends Command {
         })
         .on("error", error => console.error(error));
       dispatcher.setVolumeLogarithmic(queue.volume / 5);
-      queue.textChannel.send(`🎶 Je joue: **${song.title}** demandé par : **${song.requester}**`);
+      queue.textChannel.send(`${this.client.emojis.find("name","playing")} Je joue: **${song.title}** demandé par : **${song.requester}**`);
     };
 
     try {
