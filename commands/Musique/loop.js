@@ -16,12 +16,13 @@ class Loop extends Command {
     if(serverQueue.loop  === false) {
       serverQueue.loop = true;
       message.channel.send("🔄 boucle activée !");
+      return;
     } else {
     serverQueue.loop = false;
     message.channel.send("🔄 boucle désactivée !");
     } 
     }else{
-   return message.channel.send(
+    message.channel.send(
       `${this.client.emojis.find("name", "wrongMark")} Il y a aucune musique dans la playlist.`
     );
    } 
