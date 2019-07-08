@@ -17,7 +17,7 @@ class Play extends Command {
 
   async run(message, args) {
     const add = await this.client.emojis.find("name","add")
-    const playing = this.client.emojis.find("name","playing")	
+    const playing = await this.client.emojis.find("name","playing")	
     const { voiceChannel } = message.member;
     if (!voiceChannel)
       return message.channel.send(`${this.client.emojis.find("name","wrongMark")} Tu dois être dans un salon vocal pour utiliser cette commande !`);
