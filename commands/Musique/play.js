@@ -16,11 +16,12 @@ class Play extends Command {
   }
 
   async run(message, args) {
-  	
+    const add = this.client.emojis.find("name","add")
+    const playing = this.client.emojis.find("name","playing")	
     const { voiceChannel } = message.member;
     if (!voiceChannel)
       return message.channel.send(
-        "Tu dois être dans un salon vocal pour utiliser cette commande !"
+        `${this.client.emojis.find("name","wrongMark")} Tu dois être dans un salon vocal pour utiliser cette commande !"
       );
       
       let validate = ytdl.validateURL(args[0]);
@@ -52,9 +53,7 @@ class Play extends Command {
     
     if (serverQueue) {
       serverQueue.songs.push(song);
-      return message.channel.send(
-        `${this.client.emojis.find("name","add")} **${song.title}** est ajoutée à la queue !`
-      );
+      return message.channel.send(`${add} **${song.title}** est ajoutée à la queue !`);
     }
     
 
@@ -97,7 +96,7 @@ class Play extends Command {
         })
         .on("error", error => console.error(error));
       dispatcher.setVolumeLogarithmic(queue.volume / 5);
-      queue.textChannel.send(`${this.client.emojis.find("name","playing")} Je joue: **${song.title}** demandé par : **${song.requester}**`);
+      queue.textChannel.send(`${playing} Je joue: **${song.title}** demandé par : **${song.requester}**`);
     };
 
     try {
