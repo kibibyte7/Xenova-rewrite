@@ -5,11 +5,13 @@ class Stop extends Command {
     super(client, {
       name: "stop",
       description: "Arrêter la musique.",
-      usage: "stop"
+      usage: "stop",
+      category:"Musique" 
     });
   }
 
   run(message) {
+    const stop = this.client.emojis.find("name","stop")
     const { voiceChannel } = message.member;
     if (!voiceChannel)
       return message.channel.send(
@@ -20,6 +22,7 @@ class Stop extends Command {
       return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Il n'y a aucune musique dans la playlist.`);
     serverQueue.songs = [];
     serverQueue.connection.dispatcher.end("La musique a été stoppée !");
+    message.channel.send(`${stop} La musique a été stoppée et j'ai quitté le vocal.`) 
   }
 }
 
