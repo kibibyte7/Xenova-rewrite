@@ -20,9 +20,7 @@ class Play extends Command {
     const playing = this.client.emojis.find("name","playing")	
     const { voiceChannel } = message.member;
     if (!voiceChannel)
-      return message.channel.send(
-        `${this.client.emojis.find("name","wrongMark")} Tu dois être dans un salon vocal pour utiliser cette commande !"
-      );
+      return message.channel.send(`${this.client.emojis.find("name","wrongMark")} Tu dois être dans un salon vocal pour utiliser cette commande !`);
       
       let validate = ytdl.validateURL(args[0]);
 
