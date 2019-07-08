@@ -5,7 +5,8 @@ class Queue extends Command {
     super(client, {
       name: "queue",
       description: "Afficher la liste de musique.",
-      usage: "queue"
+      usage: "queue", 
+      category:"Musique"
     });
   }
 
