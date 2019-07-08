@@ -75,7 +75,7 @@ class Play extends Command {
       }
 
       const dispatcher = queue.connection
-        .playStream(await ytdlDiscord(song.url), { passes: 3 })
+        .playOpusStream(await ytdlDiscord(song.url), { passes: 3 })
         .on("end", reason => {
           if (reason === "Récupération trop lente !")
             console.log("La musique s'est arrêtée !");
