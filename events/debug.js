@@ -3,6 +3,6 @@ constructor(client){
 this.client = client
 }
 
-run(){
-console.log 
+run(debug){
+console.log(debug) 
 } 
