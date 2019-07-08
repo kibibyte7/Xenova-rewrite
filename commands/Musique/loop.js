@@ -13,14 +13,12 @@ class Loop extends Command {
   run(message) {
     const serverQueue = message.client.queue.get(message.guild.id);
     if (serverQueue && serverQueue.loop){     
-    if(serverQueue.loop  == false) {
+    if(serverQueue.loop  === false) {
       serverQueue.loop = true;
-      serverQueue.connection.dispatcher.pause();
-      return message.channel.send("🔄 boucle activée !");
+      message.channel.send("🔄 boucle activée !");
     } else {
     serverQueue.loop = false;
-    serverQueue.connection.dispatcher.pause();
-    return message.channel.send("🔄 boucle désactivée !");
+    message.channel.send("🔄 boucle désactivée !");
     } 
     }else{
    return message.channel.send(
