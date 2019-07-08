@@ -27,11 +27,11 @@ class Search extends Command {
    	
    	for (var i in videos) { 
    		
-   	resp += `**[${parseInt(i)+1}]**\`${videos[i].title}\`\n`; 
+   	resp += isNaN(i) ? `` : `**[${parseInt(i)+1}]**\`${videos[i].title}\`\n`; 
    	
    	} 
    	
-   	resp += isNaN(i) ? `` : `\`Choisi un résultat de entre 1 et ${videos.length} ou cancel pour annuler\`` 
+   	resp += `\`Choisi un résultat de entre 1 et ${videos.length} ou cancel pour annuler\`` 
    	
    	message.channel.send(resp) 
    	
