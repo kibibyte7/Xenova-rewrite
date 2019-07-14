@@ -29,8 +29,32 @@
 "name":"Pioche en or", 
 "level":"4",
 "cost":[{"wood":"1250","stone":"750", "fer":"500", "gold":"250"}] 
+}, 
+{
+"name":"pioche en diamant", 
+"level":"5",
+"cost":[{"wood":"2500","stone":"1250", "fer":"1000", "gold":"500", "diamant":"300"}] 
+}, 
+{
+"name":"pioche en diamant renforcé en émeraude", 
+"level":"6",
+"cost":[{"wood":"5000","stone":"2500", "fer":"2000", "gold":"1000", "diamant":"600","emeraude":"400"}] 
+}, 
+{
+"name":"pioche en diamant gemmée", 
+"level":"7",
+"cost":[{"wood":"6000","stone":"5000", "fer":"4000", "gold":"1500", "diamant":"800","emeraude":"600", "prismes" :"50"}] 
+}, 
+{
+"name":"pioche en diament cosmique", 
+"level":"8",
+"cost":[{"wood":"8500","stone":"6000", "fer":"5000", "gold":"1750", "diamant":"1000","emeraude":"800", "prismes" :"100","antimatter" :"50"}] 
+}, 
+{
+"name":"pioche en diamant tri-gemmée", 
+"level":"9",
+"cost":[{"wood":"10000","stone":"7000", "fer":"6000", "gold":"1900", "diamant":"1200","emeraude":"1000", "prismes" :"150","antimatter":"100","osrizk":"50"}] 
 }
-
 ] 
 
 } 
