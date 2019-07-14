@@ -84,12 +84,12 @@ inline: false
 },
 {
 name: ':gear: -> Liste des rôles',
-value: message.guild.roles.size > 15 ? "Trop de rôles" : message.guild.roles.map(r => r.name).join("\n"),
+value: message.guild.roles.map(r => r).join(", ").length > 1024 ? "Trop de rôles" : message.guild.roles.map(r => r).join(", "),
 inline: false
 }, 
 {
 name:":gear: -> Liste des emojis", 
-value:message.guild.emojis.size == 0 ? "Aucun emojis." : message.guild.emojis.map(e => e).join(" ")
+value:message.guild.emojis.size == 0 ? "Aucun emojis." : message.guild.emojis.map(e => e).join(" ").length > 1024 ? "Trop d'emojis" : message.guild.emojis.map(e => e).join(" ") 
 }],
 timestamp:new Date(), 
 footer: {
