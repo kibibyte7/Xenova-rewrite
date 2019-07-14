@@ -39,7 +39,7 @@ let roles = [];
 
         if(!toInfo){
 
-       message.channel.send(`${message.client.emojis.find("name", "wrongMark")} Je ne trouve pas ce rôle.") 
+       message.channel.send(`${message.client.emojis.find("name", "wrongMark")} Je ne trouve pas ce rôle.`) 
 
        return;
 
