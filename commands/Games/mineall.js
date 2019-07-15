@@ -59,7 +59,7 @@ run(message, args, level, con) {
     	randwood += math.evaluate(`${parseInt(Math.floor(Math.random()*8*r[0].pickaxe)+1)}`) 
 	 	
 	   	mana--;
-	 	  
+	 	usedmana++  
     	} 
     	
     	function stone(){
@@ -69,7 +69,7 @@ run(message, args, level, con) {
     	randstone += math.evaluate(`${parseInt(Math.floor(Math.random()*8*r[0].pickaxe)+1)}`) 
 	 	
 	   	mana--;
-	 	  
+	 	usedmana++  
     	} 
     	
     	function fer(){
@@ -79,7 +79,7 @@ run(message, args, level, con) {
     	randfer += math.evaluate(`${parseInt(Math.floor(Math.random()*8*r[0].pickaxe)+1)}`) 
 	 	
 	   	mana--;
-	 	  
+	 	usedmana++  
     	} 
     	
     	function gold(){
@@ -89,7 +89,7 @@ run(message, args, level, con) {
     	randgold +=math.evaluate(`${parseInt(Math.floor(Math.random()*8*r[0].pickaxe)+1)}`) 
 	 	  
 	   	mana--;
-	 	  
+	 	usedmana++ 
     	} 
     	
     	function diam(){
@@ -99,7 +99,7 @@ run(message, args, level, con) {
     	randdiam += math.evaluate(`${parseInt(Math.floor(Math.random()*8*r[0].pickaxe)+1)}`) 
 	   
 	   	mana--;
-	 	  
+	 	usedmana++
     	} 
     	
     	function em(){
@@ -109,7 +109,7 @@ run(message, args, level, con) {
     	randem += math.evaluate(`${parseInt(Math.floor(Math.random()*8*r[0].pickaxe)+1)}`) 
 	 	  
 	 	  mana--;
-	 	  
+	 	  usedmana++
     	} 
     	
     	function pp(){
@@ -119,7 +119,7 @@ run(message, args, level, con) {
     	randpp += math.evaluate(`${parseInt(Math.floor(Math.random()*1*r[0].pickaxe)+5)}`) 
 	 	  
 	 	  mana--;
-	 	  
+	 	  usedmana++
     	} 
     	
     	function am(){
@@ -129,6 +129,8 @@ run(message, args, level, con) {
     	randam += math.evaluate(`${parseInt(Math.floor(Math.random()*1*r[0].pickaxe)+5)}`) 
 	 	  
 	 	  mana--;
+
+                  usedmana++
 	 	  
     	} 
     	
@@ -139,8 +141,10 @@ run(message, args, level, con) {
     	randos += math.evaluate(`${parseInt(Math.floor(Math.random()*1*r[0].pickaxe)+5)}`) 
 	 	  
 	 	  mana--;
-	 	  
+
+	 	  usedmana++
     	} 
+
    setTimeout(() => {	
    for(var i = 0; i < mana; i++){
     
@@ -164,7 +168,7 @@ run(message, args, level, con) {
 	 	 
 	 	else os(); 
 	 	
-                usedmana++;
+                
    }
 
 	 con.query(`UPDATE inventory SET xp = ${pxp+randxp}, mana = 0, wood = ${pwood+randwood}, stone = ${pstone+randstone}, fer = ${pfer+randfer}, gold = ${por+randgold}, diament = ${pdiam+randdiam}, emeraude = ${pem+randem}, prismes = ${ppp+randpp}, antimatter = ${pam+randam}, osrizk = ${pos+randos} WHERE id = ${r[0].id}`)	    
