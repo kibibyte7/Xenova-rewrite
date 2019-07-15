@@ -27,7 +27,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	 	
 	 	if(rows[0].mana == 0 || rows[0].mana < 0) return message.reply("Tu n'as plus de mana.") 
 	  
-	 	var randwood = Math.floor(Math.random()*18*rows[0].pickaxe)+1
+	 	var randwood = Math.floor(Math.random()*36*rows[0].pickaxe)+1
 	 	
 	 	var randxp = Math.floor(Math.random()*10*rows[0].pickaxe+1)
 	 	
@@ -51,7 +51,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	 	
 	 	if(rows[0].mana == 0 || rows[0].mana < 0) return message.reply("Tu n'as plus de mana.") 
 	  
-	 	var randstone = Math.floor(Math.random()*16*rows[0].pickaxe)+1
+	 	var randstone = Math.floor(Math.random()*32*rows[0].pickaxe)+1
 	 	
 	 	var randxp = Math.floor(Math.random()*10*rows[0].pickaxe+1)
 	 	
@@ -75,7 +75,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	 	
 	 	if(rows[0].mana == 0 || rows[0].mana < 0) return message.reply("Tu n'as plus de mana.") 
 	  
-	 	var randfer = Math.floor(Math.random()*14*rows[0].pickaxe)+1
+	 	var randfer = Math.floor(Math.random()*28*rows[0].pickaxe)+1
 	 	
 	 	var randxp = Math.floor(Math.random()*10*rows[0].pickaxe+1)
 	 	
@@ -99,7 +99,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	 	
 	 	if(rows[0].mana == 0 || rows[0].mana < 0) return message.reply("Tu n'as plus de mana.") 
 	  
-	 	var randgold = Math.floor(Math.random()*12*rows[0].pickaxe)+1
+	 	var randgold = Math.floor(Math.random()*24*rows[0].pickaxe)+1
 	 	
 	 	var randxp = Math.floor(Math.random()*10*rows[0].pickaxe+1)
 	 	
@@ -123,7 +123,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	 	
 	 	if(rows[0].mana == 0 || rows[0].mana < 0) return message.reply("Tu n'as plus de mana.") 
 	  
-	 	var randdiam = Math.floor(Math.random()*10*rows[0].pickaxe)+1
+	 	var randdiam = Math.floor(Math.random()*20*rows[0].pickaxe)+1
 	 	
 	 	var randxp = Math.floor(Math.random()*10*rows[0].pickaxe+1)
 	 	
@@ -147,7 +147,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	 	
 	 	if(rows[0].mana == 0 || rows[0].mana < 0) return message.reply("Tu n'as plus de mana.") 
 	  
-	 	var randem = Math.floor(Math.random()*8*rows[0].pickaxe)+1
+	 	var randem = Math.floor(Math.random()*16*rows[0].pickaxe)+1
 	 	
 	 	var randxp = Math.floor(Math.random()*10*rows[0].pickaxe+1)
 	 	
