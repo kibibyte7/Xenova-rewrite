@@ -141,7 +141,7 @@ run(message, args, level, con) {
 	 	  mana--;
 	 	  
     	} 
-    	
+   setTimeout(() => {	
    for(var i = 0; i < mana; i++){
     
    var chance = Math.floor(Math.random() *100)+10 
@@ -166,13 +166,11 @@ run(message, args, level, con) {
 	 	
                 usedmana++;
    }
-  
-   
-	 setTimeout(() => {
+
 	 con.query(`UPDATE inventory SET xp = ${pxp+randxp}, mana = 0, wood = ${pwood+randwood}, stone = ${pstone+randstone}, fer = ${pfer+randfer}, gold = ${por+randgold}, diament = ${pdiam+randdiam}, emeraude = ${pem+randem}, prismes = ${ppp+randpp}, antimatter = ${pam+randam}, osrizk = ${pos+randos} WHERE id = ${r[0].id}`)	    
 	 message.channel.send(`${message.author} Tu as miné\n- ${randwood} Wood\n- ${randstone} Stone\n- ${randfer} Fer\n- ${randgold} Gold\n- ${randdiam} Diamants\n- ${randem} Émeraudes\n- ${randpp} Prismes-parfait\n- ${randam} Anti-matières\n- ${randos} Osrizk\n\nTu as gagné ${randxp} Xp\nMana utilisé : ${usedmana}`) 
          if(r[0].xp > nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(r[0].niveau)+1} WHERE id = ${message.author.id}`)
-}, 250)
+}, 500)
   
   }) 
 
