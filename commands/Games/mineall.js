@@ -56,7 +56,7 @@ run(message, args, level, con) {
     	
     	randxp += math.evaluate(`${parseInt(Math.floor(Math.random()*10*r[0].pickaxe)+1)}`);
     	  	
-    	randwood += math.evaluate(`${parseInt(Math.floor(Math.random()*8*r[0].pickaxe)+1)}`) 
+    	randwood += math.evaluate(`${parseInt(Math.floor(Math.random()*18*r[0].pickaxe)+1)}`) 
 	 	
 	   	mana--;
 	 	usedmana++  
@@ -66,7 +66,7 @@ run(message, args, level, con) {
     	
     	randxp += math.evaluate(`${parseInt(Math.floor(Math.random()*10*r[0].pickaxe)+1)}`);
     	
-    	randstone += math.evaluate(`${parseInt(Math.floor(Math.random()*8*r[0].pickaxe)+1)}`) 
+    	randstone += math.evaluate(`${parseInt(Math.floor(Math.random()*16*r[0].pickaxe)+1)}`) 
 	 	
 	   	mana--;
 	 	usedmana++  
@@ -76,7 +76,7 @@ run(message, args, level, con) {
     	
     	randxp += math.evaluate(`${parseInt(Math.floor(Math.random()*10*r[0].pickaxe)+1)}`);
     	
-    	randfer += math.evaluate(`${parseInt(Math.floor(Math.random()*8*r[0].pickaxe)+1)}`) 
+    	randfer += math.evaluate(`${parseInt(Math.floor(Math.random()*14*r[0].pickaxe)+1)}`) 
 	 	
 	   	mana--;
 	 	usedmana++  
@@ -86,7 +86,7 @@ run(message, args, level, con) {
     	
     	randxp += math.evaluate(`${parseInt(Math.floor(Math.random()*10*r[0].pickaxe)+1)}`);
     	
-    	randgold +=math.evaluate(`${parseInt(Math.floor(Math.random()*8*r[0].pickaxe)+1)}`) 
+    	randgold +=math.evaluate(`${parseInt(Math.floor(Math.random()*12*r[0].pickaxe)+1)}`) 
 	 	  
 	   	mana--;
 	 	usedmana++ 
@@ -96,7 +96,7 @@ run(message, args, level, con) {
     	
     	randxp += math.evaluate(`${parseInt(Math.floor(Math.random()*10*r[0].pickaxe)+1)}`);
     	
-    	randdiam += math.evaluate(`${parseInt(Math.floor(Math.random()*8*r[0].pickaxe)+1)}`) 
+    	randdiam += math.evaluate(`${parseInt(Math.floor(Math.random()*10*r[0].pickaxe)+1)}`) 
 	   
 	   	mana--;
 	 	usedmana++
