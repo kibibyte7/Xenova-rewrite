@@ -24,10 +24,9 @@ run(message, args, level, con) {
     
     if(r[0].mana == 0) return message.channel.send(":x: Tu n'as plus de mana.");
     
-    if(mana > maxm){
-    con.query(`UPDATE inventory SET mana = ${maxm} WHERE id = ${message.author.id}`) 
-    } 
+    if(mana > maxm) con.query(`UPDATE inventory SET mana = ${maxm} WHERE id = ${message.author.id}`) 
     	
+setTimeout(() => {	
     	let pwood = r[0].wood;
     	let pstone = r[0].stone;
     	let pfer = r[0].fer;
@@ -145,7 +144,7 @@ run(message, args, level, con) {
 	 	  usedmana++
     	} 
 
-   setTimeout(() => {	
+   
    for(var i = 0; i < mana; i++){
     
    var chance = Math.floor(Math.random() *100)+10 
