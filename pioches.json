@@ -54,6 +54,11 @@
 "name":"pioche en diamant tri-gemmée", 
 "level":"9",
 "cost":[{"wood":"4000","stone":"3000", "fer":"2750", "gold":"1500", "diamant":"1200","emeraude":"1000", "prismes" :"150","antimatter":"100","osrizk":"50"}] 
+}, 
+{
+"name":"pioche en émeraude", 
+"level":"10",
+"cost":[{"wood":"800","stone":"6000", "fer":"5500", "gold":"3000", "diamant":"2600","emeraude":"3000"}] 
 }
 ] 
 
