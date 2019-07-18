@@ -57,7 +57,7 @@ if(args[0] === "pioche") {
    	m.edit(`${check} ${message.author}, Tu as débloqué la **${nextpioche}**`) 
    
    	setTimeout(() => {
-   	con.query(`UPDATE inventory SET wood = ${parseInt(rows[0].wood)-wood}, stone = ${parseInt(rows[0].stone)-stone}, fer = ${parseInt(rows[0].fer)-fer}, gold = ${parseInt(rows[0].gold)-gold}, diament = ${parseInt(rows[0].diament)-diamant}, emeraude = ${parseInt(rows[0].emeraude)-emeraude}, prismes = ${parseInt(rows[0].prismes)-prismes}, antimatter = ${parseInt(rows[0].antimatter)-antimatter},osrizk = ${parseInt(rows[0].osrizk)-osrizk}, pickaxe = ${parseInt(rows[0].pickaxe)+1}`)
+   	con.query(`UPDATE inventory SET wood = ${parseInt(rows[0].wood)-wood}, stone = ${parseInt(rows[0].stone)-stone}, fer = ${parseInt(rows[0].fer)-fer}, gold = ${parseInt(rows[0].gold)-gold}, diament = ${parseInt(rows[0].diament)-diamant}, emeraude = ${parseInt(rows[0].emeraude)-emeraude}, prismes = ${parseInt(rows[0].prismes)-prismes}, antimatter = ${parseInt(rows[0].antimatter)-antimatter},osrizk = ${parseInt(rows[0].osrizk)-osrizk}, pickaxe = ${parseInt(rows[0].pickaxe)+1} WHERE id = ${rows[0].id}`)
    	}, 2000) 
    	
    } 
