@@ -19,12 +19,12 @@ class Lyrics extends Command {
     const serverQueue = message.client.queue.get(message.guild.id);
     
     if(!serverQueue) {
-    if(!args[0] || args.length < 1) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Tu dois entrer une recherche.`); 
+    if(args.length < 1) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Tu dois entrer une recherche.`); 
     } else {
     	
-    message.channel.send(`${this.client.emojis.find("name", "typing")} Recherche de \`${serverQueue ? serverQueue.songs[0].title : args.join(" ")}\`.`).then(m => m.delete(4000))
+    message.channel.send(`${this.client.emojis.find("name", "typing")} Recherche de \`${!serverQueue ? args.join(" ") : serverQueue.songs[0].title}\`.`).then(m => m.delete(4000))
         
-    fetch(`https://api.ksoft.si/lyrics/search?q=${encodeURIComponent(serverQueue ? serverQueue.songs[0].title :args.join(" "))}`, {
+    fetch(`https://api.ksoft.si/lyrics/search?q=${encodeURIComponent(serverQueue ? args.join(" ") : serverQueue.songs[0].title)}`, {
     method: "GET",
     headers: {  Authorization: process.env.ksoft }
     }).then(res => {
