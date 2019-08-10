@@ -29,15 +29,28 @@ class Lyrics extends Command {
     	
         if(!lyrics.data[0]) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Aucuns résultats trouvés.`); 
         
+        if(lyrics.data[0].lyrics.length > 2000){
+        message.channel.send({embed:{
+        title:`Lyrics de la musique : ${lyrics.data[0].artist} - ${lyrics.data[0].name}`,      
+        color:0x010101, 
+        description:lyrics.data[0].lyrics.substring(0, 2000), 
+        timestamp:new Date(),
+        footer:{
+        icon_url:this.client.user.avatarURL,
+        text:"© Lyrics | Xenova | Propulsé par l'api Ksoft.si" 
+        } 
+        }})
+        return;
+        } else{
         message.channel.send({embed:{
         title:`Lyrics de la musique : ${lyrics.data[0].artist} - ${lyrics.data[0].name}`,      
         color:0x010101, 
         description:lyrics.data[0].lyrics.substring(0, 2000)
-        }})
+        }}) 
+        } 
         
         
-        
-        if(lyrics.data[0].lyrics.length < 4000){
+        if(lyrics.data[0].lyrics.length > 4000){
         
         message.channel.send({embed:{
         color:0x010101, 
@@ -45,30 +58,33 @@ class Lyrics extends Command {
         timestamp:new Date(),
         footer:{
         icon_url:this.client.user.avatarURL,
-        text:"© Lyrics | Propulsé par l'api Ksoft.si" 
+        text:"© Lyrics | Xenova | Propulsé par l'api Ksoft.si" 
         } 
         }})        
-        
+        return;
+        }else{
+        message.channel.send({embed:{
+        title:`Lyrics de la musique : ${lyrics.data[0].artist} - ${lyrics.data[0].name}`,      
+        color:0x010101, 
+        description:lyrics.data[0].lyrics.substring(2000, 4000)
+        }}) 
         } 
         
-        if(lyrics.data[0].lyrics.length > 4000){
+        if(lyrics.data[0].lyrics.length > 6000){
         
         message.channel.send({embed:{
         color:0x010101, 
-        description:lyrics.data[0].lyrics.substring(2000, 4000),
-        }}) 
-        message.channel.send({embed:{
-        color:0x010101, 
-        description:lyrics.data[0].lyrics.slice(4000),
+        description:lyrics.data[0].lyrics.substring(4000, 6000),
         timestamp:new Date(),
         footer:{
         icon_url:this.client.user.avatarURL,
-        text:"© Lyrics | Propulsé par l'api Ksoft.si" 
+        text:"© Lyrics | Xenova | Propulsé par l'api Ksoft.si" 
         } 
-        }})
+        }}) 
+        
         } 
         }) 
-       }) 
+        }) 
        
 
 }	
