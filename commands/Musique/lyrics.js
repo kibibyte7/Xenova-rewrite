@@ -21,7 +21,7 @@ class Lyrics extends Command {
     
     message.channel.send(`${this.client.emojis.find("name", "typing")} Recherche de \`${!serverQueue ? args.join(" ") : serverQueue.songs[0].title}\`.`).then(m => m.delete(4000))
         
-    fetch(`https://api.ksoft.si/lyrics/search?q=${encodeURIComponent(serverQueue ? args.join(" ") : serverQueue.songs[0].title)}`, {
+    fetch(`https://api.ksoft.si/lyrics/search?q=${encodeURIComponent(!serverQueue ? args.join(" ") : serverQueue.songs[0].title)}`, {
     method: "GET",
     headers: {  Authorization: process.env.ksoft }
     }).then(res => {
