@@ -18,10 +18,7 @@ class Lyrics extends Command {
 
     const serverQueue = message.client.queue.get(message.guild.id);
     
-    if(!serverQueue) {
-    if(args.length < 1) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Tu dois entrer une recherche.`); 
-    } else {
-    	
+    
     message.channel.send(`${this.client.emojis.find("name", "typing")} Recherche de \`${!serverQueue ? args.join(" ") : serverQueue.songs[0].title}\`.`).then(m => m.delete(4000))
         
     fetch(`https://api.ksoft.si/lyrics/search?q=${encodeURIComponent(serverQueue ? args.join(" ") : serverQueue.songs[0].title)}`, {
@@ -73,7 +70,6 @@ class Lyrics extends Command {
         }) 
        }) 
        
-    }
 
 }	
 
