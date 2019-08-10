@@ -66,7 +66,7 @@ class Lyrics extends Command {
         message.channel.send({embed:{
         title:`Lyrics de la musique : ${lyrics.data[0].artist} - ${lyrics.data[0].name}`,      
         color:0x010101, 
-        description:lyrics.data[0].lyrics.substring(2000, 4000)
+        description:lyrics.data[0].lyrics.slice(4000)
         }}) 
         } 
         
@@ -74,7 +74,7 @@ class Lyrics extends Command {
         
         message.channel.send({embed:{
         color:0x010101, 
-        description:lyrics.data[0].lyrics.substring(4000, 6000),
+        description:lyrics.data[0].lyrics.slice(6000),
         timestamp:new Date(),
         footer:{
         icon_url:this.client.user.avatarURL,
