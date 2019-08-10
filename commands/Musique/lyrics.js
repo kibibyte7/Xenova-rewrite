@@ -29,11 +29,11 @@ class Lyrics extends Command {
     	
         if(!lyrics.data[0]) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Aucuns résultats trouvés.`); 
         
-        if(lyrics.data[0].lyrics.length > 2000){
+        if(lyrics.data[0].lyrics.length > 2048){
         message.channel.send({embed:{
         title:`Lyrics de la musique : ${lyrics.data[0].artist} - ${lyrics.data[0].name}`,      
         color:0x010101, 
-        description:lyrics.data[0].lyrics.substring(0, 2000), 
+        description:lyrics.data[0].lyrics.substring(0, 2048), 
         timestamp:new Date(),
         footer:{
         icon_url:this.client.user.avatarURL,
@@ -45,16 +45,16 @@ class Lyrics extends Command {
         message.channel.send({embed:{
         title:`Lyrics de la musique : ${lyrics.data[0].artist} - ${lyrics.data[0].name}`,      
         color:0x010101, 
-        description:lyrics.data[0].lyrics.substring(0, 2000)
+        description:lyrics.data[0].lyrics.substring(0, 2048)
         }}) 
         } 
         
         
-        if(lyrics.data[0].lyrics.length > 4000){
+        if(lyrics.data[0].lyrics.length > 4096){
         
         message.channel.send({embed:{
         color:0x010101, 
-        description:lyrics.data[0].lyrics.slice(2000),
+        description:lyrics.data[0].lyrics.slice(2048),
         timestamp:new Date(),
         footer:{
         icon_url:this.client.user.avatarURL,
@@ -66,15 +66,15 @@ class Lyrics extends Command {
         message.channel.send({embed:{
         title:`Lyrics de la musique : ${lyrics.data[0].artist} - ${lyrics.data[0].name}`,      
         color:0x010101, 
-        description:lyrics.data[0].lyrics.slice(4000)
+        description:lyrics.data[0].lyrics.slice(4096)
         }}) 
         } 
         
-        if(lyrics.data[0].lyrics.length > 6000){
+        if(lyrics.data[0].lyrics.length > 6144){
         
         message.channel.send({embed:{
         color:0x010101, 
-        description:lyrics.data[0].lyrics.slice(6000),
+        description:lyrics.data[0].lyrics.slice(6144),
         timestamp:new Date(),
         footer:{
         icon_url:this.client.user.avatarURL,
