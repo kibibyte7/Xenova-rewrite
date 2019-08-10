@@ -22,9 +22,9 @@ class Lyrics extends Command {
     if(!args[0] || args.length < 1) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Tu dois entrer une recherche.`); 
     } else {
     	
-    message.channel.send(`${this.client.emojis.find("name", "typing")} Recherche de \`${!args[0] ? serverQueue.songs[0].title : args.join(" ")}\`.`).then(m => m.delete(4000))
+    message.channel.send(`${this.client.emojis.find("name", "typing")} Recherche de \`${args.length == 0 ? serverQueue.songs[0].title : args.join(" ")}\`.`).then(m => m.delete(4000))
         
-    fetch(`https://api.ksoft.si/lyrics/search?q=${encodeURIComponent(!args[0]? serverQueue.songs[0].title :args.join(" "))}`, {
+    fetch(`https://api.ksoft.si/lyrics/search?q=${encodeURIComponent(args.length == 0 ? serverQueue.songs[0].title :args.join(" "))}`, {
     method: "GET",
     headers: {  Authorization: process.env.ksoft }
     }).then(res => {
