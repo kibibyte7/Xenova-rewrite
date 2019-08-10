@@ -29,7 +29,7 @@ class Lyrics extends Command {
     	
         if(!lyrics.data[0]) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Aucuns résultats trouvés.`); 
         
-        if(lyrics.data[0].lyrics.length > 2048){
+        if(lyrics.data[0].lyrics.length < 2048){
         message.channel.send({embed:{
         title:`Lyrics de la musique : ${lyrics.data[0].artist} - ${lyrics.data[0].name}`,      
         color:0x010101, 
@@ -50,7 +50,7 @@ class Lyrics extends Command {
         } 
         
         
-        if(lyrics.data[0].lyrics.length > 4096){
+        if(lyrics.data[0].lyrics.length < 4096){
         
         message.channel.send({embed:{
         color:0x010101, 
@@ -70,7 +70,7 @@ class Lyrics extends Command {
         }}) 
         } 
         
-        if(lyrics.data[0].lyrics.length > 6144){
+        if(lyrics.data[0].lyrics.length < 6144){
         
         message.channel.send({embed:{
         color:0x010101, 
