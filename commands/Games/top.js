@@ -33,6 +33,7 @@ timestamp:new Date(),
 footer:{
 icon_url:this.client.user.avatarURL,
 text:`©️ Top | Xenova `
+} 
 }}) 	
 	
 }) 
