@@ -21,7 +21,7 @@ for(var i in rows){
 
 let u = this.client.users.find("id", `${rows[i].id}`) 
 			
-isNaN(i) ? `` : resp += `[${parseInt(i)+1}] - **${!u ? "invalid-user" : u.username}** - **Niveau: **${this.client.users.find("id", `${rows[i].id}`) == null ? "/": rows[i].niveau}**\n`
+isNaN(i) ? `` : resp += `[${parseInt(i)+1}] - **${!u ? "invalid-user" : u.username}** - **Niveau: ${rows[i].niveau}**\n`
 
 } 
 	
