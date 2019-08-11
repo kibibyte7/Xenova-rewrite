@@ -18,8 +18,10 @@ con.query("SELECT * FROM inventory ORDER BY cast (niveau as SIGNED) DESC LIMIT 1
 let resp = ``;
  		
 for(var i in rows){
+
+let u = this.client.users.find("id", `${rows[i].id}`) 
 			
-resp += `[${isNaN(parseInt(i)+1) ? "-" : parseInt(i)+1}] - **${this.client.users.find("id", `${rows[i].id}`) == null ? "NULL" : this.client.users.find("id", `${rows[i].id}`).tag} - **Niveau: **${this.client.users.find("id", `${rows[i].id}`) == null ? "/": rows[i].niveau}**\n`
+resp += isNaN(i) ? `` : `${!u ? "invalid-user" : u.username} - **Niveau: **${this.client.users.find("id", `${rows[i].id}`) == null ? "/": rows[i].niveau}**\n`
 
 } 
 	
