@@ -21,11 +21,19 @@ for(var i in rows){
 
 let u = this.client.users.find("id", `${rows[i].id}`) 
 			
-resp += isNaN(i) ? `` : `${!u ? "invalid-user" : u.username} - **Niveau: **${this.client.users.find("id", `${rows[i].id}`) == null ? "/": rows[i].niveau}**\n`
+isNaN(i) ? `` : resp += `[${parseInt(i)+1}] - **${!u ? "invalid-user" : u.username}** - **Niveau: **${this.client.users.find("id", `${rows[i].id}`) == null ? "/": rows[i].niveau}**\n`
 
 } 
 	
-message.channel.send(resp) 	
+message.channel.send({embed:{
+color:0x010101,
+title:"Classement par niveaux", 
+description:resp, 
+timestamp:new Date(), 
+footer:{
+icon_url:this.client.user.avatarURL,
+text:`©️ Top | Xenova `
+}}) 	
 	
 }) 
 
