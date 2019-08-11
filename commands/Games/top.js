@@ -28,7 +28,7 @@ isNaN(i) ? `` : resp += `[${parseInt(i)+1}] - **${!u ? "invalid-user" : u.userna
 message.channel.send({embed:{
 color:0x010101,
 title:"Classement par niveaux", 
-description:resp, 
+description:`${resp}`, 
 timestamp:new Date(), 
 footer:{
 icon_url:this.client.user.avatarURL,
