@@ -13,7 +13,7 @@ aliases:[]
 
 run(message, args, level, con) {
 
-con.query("SELECT * FROM inventory ORDER BY cast (niveau as SIGNED) DESC LIMIT 10", (err, rows) => {
+con.query("SELECT * FROM inventory ORDER BY cast (niveau as SIGNED) DESC LIMIT 50", (err, rows) => {
  
 let resp = ``;
  		
