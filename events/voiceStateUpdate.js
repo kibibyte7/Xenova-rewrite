@@ -23,8 +23,8 @@ newMember.setVoiceChannel(c.id)
 let voice = oldMember.guild.channels.find(vc => vc.name === "✨"+ u.username)
 let nombre = oldUserChannel.members.size;
 let user_name = oldUserChannel.name.slice(1)
-let member = oldMember.guild.members.find(c => c.user.username === user_name) 
-if(oldUserChannel.name === "✨"+member.user.username && oldUserChannel.members.size == 0) {
+let member = this.client.users.find(c => c.username === user_name) 
+if(oldUserChannel.name === "✨"+member.username && oldUserChannel.members.size == 0){
 voice.delete();
 } 
 } 
