@@ -1,5 +1,5 @@
 module.exports = class {
-constructor(option){
+constructor(client){
 this.client = client 
 } 
 
