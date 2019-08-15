@@ -3,7 +3,7 @@ const Command = require("../../modules/Command.js");
 class VoiceSetup extends Command {
   constructor(client) {
     super(client, {
-      name: "voiceseteup",
+      name: "voicesetup",
       description: "Le bot fait une catégorie vocal privée.",
       category:"Admin", 
       usage: "voicesetup", 
