@@ -40,7 +40,7 @@ class Leave_channel extends Command {
       
       if(!cible) return message.channel.send(`Je ne trouve pas ce channel.`) 
       	
-      	con.query("SELECT * FROM settings WHERE guild_id = ${message.guild.id}", (err, rows) => {
+      	con.query(`SELECT * FROM settings WHERE guild_id = ${message.guild.id}`, (err, rows) => {
       	
       	if(rows.length == 0){
       		
