@@ -28,7 +28,7 @@ class Ban_msg extends Command {
       	
       	}
       	
-      	con.query(`UPDATE settings SET bans_msg  = "${args.join(" ")}" WHERE guild_id = ${message.guild.id}`) 
+      	con.query(`UPDATE settings SET ban_msg  = "${args.join(" ")}" WHERE guild_id = ${message.guild.id}`) 
       	
       	message.channel.send("Le message de ban est désormais : **" + args.join(" ") +"**")
             
