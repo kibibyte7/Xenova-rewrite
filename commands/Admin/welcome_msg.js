@@ -28,7 +28,7 @@ class Welcome_msg extends Command {
       	
       	}
       	
-      	con.query(`UPDATE settings SET welcome_msg  = '${args.join(" ")}' WHERE guild_id = ${message.guild.id}`) 
+      	con.query(`UPDATE settings SET welcome_msg  = "${args.join(" ")}" WHERE guild_id = ${message.guild.id}`) 
       	
       	message.channel.send("Le channel de bienvenue est désormais : **" + args.join(" ") +"**")
             
