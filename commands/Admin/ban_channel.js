@@ -2,15 +2,15 @@ var sm = require('string-similarity')
 
 const Command = require("../../modules/Command.js");
 
-class Welcome_channel extends Command {
+class Ban_channel extends Command {
   constructor(client) {
     super(client, {
-      name: "welcome_channel",
-      description: "Définir un channel de bienvenue.",
+      name: "ban_channel",
+      description: "Définir un channel pour les bans.",
       category:"Admin", 
-      usage: "welcome_channel <channel>", 
+      usage: "ban_channel <channel>", 
       permLevel:"XenoAdminPerm", 
-      aliases:["wc"] 
+      aliases:["bc"] 
     });
   }
 
