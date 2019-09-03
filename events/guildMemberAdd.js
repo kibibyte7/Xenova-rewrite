@@ -43,9 +43,10 @@ module.exports = class {
     
     if(rows.length == 0) return;
     
-    let welcome = rows.welcome_msg
+    let welcome = rows[0].welcome_msg
     
-    if(welcome.includes("{user}")) welcome.replace("{user}", member) 
+    if(welcome.includes("{user}")) welcome.replace("{user}", member)
+    
     
     if(welcome.includes("{server}")) welcome.replace("{server}", member.guild.name) 
     
