@@ -40,9 +40,9 @@ class Welcome_channel extends Command {
       
       if(!cible) return message.channel.send(`Je ne trouve pas ce channel.`) 
       	
-      con.query("SELECT * FROM settings WHERE guild_id = ", (err, rows) => {
-      	let r = rows.length;
-      	if(r == undefined){
+      con.query(`SELECT * FROM settings WHERE guild_id = ${message.guild.id}`, (err, rows) => {
+      	
+      	if(rows.length == 0){
       		
       	con.query(`INSERT INTO settings (welcome_id, leave_id, ban_id, welcome_msg, leave_msg, ban_msg, guild_id) VALUES (${cible.id}, ${cible.id}, ${cible.id}, 'non défini', 'non défini', 'non défini', ${message.guild.id})`)
       
