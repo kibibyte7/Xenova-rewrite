@@ -10,7 +10,7 @@ class Settings_info extends Command {
       category:"Admin", 
       usage: "welcome_msg <channel>", 
       permLevel:"XenoAdminPerm", 
-      aliases:["wmsg"] 
+      aliases:["params"] 
     });
   }
 
