@@ -18,7 +18,7 @@ class Welcome_msg extends Command {
   
       if(args.length == 0) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Entre un message de bienvenue\n**NOTE:** Voici quelques paramètres pour le message de bienvenue:\n\`{server}\` pour le nom du serveur.\n\`{user}\` pour le nouvel utilisateur.\n\`{membercount}\` pour le nombte de personnes sur oe serveur.`) 
     
-      	con.query("SELECT * FROM settings WHERE guild_id = ${message.guild.id}", (err, rows) => {
+      	con.query(`SELECT * FROM settings WHERE guild_id = ${message.guild.id}`, (err, rows) => {
       	
       	if(rows.length == 0){
       		
