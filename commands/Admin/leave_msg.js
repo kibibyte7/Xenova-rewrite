@@ -2,15 +2,15 @@ var sm = require('string-similarity')
 
 const Command = require("../../modules/Command.js");
 
-class Welcome_msg extends Command {
+class Leave_msg extends Command {
   constructor(client) {
     super(client, {
-      name: "welcome_msg",
-      description: "Définir un message de bienvenue.",
+      name: "leave_msg",
+      description: "Définir un message de départ.",
       category:"Admin", 
-      usage: "welcome_msg <channel>", 
+      usage: "leave_msg <texte>", 
       permLevel:"XenoAdminPerm", 
-      aliases:["wmsg"] 
+      aliases:["lmsg"] 
     });
   }
 
