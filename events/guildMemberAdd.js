@@ -45,14 +45,17 @@ module.exports = class {
     
     let welcome = rows[0].welcome_msg
     
-    if(welcome.includes("{user}")) welcome.replace("{user}", member)
+    welcome.replace("{user}", member)
     
+    welcome.replace("{server}", member.guild.name) 
     
-    if(welcome.includes("{server}")) welcome.replace("{server}", member.guild.name) 
+    welcome.replace("{membercount}", member.guild.members.size) 
     
-    if(welcome.includes("{membercount}")) welcome.replace("{membercount}", member.guild.members.size) 
+    setTimeout(() => {
 
     this.client.channels.get(rows[0].welcome_id).send(welcome)
+    
+    }, 750)
 
     }) 
 
