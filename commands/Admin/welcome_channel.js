@@ -42,7 +42,7 @@ class Welcome_channel extends Command {
       	
       	con.query("SELECT * FROM settings WHERE guild_id = ${message.guild.id}", (err, rows) => {
       	
-      	if(rows.length == 0){
+      	if(!rows){
       		
       	con.query(`INSERT INTO settings (welcome_id, leave_id, ban_id, welcome_msg, leave_msg, ban_msg, guild_id) VALUES (${cible.id}, ${cible.id}, ${cible.id}, 'non défini', 'non défini', 'non défini', ${message.guild.id})`)
       
