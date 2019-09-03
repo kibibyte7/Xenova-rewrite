@@ -43,7 +43,15 @@ module.exports = class {
     
     if(rows.length == 0) return;
     
-    this.client.channel.get(rows.welcome_id).send(welcome_msg)
+    let welcome = rows.welcome_msg
+    
+    if(welcome.includes("{user}")) welcome.replace("{user}", member) 
+    
+    if(welcome.includes("{server}")) welcome.replace("{server}", member.guild.name) 
+    
+    if(welcome.includes("{membercount}")) welcome.replace("{membercount}", member.guild.members.size) 
+
+    this.client.channels.get(rows.welcome_id).send(welcome)
 
     }) 
 
