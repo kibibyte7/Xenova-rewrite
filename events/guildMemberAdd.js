@@ -52,7 +52,7 @@ module.exports = class {
     
     if(welcome.includes("{membercount}")) welcome.replace("{membercount}", member.guild.members.size) 
 
-    this.client.channels.get(rows.welcome_id).send(welcome)
+    this.client.channels.get(rows[0].welcome_id).send(welcome)
 
     }) 
 
