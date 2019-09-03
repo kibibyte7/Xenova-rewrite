@@ -44,18 +44,20 @@ class Welcome_channel extends Command {
       	
       	if(!rows){
       		
-      	con.query(`INSERT INTO settings (welcome_id, leave_id, ban_id, welcome_msg, leave_msg, ban_msg, guild_id) VALUES (${cible.id}, ${cible.id}, ${cible.id}, 'non défini', 'non défini', 'non défini', ${message.guild.id})`)
+      	con.query(`INSERT INTO settings (welcome_id, leave_id, ban_id, welcome_msg, leave_msg, ban_msg, guild_id) VALUES (${cible.id}, ${cible.id}, ${cible.id}, 'non défini', 'non défini', 'non défini', ${message.guild.id})`, console.log)
       
-      message.channel.send("Paramètres par défaut créé dans le channel: " + cible)
+        message.channel.send("Paramètres par défaut créé dans le channel: " + cible)
             
-      return;
+        return;
       	
-      	}
+      	}else{
       	
-      	con.query(`UPDATE settings SET ${cible} WHERE guild_id = ${message.guild.id}`) 
+      	con.query(`UPDATE settings SET ${cible} WHERE guild_id = ${message.guild.id}`, console.log) 
       	
       	message.channel.send("Le channel de bienvenue est désormais : " + cible)
-            
+       
+        } 
+   
       	}) 
       	
 }	
