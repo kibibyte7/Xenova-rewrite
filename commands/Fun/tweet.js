@@ -44,8 +44,8 @@ class Tweet extends Command {
       	value:`[Dernier status de Xenova](https://twitter.com/${data.user.screen_name}/status/${data.id_str}?s=19)`, 
       	}], 
       	timestamp:new Date(), 
-      footer:{
-      	icon_url:this.client.user.avatarURL,
+        footer:{
+      	icon_url:data.user.profile_image_url_https,
       	text:"©️ Tweet | Xenova" 
       	} 
       	}}) 
