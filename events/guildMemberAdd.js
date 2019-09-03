@@ -58,6 +58,22 @@ module.exports = class {
     }, 750)
 
     }) 
+    
+    con.query(`SELECT user_autorole FROM settings WHERE guild_id = ${member.guild.id}`, (err, rows) => {
+
+    if(rows.length == 0) return;
+
+    if(!member.user.bot) return member.addRole(rows[0].user_autorle, "[USER] Rôle automatique")
+
+    }) 
+
+    con.query(`SELECT bot_autorole FROM settings WHERE guild_id = ${member.guild.id}`, (err, rows) => {
+
+    if(rows.length == 0) return;
+
+    if(member.user.bot) return member.addRole(rows[0].bot_autorle, "[BOT] Rôle automatique")
+
+    }) 
 
   }
 };
