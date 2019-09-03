@@ -16,7 +16,7 @@ class Leave_msg extends Command {
 
   run(message, args, level, con) {
   
-      if(args.length == 0) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Entre un message de départ\n**NOTE:** Voici quelques paramètres pour le message de départ:\n\`{server}\` pour le nom du serveur.\n\`{usertag}\` pour le départ utilisateur SANS mention.\n\`{membercount}\` pour le nombte de personnes sur le serveur.`) 
+      if(args.length == 0) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Entre un message de départ\n**NOTE:** Voici quelques paramètres pour le message de départ:\n\`{server}\` pour le nom du serveur.\n\`{user}\` pour le départ utilisateur SANS mention.\n\`{membercount}\` pour le nombte de personnes sur le serveur.`) 
     
       	con.query(`SELECT * FROM settings WHERE guild_id = ${message.guild.id}`, (err, rows) => {
       	
