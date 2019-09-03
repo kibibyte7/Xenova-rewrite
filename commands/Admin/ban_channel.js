@@ -2,7 +2,7 @@ var sm = require('string-similarity')
 
 const Command = require("../../modules/Command.js");
 
-class Ban_channel extends Command {
+class Bans_channel extends Command {
   constructor(client) {
     super(client, {
       name: "ban_channel",
@@ -62,4 +62,4 @@ class Ban_channel extends Command {
 
 }
 
-module.exports = Ban_channel;
+module.exports = Bans_channel;
