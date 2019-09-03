@@ -52,7 +52,7 @@ class Welcome_channel extends Command {
       	
         } else {
 
-      	con.query(`UPDATE settings SET ${cible.id} WHERE guild_id = ${message.guild.id}`, console.log) 
+      	con.query(`UPDATE settings SET welcome_id = ${cible.id} WHERE guild_id = ${message.guild.id}`, console.log) 
       	
       	message.channel.send("Le channel de bienvenue est désormais : " + cible)
        
