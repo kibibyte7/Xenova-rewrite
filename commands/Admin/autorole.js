@@ -23,7 +23,7 @@ class Autorole extends Command {
 
       message.guild.roles.forEach(function(role){
 
-      chans.push(role.name)
+      roles.push(role.name)
 
       indexes.push(role.id)
 
