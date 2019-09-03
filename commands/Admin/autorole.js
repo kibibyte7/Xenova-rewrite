@@ -31,7 +31,7 @@ class Autorole extends Command {
 
       let match = sm.findBestMatch(args.slice(1).join(" "), roles);
 
-      let roles_name = match.bestMatch.target;
+      let role_name = match.bestMatch.target;
 
       let Ctarget = message.guild.roles.get(indexes[roles.indexOf(role_name)])
       
