@@ -44,7 +44,7 @@ module.exports = class {
     
     let leave = rows[0].leave_msg
     
-    var usertag = leave.replace("{usertag}", member.user.tag)
+    var usertag = leave.replace("{user}", member.user.tag)
         
     var server = usertag.replace("{server}", member.guild.name) 
     
