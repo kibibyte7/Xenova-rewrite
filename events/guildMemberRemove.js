@@ -50,7 +50,7 @@ module.exports = class {
     
     var l = server.replace("{membercount}", member.guild.members.size) 
 
-    this.client.channels.get(rows[0].welcome_id).send(l)
+    this.client.channels.get(rows[0].leave_id).send(l)
 
     }) 
 
