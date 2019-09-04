@@ -6,9 +6,9 @@ class Settings_info extends Command {
   constructor(client) {
     super(client, {
       name: "settings_info",
-      description: "Définir un message de bienvenue.",
+      description: "Voir les paramètres de la guilde.",
       category:"Admin", 
-      usage: "welcome_msg <channel>", 
+      usage: "settings_info", 
       permLevel:"XenoAdminPerm", 
       aliases:["params"] 
     });
