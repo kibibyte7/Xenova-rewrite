@@ -6,16 +6,22 @@ class Autorole extends Command {
   constructor(client) {
     super(client, {
       name: "autorole",
-      description: "Définir un rôle automate pour les bots et les utilisateurs.",
+      description:lang.autorole.description,
       category:"Admin", 
       usage: "autorole user/bot <rôle>", 
       aliases:[] 
     });
   }
 
-  run(message, args, level, con) {
+  run(message, args, level, lang, con) {
   
-  if(args.length == 0) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Entre un paramètre, tu veux \`bot\` ou \`user\` ? .`) 
+  var no_args = lang.autorole.no_args.replace("{wrong}", this.client.emojis.find(e => e.name === "wrongMark")) 
+  
+  var user = lang.autorole.user.replace("{check}", this.client.emojis.find(e => e.name === "checkMark")) 
+  
+  var bot = lang.autorole.bot.replace("{check}", this.client.emojis.find(e => e.name === "checkMark")) 
+  
+  if(args.length == 0) return message.channel.send(no_args) 
   
       let roles = [];
 
@@ -45,7 +51,9 @@ class Autorole extends Command {
       	
       	con.query(`UPDATE settings SET user_autorole = ${cible.id} WHERE guild_id = ${message.guild.id}`)
       	
-      	message.channel.send("Le rôle autimatique des membres humains est le rôle: " + cible)
+        var user_msg = user.replace("{userrole}", cible) 
+
+      	message.channel.send(user_msg)
             
       	}) 
      
@@ -57,7 +65,9 @@ class Autorole extends Command {
       	
       	con.query(`UPDATE settings SET bot_autorole = ${cible.id} WHERE guild_id = ${message.guild.id}`)
       	
-      	message.channel.send("Le rôle autimatique des membres bots est le rôle: " + cible)
+        var bot_msg = bot.replace("{botrole}", cible) 
+
+      	message.channel.send(bot_msg)
             
       	}) 
      
