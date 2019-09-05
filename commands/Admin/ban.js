@@ -25,7 +25,7 @@ var no_user = lang.ban.no_user.replace("{wrong}", wrong)
 
 var ban_yourself = lang.ban.ban_yourself.replace("{wrong}", wrong) 
 
-var waiting lang.ban.waiting.replace("{typing}", typing) 
+var waiting = lang.ban.waiting.replace("{typing}", typing) 
 
 var waiting_author = waiting.replace("{author}", message.author)
 
