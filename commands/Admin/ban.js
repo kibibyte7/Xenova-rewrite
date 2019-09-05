@@ -11,21 +11,49 @@ permLevel:"XenoAdminPerm"
 } 
 
 
-run(message, args, level) {
+run(message, args, level, lang) {
 
 const mention = message.mentions.members.first();
 	   		
 const check = this.client.emojis.find("name", "checkMark")
 
 const wrong = this.client.emojis.find("name", "wrongMark")
-	   			   			
-if(!mention) return message.channel.send(`${wrong} Mentionne un utilisateur à ban.`) 
 
-if(mention.user.id == message.author.id) return message.channel.send(`${wrong} Tu ne peux pas te bannir toi même.`) 
+const typing = this.client.emojis.find("name", "typing")
 
-if(!mention.bannable) return message.channel.send(`${wrong} Je n'ai pas la permission de ban **${mention.user.username}**.`); 
+var no_user = lang.ban.no_user.replace("{wrong}", wrong)) 
+
+var ban_yourself = lang.ban.ban_yourself.replace("{wrong}", wrong) 
+
+var waiting lang.ban.waiting.replace("{typing}", typing) 
+
+var waiting_author = waiting.replace("{author}", message.author)
+
+var no_perm = lang.ban.no_perm.replace("{wrong}", wrong) 
+
+var cancelled = lang.ban.cancelled.replace("{wrong}", wrong) 
+
+var ban_emote = lang.ban.message.replace("{check}", check)
+			   			
+if(!mention) return message.channel.send(no_user) 
+
+if(mention.user.id == message.author.id) return message.channel.send(ban_yourself) 
+
+var no_perm_msg = no_perm.replace("{usertag}", mention.user.tag)
+
+var ban_msg = ban_emote.replace("{usertag}", mention.user.tag)
+
+if(!mention.bannable) return message.channel.send(no_perm_msg); 
+
+var cancel = cancelled.replace("{user}", mention)
+
+var waiting_msg = waiting_author.replace("{user}", mention.user.username)
+
+var dm = lang.ban.dm.replace("{server}", message.guild.name)
+
+var dm_msg = dm.replace("{reason}", !args[1] ? lang.ban.no_reason : args.slice(1).join(" ")) 
 	   	
-message.channel.send(`${this.client.emojis.find("name", "typing")} ${message.author} veux tu vraiment ban ${mention.user.username} ?`).then(m => {
+message.channel.send(waiting_msg).then(m => {
 	   	 
 m.react(check)
 
@@ -39,13 +67,13 @@ const CheckReact = m.createReactionCollector(filterCheck)
 
 CheckReact.on('collect', r => {
 
-m.edit(`${check} **${mention.user.tag}** a été ban !`)
+m.edit(ban_msg)
 
 r.remove(message.author)  
 
-mention.user.send(`Tu as été ban du serveur: **${message.guild.name}**`) 
+mention.user.send(dm_msg) 
 
-message.guild.ban(mention.user.id, {days: 7, reason:`Ban par : ${message.author.tag}`})
+message.guild.ban(mention.user.id, {days: 7, reason:`${lang.ban.audits_log_reason} ${!args[1] ? lang.ban.no_reason : args.slice(1).join(" ")}`})
 
 m.clearReactions();
 
@@ -60,7 +88,7 @@ const WrongReact = m.createReactionCollector(filterWrong)
 
 WrongReact.on('collect', r => {
 
-m.edit(`${wrong} Le ban de **${mention.user.tag}** a été annulé.`)
+m.edit(cancel)
 
 m.clearReactions();
 
