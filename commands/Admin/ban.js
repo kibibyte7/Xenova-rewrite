@@ -73,7 +73,7 @@ r.remove(message.author)
 
 mention.user.send(dm_msg) 
 
-message.guild.ban(mention.user.id, {days: 7, reason:`${lang.ban.audits_log_reason} ${!args[1] ? lang.ban.no_reason : args.slice(1).join(" ")}`})
+message.guild.ban(mention.user.id, {days: 7, reason:`${lang.ban.audits_logs_reason} ${!args[1] ? lang.ban.no_reason : args.slice(1).join(" ")}`})
 
 m.clearReactions();
 
