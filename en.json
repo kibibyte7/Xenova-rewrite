@@ -11,7 +11,7 @@
 "message":"{check} **{usertag}**was banned !", 
 "waiting":"{typing} {author} Do you really want to ban {user} ?",
 "ban_yourself":"{wrong} You can't ban yourself, why are you trying this ?", 
-"cancelled":"{wrong} **{user}'s ban was cancelled.", 
+"cancelled":"{wrong} **{user}'s** ban was cancelled.", 
 "no_user":"{wrong} Sorry, i didn't found this user, are you sure you provided a mention, id or name ?", 
 "no_perm":"{wrong} Sorry, i can't ban {usertag} because i lack the `BAN_MEMBERS` permission or the user's role is higher than me.",
 "no_reason":"No reason were provided", 
