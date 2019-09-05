@@ -1,0 +1,36 @@
+{
+	
+"autorole":{
+"bot":"{check} Autorole for bots is the role : {botrole} !", 
+"user":"{check} Autorole for users is the role : {userrole} !", 
+"description":"Define an automatic role for new users and bots."
+},
+ 
+"ban":{
+"message":"{check} **{usertag}**was banned !", 
+"waiting":"{typing} {author} Do you really want to ban {user} ?",
+"cancelled":"{wrong} **{user}'s ban was cancelled.", 
+"no_user":"{wrong} Sorry, i didn't found this user, are you sure you provided a mention, id or name ?", 
+"no_perm":"{wrong} Sorry, i can't ban {usertag} because i lack the `BAN_MEMBERS` permission or the user's role is higher than me.",
+"no_reason":"No reason were provided", 
+"audits_logs_reason":"Banned by {author}", 
+"dm":"You were banned from the guild : **{server}** for the reason: **{reason}**.", 
+"description":"Ban a guild member." 
+}, 
+
+"ban_channel":{
+"no_channel":"{wrong} Sorry, I didn't found the channel, are you sure you provided a mention, id or name ?", 
+"default_params":"{check} Default parameter was created in the channel : {channel} !", 
+"changed_channel":"{check} The ban channel is now {channel} !",
+"description":"Define a ban channel for banned users." 
+}, 
+
+"ban_msg":{
+"no_message":"{wrong} No message were provided, there is some option : `{server}` for the name of the guild.\n`{user}` for the banned user.\n`{membercount}` for the number of members in the guild.",
+"no_param":"{wrong} Do the channels parameter first.", 
+"message":"The ban message is now : {message}",
+"description":"Define an ban message when a user is banned from the guild." 
+} 
+
+
+} 
