@@ -121,7 +121,7 @@ if (message.content.indexOf(settings.prefix) !== 0) return;
        } 
      } 
     con.query(`SELECT * FROM settings WHERE guild_id = ${message.guild.id}`,(err, rows) => {
-    const lang = rows[0].lang === "fr" ? require("../../fr.json") : require("../../en.json")
+    const lang = rows[0].lang === "fr" ? require("../fr.json") : require("../en.json")
     // Lancement de la commande
     this.client.logger.log(
       `${message.author.username} (${message.author.id} - ${
