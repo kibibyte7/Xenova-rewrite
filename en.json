@@ -8,7 +8,7 @@
 },
  
 "ban":{
-"message":"{check} **{usertag}**was banned !", 
+"message":"{check} **{usertag}** was banned !", 
 "waiting":"{typing} {author} Do you really want to ban {user} ?",
 "ban_yourself":"{wrong} You can't ban yourself, why are you trying this ?", 
 "cancelled":"{wrong} **{user}'s** ban was cancelled.", 
