@@ -21,7 +21,7 @@ const wrong = this.client.emojis.find("name", "wrongMark")
 
 const typing = this.client.emojis.find("name", "typing")
 
-var no_user = lang.ban.no_user.replace("{wrong}", wrong)) 
+var no_user = lang.ban.no_user.replace("{wrong}", wrong)
 
 var ban_yourself = lang.ban.ban_yourself.replace("{wrong}", wrong) 
 
