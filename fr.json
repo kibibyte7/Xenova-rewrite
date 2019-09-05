@@ -1,0 +1,22 @@
+{
+	
+"autorole":{
+"bot":"{check} L'autorole pour les bots est le rôle : {botrole} !", 
+"user":"{check} L'autorole pour les membres est le rôle : {userrole} !", 
+"description":"Définir un rôle automatique pour les nouveaux utilisateurs et bots."
+},
+ 
+"ban":{
+"message":"{check} **{usertag}** a été ban !", 
+"waiting":"{typing} {author} Veux-tu vraiment bannir {user} ?",
+"cancelled":"{wrong} Le ban de **{user}** a été annulé.", 
+"no_user":"{wrong} Désolé, je n'ai pas trouvé cet utilisateur, es-tu sûr d'avoir mis une mention, id ou un nom ?", 
+"no_perm":"{wrong} Désolé, je ne peux pas ban {usertag} parce que j'ai pas la permission `BAN_MEMBERS` ou le rôle de {user} est plus haut que moi.",
+"no_reason":"Aucune raison définie", 
+"audits_logs_reason":"Banni par {author}: {reason}", 
+"dm":"Tu as été ban de : **{server}** pour la raison : **{reason}**.", 
+"description":"Bannir un membre du serveur." 
+}
+
+
+} 
