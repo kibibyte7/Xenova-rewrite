@@ -1,6 +1,7 @@
 {
 	
 "autorole":{
+"no_args":"{wrong} Aucun texte a été spécifié, tu veux l'option user ou bot ?", 
 "bot":"{check} L'autorole pour les bots est le rôle : {botrole} !", 
 "user":"{check} L'autorole pour les membres est le rôle : {userrole} !", 
 "description":"Définir un rôle automatique pour les nouveaux utilisateurs et bots."
