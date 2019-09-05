@@ -1,6 +1,7 @@
 {
 	
 "autorole":{
+"no_args":"{wrong} No args were provided, do you want bot or user option ?", 
 "bot":"{check} Autorole for bots is the role : {botrole} !", 
 "user":"{check} Autorole for users is the role : {userrole} !", 
 "description":"Define an automatic role for new users and bots."
