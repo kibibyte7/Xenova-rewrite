@@ -120,12 +120,15 @@ if (message.content.indexOf(settings.prefix) !== 0) return;
          .send(`${this.client.emojis.find("name", "wrongMark")} Cette commande est désactivée suite à des bugs.`)
        } 
      } 
+    con.query(`SELECT * FROM settings WHERE guild_id = ${message.guild.id}`,(err, rows) => {
+    const lang = rows[0].lang === "fr" ? require("../../fr.json") : require("../../en.json")
     // Lancement de la commande
     this.client.logger.log(
       `${message.author.username} (${message.author.id} - ${
         this.client.config.permLevels.find(l => l.level === level).name
       }) lance la commande ${cmd.help.name}`
     );
-    cmd.run(message, args, level, con);
+    cmd.run(message, args, level, lang, con);
+   }) 
   }
 };
