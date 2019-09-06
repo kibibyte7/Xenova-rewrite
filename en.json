@@ -1,5 +1,7 @@
 {
 	
+"Admin":[{
+	
 "autorole":{
 "no_args":"{wrong} No args were provided, do you want bot or user option ?", 
 "bot":"{check} Autorole for bots is the role : {botrole} !", 
@@ -32,7 +34,109 @@
 "no_param":"{wrong} Do the channels parameter first.", 
 "message":"The ban message is now : {message}",
 "description":"Define an ban message when a user is banned from the guild." 
+}, 
+
+"createcategory":{
+"no_args":"{wrong} No args were provided, i can't create a category without a name.", 
+"no_perms":"{wrong} I can't create a new channel because I lack the `MANAGE_CHANNELS` permission.", 
+"created":"{check} I created a category named : {category} !", 
+"description":"Create a new category." 
+},
+
+"createchannel":{
+"no_args":"{wrong} No args were provided, i can't create a text channel without a name.", 
+"no_perms":"{wrong} I can't create a new text channel because I lack the `MANAGE_CHANNELS` permission.", 
+"created":"{check} I created a text channel named : {category} !", 
+"description":"Create a new text channel." 
+}, 
+
+"createvoice":{
+"no_args":"{wrong} No args were provided, i can't create a voice channel without a name.", 
+"no_perms":"{wrong} I can't create a new channel because I lack the `MANAGE_CHANNELS` permission.", 
+"created":"{check} I created a category named : {category} !", 
+"description":"Create a new voice channel." 
+}, 
+
+"everyrole":{
+"waiting":"{typing} {author} Do you really want to create an Everyrole and gice it to {membercount} members without the bots ?", 
+"confirmed":"{check} I create the everyrole and give it to {membercount} members, please wait...", 
+"cancelled":"{wrong} Everyrole vas cancelled.", 
+"mention_no_exists":"{wrong} everyrole doesn't exists in the guild, please make : {prefix}everyrole and confirm.", 
+"waiting_mention":"{typing} {author} Do you really want to mention {membercount} members ?", 
+"confirmed_mention":"{check} {membercount} members will be mentioned soon...",
+"cancelled_mention":"{wrong} Everyrole mention was cancelled." 
+}, 
+
+"leave_channel":{
+"no_channel":"{wrong} Sorry, I didn't found the channel, are you sure you provided a mention, id or name ?", 
+"default_params":"{check} Default parameter was created in the channel : {channel} !", 
+"changed_channel":"{check} The leave channel is now {channel} !",
+"description":"Define a leave channel when users left the guild." 
+}, 
+
+"leave_msg":{
+"no_message":"{wrong} No message were provided, there is some option : `{server}` for the name of the guild.\n`{user}` user tag when left.\n`{membercount}` for the number of members in the guild.",
+"no_param":"{wrong} Do the channels parameter first.", 
+"message":"The leave message is now : {message}",
+"description":"Define an leave message when a user left the guild." 
+}, 
+
+"settings_info":{
+"field1":"Welcome channel:",
+"field2":"Welcome message:", 
+"field3":"Leave channel:", 
+"field4":"Leave message:", 
+"field5":"Ban channel:",
+"field6":"Ban message:", 
+"field7":"Autorole for users:", 
+"field8":"Autorole for bots:", 
+"description":"Show the guild setting."
+},
+
+"softban":{
+"message":"{check} **{usertag}** was banned !", 
+"waiting":"{typing} {author} Do you really want to ban {user} ?",
+"ban_yourself":"{wrong} You can't ban yourself, why are you trying this ?", 
+"cancelled":"{wrong} **{user}'s** ban was cancelled.", 
+"no_user":"{wrong} Sorry, i didn't found this user, are you sure you provided a mention, id or name ?", 
+"no_perm":"{wrong} Sorry, i can't ban {usertag} because i lack the `BAN_MEMBERS` permission or the user's role is higher than me.",
+"no_reason":"No reason were provided", 
+"audits_logs_reason":"Banned by {author}", 
+"dm":"You were banned from the guild : **{server}** for the reason: **{reason}**.", 
+"description":"Ban and unban a guild member." 
+}, 
+
+"voicemove":{
+"not_in_voice":"{wrong} You're not in a voice channel.", 
+"next_but_max":"{wrong} There's no voice channel here, use previous.", 
+"next_waiting":"{typing} {author} Do you want to move {membercount} members, to the next channel ?", 
+"next_confirmed":"{check} Ok, i'm moving {membercount} right now.",
+"previous_but_max":"{wrong} There's no voice channel here, use next.", 
+"previous_waiting":"{typing} {author} Do you want to move {membercount} members, to the previous channel ?", 
+"previous_confirmed":"{check} Ok, i'm moving {membercount} right now.", 
+"description":"Moveall the users in a voice channel to the next or peevious voice." 
+}, 
+
+"voicesetup":{
+"already_exists":"{wrong} Private voice category already exists.",
+"created":"{check} Voila, the category has been created.",
+"description":"Create a private voice category." 
+},
+
+"welcome_channel":{
+"no_channel":"{wrong} Sorry, I didn't found the channel, are you sure you provided a mention, id or name ?", 
+"default_params":"{check} Default parameter was created in the channel : {channel} !", 
+"changed_channel":"{check} The welcome channel is now {channel} !",
+"description":"Define a welcome channel when users left the guild." 
+}, 
+
+"welcome_msg":{
+"no_message":"{wrong} No message were provided, there is some option : `{server}` for the name of the guild.\n`{user}` for the new user.\n`{membercount}` for the number of members in the guild.",
+"no_param":"{wrong} Do the channels parameter first.", 
+"message":"The welcome message is now : {message}",
+"description":"Define an welcome message when a user joins the guild." 
 } 
 
+}] 
 
-} 
+}
