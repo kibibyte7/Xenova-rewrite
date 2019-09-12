@@ -128,7 +128,7 @@ if (message.content.indexOf(settings.prefix) !== 0) return;
         this.client.config.permLevels.find(l => l.level === level).name
       }) lance la commande ${cmd.help.name}`
     );
-    cmd.run(message, args, level, con, lang);
+    cmd.run(message, args, level, con, /*lang*/);
    //}) 
   }
 };
