@@ -15,11 +15,11 @@ class Autorole extends Command {
 
   run(message, args, level, lang, con) {
   
-  var no_args = lang.Admin[0].no_args.replace("{wrong}", this.client.emojis.find(e => e.name === "wrongMark")) 
+  var no_args = lang.autorole.no_args.replace("{wrong}", this.client.emojis.find(e => e.name === "wrongMark")) 
   
-  var user = lang.Admin[0].user.replace("{check}", this.client.emojis.find(e => e.name === "checkMark")) 
+  var user = lang.autorole.user.replace("{check}", this.client.emojis.find(e => e.name === "checkMark")) 
   
-  var bot = lang.Admin[0].bot.replace("{check}", this.client.emojis.find(e => e.name === "checkMark")) 
+  var bot = lang.autorole.bot.replace("{check}", this.client.emojis.find(e => e.name === "checkMark")) 
   
   if(args.length == 0) return message.channel.send(no_args) 
   
