@@ -1,7 +1,5 @@
 {
 	
-"Admin":[{
-	
 "autorole":{
 "no_args":"{wrong} No args were provided, do you want bot or user option ?", 
 "bot":"{check} Autorole for bots is the role : {botrole} !", 
@@ -136,7 +134,5 @@
 "message":"The welcome message is now : {message}",
 "description":"Define an welcome message when a user joins the guild." 
 } 
-
-}] 
 
 }
