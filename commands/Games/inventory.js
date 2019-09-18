@@ -25,8 +25,8 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	
 	if(rows.length == 0){
 	try{
-	SQL = `INSERT INTO inventory(id, xp, mana, maxmana,pui,category, guilde ,pickaxe, wood, stone, fer, gold, diament, emeraude, prismes, antimatter, osrizk, attack, defense, niveau, tresors, rep, weaponlevel, pv, armorlevel, kills) VALUES (${message.author.id}, 0, 25, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 0)`
-	
+	SQL = `INSERT INTO inventory(id, xp, totalxp, mana, maxmana, pui, category, guildename, guildowner, guildlevel, guildmember, guildmaxmembers, guildxp, guildtotalxp, pickaxe, wood, stone, fer, gold, diament, emeraude, prismes, antimatter, osrizk, attack, defense, niveau, tresors, rep, weaponlevel, pv, armorlevel, kills, atk_fragments, def_fragments, pick_fragments, armor_fragments, atk_enchant, def_enchant, pick_enchant, armor_enchant) VALUES (${message.author.id}, 0, 0, 25, 25, "null", "null", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)`
+
 	con.query(SQL)
 	
 	
