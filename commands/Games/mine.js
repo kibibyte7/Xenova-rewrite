@@ -31,13 +31,13 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	 	
 	 	var randxp = Math.floor(Math.random()*10*rows[0].pickaxe+1)
 	 	
-	 	con.query(`UPDATE inventory SET mana = ${parseInt(rows[0].mana)-1}, wood = ${parseInt(rows[0].wood)+randwood}, xp = ${parseInt(rows[0].xp)+randxp} WHERE id = ${message.author.id}`)
+	 	con.query(`UPDATE inventory SET mana = ${parseInt(rows[0].mana)-1}, wood = ${parseInt(rows[0].wood)+randwood}, xp = ${parseInt(rows[0].xp)+randxp}, totalxp = ${parseInt(rows[0].totalxp)+randxp} WHERE id = ${message.author.id}`)
 	 	
 	 	let level = rows[0].niveau;
     	
     	        const nxtLvl = 500 * (Math.pow(2, rows[0].xp) - 1)*level;
     	
-	        if(rows[0].xp > nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(rows[0].niveau)+1} WHERE id = ${message.author.id}`)
+	        if(rows[0].xp > nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(rows[0].niveau)+1}, xp = 0,  WHERE id = ${message.author.id}`)
 	  
 	 	message.reply(`tu as miné ${randwood} **wood** et gagné ${randxp} xp ! [Mana restant : **${rows[0].mana}/${rows[0].maxmana}**]`) 
 	 	
@@ -55,13 +55,13 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	 	
 	 	var randxp = Math.floor(Math.random()*10*rows[0].pickaxe+1)
 	 	
-	 	con.query(`UPDATE inventory SET mana = ${parseInt(rows[0].mana)-1}, stone = ${parseInt(rows[0].stone)+randstone}, xp = ${parseInt(rows[0].xp)+randxp} WHERE id = ${message.author.id}`)
+	 	con.query(`UPDATE inventory SET mana = ${parseInt(rows[0].mana)-1}, stone = ${parseInt(rows[0].stone)+randstone}, xp = ${parseInt(rows[0].xp)+randxp}, totalxp = ${parseInt(rows[0].totalxp)+randxp} WHERE id = ${message.author.id}`)
 	 	
 	 	let level = rows[0].niveau;
     	
     	        const nxtLvl = 500 * (Math.pow(2, rows[0].xp) - 1)*level;
     	
-	        if(rows[0].xp > nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(rows[0].niveau)+1} WHERE id = ${message.author.id}`)
+	        if(rows[0].xp > nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(rows[0].niveau)+1}, xp = 0 WHERE id = ${message.author.id}`)
 	  
 	 	message.reply(`tu as miné ${randstone} **stone** et gagné ${randxp} xp ! [Mana restant : **${rows[0].mana}/${rows[0].maxmana}**]`) 
 	 	
@@ -79,13 +79,13 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	 	
 	 	var randxp = Math.floor(Math.random()*10*rows[0].pickaxe+1)
 	 	
-	 	con.query(`UPDATE inventory SET mana = ${parseInt(rows[0].mana)-1}, fer = ${parseInt(rows[0].fer)+randfer}, xp = ${parseInt(rows[0].xp)+randxp} WHERE id = ${message.author.id}`)
+	 	con.query(`UPDATE inventory SET mana = ${parseInt(rows[0].mana)-1}, fer = ${parseInt(rows[0].fer)+randfer}, xp = ${parseInt(rows[0].xp)+randxp}, totalxp = ${parseInt(rows[0].totalxp)+randxp}, totalxp = ${parseInt(rows[0].totalxp)+randxp} WHERE id = ${message.author.id}`)
 	 	
 	 	let level = rows[0].niveau;
     	
     	        const nxtLvl = 500 * (Math.pow(2, rows[0].xp) - 1)*level;
     	
-	        if(rows[0].xp > nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(rows[0].niveau)+1} WHERE id = ${message.author.id}`)
+	        if(rows[0].xp > nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(rows[0].niveau)+1}, xp = 0 WHERE id = ${message.author.id}`)
 	  
 	 	message.reply(`tu as miné ${randfer} **fer** et gagné ${randxp} xp ! [Mana restant : **${rows[0].mana}/${rows[0].maxmana}**]`) 
 	 	
@@ -103,13 +103,13 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	 	
 	 	var randxp = Math.floor(Math.random()*10*rows[0].pickaxe+1)
 	 	
-	 	con.query(`UPDATE inventory SET mana = ${parseInt(rows[0].mana)-1}, gold = ${parseInt(rows[0].gold)+randgold}, xp = ${parseInt(rows[0].xp)+randxp} WHERE id = ${message.author.id}`)
+	 	con.query(`UPDATE inventory SET mana = ${parseInt(rows[0].mana)-1}, gold = ${parseInt(rows[0].gold)+randgold}, xp = ${parseInt(rows[0].xp)+randxp}, totalxp = ${parseInt(rows[0].totalxp)+randxp} WHERE id = ${message.author.id}`)
 	 	
 	 	let level = rows[0].niveau;
     	
     	        const nxtLvl = 500 * (Math.pow(2, rows[0].xp) - 1)*level;
     	
-	        if(rows[0].xp > nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(rows[0].niveau)+1} WHERE id = ${message.author.id}`)
+	        if(rows[0].xp > nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(rows[0].niveau)+1}, xp = 0 WHERE id = ${message.author.id}`)
 	  
 	 	message.reply(`tu as miné ${randgold} **gold** et gagné ${randxp} xp ! [Mana restant : **${rows[0].mana}/${rows[0].maxmana}**]`) 
 	 	
@@ -127,13 +127,13 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	 	
 	 	var randxp = Math.floor(Math.random()*10*rows[0].pickaxe+1)
 	 	
-	 	con.query(`UPDATE inventory SET mana = ${parseInt(rows[0].mana)-1}, diament = ${parseInt(rows[0].diament)+randdiam}, xp = ${parseInt(rows[0].xp)+randxp} WHERE id = ${message.author.id}`)
+	 	con.query(`UPDATE inventory SET mana = ${parseInt(rows[0].mana)-1}, diament = ${parseInt(rows[0].diament)+randdiam}, xp = ${parseInt(rows[0].xp)+randxp}, totalxp = ${parseInt(rows[0].totalxp)+randxp} WHERE id = ${message.author.id}`)
 	 	
 	 	let level = rows[0].niveau;
     	
     	        const nxtLvl = 500 * (Math.pow(2, rows[0].xp) - 1)*level;
     	
-	        if(rows[0].xp > nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(rows[0].niveau)+1} WHERE id = ${message.author.id}`)
+	        if(rows[0].xp > nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(rows[0].niveau)+1}, xp = 0 WHERE id = ${message.author.id}`)
 	  
 	 	message.reply(`tu as miné ${randdiam} **diamant** et gagné ${randxp} xp ! [Mana restant : **${rows[0].mana}/${rows[0].maxmana}**]`) 
 	 	
@@ -151,13 +151,13 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	 	
 	 	var randxp = Math.floor(Math.random()*10*rows[0].pickaxe+1)
 	 	
-	 	con.query(`UPDATE inventory SET mana = ${parseInt(rows[0].mana)-1}, emeraude = ${parseInt(rows[0].emeraude)+randem}, xp = ${parseInt(rows[0].xp)+randxp} WHERE id = ${message.author.id}`)
+	 	con.query(`UPDATE inventory SET mana = ${parseInt(rows[0].mana)-1}, emeraude = ${parseInt(rows[0].emeraude)+randem}, xp = ${parseInt(rows[0].xp)+randxp}, totalxp = ${parseInt(rows[0].totalxp)+randxp} WHERE id = ${message.author.id}`)
 	 	
 	 	let level = rows[0].niveau;
     	
     	        const nxtLvl = 500 * (Math.pow(2, rows[0].xp) - 1)*level;
     	
-	        if(rows[0].xp > nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(rows[0].niveau)+1} WHERE id = ${message.author.id}`)
+	        if(rows[0].xp > nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(rows[0].niveau)+1}, xp = 0 WHERE id = ${message.author.id}`)
 	  
 	 	message.reply(`tu as miné ${randem} **émeraude** et gagné ${randxp} xp ! [Mana restant : **${rows[0].mana}/${rows[0].maxmana}**]`) 
 	 	
@@ -175,13 +175,13 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	 	
 	 	var randxp = Math.floor(Math.random()*10*rows[0].pickaxe+100)
 	 	
-	 	con.query(`UPDATE inventory SET mana = ${parseInt(rows[0].mana)-1}, prismes = ${parseInt(rows[0].prismes)+randpp}, xp = ${parseInt(rows[0].xp)+randxp} WHERE id = ${message.author.id}`)
+	 	con.query(`UPDATE inventory SET mana = ${parseInt(rows[0].mana)-1}, prismes = ${parseInt(rows[0].prismes)+randpp}, xp = ${parseInt(rows[0].xp)+randxp}, totalxp = ${parseInt(rows[0].totalxp)+randxp} WHERE id = ${message.author.id}`)
 	 	
 	 	let level = rows[0].niveau;
     	
     	        const nxtLvl = 500 * (Math.pow(2, rows[0].xp) - 1)*level;
     	
-	        if(rows[0].xp > nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(rows[0].niveau)+1} WHERE id = ${message.author.id}`)
+	        if(rows[0].xp > nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(rows[0].niveau)+1}, xp = 0 WHERE id = ${message.author.id}`)
 	  
 	 	message.reply(`tu as miné ${randpp} **prismes-parfaits [RARE]** et gagné ${randxp} xp ! [Mana restant : **${rows[0].mana}/${rows[0].maxmana}**]`) 
 	 	
@@ -199,13 +199,13 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	 	
 	 	var randxp = Math.floor(Math.random()*10*rows[0].pickaxe+200)
 	 	
-	 	con.query(`UPDATE inventory SET mana = ${parseInt(rows[0].mana)-1}, antimatter = ${parseInt(rows[0].antimatter)+randam}, xp = ${parseInt(rows[0].xp)+randxp} WHERE id = ${message.author.id}`)
+	 	con.query(`UPDATE inventory SET mana = ${parseInt(rows[0].mana)-1}, antimatter = ${parseInt(rows[0].antimatter)+randam}, xp = ${parseInt(rows[0].xp)+randxp}, totalxp = ${parseInt(rows[0].totalxp)+randxp} WHERE id = ${message.author.id}`)
 	 	
 	 	let level = rows[0].niveau;
     	
     	        const nxtLvl = 500 * (Math.pow(2, rows[0].xp) - 1)*level;
     	
-	        if(rows[0].xp > nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(rows[0].niveau)+1} WHERE id = ${message.author.id}`)
+	        if(rows[0].xp > nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(rows[0].niveau)+1}, xp = 0 WHERE id = ${message.author.id}`)
 	  
 	 	message.reply(`tu as miné ${randam} **anti-matière [SUPER-RARE]** et gagné ${randxp} xp ! [Mana restant : **${rows[0].mana}/${rows[0].maxmana}**]`) 
 	 	
@@ -223,13 +223,13 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	 	
 	 	var randxp = Math.floor(Math.random()*10*rows[0].pickaxe+500)
 	 	
-	 	con.query(`UPDATE inventory SET mana = ${parseInt(rows[0].mana)-1}, osrizk = ${parseInt(rows[0].osrizk)+randos}, xp = ${parseInt(rows[0].xp)+randxp} WHERE id = ${message.author.id}`)
+	 	con.query(`UPDATE inventory SET mana = ${parseInt(rows[0].mana)-1}, osrizk = ${parseInt(rows[0].osrizk)+randos}, xp = ${parseInt(rows[0].xp)+randxp}, totalxp = ${parseInt(rows[0].totalxp)+randxp} WHERE id = ${message.author.id}`)
 	 	
 	 	let level = rows[0].niveau;
     	
     	        const nxtLvl = 500 * (Math.pow(2, rows[0].xp) - 1)*level;
     	
-	        if(rows[0].xp > nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(rows[0].niveau)+1} WHERE id = ${message.author.id}`)
+	        if(rows[0].xp > nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(rows[0].niveau)+1}, xp = 0 WHERE id = ${message.author.id}`)
 	  
 	 	message.reply(`tu as miné ${randos} **osrizk [LÉGENDAIRE]** et gagné ${randxp} xp ! [Mana restant : **${rows[0].mana}/${rows[0].maxmana}**]`) 
 	 	
