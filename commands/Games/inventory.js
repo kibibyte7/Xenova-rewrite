@@ -217,7 +217,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	}, 
 	{
  name:"Guilde:", 
- value:rows[0].guilde == 0 ? "Aucune guilde" : rows[0].guilde
+ value:rows[0].guildname == "null" ? "Aucune guilde" : rows[0].guildname
 	},
 	{
  name:"Points de réputations:", 
