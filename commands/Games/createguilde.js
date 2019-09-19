@@ -30,8 +30,6 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	  message.channel.send(`La guilde : **${args.join(" ").substring(0, 30)}**a été créé avec succès.`) 
 	  
 	  }) 
-	  	  
-	  }) 
 	 	
 }
 } 
