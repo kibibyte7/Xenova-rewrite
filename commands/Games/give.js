@@ -13,19 +13,19 @@ aliases:[]
 
 run(message, args, level, con) {
 
-const check = client.emojis.find("name", "checkMark");
+const check = this.client.emojis.find("name", "checkMark");
 
-const wrong = client.emojis.find("name", "wrongMark");
+const wrong = this.client.emojis.find("name", "wrongMark");
 
 const typing = this.client.emojis.find("name", "typing");
 
 var mention = message.mentions.users.first();
 
-if(!mention) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Entre une mention.`)
+if(!mention) return message.channel.send(`${wrong} Entre une mention.`)
 
 con.query(`SELECT * FROM inventory WHERE id = ${mention.id}`, (err, you) => {
 
-if(you.length == 0) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Cet utilisateur n'est pas inscrit dans le jeu.`)
+if(you.length == 0) return message.channel.send(`${wrong} Cet utilisateur n'est pas inscrit dans le jeu.`)
 
 con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, me) => {
 
