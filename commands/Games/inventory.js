@@ -237,7 +237,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	},  
 	{
         name:"💎 Ressources tertiaires", 
-        value:`Prismes-parfaits: ${rows[0].prismes}\nAnti-matières: ${rows[0].antimatter}\nOsrizk: ${rows[0].osrizk} 
+        value:`Prismes-parfaits: ${rows[0].prismes}\nAnti-matières: ${rows[0].antimatter}\nOsrizk: ${rows[0].osrizk}`, 
 	}, 
         {
         name:"⚒️ Items:", 
