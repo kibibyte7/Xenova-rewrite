@@ -1,5 +1,4 @@
 const Command = require("../../modules/Command.js")
-const mysql = require("mysql") 
 
 class Give extends Command {
 constructor(client){
@@ -15,6 +14,8 @@ aliases:[]
 run(message, args, level, con) {
 
 var mention = message.mentions.users.first() || this.client.users.find("id", args[0]);
+
+if(!mention) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Entre une mention.`)
 
 con.query(`SELECT * FROM inventory WHERE id = ${mention.id}`, (err, you) => {
 
