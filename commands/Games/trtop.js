@@ -37,7 +37,7 @@ text:`©️ Trtop | Xenova `
 }}) 
 	
 }) 
-
+} 
 }
 
 module.exports = Trtop;
