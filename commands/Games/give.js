@@ -33,6 +33,10 @@ function confirmation(nombre, myressource, yourressource, ressource){
 	
 message.channel.send(`${typing} ${message.author} veux-tu vraiment donner **${nombre} de ${ressource == "wood" ? "bois" : args[1]}** à **${mention.username}** ?`).then(m => {
 
+m.react(check)
+
+setTimeout(() => {m.react(wrong)}, 1000)
+
 const filter = (reaction, user) => reaction.emoji.name == check.name && user.id == message.author.id || reaction.emoji.name == wrong.name && user.id == message.author.id;
 	     
 var collect = m.createReactionCollector(filter)
