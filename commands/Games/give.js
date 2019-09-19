@@ -23,7 +23,7 @@ if(you.length == 0) return message.channel.send(`${this.client.emojis.find("name
 
 con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, me) => {
 
-function confirmation(nombre, myressource, yourressource, ressource){
+function confirmation(nombre, myressource, yourressource, ressource, sql){
 	
 message.channel.send(`${this.client.emojis.find("name", "typing")} ${message.author} veux-tu vraiment donner **${nombre} de ${ressource == "wood" ? "bois" : args[1]}** à **${mention.username}** ?`).then(m => {
 
@@ -41,9 +41,9 @@ if(r.emoji.name == check.name){
 	     		
 r.remove(message.author);
 
-con.query(`UPDATE inventory SET ${ressource} = ${myressource-nombre} WHERE id = ${message.author.id}`) 
+sql.query(`UPDATE inventory SET ${ressource} = ${myressource-nombre} WHERE id = ${message.author.id}`) 
 
-con.query(`UPDATE inventory SET ${ressource} = ${yourressource+nombre} WHERE id = ${mention.id}`) 
+sql.query(`UPDATE inventory SET ${ressource} = ${yourressource+nombre} WHERE id = ${mention.id}`) 
  
 m.edit(`${check} ${message.author} Tu as donné **${nombre} de ${ressource}** à **${mention.username}**.`)
 
@@ -71,7 +71,7 @@ if(isNaN(args[2])) return message.channel.send(`${this.client.emojis.find("name"
 
 if(me[0].wood < parseInt(args[2])) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Il te manque **${parseInt(args[2])-me[0].wood} de bois**, entre un chiffre dans ton budget.`)
 	
-confirmation(parseInt(args[2]), me[0].wood, you[0].wood, "wood") 
+confirmation(parseInt(args[2]), me[0].wood, you[0].wood, "wood", con) 
 
 } 	
 
@@ -81,7 +81,7 @@ if(isNaN(args[2])) return message.channel.send(`${this.client.emojis.find("name"
 
 if(me[0].stone < parseInt(args[2])) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Il te manque **${parseInt(args[2])-me[0].stone} de stone**, entre un chiffre dans ton budget.`)
 	
-confirmation(parseInt(args[2]), me[0].stone, you[0].stone, "stone") 
+confirmation(parseInt(args[2]), me[0].stone, you[0].stone, "stone", con) 
 
 } 	
 
@@ -91,7 +91,7 @@ if(isNaN(args[2])) return message.channel.send(`${this.client.emojis.find("name"
 
 if(me[0].wood < parseInt(args[2])) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Il te manque **${parseInt(args[2])-me[0].fer} de fer**, entre un chiffre dans ton budget.`)
 	
-confirmation(parseInt(args[2]), me[0].fer, you[0].fer, "fer") 
+confirmation(parseInt(args[2]), me[0].fer, you[0].fer, "fer", con) 
 
 } 	
 
@@ -101,7 +101,7 @@ if(isNaN(args[2])) return message.channel.send(`${this.client.emojis.find("name"
 
 if(me[0].wood < parseInt(args[2])) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Il te manque **${parseInt(args[2])-me[0].diament} de diamants**, entre un chiffre dans ton budget.`)
 	
-confirmation(parseInt(args[2]), me[0].diament, you[0].diament ,"diament") 
+confirmation(parseInt(args[2]), me[0].diament, you[0].diament ,"diament", con) 
 
 } 	
 
@@ -111,7 +111,7 @@ if(isNaN(args[2])) return message.channel.send(`${this.client.emojis.find("name"
 
 if(me[0].wood < parseInt(args[2])) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Il te manque **${parseInt(args[2])-me[0].emeraude} d'émeraudes**, entre un chiffre dans ton budget.`)
 	
-confirmation(parseInt(args[2]), me[0].emeraude, you[0].emeraude, "emeraude") 
+confirmation(parseInt(args[2]), me[0].emeraude, you[0].emeraude, "emeraude", con) 
 
 } 	
 
@@ -121,7 +121,7 @@ if(isNaN(args[2])) return message.channel.send(`${this.client.emojis.find("name"
 
 if(me[0].wood < parseInt(args[2])) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Il te manque **${parseInt(args[2])-me[0].prismes} de prismes-parfaits**, entre un chiffre dans ton budget.`)
 	
-confirmation(parseInt(args[2]), me[0].prismes, you[0].prismes, "prismes") 
+confirmation(parseInt(args[2]), me[0].prismes, you[0].prismes, "prismes", con) 
 
 } 	
 
@@ -131,7 +131,7 @@ if(isNaN(args[2])) return message.channel.send(`${this.client.emojis.find("name"
 
 if(me[0].wood < parseInt(args[2])) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Il te manque **${parseInt(args[2])-me[0].antimatter} d'anti-matières**, entre un chiffre dans ton budget.`)
 	
-confirmation(parseInt(args[2]), me[0].antimatter, you[0].antimatter, "antimatter") 
+confirmation(parseInt(args[2]), me[0].antimatter, you[0].antimatter, "antimatter", con) 
 
 } 
 
@@ -141,7 +141,7 @@ if(isNaN(args[2])) return message.channel.send(`${this.client.emojis.find("name"
 
 if(me[0].osrizk < parseInt(args[2])) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Il te manque **${parseInt(args[2])-me[0].osrizk} d'osrizk**, entre un chiffre dans ton budget.`)
 	
-confirmation(parseInt(args[2]), me[0].osrizk, you[0].osrizk, "osrizk") 
+confirmation(parseInt(args[2]), me[0].osrizk, you[0].osrizk, "osrizk", con) 
 
 } 	
 	
