@@ -29,7 +29,7 @@ con.query("SELECT * FROM tresor", (err, rows) => {
    var randtime = Date.now()+Math.floor(Math.random()*1000*60*40) 
 	  	 
    if((rows[0].temps > Date.now()) && (rows[0].TEMPS !== 0)){         
-      message.channel.send(`Le trésor n'est pas disponible, il le sera dans **${minutes == 0 ? "" : minutes + " minutes"} ${seconds == 0 ? "" : seconds + " secondes"}**, le dernier trésor a été pris par ${this.client.users.find("id", `${rows[0].taker}`).tag} depuis le serveur ${rows[0].server}\nNOTE: Les messages envoyés par l'utilisateur et le bot sont supprimés pour réduire au maximum leurs nombres.`).then(m => {
+      message.channel.send(`Le trésor n'est pas disponible, il le sera dans **${minutes == 0 ? "" : minutes + " minutes"} ${seconds == 0 ? "" : seconds + " secondes"}**, le dernier trésor a été pris par ${rows[0].taker == "Xenova"? "Xenova" : this.client.users.find("id", `${rows[0].taker}`).tag} depuis le serveur ${rows[0].server == "Xenova" ? "Xenova Support" : rows[0].server}\nNOTE: Les messages envoyés par l'utilisateur et le bot sont supprimés pour réduire au maximum leurs nombres.`).then(m => {
       	m.delete(5000)
       	message.delete(5050)
       	}) 
