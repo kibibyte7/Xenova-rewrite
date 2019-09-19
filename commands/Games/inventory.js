@@ -205,7 +205,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	}, 
 	{
  name:"Xp:", 
- value:rows[0].xp
+ value:rows[0].totalxp
 	}, 
 	{
  name:"❤️ Pv:", 
