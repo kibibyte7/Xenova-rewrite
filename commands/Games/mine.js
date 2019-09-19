@@ -36,7 +36,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	 	
 	 	let level = rows[0].niveau;
     	
-    	        const nxtLvl = 500 * (Math.pow(2, rows[0].xp) - 1)*level;
+    	        const nxtLvl = 500 * (Math.pow(2, rows[0].xp) - 1);
     	
 	        if(rows[0].xp > nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(rows[0].niveau)+1}, xp = 0,  WHERE id = ${message.author.id}`)
 	  
@@ -60,7 +60,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	 	
 	 	let level = rows[0].niveau;
     	
-    	        const nxtLvl = 500 * (Math.pow(2, rows[0].xp) - 1)*level;
+    	        const nxtLvl = 500 * (Math.pow(2, rows[0].xp) - 1);
     	
 	        if(rows[0].xp > nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(rows[0].niveau)+1}, xp = 0 WHERE id = ${message.author.id}`)
 	  
@@ -84,7 +84,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	 	
 	 	let level = rows[0].niveau;
     	
-    	        const nxtLvl = 500 * (Math.pow(2, rows[0].xp) - 1)*level;
+    	        const nxtLvl = 500 * (Math.pow(2, rows[0].xp) - 1);
     	
 	        if(rows[0].xp > nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(rows[0].niveau)+1}, xp = 0 WHERE id = ${message.author.id}`)
 	  
@@ -108,7 +108,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	 	
 	 	let level = rows[0].niveau;
     	
-    	        const nxtLvl = 500 * (Math.pow(2, rows[0].xp) - 1)*level;
+    	        const nxtLvl = 500 * (Math.pow(2, rows[0].xp) - 1);
     	
 	        if(rows[0].xp > nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(rows[0].niveau)+1}, xp = 0 WHERE id = ${message.author.id}`)
 	  
@@ -132,7 +132,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	 	
 	 	let level = rows[0].niveau;
     	
-    	        const nxtLvl = 500 * (Math.pow(2, rows[0].xp) - 1)*level;
+    	        const nxtLvl = 500 * (Math.pow(2, rows[0].xp) - 1);
     	
 	        if(rows[0].xp > nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(rows[0].niveau)+1}, xp = 0 WHERE id = ${message.author.id}`)
 	  
@@ -156,7 +156,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	 	
 	 	let level = rows[0].niveau;
     	
-    	        const nxtLvl = 500 * (Math.pow(2, rows[0].xp) - 1)*level;
+    	        const nxtLvl = 500 * (Math.pow(2, rows[0].xp) - 1);
     	
 	        if(rows[0].xp > nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(rows[0].niveau)+1}, xp = 0 WHERE id = ${message.author.id}`)
 	  
@@ -180,7 +180,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	 	
 	 	let level = rows[0].niveau;
     	
-    	        const nxtLvl = 500 * (Math.pow(2, rows[0].xp) - 1)*level;
+    	        const nxtLvl = 500 * (Math.pow(2, rows[0].xp) - 1);
     	
 	        if(rows[0].xp > nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(rows[0].niveau)+1}, xp = 0 WHERE id = ${message.author.id}`)
 	  
@@ -204,7 +204,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	 	
 	 	let level = rows[0].niveau;
     	
-    	        const nxtLvl = 500 * (Math.pow(2, rows[0].xp) - 1)*level;
+    	        const nxtLvl = 500 * (Math.pow(2, rows[0].xp) - 1);
     	
 	        if(rows[0].xp > nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(rows[0].niveau)+1}, xp = 0 WHERE id = ${message.author.id}`)
 	  
@@ -228,7 +228,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	 	
 	 	let level = rows[0].niveau;
     	
-    	        const nxtLvl = 500 * (Math.pow(2, rows[0].xp) - 1)*level;
+    	        const nxtLvl = 500 * (Math.pow(2, rows[0].xp) - 1);
     	
 	        if(rows[0].xp > nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(rows[0].niveau)+1}, xp = 0 WHERE id = ${message.author.id}`)
 	  
