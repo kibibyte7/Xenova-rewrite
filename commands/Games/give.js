@@ -47,9 +47,9 @@ if(r.emoji.name == check.name){
 	     		
 r.remove(message.author);
 
-sql.query(`UPDATE inventory SET ${ressource} = ${myressource-nombre} WHERE id = ${message.author.id}`) 
+con.query(`UPDATE inventory SET ${ressource} = ${myressource-nombre} WHERE id = ${message.author.id}`) 
 
-sql.query(`UPDATE inventory SET ${ressource} = ${yourressource+nombre} WHERE id = ${mention.id}`) 
+con.query(`UPDATE inventory SET ${ressource} = ${yourressource+nombre} WHERE id = ${mention.id}`) 
  
 m.edit(`${check} ${message.author} Tu as donné **${nombre} de ${ressource}** à **${mention.username}**.`)
 
