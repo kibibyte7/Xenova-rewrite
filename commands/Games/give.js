@@ -24,7 +24,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, me) =
 
 function confirmation(nombre, myressource, yourressource, ressource){
 	
-message.channel.send(`${this.client.emojis.find("name", "typing")} ${message.author} veux-tu vraiment donner **${nombre} de ${ressource == "wood" ? args[1]}** à **${mention.username}** ?`).then(m => {
+message.channel.send(`${this.client.emojis.find("name", "typing")} ${message.author} veux-tu vraiment donner **${nombre} de ${ressource == "wood" ? "bois" : args[1]}** à **${mention.username}** ?`).then(m => {
 
 const check = this.client.emojis.find("name", "checkMark")
 
