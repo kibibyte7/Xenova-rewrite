@@ -149,21 +149,21 @@ setTimeout(() => {
     
    var chance = Math.floor(Math.random()*((70 /(10+70))*100))+5
 	 	
-   if(chance > 76) wood();
+   if(chance > 70) wood();
    	
-	 	else if(chance > 69) stone();
+	 	else if(chance > 62) stone();
 	 	
-	 	else if(chance > 57) fer();
+	 	else if(chance > 53) fer();
 	 	
-	 	else if(chance > 49) gold();
+	 	else if(chance > 47) gold();
 	 	
-	 	else if(chance > 35) diam();
+	 	else if(chance > 33) diam();
 	 	 
-	 	else if(chance > 28) em();
+	 	else if(chance > 21) em();
 	 	
-	 	else if(chance > 15) pp();
+	 	else if(chance > 13) pp();
 	 	 
-	 	else if(chance > 10) am();
+	 	else if(chance > 6) am();
 	 	 
 	 	else os(); 
 	 	
