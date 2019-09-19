@@ -13,7 +13,7 @@ aliases:[]
 
 run(message, args, level, con) {
 
-var mention = message.mentions.users.first() || this.client.users.find("id", args[0]);
+var mention = message.mentions.users.first();
 
 if(!mention) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Entre une mention.`)
 
