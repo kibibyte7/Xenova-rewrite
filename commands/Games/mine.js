@@ -118,7 +118,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	 	
 	 	} 
 	 	
-	 	function diamant(){
+	 	function diam(){
 	 	
 	 	con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows) => {
 	 	
@@ -142,7 +142,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	 	
 	 	} 
 	 	
-	 	function emeraude(){
+	 	function em(){
 	 	
 	 	con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows) => {
 	 	
@@ -166,7 +166,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	 	
 	 	} 
 	 	
-	 	function prismes(){
+	 	function pp(){
 	 	
 	 	con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows) => {
 	 	
@@ -190,7 +190,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	 	
 	 	} 
 	 	
-	 	function antimatter(){
+	 	function am(){
 	 	 	
 	 	con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows) => {
 	 	
@@ -214,7 +214,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	 	
 	 	}
 	 	 
-	 	function osrizk(){
+	 	function os(){
 	 	
 	 	con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows) => {
 	 	
@@ -238,23 +238,23 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	 	
 	 	} 
 	 	
-	 	if(chance > 85) wood();
+	 	if(chance > 70) wood();
+   	
+	 	else if(chance > 62) stone();
 	 	
-	 	else if(chance > 76) stone();
+	 	else if(chance > 53) fer();
 	 	
-	 	else if(chance > 69) fer();
+	 	else if(chance > 47) gold();
 	 	
-	 	else if(chance > 57) gold();
-	 	
-	 	else if(chance > 49) diamant();
-	 	
-	 	else if(chance > 35) emeraude();
-	 	 	
-	 	else if(chance > 20) prismes();
+	 	else if(chance > 33) diam();
 	 	 
-	 	else if(chance > 13) antimatter();
+	 	else if(chance > 21) em();
 	 	
-	 	else  osrizk();
+	 	else if(chance > 13) pp();
+	 	 
+	 	else if(chance > 6) am();
+	 	 
+	 	else os(); 
 	 
 }
 
