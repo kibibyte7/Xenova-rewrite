@@ -95,7 +95,7 @@ function givefer() {
 
 if(isNaN(args[2])) return message.channel.send(`${wrong} Tu dois entrer un nombre après la ressource.`)
 
-if(me[0].wood < parseInt(args[2])) return message.channel.send(`${wrong} Il te manque **${parseInt(args[2])-me[0].fer} de fer**, entre un chiffre dans ton budget.`)
+if(me[0].fer < parseInt(args[2])) return message.channel.send(`${wrong} Il te manque **${parseInt(args[2])-me[0].fer} de fer**, entre un chiffre dans ton budget.`)
 	
 confirmation(parseInt(args[2]), me[0].fer, you[0].fer, "fer") 
 
@@ -105,7 +105,7 @@ function givediam() {
 
 if(isNaN(args[2])) return message.channel.send(`${wrong} Tu dois entrer un nombre après la ressource.`)
 
-if(me[0].wood < parseInt(args[2])) return message.channel.send(`${wrong} Il te manque **${parseInt(args[2])-me[0].diament} de diamants**, entre un chiffre dans ton budget.`)
+if(me[0].diament < parseInt(args[2])) return message.channel.send(`${wrong} Il te manque **${parseInt(args[2])-me[0].diament} de diamants**, entre un chiffre dans ton budget.`)
 	
 confirmation(parseInt(args[2]), me[0].diament, you[0].diament ,"diament") 
 
@@ -115,7 +115,7 @@ function giveem() {
 
 if(isNaN(args[2])) return message.channel.send(`${wrong} Tu dois entrer un nombre après la ressource.`)
 
-if(me[0].wood < parseInt(args[2])) return message.channel.send(`${wrong} Il te manque **${parseInt(args[2])-me[0].emeraude} d'émeraudes**, entre un chiffre dans ton budget.`)
+if(me[0].emeraude < parseInt(args[2])) return message.channel.send(`${wrong} Il te manque **${parseInt(args[2])-me[0].emeraude} d'émeraudes**, entre un chiffre dans ton budget.`)
 	
 confirmation(parseInt(args[2]), me[0].emeraude, you[0].emeraude, "emeraude") 
 
@@ -125,7 +125,7 @@ function givepp() {
 
 if(isNaN(args[2])) return message.channel.send(`${wrong} Tu dois entrer un nombre après la ressource.`)
 
-if(me[0].wood < parseInt(args[2])) return message.channel.send(`${wrong} Il te manque **${parseInt(args[2])-me[0].prismes} de prismes-parfaits**, entre un chiffre dans ton budget.`)
+if(me[0].prismes < parseInt(args[2])) return message.channel.send(`${wrong} Il te manque **${parseInt(args[2])-me[0].prismes} de prismes-parfaits**, entre un chiffre dans ton budget.`)
 	
 confirmation(parseInt(args[2]), me[0].prismes, you[0].prismes, "prismes") 
 
@@ -135,7 +135,7 @@ function giveam() {
 
 if(isNaN(args[2])) return message.channel.send(`${wrong} Tu dois entrer un nombre après la ressource.`)
 
-if(me[0].wood < parseInt(args[2])) return message.channel.send(`${wrong} Il te manque **${parseInt(args[2])-me[0].antimatter} d'anti-matières**, entre un chiffre dans ton budget.`)
+if(me[0].antimatter < parseInt(args[2])) return message.channel.send(`${wrong} Il te manque **${parseInt(args[2])-me[0].antimatter} d'anti-matières**, entre un chiffre dans ton budget.`)
 	
 confirmation(parseInt(args[2]), me[0].antimatter, you[0].antimatter, "antimatter") 
 
