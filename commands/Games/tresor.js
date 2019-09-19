@@ -45,10 +45,8 @@ con.query("SELECT * FROM tresor", (err, rows) => {
           var randxp = Math.floor(Math.random()*100)*(player[0].tresors+1)
 	   
 	  con.query(`UPDATE inventory SET xp = ${parseInt(player[0].xp)+randxp}, totalxp = ${parseInt(player[0].totalxp)+randxp}, tresors = ${parseInt(player[0].tresors)+1} WHERE id = ${message.author.id}`) 	  
-	  
-	  let level = player[0].niveau;
     	
-    	  const nxtLvl = 500 * (Math.pow(2, player[0].xp) - 1)*level;
+    	  const nxtLvl = 500 * (Math.pow(2, player[0].xp) - 1);
     	
 	  if(rows[0].xp > nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(player[0].niveau)+1}, xp = 0 WHERE id = ${message.author.id}`)
 	  
