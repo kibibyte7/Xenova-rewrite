@@ -35,7 +35,8 @@ con.query("SELECT * FROM inventory", (err, rows) => {
  	
  for(var i in rows) {
  if(rows[i].id == undefined) return;
- else con.query(`UPDATE inventory SET mana = ${parseInt(rows[i].mana)+1} WHERE id = ${rows[i].id}`)
+ if(rows[i].mana == rows[i].maxmana) return;
+ con.query(`UPDATE inventory SET mana = ${parseInt(rows[i].mana)+1} WHERE id = ${rows[i].id}`)
  
  } 
  
