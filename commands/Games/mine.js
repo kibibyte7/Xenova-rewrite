@@ -18,7 +18,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	  if(rows.length == 0) return message.channel.send("Tu n'es pas entré dans le jeu, fais +i pour t'inscrire.")
 	  
 	  
-	       var chance = Math.floor(Math.random()*((70 /(10+70+r[0].pickaxe))*100))
+	       var chance = Math.floor(Math.random()*((70 /(10+70+rows[0].pickaxe))*100))
 	
 }) 
 
