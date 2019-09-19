@@ -237,7 +237,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	},  
 	{
         name:"💎 Ressources tertiaires", 
-        value:`Prismes-parfaits: ${rows[0].prismes}\nAnti-matières: ${rows[0].antimatter}\nOsrizk: ${rows[0].osrizk}`, 
+        value:`Prismes-parfaits: ${rows[0].prismes}\nAnti-matières: ${rows[0].antimatter}\nOsrizk: ${rows[0].osrizk}`
 	}, 
         {
         name:"⚒️ Items:", 
@@ -245,7 +245,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	}, 
 	{
         name:"⚔️ Stats:", 
-        value:`Attaque: ${rows[0].attack\nDéfense: ${rows[0].defense}\nPuisance totale: ${rows[0].pui}\nMonstres tués: ${rows[0].kills}`
+        value:`Attaque: ${rows[0].attack}\nDéfense: ${rows[0].defense}\nPuisance totale: ${rows[0].pui}\nMonstres tués: ${rows[0].kills}`
 	}
 	], 
 	timestamp:new Date(), 
