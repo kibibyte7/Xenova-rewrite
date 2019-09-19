@@ -52,7 +52,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 
 	con.query(`UPDATE inventory SET category = 'Elfe' WHERE id = ${message.author.id}`, console.log)	
 	
-	con.query(`UPDATE inventory SET pv = 75 WHERE id = ${message.author.id}`) 
+	con.query(`UPDATE inventory SET pv = 75, attack = 50, defense = 50, pui = 100 WHERE id = ${message.author.id}`) 
 	
 	collect.stop()
 	
@@ -66,7 +66,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	
         con.query(`UPDATE inventory SET category = 'Sorcier' WHERE id = ${message.author.id}`, console.log)	
 	
-	con.query(`UPDATE inventory SET pv = 75 WHERE id = ${message.author.id}`) 
+	con.query(`UPDATE inventory SET pv = 75, attack = 125, defense = 25, pui = 150 WHERE id = ${message.author.id}`) 
 	
 	collect.stop()
 	
@@ -80,7 +80,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	
         con.query(`UPDATE inventory SET category = 'Orc' WHERE id = ${message.author.id}`, console.log)	
 	
-	con.query(`UPDATE inventory SET pv = 50 WHERE id = ${message.author.id}`) 
+	con.query(`UPDATE inventory SET pv = 50, attack = 25, defense = 75 pui = 100 WHERE id = ${message.author.id}`) 
 	
 	collect.stop()
 	
@@ -95,7 +95,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	
 	con.query(`UPDATE inventory SET category = 'Nain' WHERE id = ${message.author.id}`, console.log)	
 	
-	con.query(`UPDATE inventory SET pv = 300 WHERE id = ${message.author.id}`) 
+	con.query(`UPDATE inventory SET pv = 300, attack = 75, defense =  150, pui = 225 WHERE id = ${message.author.id}`) 
 	
 	collect.stop()
 	
@@ -110,7 +110,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	
 	con.query(`UPDATE inventory SET category = 'Titan' WHERE id = ${message.author.id}`, console.log)	
 	
-	con.query(`UPDATE inventory SET pv = 500 WHERE id = ${message.author.id}`) 
+	con.query(`UPDATE inventory SET pv = 500, attack = 100, defense = 750, pui = 850 WHERE id = ${message.author.id}`) 
 	
 	collect.stop()
 	
@@ -125,7 +125,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 		
 	con.query(`UPDATE inventory SET category = 'Géant' WHERE id = ${message.author.id}`, console.log)	
 	
-	con.query(`UPDATE inventory SET pv = 200 WHERE id = ${message.author.id}`) 
+	con.query(`UPDATE inventory SET pv = 200, attack = 25, defense = 500, pui = 525 WHERE id = ${message.author.id}`) 
 	
 	collect.stop()
 	
@@ -140,7 +140,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	
 	con.query(`UPDATE inventory SET category = 'Assassin' WHERE id = ${message.author.id}`, console.log)	
 	
-	con.query(`UPDATE inventory SET pv = 100 WHERE id = ${message.author.id}`) 
+	con.query(`UPDATE inventory SET pv = 100, attack = 200, defense = 50, pui = 250 WHERE id = ${message.author.id}`) 
 	
 	collect.stop()
 	
@@ -155,7 +155,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	
 	con.query(`UPDATE inventory SET category = 'Berserk' WHERE id = ${message.author.id}`, console.log)	
 	
-	con.query(`UPDATE inventory SET pv = 200 WHERE id = ${message.author.id}`) 
+	con.query(`UPDATE inventory SET pv = 200, attack = 150, defense = 100, pui = 250 WHERE id = ${message.author.id}`) 
 	
 	collect.stop()
 	
@@ -170,7 +170,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	
 	con.query(`UPDATE inventory SET category = 'Humain' WHERE id = ${message.author.id}`, console.log)	
 	
-	con.query(`UPDATE inventory SET pv = 50 WHERE id = ${message.author.id}`) 
+	con.query(`UPDATE inventory SET pv = 50, attack = 25, defense = 75, pui 100 WHERE id = ${message.author.id}`) 
 	
 	collect.stop()
 	
