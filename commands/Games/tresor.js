@@ -18,17 +18,17 @@ con.query("SELECT * FROM tresor", (err, rows) => {
 	 	
 	 	if(rows.length == 0){
 	 	
-	 	con.query(`INSERT INTO tresor (TEMPS, taker, server) VALUES (${Date.now()+1000*60*5}, 'Xenova', 'Xenova')`, console.log)
+	 	con.query(`INSERT INTO tresor (temps, taker, server) VALUES (${Date.now()+1000*60*5}, 'Xenova', 'Xenova')`, console.log)
 	 	
 	 	} else {
 	 		
 	 	var now = new Date().getTime();
-	 	var distance = rows[0].TEMPS - now;
+	 	var distance = rows[0].temps - now;
    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
    var randtime = Date.now()+Math.floor(Math.random()*1000*60*40) 
 	  	 
-   if((rows[0].TEMPS > Date.now()) && (rows[0].TEMPS !== 0)){         
+   if((rows[0].temps > Date.now()) && (rows[0].TEMPS !== 0)){         
       message.channel.send(`Le trésor n'est pas disponible, il le sera dans **${minutes == 0 ? "" : minutes + " minutes"} ${seconds == 0 ? "" : seconds + " secondes"}**, le dernier trésor a été pris par ${this.client.users.find("id", `${rows[0].taker}`).tag} depuis le serveur ${rows[0].server}\nNOTE: Les messages envoyés par l'utilisateur et le bot sont supprimés pour réduire au maximum leurs nombres.`).then(m => {
       	m.delete(5000)
       	message.delete(5050)
@@ -36,7 +36,7 @@ con.query("SELECT * FROM tresor", (err, rows) => {
       return;   
 	  }else{
 	  
-	  con.query(`UPDATE tresor SET TEMPS = '${randtime}', taker = ${message.author.id}, server = '${message.guild.name}'`)	  
+	  con.query(`UPDATE tresor SET temps = '${randtime}', taker = ${message.author.id}, server = "${message.guild.name}"`)	  
   	  	
 	  con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, player) => {
 	 
@@ -44,13 +44,13 @@ con.query("SELECT * FROM tresor", (err, rows) => {
 	
           var randxp = Math.floor(Math.random()*100)*(player[0].tresors+1)
 	   
-	  con.query(`UPDATE inventory SET xp = ${parseInt(player[0].xp)+randxp}, tresors = ${parseInt(player[0].tresors)+1} WHERE id = ${message.author.id}`) 	  
+	  con.query(`UPDATE inventory SET xp = ${parseInt(player[0].xp)+randxp}, totalxp = ${parseInt(player[0].totalxp)+randxp}, tresors = ${parseInt(player[0].tresors)+1} WHERE id = ${message.author.id}`) 	  
 	  
 	  let level = player[0].niveau;
     	
     	  const nxtLvl = 500 * (Math.pow(2, player[0].xp) - 1)*level;
     	
-	  if(rows[0].xp > nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(player[0].niveau)+1} WHERE id = ${message.author.id}`)
+	  if(rows[0].xp > nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(player[0].niveau)+1}, xp = 0 WHERE id = ${message.author.id}`)
 	  
 	  message.reply(`GG! Tu as eu le trésor, tu as gagné: **${randxp} xp**`) 
 	  	
