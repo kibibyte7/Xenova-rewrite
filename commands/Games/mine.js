@@ -17,10 +17,11 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	  
 	  if(rows.length == 0) return message.channel.send("Tu n'es pas entré dans le jeu, fais +i pour t'inscrire.")
 	  
-	  })
 	  
-	  var chance = Math.floor(Math.random() *100)+10
-	  
+	       var chance = Math.floor(Math.random()*((70 /(10+70+r[0].pickaxe))*100))
+	
+}) 
+
 	 	function wood(){
 	 	
 	 	con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows) => {
@@ -71,7 +72,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	 	
 	 	function fer(){
 	 		
-   con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows) => {
+                con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows) => {
 	 	
 	 	if(rows[0].mana == 0 || rows[0].mana < 0) return message.reply("Tu n'as plus de mana.") 
 	  
