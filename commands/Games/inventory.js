@@ -196,96 +196,56 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	color:0xff0000, 
 	fields:[
         {
-        name:"Mana:", 
+        name:"✨ Mana", 
         value:rows[0].mana+"/"+rows[0].maxmana
         }, 
 	{
- name:"Niveau:", 
- value:rows[0].niveau
+        name:"🌀 Niveau:", 
+        value:rows[0].niveau
 	}, 
 	{
- name:"Xp:", 
- value:rows[0].totalxp
+        name:"🌟 Xp:", 
+        value:rows[0].totalxp
 	}, 
 	{
- name:"❤️ Pv:", 
- value:rows[0].pv
+        name:"❤️ Pv:", 
+        value:rows[0].pv
 	}, 
 	{
- name:"Categorie:", 
- value:rows[0].category == 0 ? "Pas de catégorie" : rows[0].category
+        name:"⚡ Categorie:", 
+        value:rows[0].category == 0 ? "Pas de catégorie" : rows[0].category
 	}, 
 	{
- name:"Guilde:", 
- value:rows[0].guildname == "null" ? "Aucune guilde" : rows[0].guildname
+        name:"🏢 Guilde:", 
+        value:rows[0].guildname == "null" ? "Aucune guilde" : rows[0].guildname
 	},
 	{
- name:"Points de réputations:", 
- value:rows[0].rep
+        name:"⭐ Points de réputations:", 
+        value:rows[0].rep
 	},
 	{
- name:"Trésors récupérés:", 
- value:rows[0].tresors
+        name:"💲 Trésors récupérés:", 
+        value:rows[0].tresors
 	},        
 	{
- name:"Bois:", 
- value:rows[0].wood
-	},  
-	{
- name:"Pierre:", 
- value:rows[0].stone
-	},  
-	{
- name:"Fer:", 
- value:rows[0].fer
+        name:"💎 Ressources principales:", 
+        value:`Bois: ${rows[0].wood}\nPierre: ${rows[0].stone}\nFer: ${rows[0].fer}`
 	},  	
 	{
- name:"Gold:", 
- value:rows[0].gold
-	},  	
-	{
- name:"Diamant:", 
- value:rows[0].diament
-	},
-	{
- name:"Émeraude:", 
- value:rows[0].emeraude
+        name:"💎 Ressources secondaires:", 
+        value:`Gold${rows[0].gold}\nDiamant: ${rows[0].diament}\nÉmeraude: ${rows[0].emeraude}`
 	},  
 	{
- name:"Prismes-parfaits:", 
- value:rows[0].prismes
-	},  	
-	{
- name:"Anti-matière:", 
- value:rows[0].antimatter
+        name:"💎 Ressources tertiaires", 
+        value:`Prismes-parfaits: ${rows[0].prismes}\nAnti-matières: ${rows[0].antimatter}\nOsrizk: ${rows[0].osrizk} 
+	}, 
+        {
+        name:"⚒️ Items:", 
+        value:`${pioche.name} (Level - ${pioche.level})\nArme: ${rows[0].weaponlevel}\nArmure:${rows[0].armorlevel}`
 	}, 
 	{
- name:"Osrizk:", 
- value:rows[0].osrizk
-	}, 
-	{
- name:"Monstres tués:", 
- value:rows[0].kills
-	},
-{
- name:"Pioche:", 
- value:`${pioche.name} (Level  - ${pioche.level})`
-	}, 
-	{
- name:"Niveau d'arme:", 
- value:rows[0].weaponlevel
-	}, 
-	{
- name:"Niveau d'armure:", 
- value:rows[0].armorlevel
-	}, 
-		{
- name:"Attaque:", 
- value:rows[0].attack
-	},    
-	{
- name:"Défense:", 
- value:rows[0].defense 
+        name:"⚔️ Stats:", 
+        value:`Attaque: ${rows[0].attack\nDéfense: ${rows[0].defense}\nPuisance totale: ${rows[0].pui}\nMonstres tués: ${rows[0].kills}`
 	}
 	], 
 	timestamp:new Date(), 
