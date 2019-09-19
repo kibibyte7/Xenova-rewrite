@@ -147,7 +147,7 @@ setTimeout(() => {
    
    for(var i = 0; i < mana; i++){
     
-   var chance = Math.floor(Math.random() *100)+10 
+   var chance = Math.floor(Math.random()*((9 /(9+9))*100)) 
 	 	
    if(chance > 85) wood();
    	
