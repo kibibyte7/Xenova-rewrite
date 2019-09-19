@@ -13,18 +13,29 @@ aliases:[]
 
 run(message, args, level, con) {
 
-con.query("SELECT * FROM inventory ORDER BY cast (rep as SIGNED) DESC LIMIT 25", (err, rows) => {
+con.query("SELECT * FROM inventory ORDER BY cast (rep as SIGNED) DESC LIMIT 50", (err, rows) => {
  
 let resp = ``;
  		
 for(var i in rows){
-	
-resp += `[${isNaN(parseInt(i)+1) ? "-" : parseInt(i)+1}] - **${this.client.users.find("id", `${rows[i].id}`) == null ? "NULL" : this.client.users.find("id", `${rows[i].id}`).tag} - **Reps: **${this.client.users.find("id", `${rows[i].id}`) == null ? "/": rows[i].rep}**\n`
-		
+
+let u = this.client.users.find("id", `${rows[i].id}`) 
+			
+isNaN(i) ? `` : resp += `[${parseInt(i)+1}] - **${!u ? "invalid-user" : u.username}** - **Reps: ${rows[i].rep}**\n`
+
 } 
 	
-message.channel.send(resp) 	
-	
+message.channel.send({embed:{
+color:0x010101,
+title:"Classement par Points de réputation", 
+description:`${resp}`, 
+timestamp:new Date(), 
+footer:{
+icon_url:this.client.user.avatarURL,
+text:`©️ Toprep | Xenova `
+} 
+}}) 	
+
 }) 
 
 }
