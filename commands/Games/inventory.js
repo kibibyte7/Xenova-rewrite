@@ -233,7 +233,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	},  	
 	{
         name:"💎 Ressources secondaires:", 
-        value:`Gold${rows[0].gold}\nDiamant: ${rows[0].diament}\nÉmeraude: ${rows[0].emeraude}`
+        value:`Gold: ${rows[0].gold}\nDiamant: ${rows[0].diament}\nÉmeraude: ${rows[0].emeraude}`
 	},  
 	{
         name:"💎 Ressources tertiaires", 
