@@ -34,9 +34,9 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	 	
 	 	let level = rows[0].niveau;
     	
-    	        const nxtLvl = 500 * (Math.pow(2, rows[0].xp) - 1);
+    	        const nxtLvl = Math.floor(0.1 * Math.sqrt(rows[0].xp));
     	
-	        if(rows[0].xp > nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(rows[0].niveau)+1}, xp = 0,  WHERE id = ${message.author.id}`)
+	        if(rows[0].niveau < nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(rows[0].niveau)+1}, xp = 0 WHERE id = ${message.author.id}`)
 	  
 	 	message.reply(`tu as miné ${randwood} **wood** et gagné ${randxp} xp ! [Mana restant : **${rows[0].mana}/${rows[0].maxmana}**]`) 
 	 	
@@ -58,9 +58,9 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	 	
 	 	let level = rows[0].niveau;
     	
-    	        const nxtLvl = 500 * (Math.pow(2, rows[0].xp) - 1);
+    	        const nxtLvl = Math.floor(0.1 * Math.sqrt(rows[0].xp));
     	
-	        if(rows[0].xp > nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(rows[0].niveau)+1}, xp = 0 WHERE id = ${message.author.id}`)
+	        if(rows[0].niveau < nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(rows[0].niveau)+1}, xp = 0 WHERE id = ${message.author.id}`)
 	  
 	 	message.reply(`tu as miné ${randstone} **stone** et gagné ${randxp} xp ! [Mana restant : **${rows[0].mana}/${rows[0].maxmana}**]`) 
 	 	
@@ -81,10 +81,10 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	 	con.query(`UPDATE inventory SET mana = ${parseInt(rows[0].mana)-1}, fer = ${parseInt(rows[0].fer)+randfer}, xp = ${parseInt(rows[0].xp)+randxp}, totalxp = ${parseInt(rows[0].totalxp)+randxp}, totalxp = ${parseInt(rows[0].totalxp)+randxp} WHERE id = ${message.author.id}`)
 	 	
 	 	let level = rows[0].niveau;
+    	        
+                const nxtLvl = Math.floor(0.1 * Math.sqrt(rows[0].xp));
     	
-    	        const nxtLvl = 500 * (Math.pow(2, rows[0].xp) - 1);
-    	
-	        if(rows[0].xp > nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(rows[0].niveau)+1}, xp = 0 WHERE id = ${message.author.id}`)
+	        if(rows[0].niveau < nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(rows[0].niveau)+1}, xp = 0 WHERE id = ${message.author.id}`)
 	  
 	 	message.reply(`tu as miné ${randfer} **fer** et gagné ${randxp} xp ! [Mana restant : **${rows[0].mana}/${rows[0].maxmana}**]`) 
 	 	
@@ -106,9 +106,9 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	 	
 	 	let level = rows[0].niveau;
     	
-    	        const nxtLvl = 500 * (Math.pow(2, rows[0].xp) - 1);
+    	        const nxtLvl = Math.floor(0.1 * Math.sqrt(rows[0].xp));
     	
-	        if(rows[0].xp > nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(rows[0].niveau)+1}, xp = 0 WHERE id = ${message.author.id}`)
+	        if(rows[0].niveau < nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(rows[0].niveau)+1}, xp = 0 WHERE id = ${message.author.id}`)
 	  
 	 	message.reply(`tu as miné ${randgold} **gold** et gagné ${randxp} xp ! [Mana restant : **${rows[0].mana}/${rows[0].maxmana}**]`) 
 	 	
@@ -130,9 +130,9 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	 	
 	 	let level = rows[0].niveau;
     	
-    	        const nxtLvl = 500 * (Math.pow(2, rows[0].xp) - 1);
+    	        const nxtLvl = Math.floor(0.1 * Math.sqrt(rows[0].xp));
     	
-	        if(rows[0].xp > nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(rows[0].niveau)+1}, xp = 0 WHERE id = ${message.author.id}`)
+	        if(rows[0].niveau < nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(rows[0].niveau)+1}, xp = 0 WHERE id = ${message.author.id}`)
 	  
 	 	message.reply(`tu as miné ${randdiam} **diamant** et gagné ${randxp} xp ! [Mana restant : **${rows[0].mana}/${rows[0].maxmana}**]`) 
 	 	
@@ -154,9 +154,9 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	 	
 	 	let level = rows[0].niveau;
     	
-    	        const nxtLvl = 500 * (Math.pow(2, rows[0].xp) - 1);
+    	        const nxtLvl = Math.floor(0.1 * Math.sqrt(rows[0].xp));
     	
-	        if(rows[0].xp > nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(rows[0].niveau)+1}, xp = 0 WHERE id = ${message.author.id}`)
+	        if(rows[0].niveau < nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(rows[0].niveau)+1}, xp = 0 WHERE id = ${message.author.id}`)
 	  
 	 	message.reply(`tu as miné ${randem} **émeraude** et gagné ${randxp} xp ! [Mana restant : **${rows[0].mana}/${rows[0].maxmana}**]`) 
 	 	
@@ -178,9 +178,9 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	 	
 	 	let level = rows[0].niveau;
     	
-    	        const nxtLvl = 500 * (Math.pow(2, rows[0].xp) - 1);
+    	        const nxtLvl = Math.floor(0.1 * Math.sqrt(rows[0].xp));
     	
-	        if(rows[0].xp > nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(rows[0].niveau)+1}, xp = 0 WHERE id = ${message.author.id}`)
+	        if(rows[0].niveau < nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(rows[0].niveau)+1}, xp = 0 WHERE id = ${message.author.id}`)
 	  
 	 	message.reply(`tu as miné ${randpp} **prismes-parfaits [RARE]** et gagné ${randxp} xp ! [Mana restant : **${rows[0].mana}/${rows[0].maxmana}**]`) 
 	 	
@@ -202,10 +202,10 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	 	
 	 	let level = rows[0].niveau;
     	
-    	        const nxtLvl = 500 * (Math.pow(2, rows[0].xp) - 1);
+    	        const nxtLvl = Math.floor(0.1 * Math.sqrt(rows[0].xp));
     	
-	        if(rows[0].xp > nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(rows[0].niveau)+1}, xp = 0 WHERE id = ${message.author.id}`)
-	  
+	        if(rows[0].niveau < nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(rows[0].niveau)+1}, xp = 0 WHERE id = ${message.author.id}`)
+	 
 	 	message.reply(`tu as miné ${randam} **anti-matière [SUPER-RARE]** et gagné ${randxp} xp ! [Mana restant : **${rows[0].mana}/${rows[0].maxmana}**]`) 
 	 	
 	 	}) 
@@ -226,9 +226,9 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	 	
 	 	let level = rows[0].niveau;
     	
-    	        const nxtLvl = 500 * (Math.pow(2, rows[0].xp) - 1);
+    	        const nxtLvl = Math.floor(0.1 * Math.sqrt(rows[0].xp));
     	
-	        if(rows[0].xp > nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(rows[0].niveau)+1}, xp = 0 WHERE id = ${message.author.id}`)
+	        if(rows[0].niveau < nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(rows[0].niveau)+1}, xp = 0 WHERE id = ${message.author.id}`)
 	  
 	 	message.reply(`tu as miné ${randos} **osrizk [LÉGENDAIRE]** et gagné ${randxp} xp ! [Mana restant : **${rows[0].mana}/${rows[0].maxmana}**]`) 
 	 	
