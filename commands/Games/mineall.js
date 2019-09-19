@@ -58,7 +58,7 @@ setTimeout(() => {
     	randwood += math.evaluate(`${parseInt(Math.floor(Math.random()*36*r[0].pickaxe)+1)}`) 
 	 	
 	   	mana--;
-	 	usedmana++  
+	 	  
     	} 
     	
     	function stone(){
@@ -68,7 +68,7 @@ setTimeout(() => {
     	randstone += math.evaluate(`${parseInt(Math.floor(Math.random()*32*r[0].pickaxe)+1)}`) 
 	 	
 	   	mana--;
-	 	usedmana++  
+	 	  
     	} 
     	
     	function fer(){
@@ -78,7 +78,7 @@ setTimeout(() => {
     	randfer += math.evaluate(`${parseInt(Math.floor(Math.random()*28*r[0].pickaxe)+1)}`) 
 	 	
 	   	mana--;
-	 	usedmana++  
+	 	  
     	} 
     	
     	function gold(){
@@ -88,7 +88,7 @@ setTimeout(() => {
     	randgold +=math.evaluate(`${parseInt(Math.floor(Math.random()*24*r[0].pickaxe)+1)}`) 
 	 	  
 	   	mana--;
-	 	usedmana++ 
+	 	 
     	} 
     	
     	function diam(){
@@ -98,7 +98,7 @@ setTimeout(() => {
     	randdiam += math.evaluate(`${parseInt(Math.floor(Math.random()*20*r[0].pickaxe)+1)}`) 
 	   
 	   	mana--;
-	 	usedmana++
+	 	
     	} 
     	
     	function em(){
@@ -108,7 +108,7 @@ setTimeout(() => {
     	randem += math.evaluate(`${parseInt(Math.floor(Math.random()*16*r[0].pickaxe)+1)}`) 
 	 	  
 	 	  mana--;
-	 	  usedmana++
+	 	  
     	} 
     	
     	function pp(){
@@ -118,7 +118,7 @@ setTimeout(() => {
     	randpp += math.evaluate(`${parseInt(Math.floor(Math.random()*1*r[0].pickaxe)+5)}`) 
 	 	  
 	 	  mana--;
-	 	  usedmana++
+	 	  
     	} 
     	
     	function am(){
@@ -129,7 +129,6 @@ setTimeout(() => {
 	 	  
 	 	  mana--;
 
-                  usedmana++
 	 	  
     	} 
     	
@@ -141,7 +140,6 @@ setTimeout(() => {
 	 	  
 	 	  mana--;
 
-	 	  usedmana++
     	} 
 
    
@@ -167,7 +165,7 @@ setTimeout(() => {
 	 	 
 	 	else os(); 
 	 	
-                
+                usedmana++;
    }
 
 	 con.query(`UPDATE inventory SET xp = ${pxp+randxp}, totalxp = ${pxp+randxp}, mana = 0, wood = ${pwood+randwood}, stone = ${pstone+randstone}, fer = ${pfer+randfer}, gold = ${por+randgold}, diament = ${pdiam+randdiam}, emeraude = ${pem+randem}, prismes = ${ppp+randpp}, antimatter = ${pam+randam}, osrizk = ${pos+randos} WHERE id = ${r[0].id}`)	    
@@ -175,7 +173,7 @@ setTimeout(() => {
          if(r[0].xp > nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(r[0].niveau)+1}, xp = 0 WHERE id = ${message.author.id}`)
          
 
-}, 500)
+}, 750)
   
   }) 
 
