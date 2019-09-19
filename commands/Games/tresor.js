@@ -46,9 +46,9 @@ con.query("SELECT * FROM tresor", (err, rows) => {
 	   
 	  con.query(`UPDATE inventory SET xp = ${parseInt(player[0].xp)+randxp}, totalxp = ${parseInt(player[0].totalxp)+randxp}, tresors = ${parseInt(player[0].tresors)+1} WHERE id = ${message.author.id}`) 	  
     	
-    	  const nxtLvl = 500 * (Math.pow(2, player[0].xp) - 1);
+    	  const nxtLvl = Math.floor(0.1 * Math.sqrt(rows[0].xp));
     	
-	  if(rows[0].xp > nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(player[0].niveau)+1}, xp = 0 WHERE id = ${message.author.id}`)
+	  if(rows[0].niveau < nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(rows[0].niveau)+1}, xp = 0 WHERE id = ${message.author.id}`)
 	  
 	  message.reply(`GG! Tu as eu le trésor, tu as gagné: **${randxp} xp**`) 
 	  	
