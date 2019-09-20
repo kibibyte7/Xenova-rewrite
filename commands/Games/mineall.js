@@ -25,8 +25,7 @@ run(message, args, level, con) {
     if(r[0].mana == 0) return message.channel.send(":x: Tu n'as plus de mana.");
     
     if(mana > maxm) con.query(`UPDATE inventory SET mana = ${maxm} WHERE id = ${message.author.id}`) 
-    	
-setTimeout(() => {	
+    		
     	let pwood = r[0].wood;
     	let pstone = r[0].stone;
     	let pfer = r[0].fer;
@@ -141,7 +140,8 @@ setTimeout(() => {
 	 	  mana--;
 
     	} 
-
+   
+   setTimeout(() => {
    
    for(var i = 0; i < mana; i++){
     
@@ -173,7 +173,7 @@ setTimeout(() => {
 	 if(r[0].niveau < nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(r[0].niveau)+1}, xp = 0, maxmana = ${parseInt(r[0].maxmana)+5}, attack = ${parseInt(r[0].attack)+3}, defense = ${parseInt(r[0].defense)+3} WHERE id = ${message.author.id}`)
 	  
 
-}, 750)
+}, 1500)
   
   }) 
 
