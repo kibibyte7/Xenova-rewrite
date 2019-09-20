@@ -28,12 +28,14 @@ con.query("SELECT * FROM tresor", (err, rows) => {
    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
    var randtime = Date.now()+Math.floor(Math.random()*1000*60*40) 
 	  	 
-   if((rows[0].temps > Date.now()) && (rows[0].TEMPS !== 0)){         
+   if((rows[0].temps > Date.now()) && (rows[0].temps !== 0)){  
+      con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, player) => {
       message.channel.send(`Le trésor n'est pas disponible, il le sera dans **${minutes == 0 ? "" : minutes + " minutes"} ${seconds == 0 ? "" : seconds + " secondes"}**, tu l'as récupéré **${player[0].tresors}x**, le dernier trésor a été pris par ${rows[0].taker == "Xenova"? "Xenova" : this.client.users.find("id", `${rows[0].taker}`).tag} depuis le serveur ${rows[0].server == "Xenova" ? "Xenova Support" : rows[0].server}\nNOTE: Les messages envoyés par l'utilisateur et le bot sont supprimés pour réduire au maximum leurs nombres.`).then(m => {
       	m.delete(5000)
       	message.delete(5050)
       	}) 
-      return;   
+      return; 
+      }) 
 	  }else{
 	  
 	  con.query(`UPDATE tresor SET temps = '${randtime}', taker = ${message.author.id}, server = "${message.guild.name}"`)	  
