@@ -54,7 +54,7 @@ run(message, args, level, con) {
     	
     	randxp += math.evaluate(`${parseInt(Math.floor(Math.random()*10*r[0].pickaxe)+1)}`);
     	  	
-    	randwood += math.evaluate(`${parseInt(Math.floor(Math.random()*36*r[0].pickaxe)+1)}`) 
+    	randwood += math.evaluate(`${parseInt(Math.floor(Math.random()*50*r[0].pickaxe)+1)}`) 
 	 	
 	   	mana--;
 	 	  
@@ -64,7 +64,7 @@ run(message, args, level, con) {
     	
     	randxp += math.evaluate(`${parseInt(Math.floor(Math.random()*10*r[0].pickaxe)+1)}`);
     	
-    	randstone += math.evaluate(`${parseInt(Math.floor(Math.random()*32*r[0].pickaxe)+1)}`) 
+    	randstone += math.evaluate(`${parseInt(Math.floor(Math.random()*40*r[0].pickaxe)+1)}`) 
 	 	
 	   	mana--;
 	 	  
@@ -74,7 +74,7 @@ run(message, args, level, con) {
     	
     	randxp += math.evaluate(`${parseInt(Math.floor(Math.random()*10*r[0].pickaxe)+1)}`);
     	
-    	randfer += math.evaluate(`${parseInt(Math.floor(Math.random()*28*r[0].pickaxe)+1)}`) 
+    	randfer += math.evaluate(`${parseInt(Math.floor(Math.random()*30*r[0].pickaxe)+1)}`) 
 	 	
 	   	mana--;
 	 	  
@@ -84,7 +84,7 @@ run(message, args, level, con) {
     	
     	randxp += math.evaluate(`${parseInt(Math.floor(Math.random()*10*r[0].pickaxe)+1)}`);
     	
-    	randgold +=math.evaluate(`${parseInt(Math.floor(Math.random()*24*r[0].pickaxe)+1)}`) 
+    	randgold +=math.evaluate(`${parseInt(Math.floor(Math.random()*27*r[0].pickaxe)+1)}`) 
 	 	  
 	   	mana--;
 	 	 
@@ -94,7 +94,7 @@ run(message, args, level, con) {
     	
     	randxp += math.evaluate(`${parseInt(Math.floor(Math.random()*10*r[0].pickaxe)+1)}`);
     	
-    	randdiam += math.evaluate(`${parseInt(Math.floor(Math.random()*20*r[0].pickaxe)+1)}`) 
+    	randdiam += math.evaluate(`${parseInt(Math.floor(Math.random()*24*r[0].pickaxe)+1)}`) 
 	   
 	   	mana--;
 	 	
@@ -104,7 +104,7 @@ run(message, args, level, con) {
     	
     	randxp += math.evaluate(`${parseInt(Math.floor(Math.random()*10*r[0].pickaxe)+1)}`);
     	
-    	randem += math.evaluate(`${parseInt(Math.floor(Math.random()*16*r[0].pickaxe)+1)}`) 
+    	randem += math.evaluate(`${parseInt(Math.floor(Math.random()*20*r[0].pickaxe)+1)}`) 
 	 	  
 	 	  mana--;
 	 	  
