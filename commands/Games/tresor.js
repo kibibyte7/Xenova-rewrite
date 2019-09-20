@@ -46,11 +46,11 @@ con.query("SELECT * FROM tresor", (err, rows) => {
 	
           var randxp = Math.floor(Math.random()*100)*(player[0].tresors+1)
 	   
-          var randpp = Math.floor(Math.random()*100)*(player[0].tresors+1)
+          var randpp = Math.floor(Math.random()*15)*(player[0].tresors+1)
 	  
-          var randam = Math.floor(Math.random()*100)*(player[0].tresors+1)
+          var randam = Math.floor(Math.random()*5)*(player[0].tresors+1)
 	  
-          var randgold = Math.floor(Math.random()*100)*(player[0].tresors+1)
+          var randgold = Math.floor(Math.random()*10)*(player[0].tresors+1)
 	    
 	  con.query(`UPDATE inventory SET xp = ${parseInt(player[0].xp)+randxp}, totalxp = ${parseInt(player[0].totalxp)+randxp}, gold = ${parseInt(player[0].gold)+randgold}, prismes = ${parseInt(player[0].prismes) + randpp}, prismes = ${parseInt(player[0].antimatter) + randam}, tresors = ${parseInt(player[0].tresors)+1} WHERE id = ${message.author.id}`) 	  
     	
@@ -58,7 +58,7 @@ con.query("SELECT * FROM tresor", (err, rows) => {
     	
 	  if(player[0].niveau < nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(player[0].niveau)+1}, xp = 0, maxmana = ${parseInt(player[0].maxmana)+5}, attack = ${parseInt(player[0].attack)+3}, defense = ${parseInt(player[0].defense)+3}, pui = ${parseInt(player[0].pui) + 6} WHERE id = ${message.author.id}`)
 	  
-	  message.reply(`GG! Tu as eu le trésor, tu as gagné: **${randgold} Gold**, **{randpp} Prismes-parfaits**, **${randam} Anti-matières** et **${randxp} xp** [COMBO: ${player[0].tresors}]`) 
+	  message.reply(`GG! Tu as eu le trésor, tu as gagné: **${randgold} Gold**, **${randpp} Prismes-parfaits**, **${randam} Anti-matières** et **${randxp} xp** ! [COMBO: ${player[0].tresors}]`) 
 	  	
 	  }) 
 	  	
