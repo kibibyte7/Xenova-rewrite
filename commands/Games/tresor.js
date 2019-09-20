@@ -44,13 +44,13 @@ con.query("SELECT * FROM tresor", (err, rows) => {
 	 
           if(player.length == 0) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Tu n'es pas entré dans le jeu fais +i pour t'inscrire.`) 
 	
-          var randxp = Math.floor(Math.random()*100)*(player[0].tresors+1)
+          var randxp = Math.floor(Math.random()*100)*(player[0].tresors+1)+10
 	   
-          var randpp = Math.floor(Math.random()*15)*(player[0].tresors+1)
+          var randpp = Math.floor(Math.random()*15)*(player[0].tresors+1)+10
 	  
-          var randam = Math.floor(Math.random()*5)*(player[0].tresors+1)
+          var randam = Math.floor(Math.random()*5)*(player[0].tresors+1)+5
 	  
-          var randgold = Math.floor(Math.random()*10)*(player[0].tresors+1)
+          var randgold = Math.floor(Math.random()*10)*(player[0].tresors+1)+15
 	    
 	  con.query(`UPDATE inventory SET xp = ${parseInt(player[0].xp)+randxp}, totalxp = ${parseInt(player[0].totalxp)+randxp}, gold = ${parseInt(player[0].gold)+randgold}, prismes = ${parseInt(player[0].prismes) + randpp}, prismes = ${parseInt(player[0].antimatter) + randam}, tresors = ${parseInt(player[0].tresors)+1} WHERE id = ${message.author.id}`) 	  
     	
