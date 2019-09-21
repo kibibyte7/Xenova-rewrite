@@ -54,7 +54,7 @@ run(message, args, level, con) {
     	
     	randxp += math.evaluate(`${parseInt(Math.floor(Math.random()*10*r[0].pickaxe)+1)}`);
     	  	
-    	randwood += math.evaluate(`${parseInt(Math.floor(Math.random()*50*r[0].pickaxe)+1)}`) 
+    	randwood += math.evaluate(`${parseInt(Math.floor(Math.random()*50*r[0].pickaxe)+5)}`) 
 	 	
 	   	mana--;
 	 	  
