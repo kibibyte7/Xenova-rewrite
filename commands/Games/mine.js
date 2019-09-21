@@ -26,7 +26,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	 	
 	 	if(rows[0].mana == 0 || rows[0].mana < 0) return message.reply("Tu n'as plus de mana.") 
 	  
-	 	var randwood = Math.floor(Math.random()*36*rows[0].pickaxe)+1
+	 	var randwood = Math.floor(Math.random()*36*rows[0].pickaxe)+5
 	 	
 	 	var randxp = Math.floor(Math.random()*10*rows[0].pickaxe+1)
 	 	
