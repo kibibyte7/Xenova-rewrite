@@ -54,9 +54,9 @@ con.query("SELECT * FROM tresor", (err, rows) => {
 	    
 	  con.query(`UPDATE inventory SET xp = ${parseInt(player[0].xp)+randxp}, totalxp = ${parseInt(player[0].totalxp)+randxp}, gold = ${parseInt(player[0].gold)+randgold}, prismes = ${parseInt(player[0].prismes) + randpp}, prismes = ${parseInt(player[0].antimatter) + randam}, tresors = ${parseInt(player[0].tresors)+1} WHERE id = ${message.author.id}`) 	  
     	
-    	  const nxtLvl = Math.floor(0.1 * Math.sqrt(player[0].xp));
+    	  const nxtLvl = Math.floor(0.2 * Math.sqrt(player[0].xp));
     	
-	  if(player[0].niveau < nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(player[0].niveau)+1}, xp = 0, maxmana = ${parseInt(player[0].maxmana)+5}, attack = ${parseInt(player[0].attack)+3}, defense = ${parseInt(player[0].defense)+3}, pui = ${parseInt(player[0].pui) + 6} WHERE id = ${message.author.id}`)
+	  if(player[0].niveau < nxtLvl) con.query(`UPDATE inventory SET niveau = ${parseInt(player[0].niveau)+1}, xp = 0, maxmana = ${parseInt(player[0].maxmana)+5}, attack = ${parseInt(player[0].attack)+3}, defense = ${parseInt(player[0].defense)+3}, pui = ${parseInt(player[0].attack + player[0].defense) + 6} WHERE id = ${message.author.id}`)
 	  
 	  message.reply(`GG! Tu as eu le trésor, tu as gagné: **${randgold} Gold**, **${randpp} Prismes-parfaits**, **${randam} Anti-matières** et **${randxp} xp** ! [COMBO: ${player[0].tresors}]`) 
 	  	
