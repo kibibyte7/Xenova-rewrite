@@ -37,7 +37,7 @@ run(message, args, level, con) {
     	let pos = r[0].osrizk;
     	let pxp =r[0].xp;
     	let level = r[0].niveau;
-    	const nxtLvl = Math.floor(0.1 * Math.sqrt(r[0].xp));
+    	const nxtLvl = Math.floor(0.2 * Math.sqrt(r[0].xp));
     	let randwood = 0;
     	let randstone = 0;
     	let randfer = 0;
