@@ -56,7 +56,7 @@ con.query("SELECT * FROM tresor", (err, rows) => {
     	
     	  const nxtLvl = Math.floor(0.2 * Math.sqrt(player[0].xp));
     	
-	  if(player[0].niveau < nxtLvl) con.query(`UPDATE inventory SET niveau = ${nxtLvl}, xp = 0, maxmana = ${parseInt(player[0].maxmana)+5}, attack = ${parseInt(player[0].attack)+3}, defense = ${parseInt(player[0].defense)+3}, pui = ${parseInt(player[0].attack + player[0].defense) + 6} WHERE id = ${message.author.id}`)
+	  if(player[0].niveau < nxtLvl) con.query(`UPDATE inventory SET niveau = ${nxtLvl}, xp = 0, maxmana = ${parseInt(player[0].maxmana)+(5*nxtLvl)}, attack = ${parseInt(player[0].attack)+(3*nxtLvl)}, defense = ${parseInt(player[0].defense)+(3*nxtLvl)}, pui = ${parseInt(player[0].attack + player[0].defense) + (6*nxtLvl)} WHERE id = ${message.author.id}`)
 	  
 	  message.reply(`GG! Tu as eu le trésor, tu as gagné: **${randgold} Gold**, **${randpp} Prismes-parfaits**, **${randam} Anti-matières** et **${randxp} xp** ! [COMBO: ${player[0].tresors}]`) 
 	  	
