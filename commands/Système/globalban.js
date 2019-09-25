@@ -20,10 +20,6 @@ const check = this.client.emojis.find("name", "checkMark");
 
 const wrong = this.client.emojis.find("name", "wrongMark");
 
-var mention = message.mentions.users.first() || this.client.users.find("id",args[1])
-
-var id = args[1].length == 18 && !isNaN(args[1])
-
 if(args[0] === "check") {
 
 con.query(`SELECT * FROM gban`, (err, rows) => {
@@ -110,6 +106,10 @@ if(args[0] === "add") {
 
 if(level !== 3) return message.channel.send(`${wrong} Tu n'es pas un développeur du bot.`);
 
+var mention = message.mentions.users.first() || this.client.users.find("id",args[1])
+
+var id = args[1].length == 18 && !isNaN(args[1])
+
 con.query(`SELECT * FROM gban WHERE id = ${!mention ? id : mention.id}`, (err, rows) => {
 
 con.query(`UPDATE gban SET id = "${!mention ? id : mention.id}", reason = "${args.slice(2).join(" ")}", date = "${Date.now()}"`) 
@@ -123,6 +123,10 @@ message.channel.send(`${check} **${!mention ? id : mention.username}** a été b
 if(args[0] === "delete") {
 
 if(level !== 3) return message.channel.send(`${wrong} Tu n'es pas un développeur du bot.`);
+
+var mention = message.mentions.users.first() || this.client.users.find("id",args[1])
+
+var id = args[1].length == 18 && !isNaN(args[1])
 
 con.query(`SELECT * FROM gban WHERE id = ${!mention ? id : mention.id}`, (err, rows) => {
 
@@ -138,7 +142,9 @@ message.channel.send(`${check} **${!mention ? id : mention.username}** a été u
 
 if(args[0] === "info") {
 
-if(level !== 3) return message.channel.send(`${wrong} Tu n'es pas un développeur du bot.`);
+var mention = message.mentions.users.first() || this.client.users.find("id",args[1])
+
+var id = args[1].length == 18 && !isNaN(args[1])
 
 con.query(`SELECT * FROM gban WHERE id = ${!mention ? id : mention.id}`, (err, rows) => {
 
