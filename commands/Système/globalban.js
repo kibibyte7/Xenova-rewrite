@@ -124,7 +124,7 @@ if(!mention || !id) return message.channel.send(`${wrong} Entre une id ou une me
 
 con.query(`SELECT * FROM gban WHERE id = ${!mention ? args[1] : mention.id}`, (err, rows) => {
 
-if(rows.length == 0) con.query(`INSERT INTO gban (id, reason, date) VALUES (${!mention ? id : mention.id}, "${args.slice(2).join(" ")}", ${Date.now()})`) 
+if(rows.length == 0) con.query(`INSERT INTO gban (id, reason, date) VALUES (${!mention ? id : mention.id}, "${args.slice(2).join(" ")}", ${new Date()})`) 
 
 else return message.channel.send(`${wrong} Cet utilisateur est déjà blacklist.`) 
 
