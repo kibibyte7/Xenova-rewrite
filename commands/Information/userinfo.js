@@ -140,7 +140,7 @@ value:!User.bot ? "Non" : "Oui"
 }, 
 {
 name:":gear: -> Date de création:", 
-value:`Créé le : ${UserCreatedTime} ${(${moment(UserCreated).locale("fr-FR").fromNow()})} `
+value:`Créé le : ${UserCreatedTime} (${moment(UserCreated).locale("fr-FR").fromNow()})`
 }, 
 {
 name:":gear: -> Serveur rejoint le:", 
