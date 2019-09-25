@@ -42,6 +42,30 @@ var Author = message.author;
 
 if(!args[0] || args.length == 0){
 
+const AuthorCreated = new Date(Author.createdAt)
+const AuthorTime = new Date(Author.createdAt)
+const AuthorTimezone = +2 * 3600000 ;
+AuthorTime.setTime(AuthorTime.getTime() + AuthorTimezone + AuthorTime.getTimezoneOffset() * 60000) 
+const AuthorCreatedTime = moment.utc(AuthorTime).locale("fr-FR").format("LLLL")
+
+const UserCreated = new Date(User.createdAt) 
+const UserTime = new Date(User.createdAt)
+const UserTimezone = +2 * 3600000;
+UserTime.setTime(UserTime.getTime() + UserTimezone + UserTime.getTimezoneOffset() * 60000) 
+const UserCreatedTime = moment.utc(UserTime).locale("fr-FR").format("LLLL")
+
+const AuthorServJoined = new Date(message.member.joinedAt)
+const AuthorServTime = new Date(message.member.joinedtAt)
+const AuthorServTimezone = +2 * 3600000 ;
+AuthorServTime.setTime(AuthorServTime.getTime() + AuthorServTimezone + AuthorServTime.getTimezoneOffset() * 60000) 
+const AuthorServJoinedTime = moment.utc(AuthorServTime).locale("fr-FR").format("LLLL")
+
+const UserServJoined = new Date(mention.joinedAt) 
+const UserServTime = new Date(mention.joinedAt)
+const UserServTimeZone = +2 * 3600000;
+UserServTime.setTime(UserServTime.getTime() + UserServTimeZone + UserServTime.getTimezoneOffset() * 60000) 
+const UserServJoinedTime = moment.utc(UserServTime).locale("fr-FR").format("LLLL")
+
 message.channel.send({embed:{
 color:0x010101,
 title:`Informations sur ${Author.tag}`,
@@ -61,11 +85,11 @@ value:!Author.bot ? "Non" : "Oui"
 }, 
 {
 name:":gear: -> Date de création:", 
-value:`Créé le : ${moment(Author.createdAt).format("D/M/Y à HH:mm:ss")} `
+value:`Créé le : ${AuthorCreatedTime} (${moment(AuthorCreated, "DD").locale("fr-FR").fromNow()})`
 }, 
 {
-name:":gear: -> Serveur rejoint le:", 
-value:moment(message.member.joinedAt).format("D/M/Y à HH:mm:ss") 
+name:":gear: -> Serveur rejoint:", 
+value:`Rejoint le : ${AuthorServJoinedTime} (${moment(AuthorServJoined).locale("fr-FR").fromNow()})`
 }, 
 {
 name:":gear: -> Nickname:", 
@@ -116,11 +140,11 @@ value:!User.bot ? "Non" : "Oui"
 }, 
 {
 name:":gear: -> Date de création:", 
-value:`Créé le : ${moment(User.createdAt).format("D/M/Y à HH:mm:ss")} `
+value:`Créé le : ${UserCreatedTime} ${(${moment(UserCreated).locale("fr-FR").fromNow()})} `
 }, 
 {
 name:":gear: -> Serveur rejoint le:", 
-value:moment(mention.joinedAt).format("D/M/Y à HH:mm:ss") 
+value:`${UserServJoinedTime} (${moment(UserServJoined).locale("fr-FR").fromNow()})
 }, 
 {
 name:":gear: -> Nickname:", 
@@ -140,7 +164,7 @@ value:mention.roles.size > 25 ? "Il a trop de rôles." : mention.roles.map(r => 
 }, 
 {
 name:":gear: -> Liste de permissions", 
-value:mention.permissions.toArray().join(", ").toLowerCase() 
+value:mention.permissions.toArray().join(", ").toUpperCase() 
 } 
 ],
 timestamp:new Date(), 
