@@ -48,23 +48,11 @@ const AuthorTimezone = +2 * 3600000 ;
 AuthorTime.setTime(AuthorTime.getTime() + AuthorTimezone + AuthorTime.getTimezoneOffset() * 60000) 
 const AuthorCreatedTime = moment.utc(AuthorTime).locale("fr-FR").format("LLLL")
 
-const UserCreated = new Date(User.createdAt) 
-const UserTime = new Date(User.createdAt)
-const UserTimezone = +2 * 3600000;
-UserTime.setTime(UserTime.getTime() + UserTimezone + UserTime.getTimezoneOffset() * 60000) 
-const UserCreatedTime = moment.utc(UserTime).locale("fr-FR").format("LLLL")
-
 const AuthorServJoined = new Date(message.member.joinedAt)
 const AuthorServTime = new Date(message.member.joinedAt)
 const AuthorServTimezone = +2 * 3600000 ;
 AuthorServTime.setTime(AuthorServTime.getTime() + AuthorServTimezone + AuthorServTime.getTimezoneOffset() * 60000) 
 const AuthorServJoinedTime = moment.utc(AuthorServTime).locale("fr-FR").format("LLLL")
-
-const UserServJoined = new Date(mention.joinedAt) 
-const UserServTime = new Date(mention.joinedAt)
-const UserServTimeZone = +2 * 3600000;
-UserServTime.setTime(UserServTime.getTime() + UserServTimeZone + UserServTime.getTimezoneOffset() * 60000) 
-const UserServJoinedTime = moment.utc(UserServTime).locale("fr-FR").format("LLLL")
 
 message.channel.send({embed:{
 color:0x010101,
@@ -118,8 +106,22 @@ icon_url:this.client.user.avatarURL,
 text:"© Userinfo | Xenova" 
 } 
 }}) 
+
 return; 
+
 } else{
+
+const UserCreated = new Date(User.createdAt) 
+const UserTime = new Date(User.createdAt)
+const UserTimezone = +2 * 3600000;
+UserTime.setTime(UserTime.getTime() + UserTimezone + UserTime.getTimezoneOffset() * 60000) 
+const UserCreatedTime = moment.utc(UserTime).locale("fr-FR").format("LLLL")
+
+const UserServJoined = new Date(mention.joinedAt) 
+const UserServTime = new Date(mention.joinedAt)
+const UserServTimeZone = +2 * 3600000;
+UserServTime.setTime(UserServTime.getTime() + UserServTimeZone + UserServTime.getTimezoneOffset() * 60000) 
+const UserServJoinedTime = moment.utc(UserServTime).locale("fr-FR").format("LLLL")
 
 message.channel.send({embed:{
 color:0x010101,
