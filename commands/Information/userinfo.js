@@ -55,7 +55,7 @@ UserTime.setTime(UserTime.getTime() + UserTimezone + UserTime.getTimezoneOffset(
 const UserCreatedTime = moment.utc(UserTime).locale("fr-FR").format("LLLL")
 
 const AuthorServJoined = new Date(message.member.joinedAt)
-const AuthorServTime = new Date(message.member.joinedtAt)
+const AuthorServTime = new Date(message.member.joinedAt)
 const AuthorServTimezone = +2 * 3600000 ;
 AuthorServTime.setTime(AuthorServTime.getTime() + AuthorServTimezone + AuthorServTime.getTimezoneOffset() * 60000) 
 const AuthorServJoinedTime = moment.utc(AuthorServTime).locale("fr-FR").format("LLLL")
