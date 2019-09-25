@@ -146,7 +146,7 @@ if(rows.length == 0) return message.channel.send(`${wrong} Je n'ai pas trouve ce
 	
 con.query(`DELETE FROM gban WHERE id = ${!mention ? id : mention.id} `) 
 
-message.channel.send(`${check} **${!mention ? id : mention.username}** a été unblacklist du bot.`)
+message.channel.send(`${check} **${!mention ? args[1] : mention.username}** a été unblacklist du bot.`)
 
 }) 	
 
