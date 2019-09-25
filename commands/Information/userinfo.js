@@ -144,7 +144,7 @@ value:`Créé le : ${UserCreatedTime} (${moment(UserCreated).locale("fr-FR").fro
 }, 
 {
 name:":gear: -> Serveur rejoint le:", 
-value:`${UserServJoinedTime} (${moment(UserServJoined).locale("fr-FR").fromNow()})
+value:`${UserServJoinedTime} (${moment(UserServJoined).locale("fr-FR").fromNow()})`
 }, 
 {
 name:":gear: -> Nickname:", 
