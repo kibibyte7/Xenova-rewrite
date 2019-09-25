@@ -88,7 +88,16 @@ collect.stop();
  		
 } else {
    
-m.edit(`${wrong} ${message.author} bannissement des membres blacklist annulé.`)
+m.edit({embed:{
+color:0xff0c69, 
+title:"Bannissement annulé :", 
+description:`${wrong} ${message.author}, le bannissement des membres blacklist a été annulé.`,
+timestamp:new Date(), 
+footer:{
+icon_url:this.client.user.avatarURL, 
+text:"© Globalban check | Xenova" 
+} 
+}})
    
 m.clearReactions()
 
