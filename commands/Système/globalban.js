@@ -40,7 +40,7 @@ for(var i in rows) {
 	
 users.push(rows[i].id)
 
-reasons.push(rows[i].id)
+reasons.push(rows[i].reason)
 
 let u = message.guild.members.find("id", rows[i].id);
 
