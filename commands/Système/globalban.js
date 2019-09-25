@@ -112,7 +112,7 @@ if(level !== 3) return message.channel.send(`${wrong} Tu n'es pas un développeu
 
 con.query(`SELECT * FROM gban WHERE id = ${!mention ? id : mention.id}`, (err, rows) => {
 
-con.query(`UPDATE gban SET id = ${!mention ? id : mention.id}, reason = ${args.slice(2).join(" ")}, date = ${Date.now()}`) 
+con.query(`UPDATE gban SET id = "${!mention ? id : mention.id}", reason = "${args.slice(2).join(" ")}", date = "${Date.now()}"`) 
 
 message.channel.send(`${check} **${!mention ? id : mention.username}** a été blacklist du bot.`) 
 
