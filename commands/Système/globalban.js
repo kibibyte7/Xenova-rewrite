@@ -112,7 +112,7 @@ var id = args[1].length == 18 && !isNaN(args[1])
 
 con.query(`SELECT * FROM gban WHERE id = ${!mention ? id : mention.id}`, (err, rows) => {
 
-con.query(`UPDATE gban SET id = "${!mention ? id : mention.id}", reason = "${args.slice(2).join(" ")}", date = "${Date.now()}"`) 
+con.query(`UPDATE gban SET id = ${!mention ? id : mention.id}, reason = "${args.slice(2).join(" ")}", date = ${Date.now()}`) 
 
 message.channel.send(`${check} **${!mention ? id : mention.username}** a été blacklist du bot.`) 
 
