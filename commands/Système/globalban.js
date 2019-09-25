@@ -24,7 +24,7 @@ var mention = message.mentions.users.first() || this.client.users.find("id",args
 
 var id = args[1].length == 18 && !isNaN(args[1])
 
-if(args[0] == "check") {
+if(args[0] === "check") {
 
 con.query(`SELECT * FROM gban`, (err, rows) => {
 	
@@ -106,7 +106,7 @@ return;
 
 } 
 
-if(args[0] == "add") {
+if(args[0] === "add") {
 
 if(level !== 3) return message.channel.send(`${wrong} Tu n'es pas un développeur du bot.`);
 
@@ -120,7 +120,7 @@ message.channel.send(`${check} **${!mention ? id : mention.username}** a été b
 	
 } 
 	
-if(args[0] == "delete") {
+if(args[0] === "delete") {
 
 if(level !== 3) return message.channel.send(`${wrong} Tu n'es pas un développeur du bot.`);
 
@@ -136,7 +136,7 @@ message.channel.send(`${check} **${!mention ? id : mention.username}** a été u
 
 } 
 
-if(args[0] == "info") {
+if(args[0] === "info") {
 
 if(level !== 3) return message.channel.send(`${wrong} Tu n'es pas un développeur du bot.`);
 
