@@ -165,7 +165,7 @@ if(rows.length == 0) return message.channel.send(`${wrong} Je n'ai pas trouvé c
 message.channel.send({embed:{
 color:0xff0c69, 
 title:!mention ? id : mention.username, 
-description:`Raison du ban: ${rows[0].reason}\nBanni depuis: **${moment(new Date(rows[0].date)).locale("fr-FR").fromNow()}**`, 
+description:`Raison du ban: ${rows[0].reason}\nBanni depuis: **${moment(rows[0].date).locale("fr-FR").fromNow()}**`, 
 timestamp:new Date(), 
 footer:{
 text:"©️ Globalban info | Xenova", 
