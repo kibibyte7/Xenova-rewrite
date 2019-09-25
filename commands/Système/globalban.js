@@ -33,14 +33,15 @@ let reasons = []
 let resp = ``;
 
 for(var i in rows) {
+
 	
-users.push(rows[i].id)
+isNaN(i) ? `` :	users.push(rows[i].id)
 
-reasons.push(rows[i].reason)
+isNaN(i) ? `` :	reasons.push(rows[i].reason)
 
-let u = message.guild.members.find("id", rows[i].id);
+let u = message.guild.members.find("id", isNaN(i) ? `` : rows[i].id);
 
-isNaN(i) ? `` :	resp += `${!u ? "Invalid-user" : u}\n`
+isNaN(i) ? `` :	resp += `${u}\n`
 
 } 
 
