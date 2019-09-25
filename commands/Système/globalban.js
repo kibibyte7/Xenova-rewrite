@@ -144,7 +144,7 @@ con.query(`SELECT * FROM gban WHERE id = "${!mention ? args[1] : mention.id}"`, 
 
 if(rows.length == 0) return message.channel.send(`${wrong} Je n'ai pas trouve cet utilisateur dans la blacklist.`) 
 	
-con.query(`DELETE FROM gban WHERE id = ${!mention ? id : mention.id} `) 
+con.query(`DELETE FROM gban WHERE id = ${!mention ? args[1] : mention.id} `) 
 
 message.channel.send(`${check} **${!mention ? args[1] : mention.username}** a été unblacklist du bot.`)
 
