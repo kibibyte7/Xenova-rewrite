@@ -140,10 +140,6 @@ if(level !== 3) return message.channel.send(`${wrong} Tu n'es pas un développeu
 
 var mention = message.mentions.users.first() || this.client.users.find("id",args[1])
 
-var id = args[1].length == 18 && !isNaN(args[1])
-
-if(!mention || !id) return message.channel.send(`${wrong} Entre une id ou une mention d'utilisateur à débannir.`)
-
 con.query(`SELECT * FROM gban WHERE id = "${!mention ? args[1] : mention.id}"`, (err, rows) => {
 
 if(rows.length == 0) return message.channel.send(`${wrong} Je n'ai pas trouve cet utilisateur dans la blacklist.`) 
