@@ -111,7 +111,7 @@ var mention = message.mentions.users.first() || this.client.users.find("id",args
 
 var id = args[1].length == 18 && !isNaN(args[1])
 
-con.query(`SELECT * FROM gban WHERE id = ${!mention ? id : mention.id}`, (err, rows) => {
+con.query(`SELECT * FROM gban WHERE id = ${!mention ? args[1] : mention.id}`, (err, rows) => {
 
 if(rows.length == 0) con.query(`INSERT INTO gban (id, reason, date) VALUES (${!mention ? id : mention.id}, "${args.slice(2).join(" ")}", ${Date.now()})`) 
 
@@ -131,7 +131,7 @@ var mention = message.mentions.users.first() || this.client.users.find("id",args
 
 var id = args[1].length == 18 && !isNaN(args[1])
 
-con.query(`SELECT * FROM gban WHERE id = ${!mention ? id : mention.id}`, (err, rows) => {
+con.query(`SELECT * FROM gban WHERE id = "${!mention ? args[1] : mention.id}"`, (err, rows) => {
 
 if(rows.length == 0) return message.channel.send(`${wrong} Je n'ai pas trouve cet utilisateur dans la blacklist.`) 
 	
