@@ -161,15 +161,13 @@ if(args[0] === "info") {
 
 var mention = message.mentions.users.first() || this.client.users.find("id",args[1])
 
-var id = args[1].length == 18 && !isNaN(args[1])
-
-con.query(`SELECT * FROM gban WHERE id = ${!mention ? id : mention.id}`, (err, rows) => {
+con.query(`SELECT * FROM gban WHERE id = ${!mention ? args[1] : mention.id}`, (err, rows) => {
 
 if(rows.length == 0) return message.channel.send(`${wrong} Je n'ai pas trouvé cet utilisateur dand la blacklist.`) 	
 
 message.channel.send({embed:{
 color:0xff0c69, 
-title:!mention ? id : mention.username, 
+title:!mention ? args[1] : mention.username, 
 description:`Raison du ban: ${rows[0].reason}\nBanni depuis: **${moment(rows[0].date).locale("fr-FR").fromNow()}**`, 
 timestamp:new Date(), 
 footer:{
