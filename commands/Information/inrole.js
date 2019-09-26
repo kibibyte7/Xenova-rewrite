@@ -41,13 +41,19 @@ var toFind = message.guild.roles.find("name", args.join(" ")) || toMention;
     }else{
        
         var filter = m => m.roles.find(r => r.name === toFind.name)
+        var map = message.guild.members.filter(filter).map(u => u)
+        
+        for(var i = 0; i < 50; i++){
+        resp += `${map[i].user.username}\n`
+        } 
+
         message.channel.send({embed:{
             color:Math.floor(Math.random() * 16777214) + 1,
             author:{
                 name:`Liste des membres ayant le role ${toFind.name} [${message.guild.members.filter(filter).size}]`,
                 icon_url:message.author.avatarURL
             },
-            description:`${message.guild.members.filter(filter).map(u => u.user.tag).join(`\n`)}`,
+            description:`${resp}\nEt ${parseInt(message.guild.members.filter(filter).size)-50} autres membres...`,
             timestamp:new Date(),
             footer:{
                  icon_url:this.client.user.avatarURL,
