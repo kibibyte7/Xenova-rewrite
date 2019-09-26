@@ -125,7 +125,7 @@ if(args[0] === "add") {
 
 if(level !== 3) return message.channel.send(`${wrong} Tu n'es pas un développeur du bot.`);
 
-var mention = message.mentions.users.first() || this.client.users.find("id",args[1])
+var mention = message.mentions.users.first() || this.client.users.find("id",args[1]) || args[1]
 
 if(!mention) return message.channel.send(`${wrong} Entre une id ou une mention d'utilisateur à bannir.`)
 
