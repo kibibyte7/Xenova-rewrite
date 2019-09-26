@@ -34,15 +34,17 @@ let resp = ``;
 
 for(var i in rows) {
 	
-isNaN(i) ? `` :	users.push(rows[i].id)
-
-isNaN(i) ? `` :	reasons.push(rows[i].reason)
-
 let u = message.guild.members.find("id", isNaN(i) ? `` : rows[i].id);
 
-if(!u) isNaN(i) ? `` : resp += ``;
+if(u) {
 
-isNaN(i) ? `` :	resp += `${u.user.username}\n`
+resp += `${u.user.username}\n`
+
+users.push(rows[i].id)
+
+reasons.push(rows[i].reason)
+
+} 
 
 } 
 
