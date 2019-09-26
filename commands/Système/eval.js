@@ -11,7 +11,7 @@ permLevel:"XenoOwner"
 }) 
 } 
 
-run(message, args, level, con) {
+run(message, args, level) {
                 try {
       const code = args.join(" ");
       let evaled = eval(code);
