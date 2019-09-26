@@ -24,7 +24,7 @@ if(args[0] === "check") {
 
 con.query(`SELECT * FROM gban`, (err, rows) => {
 	
-if(rows.length < 0){
+if(rows.length > 0){
 
 let users = [];
 
