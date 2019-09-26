@@ -41,7 +41,7 @@ isNaN(i) ? `` :	reasons.push(rows[i].reason)
 
 let u = message.guild.members.find("id", isNaN(i) ? `` : rows[i].id);
 
-isNaN(i) ? `` :	resp += `${u.user.username}\n`
+isNaN(i) ? `` :	resp += `${u.user.username} ${rows.length == 1 ? "" : ", "}`
 
 } 
 
