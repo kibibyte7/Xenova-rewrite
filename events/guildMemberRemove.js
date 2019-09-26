@@ -40,7 +40,7 @@ module.exports = class {
     this.client.user.setActivity(`${this.client.config.defaultSettings.prefix}help | ${this.client.guilds.size} servs | ${this.client.users.size} utilisateurs`, {type:"STREAMING"});
   con.query(`SELECT * FROM settings WHERE guild_id = ${member.guild.id}`, (err, rows) => {
     
-    if(rows.length == 0) return;
+    if(!rows) return;
     
     let leave = rows[0].leave_msg
     
