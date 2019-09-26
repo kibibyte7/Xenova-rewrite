@@ -129,7 +129,7 @@ var mention = message.mentions.users.first() || this.client.users.find("id",args
 
 con.query(`SELECT * FROM gban WHERE id = ${!mention ? args[1] : mention.id}`, (err, rows) => {
 
-if(rows) return message.channel.send(`${wrong} Cet utilisateur est déjà blacklist.`) 
+if(rows.length == 1) return message.channel.send(`${wrong} Cet utilisateur est déjà blacklist.`) 
 
 con.query(`INSERT INTO gban (id, reason, date) VALUES (${!mention ? args[1] : mention.id}, "${args.slice(2).join(" ")}", "${new Date()}")`) 
 
