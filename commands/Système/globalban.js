@@ -125,9 +125,7 @@ if(args[0] === "add") {
 
 if(level !== 3) return message.channel.send(`${wrong} Tu n'es pas un développeur du bot.`);
 
-var mention = message.mentions.users.first() || this.client.users.find("id",args[1]) || args[1]
-
-if(!mention) return message.channel.send(`${wrong} Entre une id ou une mention d'utilisateur à bannir.`)
+var mention = message.mentions.users.first() || this.client.users.find("id",args[1]);
 
 con.query(`SELECT * FROM gban WHERE id = ${!mention ? args[1] : mention.id}`, (err, rows) => {
 
@@ -135,7 +133,7 @@ if(rows) return message.channel.send(`${wrong} Cet utilisateur est déjà blackl
 
 con.query(`INSERT INTO gban (id, reason, date) VALUES (${!mention ? args[1] : mention.id}, "${args.slice(2).join(" ")}", "${new Date()}")`) 
 
-message.channel.send(`${check} **${!mention ? id : mention.username}** a été blacklist du bot.`) 
+message.channel.send(`${check} **${!mention ? args[1] : mention.username}** a été blacklist du bot.`) 
 
 }) 
 	
@@ -145,7 +143,7 @@ if(args[0] === "delete") {
 
 if(level !== 3) return message.channel.send(`${wrong} Tu n'es pas un développeur du bot.`);
 
-var mention = message.mentions.users.first() || this.client.users.find("id",args[1])
+var mention = message.mentions.users.first() || this.client.users.find("id",args[1]);
 
 con.query(`SELECT * FROM gban WHERE id = "${!mention ? args[1] : mention.id}"`, (err, rows) => {
 
