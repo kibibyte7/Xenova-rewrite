@@ -41,7 +41,7 @@ module.exports = class {
 
     con.query(`SELECT * FROM settings WHERE guild_id = ${member.guild.id}`, (err, rows) => {
     
-    if(rows.length == 0) return;
+    if(!rows) return;
     
     let welcome = rows[0].welcome_msg
     
