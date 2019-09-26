@@ -42,7 +42,7 @@ var toFind = message.guild.roles.find("name", args.join(" ")) || toMention;
        
         var filter = m => m.roles.find(r => r.name === toFind.name)
         var map = message.guild.members.filter(filter).map(u => u)
-        
+        let resp = ``;
         for(var i = 0; i < 50; i++){
         resp += `${map[i].user.username}\n`
         } 
