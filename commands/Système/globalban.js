@@ -40,6 +40,8 @@ isNaN(i) ? `` :	reasons.push(rows[i].reason)
 
 let u = message.guild.members.find("id", isNaN(i) ? `` : rows[i].id);
 
+if(!u) isNaN(i) ? `` : resp += ``;
+
 isNaN(i) ? `` :	resp += `${u.user.username}\n`
 
 } 
@@ -47,7 +49,7 @@ isNaN(i) ? `` :	resp += `${u.user.username}\n`
 message.channel.send({embed:{
 color:0xff0c69, 
 title:"Utilisateurs trouvés dans la blacklist !", 
-description:`${this.client.emojis.find("name", "typing")} Veux-tu vraiment ban: \`${resp}\`?`, 
+description:`${this.client.emojis.find("name", "typing")} Veux-tu vraiment ban:\n\`${resp}\`?`, 
 timestamp:new Date(), 
 footer:"©️ Globalban check | Xenova" 
 }}).then(m => {
