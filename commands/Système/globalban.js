@@ -48,6 +48,8 @@ reasons.push(rows[i].reason)
 
 } 
 
+if(users.length == 0) return message.channel.send(`${wrong} Aucun utilisateurs est blacklist du bot dans ce serveur.`) 
+
 message.channel.send({embed:{
 color:0xff0c69, 
 title:"Utilisateurs trouvés dans la blacklist !", 
@@ -112,11 +114,7 @@ collect.stop();
 
 }) 
 
-}else{
-
-message.channel.send(`${wrong} Aucun utilisateurs est blacklist du bot dans ce serveur.`) 
-
-return;
+}
 
 } 
  
