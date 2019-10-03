@@ -126,7 +126,7 @@ if (message.content.indexOf(settings.prefix) !== 0) return;
     // Lancement de la commande
     con.query(`SELECT * FROM gban WHERE id = ${message.author.id} `, (err, rows) => {
     
-    if(rows) return;
+    if(rows.length == 1) return;
 
     this.client.logger.log(
       `${message.author.username} (${message.author.id} - ${
