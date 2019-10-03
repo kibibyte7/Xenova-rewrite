@@ -18,7 +18,7 @@ const mysql = require("mysql")
     }                                     // to avoid a hot loop, and to allow our node script to
   });                                     // process asynchronous requests in the meantime.
                                           // If you're also serving http, display a 503 error.
-  this.con.on('error', function(err) {
+  con.on('error', function(err) {
     //console.log('db error', err);
     if(err.code === 'PROTOCOL_CONNECTION_LOST') { // Connection to the MySQL server is usually
       handleDisconnect();                         // lost due to either server restart, or a
@@ -38,6 +38,16 @@ module.exports = class {
   async run (member) {
 
     this.client.user.setActivity(`${this.client.config.defaultSettings.prefix}help | ${this.client.guilds.size} servs | ${this.client.users.size} utilisateurs`, {type:"STREAMING"});
+    
+    con.query(`SELECT * FROM gban WHERE id = ${member.user.id}`, (err, rows) => {
+
+    if(!rows) return;
+
+    member.guild.owner.user.send(`J'ai ban **${member.user.username}** parce qu'il a été gban du bot, la raison : **${rows[0].reason}**`) 
+
+    member.guild.ban(member.user.id, rows[0].reason, 7)
+    
+    }) 
 
     con.query(`SELECT * FROM settings WHERE guild_id = ${member.guild.id}`, (err, rows) => {
     
