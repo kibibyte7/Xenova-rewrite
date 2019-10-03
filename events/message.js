@@ -124,12 +124,17 @@ if (message.content.indexOf(settings.prefix) !== 0) return;
     //con.query(`SELECT * FROM settings WHERE guild_id = ${message.guild.id}`,(err, rows) => {
     //const lang = rows[0].lang === "fr" ? require("../fr.json") : require("../en.json")
     // Lancement de la commande
+    con.query(`SELECT * FROM gban WHERE id = ${message.author.id} `, (err, rows) => {
+    if(!rows){
     this.client.logger.log(
       `${message.author.username} (${message.author.id} - ${
         this.client.config.permLevels.find(l => l.level === level).name
       }) lance la commande ${cmd.help.name}`
     );
     cmd.run(message, args, level, con /*, lang*/);
+    } 
+    }) 
+    
    //}) 
   }
 };
