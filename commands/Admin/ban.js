@@ -11,7 +11,7 @@ permLevel:"XenoAdminPerm"
 } 
 
 
-run(message, args, level, lang) {
+run(message, args, level, /*lang*/) {
 
 const mention = message.mentions.members.first();
 	   		
