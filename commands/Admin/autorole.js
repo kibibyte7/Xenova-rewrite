@@ -13,7 +13,7 @@ class Autorole extends Command {
     });
   }
 
-  run(message, args, level, lang, con) {
+  run(message, args, level, con, lang) {
   
   var no_args = lang.autorole.no_args.replace("{wrong}", this.client.emojis.find(e => e.name === "wrongMark")) 
   
