@@ -105,7 +105,7 @@ member.addRole(everyrole.id, `Rajout de everyrole par : ${message.author.tag}`)
 
 everyrole.setMentionable(true, `Mention everyrole par : ${message.author.tag} `);
 
-message.channel.send(`${check} ${everyrole} ^`)
+setTimeout(() => {message.channel.send(`${check} ${everyrole} ^`)}, 1000)
 
 setTimeout(() => {everyrole.setMentionable(false, `Mention everyrole par : ${message.author.tag}`)}, 2500);
 
