@@ -166,7 +166,7 @@ client.on("disconnect", () => client.logger.warn("Bot en déconnection..."))
 
 await client.channels.find("id", "630001781161852928").send({embed:{
 color:0xff0c69, 
-description:client.logger.error(e)
+description:client.logger.error(e), 
 timestamp:new Date(),
 footer:{
 text:"© Error | Xenova", 
