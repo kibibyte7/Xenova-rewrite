@@ -174,7 +174,7 @@ icon_url:client.user.avartarURL
 } 
 }})
 
-)})
+})
   .on("warn", info => client.logger.warn(info));
 
 
