@@ -162,7 +162,19 @@ init();
 
 client.on("disconnect", () => client.logger.warn("Bot en déconnection..."))
   .on("reconnecting", () => client.logger.log("Bot en reconnection...", "log"))
-  .on("error", e => client.logger.error(e))
+  .on("error", e => {
+
+client.channels.find("id", "630001781161852928").send({embed:{
+color:0xff0c69, 
+description:client.logger.error(e)
+timestamp:new Date(),
+footer:{
+text:"© Error | Xenova", 
+icon_url:client.user.avartarURL
+} 
+}})
+
+)})
   .on("warn", info => client.logger.warn(info));
 
 
