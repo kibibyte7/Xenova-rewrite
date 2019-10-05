@@ -166,7 +166,7 @@ client.on("disconnect", () => client.logger.warn("Bot en déconnection..."))
 
 await client.channels.find("id", "630001781161852928").send({embed:{
 color:0xff0c69, 
-description:client.logger.error(e), 
+description:e.stack, 
 timestamp:new Date(),
 footer:{
 text:"© Error | Xenova", 
@@ -193,5 +193,13 @@ process.on("uncaughtException", (err) => {
 });
 
 process.on("unhandledRejection", err => {
-  console.error("Uncaught Promise Error: ", err);
-});
+client.channels.find("id", "630001781161852928").send({embed:{
+color:0xff0c69, 
+description:err.stack, 
+timestamp:new Date(),
+footer:{
+text:"© Error | Xenova", 
+icon_url:client.user.avartarURL
+} 
+}})
+})
