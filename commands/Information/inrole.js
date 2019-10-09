@@ -53,10 +53,10 @@ var toFind = message.guild.roles.find("name", args.join(" ")) || toMention;
         membres.push(membre.user.username)
         })
 
-        let finalpage = Math.floor(membres.length/50);
-        let page = 1;
-        let start = 0;
-        let end = 50;
+        var finalpage = Math.floor(membres.length/50);
+        var page = 1;
+        var start = 0;
+        var end = 50;
         
         message.channel.send({embed:{
             color:Math.floor(Math.random() * 16777214) + 1,
