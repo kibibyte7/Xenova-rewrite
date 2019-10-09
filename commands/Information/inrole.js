@@ -91,9 +91,9 @@ var toFind = message.guild.roles.find("name", args.join(" ")) || toMention;
 
         page--;
         
-        start = start - 50;
+        start = parseInt(start - 50);
 
-        end = end - 50;
+        end = parseInt(end - 50);
 
         m.edit({embed:{
             color:Math.floor(Math.random() * 16777214) + 1,
@@ -119,9 +119,9 @@ var toFind = message.guild.roles.find("name", args.join(" ")) || toMention;
 
         page++;
         
-        start = start + 50;
+        start = parseInt(start + 50);
 
-        end = end + 50;
+        end = parseInt(end + 50);
 
         m.edit({embed:{
             color:Math.floor(Math.random() * 16777214) + 1,
