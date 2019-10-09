@@ -17,6 +17,12 @@ run(message, args, level) {
 
 let roles = [];
 
+let right = this.client.emojis.find(e => e.name === "droite") 
+
+let left =this.client.emojis.find(e => e.name === "gauche") 
+
+let wrong = this.client.emojis.find(e => e.name === "wrongMark") 
+
 let indexes = [];
 
 message.guild.roles.forEach(role => {
@@ -67,7 +73,12 @@ var toFind = message.guild.roles.find("name", args.join(" ")) || toMention;
             }
         }}).then(m => {
 
-    //je teste comme ça déjà 
+        m.react(left) 
+        setTimeout(() =>{m.react(gauche)},1000)
+        setTimeout(() =>{m.react(wrong)},2000)
+
+
+        
     }) 
     }
 } 
