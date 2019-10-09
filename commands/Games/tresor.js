@@ -46,13 +46,13 @@ con.query("SELECT * FROM tresor", (err, rows) => {
 	
           var randxp = Math.floor(Math.random()*100)*(player[0].tresors+1)+10
 	   
-          var randpp = Math.floor(Math.random()*15)*(player[0].tresors+1)+10
+          var randpp = Math.floor(Math.random()*15)*(player[0].tresors+1)+2
 	  
-          var randam = Math.floor(Math.random()*5)*(player[0].tresors+1)+5
+          var randam = Math.floor(Math.random()*5)*(player[0].tresors+1)+2
 	  
           var randgold = Math.floor(Math.random()*10)*(player[0].tresors+1)+15
 	    
-	  con.query(`UPDATE inventory SET xp = ${parseInt(player[0].xp)+randxp}, totalxp = ${parseInt(player[0].totalxp)+randxp}, gold = ${parseInt(player[0].gold)+randgold}, prismes = ${parseInt(player[0].prismes) + randpp/2}, prismes = ${parseInt(player[0].antimatter) + randam/2}, tresors = ${parseInt(player[0].tresors)+1} WHERE id = ${message.author.id}`) 	  
+	  con.query(`UPDATE inventory SET xp = ${parseInt(player[0].xp)+randxp}, totalxp = ${parseInt(player[0].totalxp)+randxp}, gold = ${parseInt(player[0].gold)+randgold}, prismes = ${Math.round(parseInt(player[0].prismes) + randpp/2)}, antimatter = ${Math.round(parseInt(player[0].antimatter) + randam/2)}, tresors = ${parseInt(player[0].tresors)+1} WHERE id = ${message.author.id}`) 	  
     	
     	  const nxtLvl = Math.floor(0.2 * Math.sqrt(player[0].xp));
     	
