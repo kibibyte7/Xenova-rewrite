@@ -41,11 +41,17 @@ var toFind = message.guild.roles.find("name", args.join(" ")) || toMention;
     }else{
        
         var filter = m => m.roles.find(r => r.name === toFind.name)
-        var map = message.guild.members.filter(filter).map(u => u)
+        let membres = [];
+        let page = 1;
+        let start = 0;
+        let end = 50;
         let resp = ``;
-        for(var i = 0; i < 50; i++){
-        resp += isNaN(i) ? '' : `${map[i].user.username}\n`
-        } 
+
+        message.guild.members.filter(filter).forEach(function(membre){
+        membres.push(membre.user.username)
+        })
+
+        let finalpage = Math.floor(membres.size/50);
 
         message.channel.send({embed:{
             color:Math.floor(Math.random() * 16777214) + 1,
@@ -53,13 +59,16 @@ var toFind = message.guild.roles.find("name", args.join(" ")) || toMention;
                 name:`Liste des membres ayant le role ${toFind.name} [${message.guild.members.filter(filter).size}]`,
                 icon_url:message.author.avatarURL
             },
-            description:`${resp}\nEt ${parseInt(message.guild.members.filter(filter).size)-50} autres membres...`,
+            description:`${membres.slice(start, end)}`,
             timestamp:new Date(),
             footer:{
                  icon_url:this.client.user.avatarURL,
-                 text:`©️ Inrole | Xenova`
+                 text:`©️ Inrole | Xenova | page ${page}/${finalpage}`
             }
-        }})
+        }}).then(m => {
+
+    //je teste comme ça déjà 
+    }) 
     }
 } 
 } 
