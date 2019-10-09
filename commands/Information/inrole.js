@@ -76,9 +76,9 @@ var toFind = message.guild.roles.find("name", args.join(" ")) || toMention;
         setTimeout(() =>{m.react(right)},1000)
         setTimeout(() =>{m.react(wrong)},2000)
 
-        const filter = (reaction, user) => reaction.emoji.name == left.name && user.id == message.author.id || reaction.emoji.name == right.name && user.id == message.author.id || reaction.emoji.name == wrong.name && user.id == message.author.id; 
+        const filtre = (reaction, user) => reaction.emoji.name == left.name && user.id == message.author.id || reaction.emoji.name == right.name && user.id == message.author.id || reaction.emoji.name == wrong.name && user.id == message.author.id; 
         
-        const collect = m.createReactionCollector(filter);
+        const collect = m.createReactionCollector(filtre);
         
         collect.on('collect' , r => {
         
