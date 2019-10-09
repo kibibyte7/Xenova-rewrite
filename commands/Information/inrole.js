@@ -74,7 +74,7 @@ var toFind = message.guild.roles.find("name", args.join(" ")) || toMention;
         }}).then(m => {
 
         m.react(left) 
-        setTimeout(() =>{m.react(gauche)},1000)
+        setTimeout(() =>{m.react(right)},1000)
         setTimeout(() =>{m.react(wrong)},2000)
 
 
