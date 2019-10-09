@@ -59,7 +59,7 @@ var toFind = message.guild.roles.find("name", args.join(" ")) || toMention;
                 name:`Liste des membres ayant le role ${toFind.name} [${message.guild.members.filter(filter).size}]`,
                 icon_url:message.author.avatarURL
             },
-            description:`${membres.slice(start, end)}`,
+            description:`${membres.slice(start, end).join(" ")}`,
             timestamp:new Date(),
             footer:{
                  icon_url:this.client.user.avatarURL,
