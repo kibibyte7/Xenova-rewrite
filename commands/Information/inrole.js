@@ -44,7 +44,7 @@ var toFind = message.guild.roles.find("name", args.join(" ")) || toMention;
         var map = message.guild.members.filter(filter).map(u => u)
         let resp = ``;
         for(var i = 0; i < 50; i++){
-        resp += `${map[i].user.username}\n`
+        resp += isNaN(i) ? '' : `${map[i].user.username}\n`
         } 
 
         message.channel.send({embed:{
