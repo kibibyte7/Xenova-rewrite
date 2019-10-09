@@ -13,7 +13,7 @@ aliases:["sl"]
 
 run(message, args, level) {
 
-var guilds = this.client.guilds.array().sort((a , b) => { 
+var guilds = this.client.guilds.array(g => g).sort((a , b) => { 
         if(a.members.size > b.members.size){ 
           return -1;
         }else if (a.members.size + b.members.size){
@@ -25,7 +25,7 @@ var guilds = this.client.guilds.array().sort((a , b) => {
 
     let resp = '';
         for(var i in guilds){
-            resp += `${parseInt(i)+1}. ${guilds[i].name} : **${guilds[i].members.size} Membres**\n`
+          isNaN(i) ? "" : resp += `${parseInt(i)+1}. ${guilds[i].name} : **${guilds[i].members.size} Membres**\n`
         }
 
         message.channel.send(resp)
