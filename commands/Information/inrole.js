@@ -138,8 +138,6 @@ var toFind = message.guild.roles.find("name", args.join(" ")) || toMention;
         }})
         
         } 
-
-        }) 
         
         if(r.name === wrong.name){
 
@@ -161,8 +159,12 @@ var toFind = message.guild.roles.find("name", args.join(" ")) || toMention;
         collect.stop();
 
         } 
+      
     }) 
-    }
+    }) 
+    
+}
+
 } 
 } 
 
