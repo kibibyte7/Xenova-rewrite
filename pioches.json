@@ -31,34 +31,59 @@
 "cost":[{"wood":"1250","stone":"750", "fer":"500", "gold":"250"}] 
 }, 
 {
-"name":"pioche en diamant", 
+"name":"Pioche en diamant", 
 "level":"5",
 "cost":[{"wood":"1750","stone":"1000", "fer":"650", "gold":"400", "diamant":"250"}] 
 }, 
 {
-"name":"pioche en diamant renforcé en émeraude", 
+"name":"Pioche en diamant renforcée", 
 "level":"6",
 "cost":[{"wood":"2000","stone":"1500", "fer":"1000", "gold":"600", "diamant":"400","emeraude":"200"}] 
 }, 
 {
-"name":"pioche en diamant gemmée", 
+"name":"Pioche en diamant gemmée", 
 "level":"7",
 "cost":[{"wood":"2500","stone":"2000", "fer":"1500", "gold":"800", "diamant":"650","emeraude":"400", "prismes" :"50"}] 
 }, 
 {
-"name":"pioche en diament cosmique", 
+"name":"Pioche en diament cosmique", 
 "level":"8",
 "cost":[{"wood":"3500","stone":"2500", "fer":"2000", "gold":"1000", "diamant":"950","emeraude":"800", "prismes" :"100","antimatter" :"50"}] 
 }, 
 {
-"name":"pioche en diamant tri-gemmée", 
+"name":"Pioche en diamant tri-gemmée", 
 "level":"9",
 "cost":[{"wood":"4000","stone":"3000", "fer":"2750", "gold":"1500", "diamant":"1200","emeraude":"1000", "prismes" :"150","antimatter":"100","osrizk":"50"}] 
 }, 
 {
-"name":"pioche en émeraude", 
+"name":"Pioche en émeraude", 
 "level":"10",
 "cost":[{"wood":"8000","stone":"6000", "fer":"5500", "gold":"3000", "diamant":"2600","emeraude":"3000"}] 
+}, 
+{
+"name":"Pioche en émeraude renforcée", 
+"level":"11",
+"cost":[{"wood":"10000","stone":"8000", "fer":"7500", "gold":"6000", "diamant":"4200","emeraude":"5000"}] 
+}, 
+{
+"name":"Pioche en émeraude gemmée", 
+"level":"12",
+"cost":[{"wood":"15000","stone":"11000", "fer":"8500", "gold":"12000", "diamant":"8400","emeraude":"10000", "prismes": "250"}] 
+},
+{
+"name":"Pioche en émeraude cosmique", 
+"level":"13",
+"cost":[{"wood":"30000","stone":"22000", "fer":"17000", "gold":"24000", "diamant":"16800","emeraude":"15000", "prismes": "300", "antimatter": "250"}] 
+},
+{
+"name":"Pioche en émeraude tri-gemmée", 
+"level":"14",
+"cost":[{"wood":"45000","stone":"30000", "fer":"34000", "gold":"48000", "diamant":"23600","emeraude":"30000", , "prismes": "450", "antimatter": "400", "osrizk": "300"}] 
+},
+{
+"name":"Pioche galactique", 
+"level":"15",
+"cost":[{"wood":"60000","stone":"50000", "fer":"40000", "gold":"96000", "diamant":"47200","emeraude":"60000", "prismes": "800", "antimatter": "700", "osrizk": "600"}] 
 }
 ] 
 
