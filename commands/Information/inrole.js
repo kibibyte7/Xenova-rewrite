@@ -79,7 +79,7 @@ var toFind = message.guild.roles.find("name", args.join(" ")) || toMention;
 
         const filter = (reaction, user) => reaction.name === left.name && user.id === message.author.id || reaction.name === right.name && user.id === message.author.id || reaction.name === wrong.name && user.id === message.author.id 
         
-        const collect = m.createReactionsCollector(filter) 
+        const collect = m.createReactionCollector(filter) 
         
         collect.on("collect", r => {
         
