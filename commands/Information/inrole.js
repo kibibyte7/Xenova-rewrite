@@ -17,11 +17,11 @@ run(message, args, level) {
 
 let roles = [];
 
-let right = this.client.emojis.find(e => e.name === "droite") 
+const right = this.client.emojis.find(e => e.name === "droite") 
 
-let left =this.client.emojis.find(e => e.name === "gauche") 
+const left =this.client.emojis.find(e => e.name === "gauche") 
 
-let wrong = this.client.emojis.find(e => e.name === "wrongMark") 
+const wrong = this.client.emojis.find(e => e.name === "wrongMark") 
 
 let indexes = [];
 
