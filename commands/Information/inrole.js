@@ -48,17 +48,16 @@ var toFind = message.guild.roles.find("name", args.join(" ")) || toMention;
        
         var filter = m => m.roles.find(r => r.name === toFind.name)
         let membres = [];
-        let page = 1;
-        let start = 0;
-        let end = 50;
-        let resp = ``;
-
+        
         message.guild.members.filter(filter).forEach(function(membre){
         membres.push(membre.user.username)
         })
 
         let finalpage = Math.floor(membres.length/50);
-
+        let page = 1;
+        let start = 0;
+        let end = 50;
+        
         message.channel.send({embed:{
             color:Math.floor(Math.random() * 16777214) + 1,
             author:{
@@ -79,7 +78,7 @@ var toFind = message.guild.roles.find("name", args.join(" ")) || toMention;
 
         const filter = (reaction, user) => reaction.name === left.name && user.id === message.author.id || reaction.name === right.name && user.id === message.author.id || reaction.name === wrong.name && user.id === message.author.id 
         
-        const collect = m.createReactionCollector(filter) 
+        const collect = m.createReactionCollector(filter);
         
         collect.on("collect", r => {
         
@@ -91,9 +90,9 @@ var toFind = message.guild.roles.find("name", args.join(" ")) || toMention;
 
         page--;
         
-        start = parseInt(start - 50);
+        start -= 50;
 
-        end = parseInt(end - 50);
+        end -= 50;
 
         m.edit({embed:{
             color:Math.floor(Math.random() * 16777214) + 1,
@@ -119,9 +118,9 @@ var toFind = message.guild.roles.find("name", args.join(" ")) || toMention;
 
         page++;
         
-        start = parseInt(start + 50);
+        start += 50;
 
-        end = parseInt(end + 50);
+        end += 50;
 
         m.edit({embed:{
             color:Math.floor(Math.random() * 16777214) + 1,
