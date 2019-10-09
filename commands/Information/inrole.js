@@ -77,8 +77,90 @@ var toFind = message.guild.roles.find("name", args.join(" ")) || toMention;
         setTimeout(() =>{m.react(right)},1000)
         setTimeout(() =>{m.react(wrong)},2000)
 
-
+        const filter = (reaction, user) => reaction.name === left.name && user.id === message.author.id || reaction.name === right.name && user.id === message.author.id || reaction.name === wrong.name && user.id === message.author.id 
         
+        const collect = m.createReactionsCollector(filter) 
+        
+        collect.on("collect", r => {
+        
+        if(r.name === left.name){
+
+        r.remove(message.author) 
+
+        if(page == 1) return;
+
+        page--;
+        
+        start = start - 50;
+
+        end = end - 50;
+
+        m.edit({embed:{
+            color:Math.floor(Math.random() * 16777214) + 1,
+            author:{
+                name:`Liste des membres ayant le role ${toFind.name} [${message.guild.members.filter(filter).size}]`,
+                icon_url:message.author.avatarURL
+            },
+            description:`${membres.slice(start, end).join("\n")}`,
+            timestamp:new Date(),
+            footer:{
+                 icon_url:this.client.user.avatarURL,
+                 text:`©️ Inrole | Xenova | Page ${page}/${finalpage}`
+            }
+        }})
+        
+        } 
+        
+        if(r.name === right.name){
+
+        r.remove(message.author) 
+
+        if(page == finalpage) return;
+
+        page++;
+        
+        start = start + 50;
+
+        end = end + 50;
+
+        m.edit({embed:{
+            color:Math.floor(Math.random() * 16777214) + 1,
+            author:{
+                name:`Liste des membres ayant le role ${toFind.name} [${message.guild.members.filter(filter).size}]`,
+                icon_url:message.author.avatarURL
+            },
+            description:`${membres.slice(start, end).join("\n")}`,
+            timestamp:new Date(),
+            footer:{
+                 icon_url:this.client.user.avatarURL,
+                 text:`©️ Inrole | Xenova | Page ${page}/${finalpage}`
+            }
+        }})
+        
+        } 
+
+        }) 
+        
+        if(r.name === wrong.name){
+
+        m.edit({embed:{
+        color:0xff0c69, 
+        description:`${wrong} Le paginateur est fermé, suppression du message dans 3 secondes.`,
+        timestamp:new Date(), 
+        footer:{
+        icon_url:this.client.user.avatarURL,
+        text:"© Inrole | Xenova" 
+        }
+        }}).then(msg => {
+        message.delete(4000)
+        msg.delete(3000)
+        }) 
+
+        m.clearReactions();
+
+        collect.stop();
+
+        } 
     }) 
     }
 } 
