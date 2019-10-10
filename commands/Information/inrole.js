@@ -114,7 +114,7 @@ var toFind = message.guild.roles.find("name", args.join(" ")) || toMention;
 
         r.remove(message.author) 
 
-        if(page == finalpage) return;
+        if(page == finalpage || finalpage < page) return;
 
         page++;
         
