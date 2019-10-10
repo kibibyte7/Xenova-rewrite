@@ -53,7 +53,7 @@ module.exports = class {
     
     if(rows.length == 0) return;
     
-    let welcome = rows[0].welcome_msg
+    let welcome = rows[0].welcome_msg == undefined? '' : rows[0].welcome_msg
     
     var come = welcome.replace("{user}", member)
     
