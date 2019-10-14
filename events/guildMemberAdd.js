@@ -49,25 +49,25 @@ module.exports = class {
     
     }) 
 
-    con.query(`SELECT * FROM settings WHERE guild_id = ${member.guild.id}`, (err, rows) => {
+    //con.query(`SELECT * FROM settings WHERE guild_id = ${member.guild.id}`, (err, rows) => {
     
-    if(rows.length == 0) return;
+    //if(rows.length == 0) return;
     
-    let welcome = rows[0].welcome_msg == undefined? '' : rows[0].welcome_msg
+    //let welcome = rows[0].welcome_msg == undefined? '' : rows[0].welcome_msg
     
-    var come = welcome.replace("{user}", member)
+    //var come = welcome.replace("{user}", member)
     
-    var wel = come.replace("{server}", member.guild.name) 
+    //var wel = come.replace("{server}", member.guild.name) 
     
-    var w = wel.replace("{membercount}", member.guild.members.size) 
+    //var w = wel.replace("{membercount}", member.guild.members.size) 
     
-    setTimeout(() => {
+    //setTimeout(() => {
 
-    this.client.channels.get(rows[0].welcome_id).send(w)
+    //this.client.channels.get(rows[0].welcome_id).send(w)
     
-    }, 750)
+    //}, 750)
 
-    }) 
+    //}) 
     
     con.query(`SELECT user_autorole FROM settings WHERE guild_id = ${member.guild.id}`, (err, rows) => {
 
@@ -84,6 +84,7 @@ module.exports = class {
     if(member.user.bot) return member.addRole(rows[0].bot_autorole, "[BOT] Rôle automatique")
 
     }) 
+
 
   }
 };
