@@ -7,7 +7,7 @@ module.exports = class {
     
     con.query("SELECT * FROM settings", (err, rows) => {
 
-    con.query(`INSERT INTO settings (welcome_id, leave_id, ban_id, welcome_msg, leave_msg, ban_msg, user_autorole, bot_autorole, lang, guild_id) VALUES ('Non défini', 'Non défini', 'Non défini', 'Bienvenue sur **{server}**, {user} amuses toi bien ! 🤗', 'Mince, **{user}** nous a quitté... Bonne continuation à toi **{user}**...', "Et paf ! **{user}** s'est pris un coup de banhammer ! Tu n'as pas été sage l'ami." , 'Non défini', 'Non défini', 'en', ${guild.id}`)
+    con.query(`INSERT INTO settings (welcome_id, leave_id, ban_id, welcome_msg, leave_msg, ban_msg, user_autorole, bot_autorole, lang, guild_id) VALUES ('Non défini', 'Non défini', 'Non défini', 'Bienvenue sur **{server}**, {user} amuses toi bien ! 🤗', 'Mince, **{user}** nous a quitté... Bonne continuation à toi **{user}**...', "Et paf ! **{user}** s'est pris un coup de banhammer ! Tu n'as pas été sage l'ami." , 'Non défini', 'Non défini', 'en', ${guild.id})`)
 
     }) 
     
