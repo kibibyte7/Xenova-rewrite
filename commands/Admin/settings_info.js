@@ -26,7 +26,7 @@ class Settings_info extends Command {
         fields:[
         {
         name:"Channel de bienvenue:",
-        value:message.guild.channels.find(c => c.id === rows[0].welcome_id).name
+        value: rows[0].welcome_id === "Non défini" ? "Aucun channel défini" : message.guild.channels.find(c => c.id === rows[0].welcome_id).name
         },
         {
         name:"Message de bienvenue:",
@@ -34,7 +34,7 @@ class Settings_info extends Command {
         },
         {
         name:"Channel de départ:",
-        value:message.guild.channels.find(c => c.id === rows[0].leave_id).name
+        value: rows[0].leave_id === "Non défini" ? "Aucun channel défini" : message.guild.channels.find(c => c.id === rows[0].leave_id).name
         },
         {
         name:"Message de départ:",
@@ -42,19 +42,19 @@ class Settings_info extends Command {
         },
         {
         name:"Channel de ban:",
-        value:message.guild.channels.find(c => c.id === rows[0].ban_id).name
+        value: rows[0].ban_id === "Non défini" ? "Aucun channel défini" : message.guild.channels.find(c => c.id === rows[0].ban_id).name
         },
         {
         name:"Message de ban:",
-        value:rows[0].ban_msg
+        value: rows[0].ban_msg
         },
         {
         name:"Autorole humains:",
-        value:message.guild.roles.find(c => c.id === rows[0].user_autorole).name
+        value: rows[0].user_autorole === "Non défini" ? "Aucun rôle défini" : message.guild.roles.find(c => c.id === rows[0].user_autorole).name
         },
         {
         name:"Autorole bots:",
-        value:message.guild.roles.find(c => c.id === rows[0].bot_autorole).name
+        value: rows[0].bot_autorole === "Non défini" ? "Aucun rôle défini" : message.guild.roles.find(c => c.id === rows[0].bot_autorole).name
         }], 
         timestamp:new Date(), 
         footer:{
