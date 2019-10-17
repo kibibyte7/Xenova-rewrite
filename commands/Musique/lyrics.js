@@ -28,7 +28,7 @@ class Lyrics extends Command {
     res.json().then(lyrics => {
     	
         if(!lyrics.data[0]) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Aucuns résultats trouvés.`); 
-        
+        console.log(lyrics.data[0].length) 
         if(lyrics.data[0].lyrics.length < 2048){
         message.channel.send({embed:{
         title:`Lyrics de la musique : ${lyrics.data[0].artist} - ${lyrics.data[0].name}`,      
@@ -57,7 +57,7 @@ class Lyrics extends Command {
         
         message.channel.send({embed:{
         color:0x010101, 
-        description:lyrics.data[0].lyrics.slice(2048),
+        description:lyrics.data[0].lyrics.substring(2048, 4096) 
         timestamp:new Date(),
         footer:{
         icon_url:this.client.user.avatarURL,
@@ -70,7 +70,7 @@ class Lyrics extends Command {
         message.channel.send({embed:{
         title:`Lyrics de la musique : ${lyrics.data[0].artist} - ${lyrics.data[0].name}`,      
         color:0x010101, 
-        description:lyrics.data[0].lyrics.slice(2048), 
+        description:lyrics.data[0].lyrics.substring(4096, 6144)
         timestamp:new Date()
         }})
 
