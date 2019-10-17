@@ -41,7 +41,7 @@ module.exports = class {
     
     con.query(`SELECT * FROM gban WHERE id = ${member.user.id}`, (err, rows) => {
 
-    if(!rows) return;
+    if(rows.length == 0) return;
 
     member.guild.owner.user.send(`J'ai ban **${member.user.username}** parce qu'il a été gban du bot, la raison : **${rows[0].reason}**`) 
 
