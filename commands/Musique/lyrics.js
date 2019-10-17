@@ -44,13 +44,13 @@ class Lyrics extends Command {
         text:"© Lyrics | Xenova | Propulsé par l'api Ksoft.si" 
         } 
         }})
-        return;
+        
         } else {
         
         message.channel.send({embed:{
         title:`Lyrics de la musique : ${lyrics.data[0].artist} - ${lyrics.data[0].name}`,      
         color:0x010101, 
-        description:lyrics.data[0].lyrics.substring(0, 2048), 
+        description:lyrics.data[0].lyrics.substring(0, 2047), 
         timestamp:new Date()
         }})
 
@@ -61,7 +61,7 @@ class Lyrics extends Command {
         
         message.channel.send({embed:{
         color:0x010101, 
-        description:lyrics.data[0].lyrics.substring(2048, 4096), 
+        description:lyrics.data[0].lyrics.substring(2048, 4095), 
         timestamp:new Date(),
         footer:{
         icon_url:this.client.user.avatarURL,
