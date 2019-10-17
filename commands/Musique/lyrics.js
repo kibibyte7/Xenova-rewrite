@@ -41,12 +41,15 @@ class Lyrics extends Command {
         } 
         }})
         return;
-        } else{
+        } else {
+        
         message.channel.send({embed:{
         title:`Lyrics de la musique : ${lyrics.data[0].artist} - ${lyrics.data[0].name}`,      
         color:0x010101, 
-        description:lyrics.data[0].lyrics.substring(0, 2048)
-        }}) 
+        description:lyrics.data[0].lyrics.substring(0, 2048), 
+        timestamp:new Date()
+        }})
+
         } 
         
         
@@ -60,15 +63,18 @@ class Lyrics extends Command {
         icon_url:this.client.user.avatarURL,
         text:"© Lyrics | Xenova | Propulsé par l'api Ksoft.si" 
         } 
-        }})        
+        }})
         return;
-        }else{
+        } else {
+        
         message.channel.send({embed:{
         title:`Lyrics de la musique : ${lyrics.data[0].artist} - ${lyrics.data[0].name}`,      
         color:0x010101, 
-        description:lyrics.data[0].lyrics.slice(4096)
-        }}) 
-        } 
+        description:lyrics.data[0].lyrics.slice(2048), 
+        timestamp:new Date()
+        }})
+
+        }  
         
         if(lyrics.data[0].lyrics.length < 6144){
         
@@ -80,9 +86,8 @@ class Lyrics extends Command {
         icon_url:this.client.user.avatarURL,
         text:"© Lyrics | Xenova | Propulsé par l'api Ksoft.si" 
         } 
-        }}) 
-        
-        } 
+        }})
+
         }) 
         }) 
        
