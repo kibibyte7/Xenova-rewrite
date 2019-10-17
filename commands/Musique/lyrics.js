@@ -51,7 +51,7 @@ class Lyrics extends Command {
         }})
 
         } 
-        
+         
         
         if(lyrics.data[0].lyrics.length < 4096){
         
@@ -76,6 +76,7 @@ class Lyrics extends Command {
 
         }  
         
+
         if(lyrics.data[0].lyrics.length < 6144){
         
         message.channel.send({embed:{
@@ -87,7 +88,7 @@ class Lyrics extends Command {
         text:"© Lyrics | Xenova | Propulsé par l'api Ksoft.si" 
         } 
         }})
-
+        } 
         }) 
         }) 
        
