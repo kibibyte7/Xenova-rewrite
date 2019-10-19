@@ -1,6 +1,6 @@
 const Command = require("../../modules/Command.js")
 
-class Emotelist extends Command {
+class Emote extends Command {
 constructor(client) {
 super(client, {
 name :"emote", 
@@ -47,7 +47,18 @@ text:"emote"
 }
 }})
 } catch (e) {
-message.channel.send(`${this.client.emojis.find("name","wrongMark")} Aucun résultat trouvé.`) 
+var emote = `${args[0]}`;
+
+message.channel.send({embed:{
+color:0xff0c69, 
+image:{
+url:`https://cdn.discordapp.com/emojis/${emote.replace(/[^0-9]/g, '')}.png`
+}, 
+timestamp:new Date(), 
+footer:{
+icon_url:this.client.user.avatarURL,
+text:`© Emote | Xenova`
+} 
 } 
 
 } 
