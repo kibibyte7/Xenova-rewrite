@@ -52,7 +52,7 @@ class Leave_channel extends Command {
       	
       	}
       	
-      	con.query(`UPDATE settings SET leave_id = ${cible} WHERE guild_id = ${message.guild.id}`) 
+      	con.query(`UPDATE settings SET leave_id = ${cible.id} WHERE guild_id = ${message.guild.id}`) 
       	
       	message.channel.send("Le channel des départs est désormais : " + cible)
             
