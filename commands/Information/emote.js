@@ -64,4 +64,4 @@ text:`© Emote | Xenova`
 } 
 }
 
-module.exports = Emotelist;
+module.exports = Emote;
