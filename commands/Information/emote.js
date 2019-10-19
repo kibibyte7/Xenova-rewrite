@@ -59,6 +59,7 @@ footer:{
 icon_url:this.client.user.avatarURL,
 text:`© Emote | Xenova`
 } 
+}}) 
 } 
 
 } 
