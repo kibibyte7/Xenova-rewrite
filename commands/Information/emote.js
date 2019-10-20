@@ -49,10 +49,12 @@ text:"emote"
 } catch (e) {
 var emote = `${args[0]}`;
 
+var e = emote.replace(/[^0-9]/g, '');
+
 message.channel.send({embed:{
 color:0xff0c69, 
 image:{
-url:`https://cdn.discordapp.com/emojis/${emote.replace(/[^0-9]/g, '')}.png`
+url: emote.startsWith("<a") ? `https://cdn.discordapp.com/emojis/${e}.gif` :`https://cdn.discordapp.com/emojis/${e}.png`
 }, 
 timestamp:new Date(), 
 footer:{
