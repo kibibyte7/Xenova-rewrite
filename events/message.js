@@ -139,7 +139,7 @@ if (message.content.indexOf(settings.prefix) !== 0) return;
 
     var Time_counter = null;
  
-    fuction timer() {
+    function timer() {
 
     count = count - 1;
 
