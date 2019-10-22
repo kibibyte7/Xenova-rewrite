@@ -146,8 +146,7 @@ if (message.content.indexOf(settings.prefix) !== 0) return;
         
         cooldown.add(message.author.id && cmd.help.name);
         setTimeout(() => {
-          // Removes the user from the set after a minute
-          talkedRecently.delete(message.author.id && cmd.help.name);
+          cooldown.delete(message.author.id && cmd.help.name);
         }, cmd.conf.cooldown*1000);
     }
 
