@@ -46,7 +46,25 @@ class Xenova extends Client {
       }
     }
     return permlvl;
+  } 
+
+  toWrongMark(input) {
+
+  return input = input.replace('{wrong}', this.emojis.find(e => e.name === "wrongMark"))
+
   }
+
+  toCheckMark(input) {
+
+  return input = input.replace('{check}', this.emojis.find(e => e.name === "checkMark"))
+
+  }
+  
+  toValues(msg, input, value) {
+  
+  return msg = msg.replace(input, value)
+
+  } 
 
   loadCommand(commandPath, commandName) {
     try {
