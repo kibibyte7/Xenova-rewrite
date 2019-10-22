@@ -139,7 +139,7 @@ if (message.content.indexOf(settings.prefix) !== 0) return;
 
     if (cooldown.length == 1) {
 
-            message.channel.send(`${this.client.emojis.find(e => e.name === "wrongMark")} ${message.author} attends encore **${(cooldown[0].time - new Date().getTime())/1000} secondes** avant de faire cette commande`).then(m => m.delete(3000));
+            message.channel.send(`${this.client.emojis.find(e => e.name === "wrongMark")} ${message.author} attends encore **${Math.round((cooldown[0].time - new Date().getTime())/1000)} secondes** avant de faire cette commande`).then(m => m.delete(3000));
 
     } else {
 
@@ -154,7 +154,7 @@ if (message.content.indexOf(settings.prefix) !== 0) return;
         con.query(`INSERT INTO cooldown (id, cmd, time) VALUES (${message.author.id}, "${cmd.help.name}", ${new Date().getTime() + cooltime})`)
 
         setTimeout(() => {
-          con.query(`DELETE FROM cooldown WHERE id = ${message.author.id} AND cmd = ${cmd.help.name}`) 
+          con.query(`DELETE FROM cooldown WHERE id = ${message.author.id} AND cmd = "${cmd.help.name}"`) 
         }, cooltime);
         
     }
