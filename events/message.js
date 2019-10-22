@@ -143,7 +143,7 @@ if (message.content.indexOf(settings.prefix) !== 0) return;
 
     var interval = setInterval(function(sec){
 
-    seconds = seconds-1;
+    seconds--;
     
     }, 1000)
  
