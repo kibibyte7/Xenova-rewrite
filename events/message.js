@@ -135,17 +135,11 @@ if (message.content.indexOf(settings.prefix) !== 0) return;
 
     const cooltime = cmd.conf.cooldown*1000
     
-    var count = cmd.conf.cooldown;
-    
-    function timer() {
+    con.query(`SELECT * FROM cooldown WHERE id = ${message.author.id} AND cmd = "${cmd.help.name}"`, (err, cooldown) => {
 
-    count = count - 1;
+    if (cooldown.length == 1) {
 
-    }
- 
-    if (cooldown.has(message.author.id && cmd.help.name)) {
-
-            message.channel.send(`${this.client.emojis.find(e => e.name === "wrongMark")} ${message.author} attends encore **${count} secondes** avant de faire cette commande`).then(m => m.delete(3000));
+            message.channel.send(`${this.client.emojis.find(e => e.name === "wrongMark")} ${message.author} attends encore **${(cooldown[0].time - new Date().getTime())/1000} secondes** avant de faire cette commande`).then(m => m.delete(3000));
 
     } else {
 
@@ -157,16 +151,14 @@ if (message.content.indexOf(settings.prefix) !== 0) return;
 
         cmd.run(message, args, level, con, lang);
 
-        cooldown.add(message.author.id && cmd.help.name);
-        
-        var interval = setInterval(timer, 1000);
-        
+        con.query(`INSERT INTO cooldown (id, cmd, time) VALUES (${message.author.id}, "${cmd.help.name", ${new Date().getTime() + cooltime})`)
+
         setTimeout(() => {
-          cooldown.delete(message.author.id && cmd.help.name);
-          clearInterval(interval) 
+          con.query(`DELETE FROM cooldown WHERE id = ${message.author.id} AND cmd = ${cmd.help.name}`
         }, cooltime);
         
     }
+    }) 
 
     
     }) 
