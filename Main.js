@@ -194,14 +194,6 @@ process.on("uncaughtException", (err) => {
 });
 
 process.on("unhandledRejection", err => {
-client.channels.find("id", "630001781161852928").send({embed:{
-color:0xff0c69, 
-title:"Error :", 
-description:err.stack, 
-timestamp:new Date(),
-footer:{
-text:"© Error | Xenova", 
-icon_url:client.user.avartarURL
-} 
+client.logger.error(err.stack) 
 }})
 })
