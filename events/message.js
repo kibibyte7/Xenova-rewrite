@@ -133,21 +133,35 @@ if (message.content.indexOf(settings.prefix) !== 0) return;
     
     if(rows.length == 1) return;
 
+    const cooltime = cmd.conf.cooldown*1000
+    
+    var secs = cmd.conf.cooldown;
+
+    var interval = setInterval(function(){
+    
+    secs = secs - 1;
+
+    }, 1000)
+
     if (cooldown.has(message.author.id && cmd.help.name)) {
-            message.channel.send(`${this.client.emojis.find(e => e.name === "wrongMark")} ${message.author} attends encore **${cmd.conf.cooldown} secondes** avant de faire cette commande`).then(m => m.delete(3000));
+
+            message.channel.send(`${this.client.emojis.find(e => e.name === "wrongMark")} ${message.author} attends encore **${secs} secondes** avant de faire cette commande`).then(m => m.delete(3000));
+
     } else {
 
         this.client.logger.log(
       `${message.author.username} (${message.author.id} - ${
         this.client.config.permLevels.find(l => l.level === level).name
       }) lance la commande ${cmd.help.name}`
-    );
+      );
+
         cmd.run(message, args, level, con, lang);
         
         cooldown.add(message.author.id && cmd.help.name);
         setTimeout(() => {
           cooldown.delete(message.author.id && cmd.help.name);
-        }, cmd.conf.cooldown*1000);
+          clearInterval(interval)
+        }, cooltime);
     }
 
     
