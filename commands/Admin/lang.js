@@ -24,7 +24,7 @@ class Lang extends Command {
   
   con.query(`UPDATE settings SET lang = '${args[0]}' WHERE guild_id = ${message.guild.id}`) 
 
-  message.channel.send(`${this.client.emojis.find(emote => emote.name === "checkMark ")} Le bot est maintenant en français, sur ce serveur.`) 
+  message.channel.send(`${this.client.emojis.find(emote => emote.name === "checkMark")} Le bot est maintenant en français, sur ce serveur.`) 
 
   }) 
 
@@ -38,7 +38,7 @@ class Lang extends Command {
   
   con.query(`UPDATE settings SET lang = '${args[0]}' WHERE guild_id = ${message.guild.id}`) 
 
-  message.channel.send(`${this.client.emojis.find(emote => emote.name === "checkMark ")} The bot is now English, in this guild.`) 
+  message.channel.send(`${this.client.emojis.find(emote => emote.name === "checkMark")} The bot is now English, in this guild.`) 
 
   }) 
 
