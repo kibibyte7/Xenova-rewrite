@@ -55,6 +55,9 @@ con.query("SELECT * FROM inventory", (err, rows) => {
  }) 
 }, 60000)
 
+
+const cooldown = new Set();
+
 module.exports = class {
   constructor(client) {
     this.client = client;
@@ -118,33 +121,33 @@ if (message.content.indexOf(settings.prefix) !== 0) return;
     if(cmd.conf.enabled === false){
     if(settings.systemNotice == true) {
         return message.channel
-         .send(`${this.client.emojis.find("name", "wrongMark")} Cette commande est désactivée suite à des bugs.`)
+         .send(`${this.client.emojis.find("name", "wrongMark")} Cette commande est désactivée suite à des bugs ou une maintenance de celle-ci.`)
        } 
      } 
+
     con.query(`SELECT * FROM settings WHERE guild_id = ${message.guild.id}`,(err, rows) => {
+
     const lang = rows[0].lang === "fr" ? require("../fr.json") : require("../en.json")
-    // Lancement de la commande
+
     con.query(`SELECT * FROM gban WHERE id = ${message.author.id} `, (err, rows) => {
     
     if(rows.length == 1) return;
 
-    this.client.logger.log(
+    if (cooldown.has(message.author.id && cmd.help.name)) {
+            message.channel.send(`${this.client.emojis.find(e => e.name === "wrongMark")} ${message.author} attends encore **${cmd.conf.cooldown} secondes** avant de faire cette commande`).then(m => m.delete(3000));
+    } else {
+
+        this.client.logger.log(
       `${message.author.username} (${message.author.id} - ${
         this.client.config.permLevels.find(l => l.level === level).name
       }) lance la commande ${cmd.help.name}`
     );
-
-    if (talkedRecently.has(message.author.id)) {
-            message.channel.send(`${this.client.emojis.find(e => e.name === "wrongMark")} ${message.author} attends encore **${cmd.conf.cooldown} secondes** avant de faire cette commande`).then(m => m.delete(3000));
-    } else {
-
-         // the user can type the command ... your command code goes here :)
         cmd.run(message, args, level, con, lang);
-        // Adds the user to the set so that they can't talk for a minute
-        talkedRecently.add(message.author.id);
+        
+        cooldown.add(message.author.id && cmd.help.name);
         setTimeout(() => {
           // Removes the user from the set after a minute
-          talkedRecently.delete(message.author.id);
+          talkedRecently.delete(message.author.id && cmd.help.name);
         }, cmd.conf.cooldown*1000);
     }
 
