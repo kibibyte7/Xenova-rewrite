@@ -1,3 +1,5 @@
+const talkedRecently = new Set();
+
 const sm = require("string-similarity");
 
 const Command = require("../../modules/Command.js")
