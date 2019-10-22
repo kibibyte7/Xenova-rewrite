@@ -151,7 +151,7 @@ if (message.content.indexOf(settings.prefix) !== 0) return;
 
         cmd.run(message, args, level, con, lang);
 
-        con.query(`INSERT INTO cooldown (id, cmd, time) VALUES (${message.author.id}, "${cmd.help.name", ${new Date().getTime() + cooltime})`)
+        con.query(`INSERT INTO cooldown (id, cmd, time) VALUES (${message.author.id}, "${cmd.help.name}", ${new Date().getTime() + cooltime})`)
 
         setTimeout(() => {
           con.query(`DELETE FROM cooldown WHERE id = ${message.author.id} AND cmd = ${cmd.help.name}`
