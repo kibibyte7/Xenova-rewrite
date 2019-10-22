@@ -135,17 +135,13 @@ if (message.content.indexOf(settings.prefix) !== 0) return;
 
     const cooltime = cmd.conf.cooldown*1000
     
-    var secs = cmd.conf.cooldown;
+    var date = new Date();
 
-    var interval = setInterval(function(){
-    
-    secs = secs - 1;
-
-    }, 1000)
+    var toDate = new Date() + cooltime;
 
     if (cooldown.has(message.author.id && cmd.help.name)) {
 
-            message.channel.send(`${this.client.emojis.find(e => e.name === "wrongMark")} ${message.author} attends encore **${secs} secondes** avant de faire cette commande`).then(m => m.delete(3000));
+            message.channel.send(`${this.client.emojis.find(e => e.name === "wrongMark")} ${message.author} attends encore **${(toDate - date)/1000} secondes** avant de faire cette commande`).then(m => m.delete(3000));
 
     } else {
 
