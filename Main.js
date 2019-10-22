@@ -59,7 +59,13 @@ class Xenova extends Client {
   return input = input.replace('{check}', this.emojis.find(e => e.name === "checkMark"))
 
   }
-  
+
+  toTyping(input) {
+
+  return input = input.replace('{typing}', this.emojis.find(e => e.name === "typing"))
+
+  }
+
   toValues(msg, input, value) {
   
   return msg = msg.replace(input, value)
