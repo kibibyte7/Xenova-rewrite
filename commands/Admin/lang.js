@@ -14,13 +14,13 @@ class Lang extends Command {
 
   run(message, args, level, con) {
   
-  if(args.length == 0) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Entre un texte à tweeter.`) 
+  if(args.length == 0) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Entre fr ou en.`) 
   
   if(args[0] === "fr") {
 
   con.query(`SELECT * FROM settings WHERE guild_id = ${message.guild.id}`, (err, rows) => {
   
-  if(rows[0].lang === args[0]) return message.channel.send(`${this.client.emojis.find(emote => emote.name === "wrongMark")} Le bot est déjà en Français.") 
+  if(rows[0].lang === args[0]) return message.channel.send(`${this.client.emojis.find(emote => emote.name === "wrongMark")} Le bot est déjà en Français.`) 
   
   con.query(`UPDATE settings SET lang = '${args[0]}' WHERE guild_id = ${message.guild.id}`) 
 
@@ -34,7 +34,7 @@ class Lang extends Command {
 
   con.query(`SELECT * FROM settings WHERE guild_id = ${message.guild.id}`, (err, rows) => {
   
-  if(rows[0].lang === args[0]) return message.channel.send(`${this.client.emojis.find(emote => emote.name === "wrongMark")} The bot is already in English.") 
+  if(rows[0].lang === args[0]) return message.channel.send(`${this.client.emojis.find(emote => emote.name === "wrongMark")} The bot is already in English.`) 
   
   con.query(`UPDATE settings SET lang = '${args[0]}' WHERE guild_id = ${message.guild.id}`) 
 
