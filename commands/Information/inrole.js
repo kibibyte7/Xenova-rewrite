@@ -53,7 +53,7 @@ var toFind = message.guild.roles.find("name", args.join(" ")) || toMention;
         membres.push(membre.user.username)
         })
 
-        var finalpage = Math.round(membres.length*2/50);
+        var finalpage = Math.round(membres.length*2/50)-page;
         var page = 1;
         var start = 0;
         var end = 50;
