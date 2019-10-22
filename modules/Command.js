@@ -2,11 +2,14 @@ class Command {
  constructor(
  	client, {
  	name = null, 
- 	description = "Aucune description définie.", 
+ 	FRdescription = "Aucune description définie.",
+        ENdescription: "Description is not defined.", 
  	category = "Utilisateur", 
- 	usage = "Aucune utilisation définie.", 
+ 	FRusage = "Aucune utilisation définie.",
+        ENusage:"Usage is not defined.",
+        cooldown:3,
  	enabled = true, 
- 	guildOnly = false, 
+ 	guildOnly = true, 
  	aliases = new Array(), 
  	permLevel = "Utilisateur" 
  	}
