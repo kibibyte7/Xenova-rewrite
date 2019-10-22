@@ -137,13 +137,19 @@ if (message.content.indexOf(settings.prefix) !== 0) return;
     
     var count = cmd.conf.cooldown;
 
-    var Time_counter = setInterval(timer, 1000);
+    var Time_counter = null;
  
-    function timer(){
-    
+    fuction timer() {
+
     count = count - 1;
 
-    } 
+    }
+ 
+    function startTimer() {
+
+    Time_counter = setInterval(timer, 1000);
+
+    }
 
     if (cooldown.has(message.author.id && cmd.help.name)) {
 
@@ -158,12 +164,16 @@ if (message.content.indexOf(settings.prefix) !== 0) return;
       );
 
         cmd.run(message, args, level, con, lang);
-        
+
         cooldown.add(message.author.id && cmd.help.name);
+        
         setTimeout(() => {
           cooldown.delete(message.author.id && cmd.help.name);
           clearInterval(Time_counter) 
         }, cooltime);
+        
+        startTimer();
+        
     }
 
     
