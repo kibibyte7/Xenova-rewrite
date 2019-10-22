@@ -195,5 +195,4 @@ process.on("uncaughtException", (err) => {
 
 process.on("unhandledRejection", err => {
 client.logger.error(err.stack) 
-}})
 })
