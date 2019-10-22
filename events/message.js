@@ -56,7 +56,7 @@ con.query("SELECT * FROM inventory", (err, rows) => {
 }, 60000)
 
 
-const cooldown = new Set();
+var cooldown = new Set();
 
 module.exports = class {
   constructor(client) {
