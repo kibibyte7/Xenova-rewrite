@@ -15,43 +15,37 @@ run(message, args, level, con, lang) {
 
 const mention = message.mentions.members.first();
 	   		
-const check = this.client.emojis.find("name", "checkMark")
+var no_user = this.client.toWrongMark(lang.ban.no_user) 
 
-const wrong = this.client.emojis.find("name", "wrongMark")
+var ban_yourself = this.client.toWrongMark(lang.ban.ban_yourself) 
 
-const typing = this.client.emojis.find("name", "typing")
+var waiting = this.client.toTyping(lang.ban.waiting) 
 
-var no_user = lang.ban.no_user.replace("{wrong}", wrong)
+var waiting_author = this.client.toValues(waiting, "{author}", message.author)
 
-var ban_yourself = lang.ban.ban_yourself.replace("{wrong}", wrong) 
+var no_perm = this.client.toWrongMark(lang.ban.no_perm) 
 
-var waiting = lang.ban.waiting.replace("{typing}", typing) 
+var cancelled = this.client.toWrongMark(lang.ban.cancelled) 
 
-var waiting_author = waiting.replace("{author}", message.author)
-
-var no_perm = lang.ban.no_perm.replace("{wrong}", wrong) 
-
-var cancelled = lang.ban.cancelled.replace("{wrong}", wrong) 
-
-var ban_emote = lang.ban.message.replace("{check}", check)
+var ban_emote = this.client.toCheckMark(lang.ban.message) 
 			   			
 if(!mention) return message.channel.send(no_user) 
 
 if(mention.user.id == message.author.id) return message.channel.send(ban_yourself) 
 
-var no_perm_msg = no_perm.replace("{usertag}", mention.user.tag)
+var no_perm_msg = this.client.toValues(no_perm, "{usertag}", mention.user.tag)
 
-var ban_msg = ban_emote.replace("{usertag}", mention.user.tag)
+var ban_msg = this.client.toValues(ban_emote, "{usertag}", mention.user.tag)
 
 if(!mention.bannable) return message.channel.send(no_perm_msg); 
 
-var cancel = cancelled.replace("{user}", mention)
+var cancel = this.client.toValues(cancelled, "{user}", mention)
 
-var waiting_msg = waiting_author.replace("{user}", mention.user.username)
+var waiting_msg = this.client.toValues(waiting_author, "{user}", mention.user.username)
 
-var dm = lang.ban.dm.replace("{server}", message.guild.name)
+var dm = this.client.toValues(lang.ban.dm, "{server}", message.guild.name)
 
-var dm_msg = dm.replace("{reason}", !args[1] ? lang.ban.no_reason : args.slice(1).join(" ")) 
+var dm_msg = this.client.toValues(dm, "{reason}", !args[1] ? lang.ban.no_reason : args.slice(1).join(" ")) 
 	   	
 message.channel.send(waiting_msg).then(m => {
 	   	 
@@ -78,6 +72,7 @@ message.guild.ban(mention.user.id, {days: 7, reason:`${lang.ban.audits_logs_reas
 m.clearReactions();
 
 CheckReact.stop();
+
 WrongReact.stop();
 
 }, {time:10000})
@@ -93,6 +88,7 @@ m.edit(cancel)
 m.clearReactions();
 
 CheckReact.stop();
+
 WrongReact.stop();
 
 }, {time:10000}) 
