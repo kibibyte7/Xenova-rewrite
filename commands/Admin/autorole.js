@@ -17,12 +17,12 @@ class Autorole extends Command {
 
   run(message, args, level, con, lang) {
   
-  var no_args = lang.autorole.no_args.replace("{wrong}", this.client.emojis.find(e => e.name === "wrongMark")) 
+  var no_args = this.client.toWrongMark(lang.autorole.no_args)
   
-  var user = lang.autorole.user.replace("{check}", this.client.emojis.find(e => e.name === "checkMark")) 
+  var user = this.client.toCheckMark(lang.autorole.user) 
   
-  var bot = lang.autorole.bot.replace("{check}", this.client.emojis.find(e => e.name === "checkMark")) 
-  
+  var bot = this.client.toCheckMark(lang.autorole.bot)
+
   if(args.length == 0) return message.channel.send(no_args) 
   
       let roles = [];
@@ -53,7 +53,7 @@ class Autorole extends Command {
       	
       	con.query(`UPDATE settings SET user_autorole = ${cible.id} WHERE guild_id = ${message.guild.id}`)
       	
-        var user_msg = user.replace("{userrole}", cible) 
+        var user_msg = this.client.toValues(user, "{userrole}", cible)
 
       	message.channel.send(user_msg)
             
@@ -67,7 +67,7 @@ class Autorole extends Command {
       	
       	con.query(`UPDATE settings SET bot_autorole = ${cible.id} WHERE guild_id = ${message.guild.id}`)
       	
-        var bot_msg = bot.replace("{botrole}", cible) 
+        var bot_msg = this.client.toValues(bot, "{botrole}", cible) 
 
       	message.channel.send(bot_msg)
             
