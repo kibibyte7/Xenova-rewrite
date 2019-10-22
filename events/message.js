@@ -135,21 +135,19 @@ if (message.content.indexOf(settings.prefix) !== 0) return;
 
     const cooltime = cmd.conf.cooldown*1000
     
-    const date = new Date().getTime();
+    var count = cmd.conf.cooldown;
 
-    const toDate = new Date().getTime() + cooltime;
-    
-    let seconds = (toDate - date)/1000;
-
-    var interval = setInterval(function(sec){
-
-    seconds--;
-    
-    }, 1000)
+    var Time_counter = setInterval(timer, 1000);
  
+    function timer(){
+    
+    count = count - 1;
+
+    } 
+
     if (cooldown.has(message.author.id && cmd.help.name)) {
 
-            message.channel.send(`${this.client.emojis.find(e => e.name === "wrongMark")} ${message.author} attends encore **${seconds} secondes** avant de faire cette commande`).then(m => m.delete(3000));
+            message.channel.send(`${this.client.emojis.find(e => e.name === "wrongMark")} ${message.author} attends encore **${count} secondes** avant de faire cette commande`).then(m => m.delete(3000));
 
     } else {
 
@@ -164,7 +162,7 @@ if (message.content.indexOf(settings.prefix) !== 0) return;
         cooldown.add(message.author.id && cmd.help.name);
         setTimeout(() => {
           cooldown.delete(message.author.id && cmd.help.name);
-          clearInterval(interval) 
+          clearInterval(Time_counter) 
         }, cooltime);
     }
 
