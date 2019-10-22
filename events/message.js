@@ -135,9 +135,9 @@ if (message.content.indexOf(settings.prefix) !== 0) return;
 
     const cooltime = cmd.conf.cooldown*1000
     
-    var date = new Date();
+    var date = new Date().getTime();
 
-    var toDate = new Date() + cooltime;
+    var toDate = new Date().getTime() + cooltime;
 
     if (cooldown.has(message.author.id && cmd.help.name)) {
 
@@ -156,7 +156,6 @@ if (message.content.indexOf(settings.prefix) !== 0) return;
         cooldown.add(message.author.id && cmd.help.name);
         setTimeout(() => {
           cooldown.delete(message.author.id && cmd.help.name);
-          clearInterval(interval)
         }, cooltime);
     }
 
