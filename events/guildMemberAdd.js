@@ -73,7 +73,7 @@ module.exports = class {
 
     if(rows.length == 0) return;
 
-    if(!member.user.bot) return member.addRole(rows[0].user_autorole, "[USER] Rôle automatique")
+    if(!member.user.bot) return member.addRole(this.client.roles.get(rows[0].user_autorole), "[USER] Rôle automatique")
 
     }) 
 
@@ -81,7 +81,7 @@ module.exports = class {
 
     if(rows.length == 0) return;
 
-    if(member.user.bot) return member.addRole(rows[0].bot_autorole, "[BOT] Rôle automatique")
+    if(member.user.bot) return member.addRole(this.client.roles.get(rows[0].bot_autorole), "[BOT] Rôle automatique")
 
     }) 
 
