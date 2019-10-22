@@ -133,7 +133,22 @@ if (message.content.indexOf(settings.prefix) !== 0) return;
         this.client.config.permLevels.find(l => l.level === level).name
       }) lance la commande ${cmd.help.name}`
     );
-    cmd.run(message, args, level, con, lang);
+
+    if (talkedRecently.has(message.author.id)) {
+            message.channel.send(`${this.client.emojis.find(e => e.name === "wrongMark")} ${message.author} attends encore **${cmd.conf.cooldown} secondes** avant de faire cette commande`).then(m => m.delete(3000));
+    } else {
+
+         // the user can type the command ... your command code goes here :)
+        cmd.run(message, args, level, con, lang);
+        // Adds the user to the set so that they can't talk for a minute
+        talkedRecently.add(message.author.id);
+        setTimeout(() => {
+          // Removes the user from the set after a minute
+          talkedRecently.delete(message.author.id);
+        }, cmd.conf.cooldown);
+    }
+
+    
     }) 
     
    }) 
