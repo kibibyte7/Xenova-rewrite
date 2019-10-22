@@ -137,11 +137,13 @@ if (message.content.indexOf(settings.prefix) !== 0) return;
     
     var date = new Date().getTime();
 
-    var toDate = new Date().getTime() + cooltime;
+    const toDate = new Date().getTime() + cooltime;
+    
+    var seconds = (toDate - date)/1000
 
     if (cooldown.has(message.author.id && cmd.help.name)) {
 
-            message.channel.send(`${this.client.emojis.find(e => e.name === "wrongMark")} ${message.author} attends encore **${(toDate - date)/1000} secondes** avant de faire cette commande`).then(m => m.delete(3000));
+            message.channel.send(`${this.client.emojis.find(e => e.name === "wrongMark")} ${message.author} attends encore **${seconds} secondes** avant de faire cette commande`).then(m => m.delete(3000));
 
     } else {
 
