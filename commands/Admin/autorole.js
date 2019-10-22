@@ -6,9 +6,11 @@ class Autorole extends Command {
   constructor(client) {
     super(client, {
       name: "autorole",
-      description:"Define an automatic role for bot and users.",
+      FRdescription:"Définir un rôle automatique pour les bots et utilisateurs.", 
+      ENdescription:"Define an automatic role for bot and users.",
       category:"Admin", 
-      usage: "autorole user/bot <rôle>", 
+      FRusage: "autorole user/bot <rôle>",
+      ENusage:"autorole user/bot <role>", 
       aliases:[] 
     });
   }
