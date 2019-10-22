@@ -145,7 +145,7 @@ if (message.content.indexOf(settings.prefix) !== 0) return;
         setTimeout(() => {
           // Removes the user from the set after a minute
           talkedRecently.delete(message.author.id);
-        }, cmd.conf.cooldown);
+        }, cmd.conf.cooldown*1000);
     }
 
     
