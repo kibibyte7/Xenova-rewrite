@@ -134,14 +134,16 @@ if (message.content.indexOf(settings.prefix) !== 0) return;
     if(rows.length == 1) return;
 
     const cooltime = cmd.conf.cooldown*1000
+    
+    const date = new Date().getTime();
 
     const toDate = new Date().getTime() + cooltime;
     
-    var interval = setInterval(function(){
+    let seconds = (toDate - date)/1000;
 
-    var date = new Date().getTime();
+    var interval = setInterval(function(sec){
 
-    var seconds = (toDate - date)/1000
+    seconds = seconds-1;
     
     }, 1000)
  
