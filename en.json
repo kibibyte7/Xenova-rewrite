@@ -1,5 +1,10 @@
 {
-	
+
+"user_missing_permission":{
+"text" : "{wrong} You lacking the permission to use this command, the role required to use this is **{permlevel}**" 
+}, 
+
+
 "autorole":{
 "no_args":"{wrong} No args were provided, do you want bot or user option ?", 
 "bot":"{check} Autorole for bots is the role : {botrole} !", 
