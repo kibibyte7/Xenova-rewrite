@@ -6,9 +6,12 @@ class Settings_info extends Command {
   constructor(client) {
     super(client, {
       name: "settings_info",
-      description: "Voir les paramètres de la guilde.",
+      FRdescription: "Voir les paramètres de la guilde.",
+      ENdescription: "Shows the guild settings.", 
       category:"Admin", 
-      usage: "settings_info", 
+      FRusage: "settings_info", 
+      ENusage: "settings_info", 
+      permissions:["EMBED_LINKS"], 
       permLevel:"XenoAdminPerm", 
       aliases:["params"] 
     });
