@@ -6,10 +6,13 @@ class Leave_msg extends Command {
   constructor(client) {
     super(client, {
       name: "leave_msg",
-      description: "Définir un message de départ.",
+      FRdescription: "Définir un message pour les départs.",
+      ENdescription: "Set a message for leaves.", 
       category:"Admin", 
-      usage: "leave_msg <texte>", 
-      permLevel:"XenoAdminPerm", 
+      FRusage: "leave_msg <texte>",
+      ENusage: "leave_msg <text>", 
+      permLevel:"XenoAdminPerm",
+      cooldown: 5,
       aliases:["lmsg"] 
     });
   }
