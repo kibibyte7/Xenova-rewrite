@@ -61,14 +61,7 @@ module.exports = class {
   }
 
   async run(message) {
-    if (message.author.bot) return;
-
-    if (
-      !message.channel.permissionsFor(message.guild.me).missing("SEND_MESSAGES")
-    )
-      return;
-    
-      
+    if (message.author.bot) return;   
 
     // Paramètres
     const settings = this.client.getSettings(message.guild);
