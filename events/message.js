@@ -55,9 +55,6 @@ con.query("SELECT * FROM inventory", (err, rows) => {
  }) 
 }, 60000)
 
-
-var cooldown = new Set();
-
 module.exports = class {
   constructor(client) {
     this.client = client;
@@ -124,6 +121,20 @@ if (message.content.indexOf(settings.prefix) !== 0) return;
          .send(`${this.client.emojis.find("name", "wrongMark")} Cette commande est désactivée suite à des bugs ou une maintenance de celle-ci.`)
        } 
      } 
+     
+     if(cmd.conf.guildOnly == true){
+
+     if(message.channel.type === "dm") return message.author.send(`${this.client.emojis.find("name", "wrongMark")} Tu ne peux pas faire cette commande ici.`)
+
+     } 
+     
+     if(!message.guild.me.permissions.has("SEND_MESSAGES")) return message.author.send(`${this.client.emojis.find(e => e.name === "wrongMark")} je n'ai pas la permission \`SEND_MESSAGES\` dans le channel **${message.channel.name}**`) 
+
+     if(!message.guild.me.permissions.has(cmd.conf.permissions)){
+     
+     message.channel.send(`${this.client.emojis.find(e => e.name === "wrongMark")} Je n'ai pas les permissions nécessaires vérifie que j'aie les permission : ${cmd.conf.permissions}`) 
+
+     }
 
     con.query(`SELECT * FROM settings WHERE guild_id = ${message.guild.id}`,(err, rows) => {
 
