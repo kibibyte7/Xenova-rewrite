@@ -2,20 +2,20 @@ var sm = require('string-similarity')
 
 const Command = require("../../modules/Command.js");
 
-class Bans_channel extends Command {
-  constructor(client) {
-    super(client, {
-      name: "ban_channel",
-      FRdescription: "Définir un salon pour les banssiments.",
-      ENdescription: "Define a lounge for banishments
-      category:"Admin", 
-      FRusage: "ban_channel <salon>", 
-      ENusage: "ban_channel <channel>",
-      cooldown : 5,
-      permLevel:"XenoAdminPerm", 
-      aliases:["bc"] 
-    });
-  }
+class Ban_channel extends Command {
+constructor(client) {
+super(client, {
+name: "ban_channel",
+FRdescription: "Définir un salon pour les banssiments.",
+ENdescription: "Define a banishments channel.", 
+category:"Admin", 
+FRusage: "ban_channel <salon>", 
+ENusage: "ban_channel <channel>",
+cooldown : 5,
+permLevel:"XenoAdminPerm", 
+aliases:["bc"] 
+});
+}
 
   run(message, args, level, con) {
   
@@ -65,4 +65,4 @@ class Bans_channel extends Command {
 
 }
 
-module.exports = Bans_channel;
+module.exports = Ban_channel;
