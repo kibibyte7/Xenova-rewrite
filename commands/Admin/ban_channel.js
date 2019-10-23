@@ -10,7 +10,8 @@ class Bans_channel extends Command {
       ENdescription: "Define a lounge for banishments
       category:"Admin", 
       FRusage: "ban_channel <salon>", 
-      ENusage: "ban_channel <channel>", 
+      ENusage: "ban_channel <channel>",
+      cooldown : 5,
       permLevel:"XenoAdminPerm", 
       aliases:["bc"] 
     });
