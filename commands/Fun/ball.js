@@ -5,9 +5,11 @@ class Ball extends Command {
 constructor(client) {
 super(client,{
 name:"ball", 
-description:"Le bot répond à la question posée.", 
+FRdescription:"Le bot répond à la question posée.", 
+ENdescriprion:"The bot answer to the asked question.", 
 category:"Fun", 
-usage:"ball <texte>", 
+FRusage:"ball <texte>",
+ENusage:"ball <texte>", 
 aliases:["b"] 
 })
 } 
