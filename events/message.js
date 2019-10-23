@@ -125,7 +125,7 @@ if (message.content.indexOf(settings.prefix) !== 0) return;
 
      if(!message.guild.me.permissions.has(cmd.conf.permissions)){
      
-     return message.channel.send(`${message.guild.me.permissions.has("USE_EXTERNAL_EMOJIS") ? this.client.emojis.find(e => e.name === "wrongMark") ":x:"} Je n'ai pas les permissions nécessaires vérifie que j'aie les permission : ${cmd.conf.permissions}`) 
+     return message.channel.send(`${message.guild.me.permissions.has("USE_EXTERNAL_EMOJIS") ? this.client.emojis.find(e => e.name === "wrongMark") : ":x:"} Je n'ai pas les permissions nécessaires vérifie que j'aie les permission : ${cmd.conf.permissions}`) 
 
      }
 
