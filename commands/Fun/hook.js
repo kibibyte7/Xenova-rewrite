@@ -7,7 +7,7 @@ name:"hook",
 FRdescription:"Un webhook parle avec un embed et ton texte.", 
 ENdescription:"A webhook speaks with an embed and your text.", 
 category:"Fun", 
-FRusage:"hook <texte>" 
+FRusage:"hook <texte>", 
 ENusage:"hook <text>" 
 }) 
 } 
