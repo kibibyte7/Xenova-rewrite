@@ -6,9 +6,11 @@ class Bans_channel extends Command {
   constructor(client) {
     super(client, {
       name: "ban_channel",
-      description: "Définir un channel pour les bans.",
+      FRdescription: "Définir un salon pour les banssiments.",
+      ENdescription: "Define a lounge for banishments
       category:"Admin", 
-      usage: "ban_channel <channel>", 
+      FRusage: "ban_channel <salon>", 
+      ENusage: "ban_channel <channel>", 
       permLevel:"XenoAdminPerm", 
       aliases:["bc"] 
     });
