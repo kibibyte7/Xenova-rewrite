@@ -6,10 +6,13 @@ class Welcome_msg extends Command {
   constructor(client) {
     super(client, {
       name: "welcome_msg",
-      description: "Définir un message de bienvenue.",
+      FRdescription: "Définir un message de bienvenue.",
+      ENdescription: "Set a message for welcome.", 
       category:"Admin", 
-      usage: "welcome_msg <channel>", 
-      permLevel:"XenoAdminPerm", 
+      FRusage: "welcome_msg <texte>",
+      ENusage: "welcome_msg <text>", 
+      permLevel:"XenoAdminPerm",
+      cooldown: 5,
       aliases:["wmsg"] 
     });
   }
