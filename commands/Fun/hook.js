@@ -4,8 +4,11 @@ class Hook extends Command {
 constructor(client) {
 super(client, {
 name:"hook", 
-description:"Faire parler un webhook à ton profil.", 
-category:"Fun"
+FRdescription:"Un webhook parle avec un embed et ton texte.", 
+ENdescription:"A webhook speaks with an embed and your text.", 
+category:"Fun", 
+FRusage:"hook <texte>" 
+ENusage:"hook <text>" 
 }) 
 } 
 
