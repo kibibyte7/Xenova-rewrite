@@ -6,10 +6,13 @@ class Ban_msg extends Command {
   constructor(client) {
     super(client, {
       name: "ban_msg",
-      description: "Définir un message de ban.",
+      FRdescription: "Définir un message pour les bannissements.",
+      ENdescription: "Set a message for bans.", 
       category:"Admin", 
-      usage: "ban_msg <channel>", 
-      permLevel:"XenoAdminPerm", 
+      FRusage: "ban_msg <texte>",
+      ENusage: "ban_msg <text>", 
+      permLevel:"XenoAdminPerm",
+      cooldown: 5,
       aliases:["bmsg"] 
     });
   }
