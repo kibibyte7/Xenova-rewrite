@@ -4,9 +4,13 @@ class CreateChannel extends Command {
 constructor(client) {
 super(client, {
 name:"createchannel", 
-description:"Le bot crée un channel textuel.", 
+FRdescription:"Créer un salon textuel.",
+ENdescription:"Create a text channel.", 
 category:"Admin", 
-usage:"createchannel <nom du channel>",
+FRusage:"createchannel <nom>",
+ENusage:"createchannel <name>"
+cooldown: 5,
+permissions:["MANAGE_CHANNELS"], 
 permLevel:"XenoAdminPerm", 
 aliases:["addchan"] 
 }) 
