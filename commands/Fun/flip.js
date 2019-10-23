@@ -6,9 +6,11 @@ class Flip extends Command {
 constructor(client) {
 super(client, {
 name:"flip", 
-description:"Ton texte, à l'envers.", 
-category:"Fun", 
-usage:"flip <texte>" 
+FRdescription:"Ton texte a la tête à l'envers.", 
+ENdescription:"Your text has its head upside down.",
+category:"Fun",
+FRusage:"flip <texte>", 
+ENusage:"flip <text>" 
 })
 } 
 
