@@ -10,7 +10,8 @@ class Autorole extends Command {
       ENdescription:"Define an automatic role for bot and users.",
       category:"Admin", 
       FRusage: "autorole user/bot <rôle>",
-      ENusage:"autorole user/bot <role>", 
+      ENusage:"autorole user/bot <role>",
+      permissions:["MANAGE_ROLES", "USE_EXTERNAL_EMOJIS"], 
       aliases:[] 
     });
   }
