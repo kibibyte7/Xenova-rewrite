@@ -4,9 +4,13 @@ class CreateCategory extends Command {
 constructor(client) {
 super(client, {
 name:"createcategory", 
-description:"Le bot crée une catégorie.", 
+FRdescription:"Créer une catégorie.",
+ENdescription:"Create a category.", 
 category:"Admin", 
-usage:"createcategory <nom du channel>",
+FRusage:"createcategory <nom>",
+ENusage:"createcategory <name>"
+cooldown: 5,
+permissions:["MANAGE_CHANNELS"], 
 permLevel:"XenoAdminPerm", 
 aliases:["addcat"] 
 }) 
