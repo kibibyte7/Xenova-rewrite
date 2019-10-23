@@ -4,9 +4,13 @@ class CreateVoice extends Command {
 constructor(client) {
 super(client, {
 name:"createvoice", 
-description:"Le bot crée un channel vocal.", 
+FRdescription:"Créer un salon vocal.",
+ENdescription:"Create a voice channel.", 
 category:"Admin", 
-usage:"createvoice <nom du channel>",
+FRusage:"createvoice <nom>",
+ENusage:"createvoice <name>"
+cooldown: 5,
+permissions:["MANAGE_CHANNELS"], 
 permLevel:"XenoAdminPerm", 
 aliases:["addvoice"] 
 }) 
