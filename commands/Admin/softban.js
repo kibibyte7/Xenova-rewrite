@@ -4,9 +4,14 @@ class Softban extends Command {
 constructor (client) {
 super(client, {
 name:"softban",
-description:"Cette commande équivaut à un kick avec une purge de messages.",
+FRdescription:"Cette commande équivaut à un kick et une purge de message.",
+ENdescription:"This command is equivalent to a kick and a message purge.",
 category:"Admin", 
-permLevel:"XenoAdminPerm"
+FRusage:"softban <@mention> [raison]", 
+ENusage:"softban <@mention> [reason]", 
+permLevel:"XenoAdminPerm",
+cooldown:5,
+permissions:["BAN_MEMBERS", "USE_EXTERNAL_EMOJIS"]
 })
 } 
 
