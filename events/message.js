@@ -128,7 +128,7 @@ if (message.content.indexOf(settings.prefix) !== 0) return;
 
      } 
      
-     if(!message.guild.me.permissions.has("SEND_MESSAGES")) return message.author.send(`${this.client.emojis.find(e => e.name === "wrongMark")} je n'ai pas la permission \`SEND_MESSAGES\` dans le channel **${message.channel.name}**`) 
+     if(!message.guild.me.permissionsIn(message.channel.id).has("SEND_MESSAGES")) return message.author.send(`${this.client.emojis.find(e => e.name === "wrongMark")} je n'ai pas la permission \`SEND_MESSAGES\` dans le channel **${message.channel.name}**.`) 
 
      if(!message.guild.me.permissions.has(cmd.conf.permissions)){
      
