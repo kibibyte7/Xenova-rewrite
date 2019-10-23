@@ -4,9 +4,14 @@ class Ban extends Command {
 constructor (client) {
 super(client, {
 name:"ban",
-description:"Bannir un membre du serveur.",
+FRdescription:"Pour bannir un membre du serveur.",
+ENdescription:"To bannish a member of the server.",
 category:"Admin", 
-permLevel:"XenoAdminPerm"
+FRusage:"ban <@mention> [raison]", 
+ENusage:"ban <@mention> [reason]", 
+permLevel:"XenoAdminPerm",
+cooldown:5,
+permissions:["BAN_MEMBERS", "USE_EXTERNAL_EMOJIS"]
 })
 } 
 
