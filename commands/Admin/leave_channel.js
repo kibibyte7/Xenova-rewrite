@@ -3,16 +3,19 @@ var sm = require('string-similarity')
 const Command = require("../../modules/Command.js");
 
 class Leave_channel extends Command {
-  constructor(client) {
-    super(client, {
-      name: "leave_channel",
-      description: "Définir un channel de départs.",
-      category:"Admin", 
-      usage: "leave_channel <channel>", 
-      permLevel:"XenoAdminPerm", 
-      aliases:["lc"] 
-    });
-  }
+constructor(client) {
+super(client, {
+name: "leave_channel",
+FRdescription: "Définir un salon pour les départs.",
+ENdescription: "Define a leave channel.", 
+category:"Admin", 
+FRusage: "leave_channel <salon>", 
+ENusage: "leave_channel <channel>",
+cooldown : 5,
+permLevel:"XenoAdminPerm", 
+aliases:["lc"] 
+});
+}
 
   run(message, args, level, con) {
   
