@@ -5,7 +5,7 @@ const Command = require("../../modules/Command.js");
 class Welcome_channel extends Command {
 constructor(client) {
 super(client, {
-name: "ban_channel",
+name: "welcome_channel",
 FRdescription: "Définir un salon de bienvenue.",
 ENdescription: "Define a welcome channel.", 
 category:"Admin", 
