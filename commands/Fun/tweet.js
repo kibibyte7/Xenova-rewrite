@@ -16,9 +16,13 @@ class Tweet extends Command {
   constructor(client) {
     super(client, {
       name: "tweet",
-      description: "Le bot poste un tweet sur Twitter.",
+      FRdescription: "Le bot poste un tweet sur Twitter.",
+      ENdescription:"The bot posts a tweet on Twitter.", 
       category:"Fun", 
-      usage: "tweet <texte>", 
+      FRusage: "tweet <texte>",
+      ENusage:"tweet <text>",
+      cooldown: 10,
+      permissions:["EMBED_LINKS"]
       aliases:[] 
     });
   }
