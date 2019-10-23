@@ -1,16 +1,19 @@
 const Command = require("../../modules/Command.js") 
 
 class VoiceMove extends Command {
-	constructor(client) {
-		super(client, {
-		name:"voicemove",
-	 description:"Move les utilisateurs dans le prochain channel.",
-	 category:"Admin", 
-	 usage:"voicemove", 
-	 permLevel:"XenoAdminPerm", 
-	 aliases:["vm"] 
-	 }) 
-	 } 
+constructor(client) {
+super(client, {
+name:"voicemove",
+FRdescription:"Déplace les utilisateurs dans le prochain ou le précédent channel.",
+ENdescription:"Move users into the next or the previous channel.", 
+category:"Admin", 
+FRusage:"voicemove <next/previous>",
+ENusage:"voicemove <next/previous>",
+permissions:["MOVE_MEMBERS", "CONNECT"], 
+permLevel:"XenoAdminPerm", 
+aliases:["vm"] 
+}) 
+} 
 	 
 	 run(message, args, level) {		
 	 
