@@ -22,7 +22,7 @@ class Tweet extends Command {
       FRusage: "tweet <texte>",
       ENusage:"tweet <text>",
       cooldown: 10,
-      permissions:["EMBED_LINKS"]
+      permissions:["EMBED_LINKS"], 
       aliases:[] 
     });
   }
