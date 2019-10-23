@@ -9,13 +9,14 @@ class Command {
         ENusage = "Usage is not defined.",
         cooldown = 3,
  	enabled = true, 
- 	guildOnly = true, 
- 	aliases = new Array(), 
+ 	guildOnly = true,
+        permissions = new Array(), 
+ 	aliases = new Array(),
  	permLevel = "Utilisateur" 
  	}
  	) {
  	this.client = client;
- 	this.conf = {cooldown, enabled, guildOnly, aliases, permLevel}; 
+ 	this.conf = {cooldown, enabled, guildOnly, aliases, permissions ,permLevel}; 
  	this.help = {name, FRdescription, ENdescription, category, FRusage, ENusage};
  	} 
 }
