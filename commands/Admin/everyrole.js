@@ -1,15 +1,21 @@
 const Command = require("../../modules/Command.js") 
 
 class Everyrole extends Command {
-constructor(client){
+constructor(client) {
 super(client, {
-name :"everyrole",
-description :"Crée un rôle mentionnable et mentionne.",
-usage:"everyrole [mention]",
+name:"everyrole", 
+FRdescription:"Créer un rôle pour les mentions.",
+ENdescription:"Create a role for mentions.", 
 category:"Admin", 
-permLevel:"XenoAdminPerm"
-})
+FRusage:"everyrole [mention]",
+ENusage:"everyrole [mention]", 
+cooldown: 5,
+permissions:["MANAGE_ROLES"], 
+permLevel:"XenoAdminPerm", 
+aliases:[] 
+}) 
 } 
+
 		
 run(message, args, level) {
 
