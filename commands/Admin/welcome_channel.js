@@ -3,16 +3,19 @@ var sm = require('string-similarity')
 const Command = require("../../modules/Command.js");
 
 class Welcome_channel extends Command {
-  constructor(client) {
-    super(client, {
-      name: "welcome_channel",
-      description: "Définir un channel de bienvenue.",
-      category:"Admin", 
-      usage: "welcome_channel <channel>", 
-      permLevel:"XenoAdminPerm", 
-      aliases:["wc"] 
-    });
-  }
+constructor(client) {
+super(client, {
+name: "ban_channel",
+FRdescription: "Définir un salon de bienvenue.",
+ENdescription: "Define a welcome channel.", 
+category:"Admin", 
+FRusage: "welcome_channel <salon>", 
+ENusage: "welcome_channel <channel>",
+cooldown : 5,
+permLevel:"XenoAdminPerm", 
+aliases:["wc"] 
+});
+}
 
   run(message, args, level, con) {
   
