@@ -1,16 +1,20 @@
 const Command = require("../../modules/Command.js");
 
 class Lang extends Command {
-  constructor(client) {
-    super(client, {
-      name: "lang",
-      description: "Changer la langue du bot.",
-      category:"Admin", 
-      usage: "lang <fr/en>", 
-      permLevel:"XenoAdminPerm", 
-      aliases:[] 
-    });
-  }
+constructor(client) {
+super(client, {
+name:"lang", 
+FRdescription:"Changer la langue du bot.",
+ENdescription:"Change the language of the bot.", 
+category:"Admin", 
+FRusage:"lang <en / fr>",
+ENusage:"lang <en / fr>"
+cooldown: 3,
+permissions:[], 
+permLevel:"XenoAdminPerm", 
+aliases:[] 
+}) 
+} 
 
   run(message, args, level, con) {
   
