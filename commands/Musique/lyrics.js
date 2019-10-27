@@ -143,14 +143,15 @@ class Lyrics extends Command {
 
         } 
       
-    }) 
+        }) 
         
         }) 
         }) 
        
 
-}	
+        }) 
 
+} 
 }
 
 module.exports = Lyrics;
