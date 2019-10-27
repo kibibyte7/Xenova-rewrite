@@ -16,12 +16,11 @@ class Lyrics extends Command {
     
 
 
-    const serverQueue = message.client.queue.get(message.guild.id);
+    const serverQueue = message.client.queue.get(message.guild.id);   
     
-    
-    message.channel.send(`${this.client.emojis.find("name", "typing")} Recherche de \`${!serverQueue ? args.join(" ") : serverQueue.songs[0].title}\`.`).then(m => m.delete(4000))
+    message.channel.send(`${this.client.emojis.find("name", "typing")} Recherche de \`${!args ? serverQueue.songs[0].title ? args.join(" ")}\`.`).then(m => m.delete(4000))
         
-    fetch(`https://api.ksoft.si/lyrics/search?q=${encodeURIComponent(!serverQueue ? args.join(" ") : serverQueue.songs[0].title)}`, {
+    fetch(`https://api.ksoft.si/lyrics/search?q=${encodeURIComponent(!args ? serverQueue.songs[0].title : args.join(" "))}`, {
     method: "GET",
     headers: {  Authorization: process.env.ksoft }
     }).then(res => {
@@ -41,7 +40,7 @@ class Lyrics extends Command {
 
         let end = 2048;
 
-        let finalpage = Math.round(lyrics.data[0].lyrics.length/2048)+1
+        let finalpage = lyrics.data[0].lyrics.length < 2048 ? 1 : Math.round(lyrics.data[0].lyrics.length/2048)+1
 
         console.log(lyrics.data[0].lyrics.length) 
        
