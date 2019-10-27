@@ -53,6 +53,8 @@ module.exports = class {
     
     if(rows.length == 0) return;
     
+    if(rows[0].welcome_id === "Non défini") return;
+
     let welcome = rows[0].welcome_msg == undefined? '' : rows[0].welcome_msg
     
     var come = welcome.replace("{user}", member)
