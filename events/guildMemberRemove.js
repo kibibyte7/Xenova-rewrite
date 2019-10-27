@@ -42,8 +42,6 @@ module.exports = class {
     
     if(!rows) return;
     
-    if(rows[0].leave_channel === "Non défini") return;
-
     let leave = rows[0].leave_msg
     
     var usertag = leave.replace("{user}", member.user.tag)
@@ -52,7 +50,11 @@ module.exports = class {
     
     var l = server.replace("{membercount}", member.guild.members.size) 
     
-    this.client.channels.get(rows[0].leave_id).send(l.replace("{user}", member.user.tag))
+    let channel = this.client.channels.find("id", rows[0].leave_id)
+
+    if(!channel) return;
+
+    channel.send(this.client.toValues(l, "{user}", member.user.tag))
 
     }) 
 
