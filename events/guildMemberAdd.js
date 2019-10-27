@@ -63,7 +63,7 @@ module.exports = class {
     
     setTimeout(() => {
 
-    let channel = this.client.channels.find("id", rows[0].welcome_id)
+    let channel = member.guild.channels.find("id", rows[0].welcome_id)
 
     if(!channel) return;
 
@@ -77,7 +77,7 @@ module.exports = class {
 
     if(rows.length == 0) return;
     
-    let userrole = this.client.roles.find("id", rows[0].user_autorole)
+    let userrole = member.guild.roles.find("id", rows[0].user_autorole)
 
     if(!userrole) return;
 
@@ -89,7 +89,7 @@ module.exports = class {
 
     if(rows.length == 0) return;
     
-    let botrole = this.client.roles.find("id", rows[0].user_autorole)
+    let botrole = member.guild.roles.find("id", rows[0].bot_autorole)
 
     if(!botrole) return;
 
