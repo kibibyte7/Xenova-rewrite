@@ -40,7 +40,7 @@ class Lyrics extends Command {
 
         let end = 2048;
 
-        let finalpage = lyrics.data[0].lyrics.length < 2048 ? 1 : Math.round(lyrics.data[0].lyrics.length/2048)+1
+        let finalpage = lyrics.data[0].lyrics.length < 2048 ? 1 : Math.floor(lyrics.data[0].lyrics.length/2048)+1
 
         console.log(lyrics.data[0].lyrics.length) 
        
