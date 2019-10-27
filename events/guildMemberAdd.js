@@ -53,8 +53,6 @@ module.exports = class {
     
     if(rows.length == 0) return;
     
-    if(rows[0].welcome_id === "Non défini") return;
-
     let welcome = rows[0].welcome_msg == undefined? '' : rows[0].welcome_msg
     
     var come = welcome.replace("{user}", member)
@@ -65,9 +63,13 @@ module.exports = class {
     
     setTimeout(() => {
 
-    this.client.channels.get(rows[0].welcome_id).send(w)
+    let channel = this.client.channels.find("id", rows[0].welcome_id)
+
+    if(!channel) return;
+
+    channel.send(w)
     
-    }, 750)
+    }, 250)
 
     }) 
     
