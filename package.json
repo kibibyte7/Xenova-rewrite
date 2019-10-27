@@ -41,7 +41,6 @@
     "mysql" :"^2.17.1", 
     "nekos.life": "^1.0.5",
     "node-fetch":"^2.3.0",
-    "node-gyp": "^6.0.0",
     "node-kitsu":"^1.1.1", 
     "node-lolibooru": "0.0.3",
     "node-opus": "^0.3.1",
