@@ -18,7 +18,7 @@ class Lyrics extends Command {
 
     const serverQueue = message.client.queue.get(message.guild.id);   
     
-    message.channel.send(`${this.client.emojis.find("name", "typing")} Recherche de \`${!args ? serverQueue.songs[0].title ? args.join(" ")}\`.`).then(m => m.delete(4000))
+    message.channel.send(`${this.client.emojis.find("name", "typing")} Recherche de \`${!args ? serverQueue.songs[0].title : args.join(" ")}\`.`).then(m => m.delete(4000))
         
     fetch(`https://api.ksoft.si/lyrics/search?q=${encodeURIComponent(!args ? serverQueue.songs[0].title : args.join(" "))}`, {
     method: "GET",
