@@ -76,16 +76,24 @@ module.exports = class {
     con.query(`SELECT user_autorole FROM settings WHERE guild_id = ${member.guild.id}`, (err, rows) => {
 
     if(rows.length == 0) return;
+    
+    let userrole = this.client.roles.find("id", rows[0].user_autorole)
 
-    if(!member.user.bot) return member.addRole(this.client.roles.get(rows[0].user_autorole), "[USER] Rôle automatique")
+    if(!userrole) return;
+
+    if(!member.user.bot) return member.addRole(userrole, "[USER] Rôle automatique")
 
     }) 
 
     con.query(`SELECT bot_autorole FROM settings WHERE guild_id = ${member.guild.id}`, (err, rows) => {
 
     if(rows.length == 0) return;
+    
+    let botrole = this.client.roles.find("id", rows[0].user_autorole)
 
-    if(member.user.bot) return member.addRole(this.client.roles.get(rows[0].bot_autorole), "[BOT] Rôle automatique")
+    if(!botrole) return;
+
+    if(member.user.bot) return member.addRole(botrole, "[BOT] Rôle automatique")
 
     }) 
 
