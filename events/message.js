@@ -1,4 +1,7 @@
+const moment = require("moment")
+ 
 const mysql = require("mysql") 
+
    var db_config = {
     host:process.env.host, 
     user:process.env.user, 
@@ -81,6 +84,8 @@ module.exports = class {
 
     if(mention){
     
+    if(mention.user.id === message.author.id) return;
+
     con.query(`SELECT * FROM afk WHERE id = ${message.author.id} AND guild_id = ${message.guild.id}`, (err, rows) => {
 
     if(rows.length == 0) return;
