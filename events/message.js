@@ -85,7 +85,7 @@ module.exports = class {
 
     if(rows.length == 0) return;
 
-    message.channel.send(`${this.client.emojis.find(e => e.name === "LoadBoost"} **${mention.user.username}** est en afk pour : **${rows[0].reason}** - (**${moment(rows[0].time, "DD").locale("fr-FR").fromNow()}**)`)
+    message.channel.send(`${this.client.emojis.find(e => e.name === "LoadBoost")} **${mention.user.username}** est en afk pour : **${rows[0].reason}** - (**${moment(rows[0].time, "DD").locale("fr-FR").fromNow()}**)`)
 
     }) 
 
