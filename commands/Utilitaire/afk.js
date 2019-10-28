@@ -19,7 +19,7 @@ if(args.length > 255) return message.channel.send(`${this.client.emojis.find(e =
 
 con.query(`SELECT * FROM afk WHERE id = ${message.author.id} AND ${message.guild.id}`, (err, rows) => {
 
-if(rows.length == 0) con.query(`INSERT INTO afk(reason, id, guild_id, time, ratelimit) VALUES ("${args.join("  ")}", ${message.author.id}, ${message.guild.id}, "${new Date()}", ${Date.now()+12000})`)
+if(rows.length == 0) con.query(`INSERT INTO afk(reason, id, guild_id, time, ratelimit) VALUES ("${args.join("  ")}", ${message.author.id}, ${message.guild.id}, "${new Date()}", ${Date.now()+1000*60*2})`)
 
 message.channel.send(`${this.client.emojis.find(e => e.name === "checkMark")} ${message.author}, Tu es maintenant en afk pour : **${args.join(" ")}**.`)
 
