@@ -92,10 +92,6 @@ module.exports = class {
    
     const AfkTime = new Date(rows[0].time);
 
-    const AfkTimezone = +2 * 3600000 ;
-    
-    AfkTime.setTime(AfkTime.getTime() + AfkTimezone + AfkTime.getTimezoneOffset() * 60000) 
-
     message.channel.send(`${this.client.emojis.find(e => e.name === "LoadBoost")} **${mention.user.username}** est en afk pour : **${rows[0].reason}** - (**${moment(AfkTime, "DD").locale("fr-FR").fromNow()}**)`)
 
     }) 
