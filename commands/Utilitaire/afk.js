@@ -17,10 +17,6 @@ if(!args) return message.channel.send(`${this.client.emojis.find(e => e.name ===
 
 if(args.length > 255) return message.channel.send(`${this.client.emojis.find(e => e.name === "wrongMark")} La limite de caractères du message d'afk est de 255 caractères, tu ne peux pas aller au delà de ces limites.`) 
 
-var mention = message.mentions.members.first();
-
-if(mention) mention.replace(mention, mention.user.username)
-
 con.query(`SELECT * FROM afk WHERE id = ${message.author.id} AND ${message.guild.id}`, (err, rows) => {
 
 if(rows.length == 0) con.query(`INSERT INTO afk(reason, id, guild_id, time, ratelimit) VALUES ("${args.join("  ")}", ${message.author.id}, ${message.guild.id}, "${new Date()}", ${Date.now()+12000})`)
