@@ -85,12 +85,20 @@ module.exports = class {
     if(mention){
     
     if(mention.user.id === message.author.id) return;
+    
+    const AfkTime = new Date(rows[0].time);
 
-    con.query(`SELECT * FROM afk WHERE id = ${message.author.id} AND guild_id = ${message.guild.id}`, (err, rows) => {
+    const AfkTimezone = +2 * 3600000 ;
+    
+    AfkTime.setTime(AfkTime.getTime() + AfkTimezone + AfkTime.getTimezoneOffset() * 60000) 
+    
+    const AfkCreatedTime = moment.utc(AfkTime).locale("fr-FR").format("LLLL")
+
+    con.query(`SELECT * FROM afk WHERE id = ${message.mention.id} AND guild_id = ${message.guild.id}`, (err, rows) => {
 
     if(rows.length == 0) return;
 
-    message.channel.send(`${this.client.emojis.find(e => e.name === "LoadBoost")} **${mention.user.username}** est en afk pour : **${rows[0].reason}** - (**${moment(rows[0].time, "DD").locale("fr-FR").fromNow()}**)`)
+    message.channel.send(`${this.client.emojis.find(e => e.name === "LoadBoost")} **${mention.user.username}** est en afk pour : **${rows[0].reason}** - (**${moment(AfkCreatedTime, "DD").locale("fr-FR").fromNow()}**)`)
 
     }) 
 
