@@ -23,7 +23,7 @@ if(mention) mention.replace(mention, mention.user.username)
 
 con.query(`SELECT * FROM afk WHERE id = ${message.author.id} AND ${message.guild.id}`, (err, rows) => {
 
-if(rows.length == 0) con.query(`INSERT INTO afk(reason, id, guild_id, time) VALUES ("${args.join("  ")}", ${message.author.id}, ${message.guild.id}, ${new Date().getTime()})`)
+if(rows.length == 0) con.query(`INSERT INTO afk(reason, id, guild_id, time) VALUES ("${args.join("  ")}", ${message.author.id}, ${message.guild.id}, ${new Date()})`)
 
 message.channel.send(`${this.client.emojis.find(e => e.name === "checkMark")} ${message.author}, Tu es maintenant en afk pour : **${args.join(" ")}**.`)
 
