@@ -84,7 +84,7 @@ module.exports = class {
 
     if(mention){
     
-    if(mention.user.id === message.author.id) return;
+    //if(mention.user.id === message.author.id) return;
     
     con.query(`SELECT * FROM afk WHERE id = ${mention.user.id} AND guild_id = ${message.guild.id}`, (err, rows) => {
 
