@@ -104,13 +104,13 @@ module.exports = class {
     
     if(rows.length == 0) return;
 
-    const AfkCooldown = new Date(rows[0].time).getTime() + 12000;
+    const AfkCooldown = new Date(rows[0].ratelimit).getTime();
 
-    if((AfkCooldown> Date.now()) && (AfkCooldown !== 0)) return;
+    if((AfkCooldown > Date.now()) && (AfkCooldown !== 0)) return;
 
     con.query(`DELETE FROM afk WHERE id = ${message.author.id} AND guild_id = ${message.guild.id}`)
 
-    message.channel.send(`${this.client.emojis.find(e => e.name === "Youpi")} ${message.author} Tu es de retour ! J'ai enlevé ton afk`)  
+    message.channel.send(`${this.client.emojis.find(e => e.name === "Youpi")} ${message.author} Tu es de retour ! J'ai enlevé ton afk !`).then(m => m.delete(3000))
 
     }) 
 
