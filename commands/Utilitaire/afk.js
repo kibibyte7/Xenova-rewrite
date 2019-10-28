@@ -1,38 +1,35 @@
-const superagent = require("superagent") 
-const request = require("request") 
-
 const Command = require("../../modules/Command.js");
 class Afk extends Command {
 constructor(client) {
 super(client, {
 name:"afk",
-description:"Met un message de afk quand l'utilisateur est mentionné.",
+ENdescription:"The bot puts an afk message when the user is mentioned.",
+FRdescription:"Le bot met un message de afk quand l'utilisateur est mentionné.",
 category:"Utilitaire", 
-usage:"afk [texte]"
+FRusage:"afk [texte]"
 })
 
 } 
 
 run(message, args, level){
 
-const afkUrl = process.env.afk;
-            request(afkUrl, (err, res, body) => {
-        
-                
-                console.log('chargement !')
-                
-                if(err || res.statusCode!== 200)return
-                
-                console.log('chargé avec succés')
-                var afk = JSON.parse(body)
-                if(!afk[message.guild.id + message.author.id]) afk[message.guild.id + message.author.id] = {};
-                if(!afk[message.guild.id + message.author.id].reason) afk[message.guild.id + message.author.id].reason = args.length == 0 ? "AFK" : `${args.join(" ")}`;
-                if(!afk[message.guild.id + message.author.id].time) afk[message.guild.id + message.author.id].time = new Date().getTime() + 120000;
-                request({ url: afkUrl, method: 'PUT', json: afk})
+if(!args) return message.channel.send(`${this.client.emojis.find(e => e.name === "wrongMark")} Entre un message de afk.`) 
 
-                message.reply(`Tu es maintenant en afk pour : **${afk[message.guild.id + message.author.id].reason}**.`)
-               })
-  } 
+if(args.length > 255) return message.channel.send(`${this.client.emojis.find(e => e.name === "wrongMark")} La limite de caractères du message d'afk est de 255 caractères, tu ne peux pas aller au delà de ces limites.`) 
+
+var mention = message.mentions.members.first();
+
+if(mention) mention.replace(mention, mention.user.username)
+
+con.query(`SELECT * FROM afk WHERE id = ${message.author.id} AND ${message.guild.id}`, (err, rows) => {
+
+if(rows.length == 0) con.query(`INSERT INTO afk(reason, id, guild_id, time) VALUES ("${args.join("  ")}", ${}, ${}, ${})
+
+message.channel.send(`${this.client.emojis.find(e => e.name === "checkMark")} ${message.author}, Tu es maintenant en afk pour : **${args.join(" ")}**.`)
+
+})
+
+} 
 } 
 
 module.exports = Afk;           
