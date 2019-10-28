@@ -97,6 +97,20 @@ module.exports = class {
     }) 
 
     } 
+    
+    //retirer le afk
+
+    con.query(`SELECT * FROM afk WHERE id = ${message.author.id} AND guild_id = ${message.guild.id}`, (err, rows) => {
+
+    const AfkCooldown = new Date(rows[0].time).getTime() + 12000;
+
+    if((AfkCooldown> Date.now()) && (AfkCooldown !== 0)) return;
+
+    con.query(`DELETE FROM afk WHERE id = ${message.author.id} AND guild_id = ${message.guild.id}`)
+
+    message.channel.send(`${this.client.emojis.find(e => e.name === "Youpi")} ${message.author} Tu es de retour ! J'ai enlevé ton afk`)  
+
+    }) 
 
   //commandes
    if (message.content.indexOf(settings.prefix) !== 0) return;
