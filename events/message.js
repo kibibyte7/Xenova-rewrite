@@ -101,6 +101,8 @@ module.exports = class {
     //retirer le afk
 
     con.query(`SELECT * FROM afk WHERE id = ${message.author.id} AND guild_id = ${message.guild.id}`, (err, rows) => {
+    
+    if(rows.length == 0) return;
 
     const AfkCooldown = new Date(rows[0].time).getTime() + 12000;
 
