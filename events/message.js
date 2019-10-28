@@ -68,13 +68,31 @@ module.exports = class {
     message.settings = settings;
 
     const prefixMention = new RegExp(`^<@!?${this.client.user.id}>( |)$`);
+    
     if (message.content.match(prefixMention)) {
       
     return message.channel.send(`${this.client.emojis.find("name", "checkMark")} Le préfixe du serveur est \`${settings.prefix}\``);
-  } 
-  
+    
+    } 
+    
+    //afk mention
+
+    var mention = message.mentions.members.first();
+
+    if(mention){
+    
+    con.query(`SELECT * FROM afk WHERE id = ${message.author.id} AND guild_id = ${message.guild.id}`, (err, rows) => {
+
+    if(rows.length == 0) return;
+
+    message.channel.send(`${this.client.emojis.find(e => e.name === "LoadBoost"} **${mention.user.username}** est en afk pour : **${rows[0].reason}** - (**${moment(rows[0].time, "DD").locale("fr-FR").fromNow()}**)`)
+
+    }) 
+
+    } 
+
   //commandes
-if (message.content.indexOf(settings.prefix) !== 0) return;
+   if (message.content.indexOf(settings.prefix) !== 0) return;
 
     const args = message.content
       .slice(settings.prefix.length)
