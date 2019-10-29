@@ -62,15 +62,12 @@ async run() {
 	
 //Regen de mana
 con.query("SELECT * FROM inventory", (err, rows) => {
-
-let players = new Array(rows);
 	
 setInterval(() => {
 
- players.forEach(function(player){
+ rows.forEach(function(player){
  if(player.mana === player.maxmana) return;
- con.query(`UPDATE inventory SET mana = ${parseInt(player.mana)+1} WHERE id = ${player.id}`)
- console.log(player.id)
+ con.query(`UPDATE inventory SET mana = ${parseInt(player.mana)+1} WHERE id = ${player.id}`, console.log)
  
  }) 
  
