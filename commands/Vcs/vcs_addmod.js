@@ -16,6 +16,10 @@ run(message, args, level, con) {
 
 if(!args[0]) return message.channel.send(`${this.client.emojis.find(e => e.name === "wrongMark")} Entre l'id d'un utilisateur.`)
 
+var reason = args.slice(1).join(" ") 
+
+if(!reason) return message.channel.send(`${this.client.emojis.find(e => e.name === "wrongMark")} Entre une raison.`)
+
 con.query(`SELECT * FROM vcs_user WHERE id = ${args[0]}`, (err, rows) => {
 
 if(rows.length == 0) return message.channel.send(`${this.client.emojis.find(e => e.name === "wrongMark")} Cet utilisateur n'est pas trouvé dans la base de données.`)
@@ -34,7 +38,7 @@ title:"Système :",
 thumbnail:{
 url:this.client.user.avatarURL
 },
-description:`${this.client.users.find(u => u.id === args[0])} est passé Modérateur pour: ${args.slice(1).join(" ")}, bravo à lui !`,
+description:`${this.client.users.find(u => u.id === args[0])} est passé Modérateur pour: **${reason}**, bravo à lui !`,
 timestamp:new Date(), 
 footer:{
 icon_url:this.client.user.avatarURL,
