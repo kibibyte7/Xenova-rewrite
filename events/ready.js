@@ -43,7 +43,7 @@ setInterval(() => {
 con.query("SELECT * FROM inventory", (err, rows) => {
  	
  for(var i in rows) {
- if(rows[i].id == undefined) return;
+ if(isNaN(i)) return;
  if(rows[i].mana == rows[i].maxmana) return;
  con.query(`UPDATE inventory SET mana = ${parseInt(rows[i].mana)+1} WHERE id = ${rows[i].id}`)
  
@@ -59,8 +59,8 @@ setInterval(() => {
 con.query("SELECT * FROM inventory", (err, rows) => {
  	
  for(var i in rows) {
- if(rows[i].id == undefined) return;
- else con.query(`UPDATE inventory SET pv = ${parseInt(rows[i].pv)+1} WHERE id = ${rows[i].id}`)
+ if(isNaN(i)) return;
+ con.query(`UPDATE inventory SET pv = ${parseInt(rows[i].pv)+1} WHERE id = ${rows[i].id}`)
  
  } 
  
