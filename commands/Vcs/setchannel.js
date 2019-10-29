@@ -29,7 +29,7 @@ let match = sm.findBestMatch(args.join(" "), salons);
 
 let name = match.bestMatch.target; 
 
-let target_channel = message.guild.channels.get(indexes[chan.indexOf(name)]); 
+let target_channel = message.guild.channels.get(indexes[salons.indexOf(name)]); 
 
 con.query(`SELECT * FROM vcs WHERE id = ${target_channel.id}`, (err, rows) => {
 
