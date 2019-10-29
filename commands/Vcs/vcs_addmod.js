@@ -1,4 +1,4 @@
-const Command = require("../modules/Command.js") 
+const Command = require("../../modules/Command.js") 
 
 class Vcs_addmod extends Command {
 constructor (client) {
