@@ -2,13 +2,13 @@ const Command = require("../../modules/Command.js")
 
 const sm = require("string-similarity");
 
-class SetChannel extends Command {
+class Vcs extends Command {
 constructor (client) {
 super(client, {
-name:"setchannel",
+name:"vcs",
 category:"Vcs", 
-FRdescription:"Définir un channel de discussion interserveurs.",
-FRusage:"setchannel <#channel>/id ou nom",
+FRdescription:"Envoyer des messages en interserveur.",
+FRusage:"vcs",
 cooldown:5,
 aliases:[] 
 })
@@ -62,7 +62,7 @@ if(rows[0].banned === "true") return message.channel.send(`${this.client.emojis.
 
 con.query("SELECT * FROM vcs", (err, rows) => {
 
-con.query("SELECT * FROM vcs_user WHERE id = ${message.author.id}`, (err, me) => {
+con.query(`SELECT * FROM vcs_user WHERE id = ${message.author.id}`, (err, me) => {
 
 for(var i in rows){
 
