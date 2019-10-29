@@ -25,7 +25,7 @@ if(level == 3){
 
 con.query(`SELECT * FROM vcs_user WHERE id = ${message.author.id}`, (err, rows) => {
 
-if(rows.length == 0) con.query(`INSERT INTO vcs_user(id, grade, banned, bannedtime, bannedto) VALUES (${message.author.id}, '${this.client.emojis.find(e => e.name === "Certifier")} Développeur', ${false}, "Non défini", "Non défini"))`)
+if(rows.length == 0) con.query(`INSERT INTO vcs_user(id, grade, banned, bannedtime, bannedto) VALUES (${message.author.id}, '${this.client.emojis.find(e => e.name === "Certifier")} Développeur', ${false}, "Non défini", "Non défini")`)
 
 }) 
 
@@ -33,7 +33,7 @@ if(rows.length == 0) con.query(`INSERT INTO vcs_user(id, grade, banned, bannedti
 
 con.query(`SELECT * FROM vcs_user WHERE id = ${message.author.id}`, (err, rows) => {
 
-if(rows.length == 0) con.query(`INSERT INTO vcs_user(id, grade, banned, bannedtime, bannedto) VALUES (${message.author.id}, '${this.client.emojis.find(e => e.name === "User")} Utilisateur', ${false}, "Non défini", "Non défini"))`)
+if(rows.length == 0) con.query(`INSERT INTO vcs_user(id, grade, banned, bannedtime, bannedto) VALUES (${message.author.id}, '${this.client.emojis.find(e => e.name === "User")} Utilisateur', ${false}, "Non défini", "Non défini")`)
 
 }) 
 
