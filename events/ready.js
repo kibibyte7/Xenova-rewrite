@@ -31,6 +31,14 @@ const mysql = require("mysql")
 
 handleDisconnect()
 
+module.exports = class {
+constructor(client){
+this.client = client
+} 
+
+async run() {
+
+//Regen de mana
 setInterval(() => {
 con.query("SELECT * FROM inventory", (err, rows) => {
  	
@@ -44,6 +52,9 @@ con.query("SELECT * FROM inventory", (err, rows) => {
  }) 
 }, 60000)
 
+
+//regen de pv
+
 setInterval(() => {
 con.query("SELECT * FROM inventory", (err, rows) => {
  	
@@ -54,15 +65,10 @@ con.query("SELECT * FROM inventory", (err, rows) => {
  } 
  
  }) 
-}, 60000)
+ }, 60000)
 
 
-module.exports = class {
-constructor(client){
-this.client = client
-} 
 
-async run() {
 	await this.client.wait(1000);
 	this.client.appInfo = this.client.fetchApplication();
 	setInterval(async () => {
