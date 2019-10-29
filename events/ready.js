@@ -66,15 +66,18 @@ con.query("SELECT * FROM inventory", (err, rows) => {
 setInterval(() => {
 
  rows.forEach(function(player){
- if(player.mana === player.maxmana) return;
- con.query(`UPDATE inventory SET mana = ${parseInt(player.mana)+1} WHERE id = ${player.id}`, console.log)
- 
+ setTimeout(() =>{
+ con.query(`UPDATE inventory SET pv = ${player.pv++} WHERE id = ${player.id}`)
+ }, 1000)
+ if(player.mana == player.maxmana) return;
+ setTimeout(() =>{
+ con.query(`UPDATE inventory SET mana = ${player.mana++} WHERE id = ${player.id}`, console.log)
+ }, 1000)
  }) 
  
-}, 30000)
+}, 60000)
 
 }) 
-
 
 } 
 } 
