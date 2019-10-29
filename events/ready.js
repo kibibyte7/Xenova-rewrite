@@ -60,28 +60,6 @@ async run() {
 	
 	this.client.logger.log(`${this.client.user.tag} lancé avec succès.`, "ready") 
 	
-//Regen de mana
-con.query("SELECT * FROM inventory", (err, rows) => {
-	
-setInterval(() => {
-
- rows.forEach(function(player){
- let p = parseInt(player.pv);
- p++;
- setTimeout(() =>{
- con.query(`UPDATE inventory SET pv = ${p} WHERE id = ${player.id}`)
- }, 1000)
- if(player.mana == player.maxmana) return;
- let v = parseInt(player.mana);
- v++;
- setTimeout(() =>{
- con.query(`UPDATE inventory SET mana = ${v} WHERE id = ${player.id}`)
- }, 1000)
- }) 
- 
-}, 15000)
-
-}) 
 
 } 
 } 
