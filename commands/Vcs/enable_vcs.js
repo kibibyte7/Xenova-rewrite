@@ -34,13 +34,33 @@ let target_channel = message.guild.channels.get(indexes[salons.indexOf(name)]);
 
 con.query(`SELECT * FROM vcs WHERE id = ${target_channel.id}`, (err, rows) => {
 
-if (err) throw err;
-
 if(rows.length == 0){
 
 con.query(`INSERT INTO vcs(id) VALUES (${message.channel.id})`)
 
 message.channel.send(`${this.client.emojis.find(e => e.name === "checkMark")} Le channel **${target_channel}** est désormais un channel de vcs !`) 
+
+con.query("SELECT * FROM vcs", (err, chan) => {
+
+chan.forEach(function(c){
+
+c.send({embed:{
+color:Math.floor(Math.random() * 16777214) + 1,
+title:"Système :",
+thumbnail:{
+url:this.client.user.avatarURL
+}, 
+description:`Le serveur **${message.guild.name}** a rejoint le vcs avec **${message.guild.members.size} Membres**.`, 
+timestamp:new Date(), 
+footer:{
+icon_url:this.client.user.avatarURL, 
+text:"© Système vcs | Xenova" 
+} 
+}}) 
+
+}) 
+
+}) 
 
 } else {
 
