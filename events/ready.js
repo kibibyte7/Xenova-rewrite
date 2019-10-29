@@ -62,43 +62,22 @@ async run() {
 	
 //Regen de mana
 con.query("SELECT * FROM inventory", (err, rows) => {
- 	
+
+let players = new Array(rows);
+	
 setInterval(() => {
 
- for(var i in rows) {
- if(isNaN(i)) return 0;
- let u = this.client.users.find(u => u.id === rows[i].id)
- if(!u) return;
- if(rows[i].mana === rows[i].maxmana) return;
- setTimeout(() => {
- con.query(`UPDATE inventory SET mana = ${parseInt(rows[i].mana)+1} WHERE id = ${u.id}`)
- console.log(u.username)
- }, 150)
- } 
+ players.forEach(function(player){
+ if(player.mana === player.maxmana) return;
+ con.query(`UPDATE inventory SET mana = ${parseInt(player.mana)+1} WHERE id = ${player.id}`)
+ console.log(player.id)
+ 
+ }) 
  
 }, 30000)
 
 }) 
 
-//regen de pv
 
-setInterval(() => {
-con.query("SELECT * FROM inventory", (err, rows) => {
- 	
- for(var i in rows) {
- 
- if(isNaN(i)) return 0;
-
- let u = this.client.users.find(u => u.id === rows[i].id)
-
- if(!u) return;
-
- con.query(`UPDATE inventory SET pv = ${parseInt(rows[i].pv)+1} WHERE id = ${u.id}`)
- 
- } 
- 
- }) 
- }, 60000)
-
-	} 
+} 
 } 
