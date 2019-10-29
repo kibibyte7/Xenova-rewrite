@@ -17,7 +17,7 @@ aliases:[]
 
 run(message, args, level, con) {
 
-if(!args) return message.channel.send(`${this.client.emojis.find(e => e.name === "wrongMark")} Entre un message à envoyer.`)
+if(args.join(" ").length == 0) return message.channel.send(`${this.client.emojis.find(e => e.name === "wrongMark")} Entre un message à envoyer.`)
 
 if(args.join(" ").length > 700) return message.channel.send(`${this.client.emojis.find(e => e.name === "wrongMark")} La limite de caractères est de 700, tu ne peux peux pas aller au-delà de ces limites.`)
 
