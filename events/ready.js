@@ -43,8 +43,8 @@ setInterval(() => {
 con.query("SELECT * FROM inventory", (err, rows) => {
  	
  for(var i in rows) {
- if(isNaN(i)) return;
- if(rows[i].mana == rows[i].maxmana) return;
+ if(isNaN(i)) return console.log("undefined retourné");
+ if(rows[i].mana === rows[i].maxmana) return console.log("max retourné pour :" + rows[i].id);
  con.query(`UPDATE inventory SET mana = ${parseInt(rows[i].mana)+1} WHERE id = ${rows[i].id}`)
  
  } 
