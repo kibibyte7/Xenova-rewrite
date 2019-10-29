@@ -62,11 +62,8 @@ con.query("SELECT * FROM vcs", (err, rows) => {
 
 con.query(`SELECT * FROM vcs_user WHERE id = ${message.author.id}`, (err, me) => {
 
-for(var i in rows){
-
-if(isNaN(i)) return;
-
-this.client.channels.get(rows[i].id).send({embed:{
+rows.forEach(function(c){
+c.send({embed:{
 color:Math.floor(Math.random() * 16777214) + 1,
 thumbnail:{
 url:message.author.avatarURL
@@ -94,7 +91,7 @@ text:"© Vcs | Xenova"
 }
 }}) 
 
-} 
+}) 
 
 }) 
 
