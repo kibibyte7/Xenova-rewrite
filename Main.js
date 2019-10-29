@@ -27,7 +27,7 @@ const mysql = require("mysql")
     }                                     // to avoid a hot loop, and to allow our node script to
   });                                     // process asynchronous requests in the meantime.
                                           // If you're also serving http, display a 503 error.
-  this.con.on('error', function(err) {
+  con.on('error', function(err) {
     //console.log('db error', err);
     if(err.code === 'PROTOCOL_CONNECTION_LOST') { // Connection to the MySQL server is usually
       handleDisconnect();                         // lost due to either server restart, or a
@@ -101,6 +101,32 @@ class Xenova extends Client {
   toValues(msg, input, value) {
   
   return msg = msg.replace(input, value)
+
+  } 
+  
+  regenMana(){
+  
+  con.query("SELECT * FROM inventory", (err, rows) => {
+	
+  rows.forEach(function(player){
+
+  let p = parseInt(player.pv);
+
+  p++;
+
+  con.query(`UPDATE inventory SET pv = ${p} WHERE id = ${player.id}`)
+
+  if(player.mana == player.maxmana) return;
+ 
+  let v = parseInt(player.mana);
+ 
+  v++;
+
+  con.query(`UPDATE inventory SET mana = ${v} WHERE id = ${player.id}`)
+
+  }) 
+ 
+  })
 
   } 
 
@@ -211,7 +237,9 @@ const init = async () => {
     const thisLevel = client.config.permLevels[i];
     client.levelCache[thisLevel.name] = thisLevel.level;
   }
-   
+
+  setInterval(client.regenMana(), 30000);
+
   client.login(process.env.token);
 };
 
