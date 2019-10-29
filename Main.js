@@ -238,7 +238,7 @@ const init = async () => {
     client.levelCache[thisLevel.name] = thisLevel.level;
   }
 
-  setInterval(client.regenMana(), 30000);
+  setInterval(() => {client.regenMana()} , 30000);
 
   client.login(process.env.token);
 };
