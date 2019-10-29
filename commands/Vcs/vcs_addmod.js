@@ -30,11 +30,9 @@ message.channel.send(`${this.client.emojis.find(e => e.name === "checkMark")} **
 
 con.query("SELECT * FROM vcs", (err, chan) => {
 
-for(var i in chan) {
 
-if(isNaN(i)) return;
-
-this.client.channels.get(chan[i].id).send({embed:{
+chan.forEach(function(c){
+c.send({embed:{
 color:Math.floor(Math.random() * 16777214) + 1,
 title:"Système :", 
 thumbnail:{
@@ -48,7 +46,7 @@ text:"© Système vcs | Xenova"
 }
 }})
 
-} 
+})
 
 })
 
