@@ -32,7 +32,7 @@ con.query("SELECT * FROM vcs", (err, chan) => {
 
 for(var i in chan) {
 
-this.client.get(chan[i].id).send({embed:{
+this.client.channels.get(chan[i].id).send({embed:{
 color:Math.floor(Math.random() * 16777214) + 1,
 title:"Système :", 
 thumbnail:{
