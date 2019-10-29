@@ -37,7 +37,7 @@ if (err) throw err;
 
 if(rows.length == 0){
 
-con.query(`INSERT INTO vcs(id) VALUES (${message.channel.id}))`)
+con.query(`INSERT INTO vcs(id) VALUES (${message.channel.id})`)
 
 message.channel.send(`${this.client.emojis.find(e => e.name === "checkMark")} Le channel **${target_channel}** est désormais un channel de vcs !`) 
 
