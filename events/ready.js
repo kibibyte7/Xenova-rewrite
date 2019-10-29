@@ -66,12 +66,14 @@ con.query("SELECT * FROM inventory", (err, rows) => {
 setInterval(() => {
 
  rows.forEach(function(player){
+ let p = parseInt(player.pv)+1;
  setTimeout(() =>{
- con.query(`UPDATE inventory SET pv = ${player.pv++} WHERE id = ${player.id}`)
+ con.query(`UPDATE inventory SET pv = ${p} WHERE id = ${player.id}`)
  }, 1000)
  if(player.mana == player.maxmana) return;
+ let v = parseInt(player.mana)+1;
  setTimeout(() =>{
- con.query(`UPDATE inventory SET mana = ${player.mana++} WHERE id = ${player.id}`, console.log)
+ con.query(`UPDATE inventory SET mana = ${v} WHERE id = ${player.id}`, console.log)
  }, 1000)
  }) 
  
