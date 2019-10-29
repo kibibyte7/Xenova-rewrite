@@ -49,8 +49,6 @@ message.delete(5000)
 
 })
 
-}) 
-
 con.query(`SELECT * FROM vcs_user WHERE id = ${message.author.id}`, (err, rows) => {
 
 if(rows.length == 0) return;
@@ -102,6 +100,7 @@ text:"© Vcs | Xenova"
 
 }) 
 
+}) 
 
 } 
 } 
