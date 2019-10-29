@@ -66,6 +66,7 @@ con.query("SELECT * FROM inventory", (err, rows) => {
 setInterval(() => {
 
  for(var i in rows) {
+ if(isNaN(i)) return 0;
  let u = this.client.users.find(u => u.id === rows[i].id)
  if(!u) return;
  if(rows[i].mana === rows[i].maxmana) return;
@@ -85,6 +86,8 @@ setInterval(() => {
 con.query("SELECT * FROM inventory", (err, rows) => {
  	
  for(var i in rows) {
+ 
+ if(isNaN(i)) return 0;
 
  let u = this.client.users.find(u => u.id === rows[i].id)
 
