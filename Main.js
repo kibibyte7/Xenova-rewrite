@@ -109,13 +109,13 @@ class Xenova extends Client {
       const props = new (require(`${commandPath}${path.sep}${commandName}`))(
         this
       );
-      con.query(`DELETE FROM cooldown WHERE cmd = ${commandName}`) 
       this.logger.log(`Chargement de la commande: ${props.help.name}`, "log");
       props.conf.location = commandPath;
       if (props.init) {
         props.init(this);
       }
       this.commands.set(props.help.name, props);
+      con.query(`DELETE FROM cooldown WHERE cmd = "${props.help.name}"`) 
       props.conf.aliases.forEach(alias => {
         this.aliases.set(alias, props.help.name);
       });
