@@ -33,6 +33,8 @@ let target_channel = message.guild.channels.get(indexes[salons.indexOf(name)]);
 
 con.query(`SELECT * FROM vcs WHERE id = ${target_channel.id}`, (err, rows) => {
 
+if (err) throw err;
+
 if(rows.length == 0){
 
 con.query(`INSERT INTO vcs(id) VALUES (${message.channel.id}))`)
