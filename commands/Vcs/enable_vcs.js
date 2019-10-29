@@ -8,7 +8,8 @@ super(client, {
 name:"enable_vcs",
 category:"Vcs", 
 FRdescription:"Définir un channel de discussion interserveurs.",
-FRusage:"enable_vcs <#channel>/id ou nom", 
+FRusage:"enable_vcs <#channel>/id ou nom",
+permLevel:"XenoAdminPerm", 
 aliases:[] 
 })
 } 
