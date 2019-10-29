@@ -2,13 +2,13 @@ const Command = require("../../modules/Command.js")
 
 const sm = require("string-similarity");
 
-class SetChannel extends Command {
+class Enable_vcs extends Command {
 constructor (client) {
 super(client, {
-name:"setchannel",
+name:"enable_vcs",
 category:"Vcs", 
 FRdescription:"Définir un channel de discussion interserveurs.",
-FRusage:"setchannel <#channel>/id ou nom", 
+FRusage:"enable_vcs <#channel>/id ou nom", 
 aliases:[] 
 })
 } 
@@ -53,4 +53,4 @@ message.channel.send(`${this.client.emojis.find(e => e.name === "wrongMark")} Ce
 } 
 } 
 
-module.exports = SetChannel;
+module.exports = Enable_vcs;
