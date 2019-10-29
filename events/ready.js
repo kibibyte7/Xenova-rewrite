@@ -66,11 +66,12 @@ con.query("SELECT * FROM inventory", (err, rows) => {
 setInterval(() => {
 
  for(var i in rows) {
- if(isNaN(i)) return console.log("undefined retourné");
+ let u = this.client.users.find(u => u.id === rows[i].id)
+ if(!u) return;
  if(rows[i].mana === rows[i].maxmana) return;
  setTimeout(() => {
- con.query(`UPDATE inventory SET mana = ${parseInt(rows[i].mana)+1} WHERE id = ${rows[i].id}`)
- console.log(rows[i].id)
+ con.query(`UPDATE inventory SET mana = ${parseInt(rows[i].mana)+1} WHERE id = ${u.id}`)
+ console.log(u.username)
  }, 150)
  } 
  
@@ -84,8 +85,12 @@ setInterval(() => {
 con.query("SELECT * FROM inventory", (err, rows) => {
  	
  for(var i in rows) {
- if(isNaN(i)) return;
- con.query(`UPDATE inventory SET pv = ${parseInt(rows[i].pv)+1} WHERE id = ${rows[i].id}`)
+
+ let u = this.client.users.find(u => u.id === rows[i].id)
+
+ if(!u) return;
+
+ con.query(`UPDATE inventory SET pv = ${parseInt(rows[i].pv)+1} WHERE id = ${u.id}`)
  
  } 
  
