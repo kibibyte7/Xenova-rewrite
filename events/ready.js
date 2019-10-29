@@ -75,7 +75,7 @@ setInterval(() => {
  let v = parseInt(player.mana);
  v++;
  setTimeout(() =>{
- con.query(`UPDATE inventory SET mana = ${v} WHERE id = ${player.id}`, console.log)
+ con.query(`UPDATE inventory SET mana = ${v} WHERE id = ${player.id}`)
  }, 1000)
  }) 
  
