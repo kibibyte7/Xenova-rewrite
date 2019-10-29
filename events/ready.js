@@ -38,39 +38,6 @@ this.client = client
 
 async run() {
 
-//Regen de mana
-con.query("SELECT * FROM inventory", (err, rows) => {
- 	
-setInterval(() => {
-
- for(var i in rows) {
- if(isNaN(i)) return console.log("undefined retourné");
- if(rows[i].mana === rows[i].maxmana) return;
- setTimeout(() => {
- con.query("UPDATE inventory SET `mana` = " + (parseInt(rows[i].mana)+1) + " WHERE id = " + rows[i].id, console.log)
- }, 150)
- } 
- 
-}, 30000)
-
-}) 
-
-//regen de pv
-
-setInterval(() => {
-con.query("SELECT * FROM inventory", (err, rows) => {
- 	
- for(var i in rows) {
- if(isNaN(i)) return;
- con.query(`UPDATE inventory SET pv = ${parseInt(rows[i].pv)+1} WHERE id = ${rows[i].id}`)
- 
- } 
- 
- }) 
- }, 60000)
-
-
-
 	await this.client.wait(1000);
 	this.client.appInfo = this.client.fetchApplication();
 	setInterval(async () => {
@@ -93,5 +60,37 @@ con.query("SELECT * FROM inventory", (err, rows) => {
 	
 	this.client.logger.log(`${this.client.user.tag} lancé avec succès.`, "ready") 
 	
+//Regen de mana
+con.query("SELECT * FROM inventory", (err, rows) => {
+ 	
+setInterval(() => {
+
+ for(var i in rows) {
+ if(isNaN(i)) return console.log("undefined retourné");
+ if(rows[i].mana === rows[i].maxmana) return;
+ setTimeout(() => {
+ con.query(`UPDATE inventory SET mana = ${parseInt(rows[i].mana)+1} WHERE id = ${rows[i].id}`)
+ console.log(rows[i].id)
+ }, 150)
+ } 
+ 
+}, 30000)
+
+}) 
+
+//regen de pv
+
+setInterval(() => {
+con.query("SELECT * FROM inventory", (err, rows) => {
+ 	
+ for(var i in rows) {
+ if(isNaN(i)) return;
+ con.query(`UPDATE inventory SET pv = ${parseInt(rows[i].pv)+1} WHERE id = ${rows[i].id}`)
+ 
+ } 
+ 
+ }) 
+ }, 60000)
+
 	} 
 } 
