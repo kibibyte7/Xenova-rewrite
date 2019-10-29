@@ -91,7 +91,11 @@ con.query(`SELECT * FROM inventory WHERE id = ${args[0]}`, (err, rows) => {
 	} 
 	
 	}})
-		
-	} 
 	
 	});
+
+
+}
+}
+
+module.exports = View_Inventory;
