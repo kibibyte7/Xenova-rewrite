@@ -57,6 +57,7 @@ if(rows[0].banned === "true") return message.channel.send(`${this.client.emojis.
 
 }) 
 
+let bot_avatar = this.client.user.avatarURL;
 
 con.query("SELECT * FROM vcs", (err, rows) => {
 
@@ -86,7 +87,7 @@ value:message.guild.name
 }], 
 timestamp:new Date(), 
 footer:{
-icon_url:this.client.user.avatarURL,
+icon_url:bot_avatar,
 text:"© Vcs | Xenova" 
 }
 }}) 
