@@ -67,7 +67,7 @@ for(var i in rows){
 
 if(isNaN(i)) return;
 
-this.client.channels.get(rows[i].id).send({embed:{
+this.client.channels.find(c => c.id === rows[i].id).send({embed:{
 color:Math.floor(Math.random() * 16777214) + 1,
 thumbnail:{
 url:message.author.avatarURL
