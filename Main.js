@@ -106,37 +106,37 @@ class Xenova extends Client {
   
   findEmoteByName(emote){
 
-  return emote = this.emojis.find(e => e.name === name)
+  return emote = this.emojis.find(e => e.name === emote)
 
   } 
   
   findEmoteById(id){
 
-  return emote = this.emojis.find(e => e.id === id)
+  return emote = this.emojis.find(e => e.id === emote)
 
   } 
   
   findUserById(user){
 
-  return user = this.users.find(u => u.id === id)
+  return user = this.users.find(u => u.id === user)
 
   } 
 
   findUserByName(user){
 
-  return user = this.users.find(u => u.name === name)
+  return user = this.users.find(u => u.name === user)
 
   } 
 
   findChannelByName(channel){
 
-  return channel = this.channels.find(c => c.name === name)
+  return channel = this.channels.find(c => c.name === channem)
 
   } 
 
   findChannelById(channel){
 
-  return channel = this.channels.find(c => c.id === id)
+  return channel = this.channels.find(c => c.id === channel)
 
   } 
 
