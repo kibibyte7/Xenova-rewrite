@@ -32,6 +32,8 @@ let name = match.bestMatch.target;
 
 let target_channel = message.guild.channels.get(indexes[salons.indexOf(name)]); 
 
+if(target_channel !== "text") return message.channel.send(`${this.client.emojis.find(e => e.name === "wrongMark")} Ce n'est pas un channel de texte, choisi en un autre.`)
+
 let rules = [
 "`[1]` Pas de spam.", 
 "`[2]` Pas de publicité dans le vcs, sinon ban tamporaire de 1 jour.", 
@@ -49,7 +51,7 @@ con.query(`SELECT * FROM vcs WHERE id = ${target_channel.id}`, (err, rows) => {
 
 if(rows.length == 0){
 
-con.query(`INSERT INTO vcs(id) VALUES (${message.channel.id})`)
+con.query(`INSERT INTO vcs(id) VALUES (${target_channel.id})`)
 
 message.channel.send(`${this.client.emojis.find(e => e.name === "checkMark")} Le channel **${target_channel}** est désormais un channel de vcs !`).then(m => {
 m.delete(3000)
