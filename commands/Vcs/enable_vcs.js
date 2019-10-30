@@ -52,11 +52,9 @@ if(rows.length == 0){
 con.query(`INSERT INTO vcs(id) VALUES (${message.channel.id})`)
 
 message.channel.send(`${this.client.emojis.find(e => e.name === "checkMark")} Le channel **${target_channel}** est désormais un channel de vcs !`).then(m => {
-m.delete(4000)
-message.delete(5000)
-}) 
-
-message.channel.setTopic(rules.join("\n"))
+m.delete(3000)
+message.delete(4000)
+})
 
 message.channel.send(`${this.client.emojis.find(e => e.name === "LoadBoost")} Téléchargement des règles en cours...`).then(m => {
 
