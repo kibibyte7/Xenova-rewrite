@@ -6,7 +6,8 @@ super(client, {
 name:"tresor", 
 description:"Un trésor à récupérer le plus rapidement possible avec que quelqu'un d'autre le prenne.", 
 category:"Game", 
-usage:"tresor", 
+usage:"tresor",
+cooldown:0,
 aliases:["tr", "t", "treasure"] 
 }) 
 } 
