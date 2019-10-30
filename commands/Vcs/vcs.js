@@ -65,7 +65,7 @@ con.query("SELECT * FROM vcs", (err, rows) => {
 
 con.query(`SELECT * FROM vcs_user WHERE id = ${message.author.id}`, (err, me) => {
 
-rows.forEach(function(c){
+rows.forEach(c => {
 
 bot.channels.get(c.id).send({embed:{
 color:Math.floor(Math.random() * 16777214) + 1,
