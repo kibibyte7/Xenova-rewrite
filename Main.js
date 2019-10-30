@@ -104,6 +104,42 @@ class Xenova extends Client {
 
   } 
   
+  findEmoteByName(name){
+
+  this.emojis.find(e => e.name === name)
+
+  } 
+  
+  findEmoteById(id){
+
+  this.emojis.find(e => e.id === id)
+
+  } 
+  
+  findEmoteById(id){
+
+  this.users.find(u => u.id === id)
+
+  } 
+
+  findUserByName(name){
+
+  this.users.find(e => e.name === name)
+
+  } 
+
+  findChannelByName(name){
+
+  this.channels.find(c => c.name === name)
+
+  } 
+
+  findChannelById(id){
+
+  this.channels.find(c => c.id === id)
+
+  } 
+
   regenMana(){
   
   con.query("SELECT * FROM inventory", (err, rows) => {
