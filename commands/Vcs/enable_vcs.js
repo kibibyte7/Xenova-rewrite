@@ -32,7 +32,7 @@ let name = match.bestMatch.target;
 
 let target_channel = message.guild.channels.get(indexes[salons.indexOf(name)]); 
 
-if(target_channel !== "text") return message.channel.send(`${this.client.emojis.find(e => e.name === "wrongMark")} Ce n'est pas un channel de texte, choisi en un autre.`)
+if(target_channel.type !== "text") return message.channel.send(`${this.client.emojis.find(e => e.name === "wrongMark")} Ce n'est pas un channel de texte, choisi en un autre.`)
 
 let rules = [
 "`[1]` Pas de spam.", 
