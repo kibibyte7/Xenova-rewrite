@@ -24,7 +24,7 @@ con.query(`SELECT * FROM vcs_user WHERE id = ${args[0]}`, (err, rows) => {
 
 if(rows.length == 0) return message.channel.send(`${this.client.emojis.find(e => e.name === "wrongMark")} Cet utilisateur n'est pas trouvé dans la base de données.`)
 
-con.query(`UPDATE vcs_user SET grade = '${this.client.emojis.find(e => e.name ==="Modo")}' WHERE id = ${args[0]}`) 
+con.query(`UPDATE vcs_user SET grade = '${this.client.emojis.find(e => e.name ==="Modo")} Modérateur' WHERE id = ${args[0]}`) 
 
 message.channel.send(`${this.client.emojis.find(e => e.name === "checkMark")} **${this.client.users.find(u => u.id === args[0]).tag}** est désormais modérateur du vcs !`) 
 
