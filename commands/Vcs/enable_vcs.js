@@ -74,35 +74,7 @@ text:"© Système vcs | Xenova"
 
 setTimeout(() => {m.pin()},3000)
 
-}) 
-
-let bot_avatar = this.client.user.avatarURL;
-
-setTimeout(() => {
-
-con.query("SELECT * FROM vcs", (err, chan) => {
-
-chan.forEach(function(c){
-
-c.send({embed:{
-color:Math.floor(Math.random() * 16777214) + 1,
-title:"Système :",
-thumbnail:{
-url:bot_avatar
-}, 
-description:`Bienvenue au serveur **${message.guild.name}** qui a rejoint le vcs avec **${message.guild.members.size} Membres**.`, 
-timestamp:new Date(), 
-footer:{
-icon_url:bot_avatar, 
-text:"© Système vcs | Xenova" 
-} 
-}}) 
-
-}) 
-
-}) 
-
-}, 4000) 
+})
 
 } else {
 
