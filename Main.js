@@ -301,7 +301,7 @@ const init = async () => {
 
   setInterval(() => {client.regenMana()}, 30000);
   
-  setInterval(() => { checkVcsBans()}, 60000); 
+  setInterval(() => {client.checkVcsBans()}, 60000); 
 
   client.login(process.env.token);
 };
