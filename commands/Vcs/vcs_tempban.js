@@ -26,7 +26,7 @@ con.query(`SELECT * FROM vcs_user WHERE id = ${message.author.id}`, (err, rows) 
 
 if(rows.length == 0) return;
 
-if(level !== 3 || rows[0].grade !== `${this.client.findEmoteByName("Modo")} Modérateur`) return message.channel.send(`${this.client.findEmoteByName("wrongMark")} Tu n'es pas modérateur du vcs.`)
+if(level == 3 || rows[0].grade === `${this.client.findEmoteByName("Modo")} Modérateur`){
 
 if(!id) return message.channel.send(`${this.client.findEmoteByName("wrongMark")} Entre une id valide.`)
 
@@ -40,6 +40,11 @@ con.query(`UPDATE vcs_user SET banned = "true", bannedtime = ${new Date()}, bann
 
 message.channel.send(`**${id.username}** a été banni pour : **${reason}** pendant une période de: **${days/(1000*60*60*24)} jours**.`)
 
+} else {
+
+message.channel.send(`${this.client.findEmoteByName("wrongMark")} Tu n'es pas modérateur du vcs.`)
+
+} 
 }) 
 
 }) 
