@@ -36,7 +36,7 @@ if(!args[2]) return message.channel.send(`${this.client.findEmoteByName("wrongMa
 
 con.query(`SELECT * FROM vcs_user WHERE id = ${id}`, (err, rows) => {
 
-con.query(`UPDATE vcs_user SET banned = true, bannedtime = "${new Date()}", bannedto = ${new Date().getTime()+days} WHERE id = ${id}`)
+con.query(`UPDATE vcs_user SET banned = true, bannedtime = "${new Date()}", bannedto = ${new Date().getTime()+days} WHERE id = ${id.id}`)
 
 message.channel.send(`**${id.username}** a été banni pour : **${reason}** pendant une période de: **${days/(1000*60*60*24)} jours**.`)
 
