@@ -180,7 +180,7 @@ class Xenova extends Client {
 
   const TempBan = new Date(rows[0].bannedto).getTime();
 
-  if((AfkCooldown > Date.now()) && (AfkCooldown !== 0)) return;
+  if((TempBan > Date.now()) && (TempBan !== 0)) return;
   
   con.query(`UPDATE vcs_user SET banned = false, bannedtime = "Non défini", bannedto = "Non défini" WHERE id = ${rows[i].id}`)
 
