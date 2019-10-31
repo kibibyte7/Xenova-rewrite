@@ -40,12 +40,13 @@ con.query(`UPDATE vcs_user SET banned = "true", bannedtime = ${new Date()}, bann
 
 message.channel.send(`**${id.username}** a été banni pour : **${reason}** pendant une période de: **${days/(1000*60*60*24)} jours**.`)
 
+}) 
+
 } else {
 
 message.channel.send(`${this.client.findEmoteByName("wrongMark")} Tu n'es pas modérateur du vcs.`)
 
 } 
-}) 
 
 }) 
 
