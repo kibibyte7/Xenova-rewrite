@@ -97,6 +97,11 @@ module.exports = class {
 
     }) 
 
+    con.query(`SELECT * FROM vcs_user WHERE id = ${member.user.id}`, (err, rows) => {
+
+    if(rows.length == 0) con.query(`INSERT INTO vcs_user(id, grade, banned, bannedtime, bannedto) VALUES (${member.user.id}, '${this.client.findEmoteByName("User")} Utilisateur', ${false}, "Non défini", "Non défini")`)
+
+    }) 
 
   }
 };
