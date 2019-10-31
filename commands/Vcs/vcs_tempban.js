@@ -30,9 +30,9 @@ if(level !== 3 || rows[0].grade !== `${this.client.findEmoteByName("Modo")} ModÃ
 
 if(!id) return message.channel.send(`${this.client.findEmoteByName("wrongMark")} Entre une id valide.`)
 
-if(isNaN(args[1])) return message.channel.send(`${this.client.findEmoteByName("wrongMark")} Entre un nombre de jour.`)
+if(isNaN(args[1]) || ! args[1]) return message.channel.send(`${this.client.findEmoteByName("wrongMark")} Entre un nombre de jour.`)
 
-if(!reason) return message.channel.send(`${this.client.findEmoteByName("wrongMark")} Entre une raison.`)
+if(!args[2]) return message.channel.send(`${this.client.findEmoteByName("wrongMark")} Entre une raison.`)
 
 con.query(`SELECT * FROM vcs_user WHERE id = ${id}`, (err, rows) => {
 
