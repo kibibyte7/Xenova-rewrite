@@ -48,9 +48,9 @@ con.query(`SELECT * FROM vcs`, (err, chan) => {
 	
 for(var i in chan){
 
-let c = this.client.findChannelById(chan[i].id)
+if(isNaN(i)) return;
 
-c.send({embed:{
+this.client.findChannelById(chan[i].id).send({embed:{
 title:"Système :", 
 color:Math.floor(Math.random() * 16777214) + 1,
 thumbnail:{
