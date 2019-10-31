@@ -74,7 +74,7 @@ url:message.author.avatarURL
 }, 
 fields:[{
 name:"Utilisateur :", 
-value:message.author.tag
+value:`${message.author.tag} (${message.author.id})`, 
 }, 
 {
 name:"Grade :", 
