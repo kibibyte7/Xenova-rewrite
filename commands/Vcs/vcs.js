@@ -53,7 +53,7 @@ con.query(`SELECT * FROM vcs_user WHERE id = ${message.author.id}`, (err, rows) 
 
 if(rows.length == 0) return;
 
-if(rows[0].banned === "true") return message.channel.send(`${this.client.emojis.find(e => e.name === "wrongMark")} Tu as été banni temporairement voire définitivement du vcs, regarde les messages de ban.`) 
+if(rows[0].banned == true) return message.channel.send(`${this.client.emojis.find(e => e.name === "wrongMark")} Tu as été banni temporairement voire définitivement du vcs, regarde les messages de ban.`) 
 
 }) 
 
