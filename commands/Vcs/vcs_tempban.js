@@ -14,6 +14,8 @@ aliases:[]
 
 run(message, args, level, con) {
 
+if(!args[0]) return message.channel.send(`${this.client.findEmoteByName("wrongMark")} Entre une id à ban.`)
+
 var id = this.client.findUserById(args[0]);
 
 var days = 1000*60*60*24*parseInt(args[1]);
@@ -26,7 +28,7 @@ if(rows.length == 0) return;
 
 if(level !== 3 || rows[0].grade !== `${this.client.findEmoteByName("Modo")} Modérateur`) return message.channel.send(`${this.client.findEmoteByName("wrongMark")} Tu n'es pas modérateur du vcs.`)
 
-if(id == null) return message.channel.send(`${this.client.findEmoteByName("wrongMark")} Entre une id à ban.`)
+if(!id) return message.channel.send(`${this.client.findEmoteByName("wrongMark")} Entre une id valide.`)
 
 if(isNaN(args[1])) return message.channel.send(`${this.client.findEmoteByName("wrongMark")} Entre un nombre de jour.`)
 
