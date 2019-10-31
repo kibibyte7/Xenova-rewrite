@@ -26,7 +26,7 @@ if(rows.length == 0) return;
 
 if(level !== 3 || rows[0].grade !== `${this.client.findEmoteByName("Modo")} Modérateur`) return message.channel.send(`${this.client.findEmoteByName("wrongMark")} Tu n'es pas modérateur du vcs.`)
 
-if(!id) return message.channel.send(`${this.client.findEmoteByName("wrongMark")} Entre une id à ban.`)
+if(id == null) return message.channel.send(`${this.client.findEmoteByName("wrongMark")} Entre une id à ban.`)
 
 if(isNaN(args[1])) return message.channel.send(`${this.client.findEmoteByName("wrongMark")} Entre un nombre de jour.`)
 
