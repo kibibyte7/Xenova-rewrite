@@ -42,14 +42,6 @@ message.channel.send(`**${id.username}** a été banni pour : **${reason}** pend
 
 }) 
 
-} else {
-
-message.channel.send(`${this.client.findEmoteByName("wrongMark")} Tu n'es pas modérateur du vcs.`)
-
-} 
-
-}) 
-
 con.query(`SELECT * FROM vcs`, (err, chan) => {
 	
 for(var i in chan){
@@ -74,6 +66,13 @@ text:"© Système vcs | Xenova"
 	
 }) 
 
+} else {
+
+message.channel.send(`${this.client.findEmoteByName("wrongMark")} Tu n'es pas modérateur du vcs.`)
+
+} 
+
+})
 
 } 
 }
