@@ -165,6 +165,31 @@ class Xenova extends Client {
   })
 
   } 
+  
+  checkVcsBans(){
+
+  con.query("SELECT * FROM vcs_user", (err, rows) => {
+  
+  for(var i in rows){
+
+  if(isNaN(i)) return;
+  
+  if(rows[i].banned == false) return;
+
+  if(rows[i].bannedto === "perm") return;
+
+  const TempBan = new Date(rows[0].bannedto).getTime();
+
+  if((AfkCooldown > Date.now()) && (AfkCooldown !== 0)) return;
+  
+  con.query(`UPDATE vcs_user SET banned = false, bannedtime = "Non défini", bannedto = "Non défini" WHERE id = ${rows[i].id}`)
+
+  } 
+ 
+  }) 
+
+  } 
+
 
   loadCommand(commandPath, commandName) {
     try {
@@ -274,7 +299,9 @@ const init = async () => {
     client.levelCache[thisLevel.name] = thisLevel.level;
   }
 
-  setInterval(() => {client.regenMana()} , 30000);
+  setInterval(() => {client.regenMana()}, 30000);
+  
+  setInterval(() => { checkVcsBans()}, 60000); 
 
   client.login(process.env.token);
 };
