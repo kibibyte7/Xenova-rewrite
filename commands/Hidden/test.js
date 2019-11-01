@@ -23,7 +23,7 @@ const secondNumber = Math.floor(Math.random()*10);
 
 const thirdNumber = `${Math.floor(Math.random()*1000)-1}`;
 
-const result = `${firstNumber + second Number}` + `${thirdNumber}`;
+const result = `${firstNumber + secondNumber}` + `${thirdNumber}`;
 
 const canvas = Canvas.createCanvas(700, 250); 
 	
