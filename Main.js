@@ -7,6 +7,7 @@ const Enmap = require("enmap");
 const klaw = require("klaw");
 const path = require("path");
 const mysql = require("mysql") 
+const canvas = require("canvas") 
 
    var db_config = {
     host:process.env.host, 
@@ -190,6 +191,19 @@ class Xenova extends Client {
 
   } 
 
+  applyText(canvas, text){
+
+        const ctx = canvas.getContext('2d');
+
+	let fontSize = 70;
+
+	do {
+		ctx.font = `${fontSize -= 10}px sans-serif`;
+		
+	} while (ctx.measureText(text).width > canvas.width - 300);
+
+	return ctx.font;
+  }
 
   loadCommand(commandPath, commandName) {
     try {
