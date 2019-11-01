@@ -33,7 +33,7 @@ const background = await Canvas.loadImage("Images/background.png");
 
 ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
-ctx.fillText(`${firstNumber} + ${secondNumber} = ? + "${thirdNumber}"`, canvas.width / 2.5, canvas.height / 1.8);
+ctx.fillText(`${firstNumber} + ${secondNumber} = ? + "${thirdNumber}"`, canvas.width / 1.5, canvas.height / 1);
 
 const attachment = new Discord.Attachment(canvas.toBuffer(), 'captcha.png'); 
 
