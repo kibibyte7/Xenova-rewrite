@@ -12,13 +12,14 @@ class Test extends Command {
       aliases:[] 
     });
   }
+
 async run(message, client, args, level){
 
 const canvas = Canvas.createCanvas(700, 250); 
 	
 const ctx = canvas.getContext('2d'); 
 
-const background = await Canvas.loadImage("../../Images/download");
+const background = await Canvas.loadImage("Images/background.png");
 
 ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
