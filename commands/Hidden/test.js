@@ -27,7 +27,7 @@ ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
 const attachment = new Discord.Attachment(canvas.toBuffer(), 'captcha.png'); 
 
-message.channel.send("", attachement) 
+message.channel.send("", attachment) 
 
 } 
 
