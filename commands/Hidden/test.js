@@ -18,7 +18,7 @@ const canvas = Canvas.createCanvas(700, 250);
 	
 const ctx = canvas.getContext('2d'); 
 
-const background = await Canvas.loadImage("../../Images/download.png");
+const background = await Canvas.loadImage("../../Images/download");
 
 ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
