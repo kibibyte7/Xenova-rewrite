@@ -1,4 +1,6 @@
 const Canvas = require("canvas") 
+const Discord = require("discord.js")
+
 
 const Command = require("../../modules/Command.js");
 
