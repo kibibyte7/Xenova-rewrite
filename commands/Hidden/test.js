@@ -45,7 +45,7 @@ const attachment = new Discord.Attachment(canvas.toBuffer(), 'captcha.png');
 
 let resp = ``;
 
-message.channel.send("Entre le code donné\n\n**Note: Le cpatcha se fait comme ceci: somme et les trois chiffres sans espaces et sans guillemets", attachment).then(m => {
+message.channel.send(`Entre le code donné\nCode:${resp}\n\n**NOTE**: Le captcha se fait comme ceci: somme et les trois chiffres sans espaces et sans guillemets.`, attachment).then(m => {
 
 m.react("1⃣") 
 
@@ -68,6 +68,22 @@ setTimeout(() => { m.react("9⃣")}, 8000)
 setTimeout(() => { m.react("↩")}, 9000)
 
 setTimeout(() => { m.react(this.client.findEmoteByName("checkMark"))}, 10000)
+
+const filter = (user) => user.id === message.author.id;
+
+let collect = m.createReactionCollector(filter)
+
+collect.on("collect", (r) => {
+
+if(r) {
+
+r.remove(message.author)
+
+} 
+
+}) 
+
+
 
 }) 
 
