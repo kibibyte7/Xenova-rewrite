@@ -47,7 +47,7 @@ let resp = ``;
 
 let tentatives = 3;
 
-let u = this.client.findUserById(args[0])
+let u = this.client.users.find(x => x.id === args[0])
 
 message.channel.send(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\nStatut: Pas validé\n\n**NOTE**: Le captcha se fait comme ceci: somme et les trois chiffres sans espaces et sans guillemets.`, attachment).then(m => {
 
