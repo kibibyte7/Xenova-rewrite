@@ -26,7 +26,9 @@ const thirdNumber = `${Math.floor(Math.random()*1000)-1}`;
 const result = `${firstNumber + secondNumber}` + `${thirdNumber}`;
 
 const canvas = Canvas.createCanvas(700, 250); 
-	
+
+canvas.registerFont('Font/visitor2.ttf', { family: 'Visitor2'})
+ 	
 const ctx = canvas.getContext('2d'); 
 
 const background = await Canvas.loadImage("Images/background.png");
