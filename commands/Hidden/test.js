@@ -43,9 +43,31 @@ ctx.fillText(`${firstNumber} + ${secondNumber} = ? + "${thirdNumber}"`, canvas.w
 
 const attachment = new Discord.Attachment(canvas.toBuffer(), 'captcha.png'); 
 
+let resp = ``;
+
 message.channel.send("Entre le code donné\n\n**Note: Le cpatcha se fait comme ceci: somme et les trois chiffres sans espaces et sans guillemets", attachment).then(m => {
 
-m.react("one")
+m.react("1⃣") 
+
+setTimeout(() => { m.react("2⃣")}, 1000)
+
+setTimeout(() => { m.react("3⃣")}, 2000)
+
+setTimeout(() => { m.react("4⃣")}, 3000)
+
+setTimeout(() => { m.react("5⃣")}, 4000)
+
+setTimeout(() => { m.react("6⃣")}, 5000)
+
+setTimeout(() => { m.react("7⃣")}, 6000)
+
+setTimeout(() => { m.react("8⃣")}, 7000)
+
+setTimeout(() => { m.react("9⃣")}, 8000)
+
+setTimeout(() => { m.react("↩")}, 9000)
+
+setTimeout(() => { m.react(this.client.findEmoteByName("checkMark"))}, 10000)
 
 }) 
 
