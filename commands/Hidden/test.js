@@ -199,8 +199,7 @@ r.remove(message.author)
 
 if(tentatives == 1){
 
-//il se fait kick
-message.channel.send("kick");
+message.channel.send(`Tu n'a pas passé le captcha correctement. Le nombre à rentrer était **${result}**`) 
 
 collect.stop();
 
