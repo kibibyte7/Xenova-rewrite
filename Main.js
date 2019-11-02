@@ -87,7 +87,7 @@ class Xenova extends Client {
 
   const captcha = new cmd(this)
 
-  captcha.run(member, this, args, level)
+  captcha.run(member, this)
   
   } 
 
