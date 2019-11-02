@@ -75,7 +75,7 @@ setTimeout(() => { m.react("↩")}, 10000)
 
 setTimeout(() => { m.react(this.client.findEmoteByName("checkMark"))}, 11000)
 
-const filter = (reaction, user) => user.id === !u ? message.author.id : u.id;
+const filter = (reaction, user) => user.id === !u ? message.author.id : args[0];
 
 let collect = m.createReactionCollector(filter)
 
