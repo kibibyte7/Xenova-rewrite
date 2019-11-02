@@ -175,9 +175,29 @@ if(r.emoji.name === "↩") {
 
 r.remove(message.author)
 
-resp += "";
+resp = "";
 
 m.edit(`Entre le code donné\n\n**Code:${resp}**\n\n**NOTE**: Le captcha se fait comme ceci: somme et les trois chiffres sans espaces et sans guillemets.`, attachment) 
+
+} 
+
+if(r.emoji.name === "checkmark) {
+
+if(resp === result) {
+
+message.channel.send("Oui.")
+
+m.clearReactions();
+
+collect.stop();
+
+} else {
+
+r.remove(message.author)
+
+message.channel.send("Non.") 
+
+} 
 
 } 
 
