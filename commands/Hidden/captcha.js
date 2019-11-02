@@ -17,6 +17,10 @@ class Captcha extends Command {
 
 async run(message, client, args, level){
 
+let u = this.client.users.find(x => x.id === args[0])
+
+const filter = (reaction, user) => !u ? user.id === message.author.id : user.id === u.id;
+
 Canvas.registerFont('Font/visitor2.ttf', { family: 'Visitor2'})
  	
 const firstNumber = Math.floor(Math.random()*20);
@@ -47,8 +51,6 @@ let resp = ``;
 
 let tentatives = 3;
 
-let u = this.client.users.find(x => x.id === args[0])
-
 message.channel.send(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\nStatut: Pas validé\n\n**NOTE**: Le captcha se fait comme ceci: somme et les trois chiffres sans espaces et sans guillemets.`, attachment).then(m => {
 
 m.react("0⃣") 
@@ -74,8 +76,6 @@ setTimeout(() => { m.react("9⃣")}, 9000)
 setTimeout(() => { m.react("↩")}, 10000)
 
 setTimeout(() => { m.react(this.client.findEmoteByName("checkMark"))}, 11000)
-
-const filter = (reaction, user) => user.id === !u ? message.author.id : args[0];
 
 let collect = m.createReactionCollector(filter)
 
