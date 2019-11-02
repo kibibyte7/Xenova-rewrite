@@ -47,7 +47,7 @@ let resp = ``;
 
 let tentatives = 3;
 
-message.channel.send(`${message.author} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: Le captcha se fait comme ceci: somme et les trois chiffres sans espaces et sans guillemets.`, attachment).then(m => {
+message.channel.send(`${message.author} Entre le code donné\n\n**Code: ${resp}**\n\nStatut: Pas validé\n\n**NOTE**: Le captcha se fait comme ceci: somme et les trois chiffres sans espaces et sans guillemets.`, attachment).then(m => {
 
 m.react("0⃣") 
 
@@ -115,7 +115,7 @@ r.remove(message.author)
 
 resp += "3";
 
-m.edit(`${message.author} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: Le captcha se fait comme ceci: somme et les trois chiffres sans espaces et sans guillemets.`, attachment) 
+m.edit(`${message.author} Entre le code donné\n\n**Code: ${resp}**\n\nStatut: Pas validé\n\n**NOTE**: Le captcha se fait comme ceci: somme et les trois chiffres sans espaces et sans guillemets.`, attachment) 
 
 } 
 
@@ -125,7 +125,7 @@ r.remove(message.author)
 
 resp += "4";
 
-m.edit(`${message.author} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: Le captcha se fait comme ceci: somme et les trois chiffres sans espaces et sans guillemets.`, attachment) 
+m.edit(`${message.author} Entre le code donné\n\n**Code: ${resp}**\n\nStatut: Pas validé\n\n**NOTE**: Le captcha se fait comme ceci: somme et les trois chiffres sans espaces et sans guillemets.`, attachment) 
 
 } 
 
@@ -135,7 +135,7 @@ r.remove(message.author)
 
 resp += "5";
 
-m.edit(`${message.author} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: Le captcha se fait comme ceci: somme et les trois chiffres sans espaces et sans guillemets.`, attachment) 
+m.edit(`${message.author} Entre le code donné\n\n**Code: ${resp}**\n\nStatut: Pas validé\n\n**NOTE**: Le captcha se fait comme ceci: somme et les trois chiffres sans espaces et sans guillemets.`, attachment) 
 
 } if(r.emoji.name === "6⃣") {
 
@@ -143,7 +143,7 @@ r.remove(message.author)
 
 resp += "6";
 
-m.edit(`${message.author} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: Le captcha se fait comme ceci: somme et les trois chiffres sans espaces et sans guillemets.`, attachment) 
+m.edit(`${message.author} Entre le code donné\n\n**Code: ${resp}**\n\nStatut: Pas validé\n\n**NOTE**: Le captcha se fait comme ceci: somme et les trois chiffres sans espaces et sans guillemets.`, attachment) 
 
 } 
 
@@ -153,7 +153,7 @@ r.remove(message.author)
 
 resp += "7";
 
-m.edit(`${message.author} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: Le captcha se fait comme ceci: somme et les trois chiffres sans espaces et sans guillemets.`, attachment) 
+m.edit(`${message.author} Entre le code donné\n\n**Code: ${resp}**\n\nStatut: Pas validé\n\n**NOTE**: Le captcha se fait comme ceci: somme et les trois chiffres sans espaces et sans guillemets.`, attachment) 
 
 } if(r.emoji.name === "8⃣") {
 
@@ -161,7 +161,7 @@ r.remove(message.author)
 
 resp += "8";
 
-m.edit(`${message.author} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: Le captcha se fait comme ceci: somme et les trois chiffres sans espaces et sans guillemets.`, attachment) 
+m.edit(`${message.author} Entre le code donné\n\n**Code: ${resp}**\n\nStatut: Pas validé\n\n**NOTE**: Le captcha se fait comme ceci: somme et les trois chiffres sans espaces et sans guillemets.`, attachment) 
 
 } if(r.emoji.name === "9⃣") {
 
@@ -169,7 +169,7 @@ r.remove(message.author)
 
 resp += "9";
 
-m.edit(`${message.author} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: Le captcha se fait comme ceci: somme et les trois chiffres sans espaces et sans guillemets.`, attachment) 
+m.edit(`${message.author} Entre le code donné\n\n**Code: ${resp}**\n\nStatut: Pas validé\n\n**NOTE**: Le captcha se fait comme ceci: somme et les trois chiffres sans espaces et sans guillemets.`, attachment) 
 
 } 
 
@@ -179,7 +179,7 @@ r.remove(message.author)
 
 resp = "";
 
-m.edit(`${message.author} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: Le captcha se fait comme ceci: somme et les trois chiffres sans espaces et sans guillemets.`, attachment) 
+m.edit(`${message.author} Entre le code donné\n\n**Code: ${resp}**\n\nStatut: Pas validé\n\n**NOTE**: Le captcha se fait comme ceci: somme et les trois chiffres sans espaces et sans guillemets.`, attachment) 
 
 } 
 
@@ -187,7 +187,7 @@ if(r.emoji.name === "checkMark") {
 
 if(resp === result) {
 
-message.channel.send(`${this.client.findEmoteByName("checkMark")} Captcha validé, tu es un bon humain !`)
+m.edit(`${message.author} Entre le code donné\n\n**Code: ${resp}**\n\nStatut: Validé\n\n**NOTE**: Le captcha se fait comme ceci: somme et les trois chiffres sans espaces et sans guillemets.`, attachment) 
 
 m.clearReactions();
 
@@ -199,7 +199,7 @@ r.remove(message.author)
 
 if(tentatives == 1){
 
-message.channel.send(`Tu n'a pas passé le captcha correctement. Le nombre à rentrer était **${result}**`) 
+m.edit(`${message.author} Entre le code donné\n\n**Code: ${resp}**\n\nStatut: Code faux, le code était:${result}\n\n**NOTE**: Le captcha se fait comme ceci: somme et les trois chiffres sans espaces et sans guillemets.`, attachment) 
 
 collect.stop();
 
@@ -207,7 +207,7 @@ collect.stop();
 
 tentatives = tentatives - 1;
 
-message.channel.send(`${this.client.findEmoteByName("wrongMark")} Le code est faux, demande de l'aide s'il le faut.\n\nil te reste: **${tentatives} tentatives**.`) 
+m.edit(`${message.author} Entre le code donné\n\n**Code: ${resp}**\n\nStatut: Code faux, ${tentatives} tentatives restantes.\n\n**NOTE**: Le captcha se fait comme ceci: somme et les trois chiffres sans espaces et sans guillemets.`, attachment) 
 
 } 
 
