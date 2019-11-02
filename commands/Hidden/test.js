@@ -45,6 +45,8 @@ const attachment = new Discord.Attachment(canvas.toBuffer(), 'captcha.png');
 
 let resp = ``;
 
+let tentative = 3;
+
 message.channel.send(`${message.author} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: Le captcha se fait comme ceci: somme et les trois chiffres sans espaces et sans guillemets.`, attachment).then(m => {
 
 m.react("0⃣") 
@@ -195,7 +197,20 @@ collect.stop();
 
 r.remove(message.author)
 
-message.channel.send(`${this.client.findEmoteByName("wrong Mark")} Le code est faux, demande de l'aide s'il le faut.`) 
+if(tentatives == 0){
+
+//il se fait kick
+message.channel.send("kick");
+
+collect.stop();
+
+} else {
+
+tentative = tentative - 1;
+
+message.channel.send(`${this.client.findEmoteByName("wrongMark")} Le code est faux, demande de l'aide s'il le faut.\n\nil te reste: **${tentative} tentatives**.`) 
+
+} 
 
 } 
 
