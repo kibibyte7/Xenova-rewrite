@@ -17,6 +17,8 @@ class Test extends Command {
 
 async run(message, client, args, level){
 
+Canvas.registerFont('Font/visitor2.ttf', { family: 'Visitor2'})
+ 	
 const firstNumber = Math.floor(Math.random()*10);
 
 const secondNumber = Math.floor(Math.random()*10);
@@ -27,8 +29,6 @@ const result = `${firstNumber + secondNumber}` + `${thirdNumber}`;
 
 const canvas = Canvas.createCanvas(700, 250); 
 
-Canvas.registerFont('Font/visitor2.ttf', { family: 'Visitor2'})
- 	
 const ctx = canvas.getContext('2d'); 
 
 const background = await Canvas.loadImage("Images/background.png");
