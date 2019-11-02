@@ -4,11 +4,11 @@ const Discord = require("discord.js")
 
 const Command = require("../../modules/Command.js");
 
-class Test extends Command {
+class Captcha extends Command {
   constructor(client) {
     super(client, {
-      name: "test",
-      FRdescription:"Que du test dedans.", 
+      name: "captcha",
+      FRdescription:"Un captcha pour voir si t'es pas un bot.", 
       category:"Hidden", 
       permissions:[], 
       aliases:[] 
@@ -226,4 +226,4 @@ m.edit(`${message.author} Entre le code donné\n\n**Code: ${resp}**\n\nStatut: C
 
 }
 
-module.exports = Test;
+module.exports = Captcha;
