@@ -87,16 +87,6 @@ m.edit(`Entre le code donné\n\n**Code:${resp}**\n\n**NOTE**: Le captcha se fait
 
 } 
 
-if(r.emoji.name === "0⃣") {
-
-r.remove(message.author)
-
-resp += "0";
-
-m.edit(`Entre le code donné\n\n**Code:${resp}**\n\n**NOTE**: Le captcha se fait comme ceci: somme et les trois chiffres sans espaces et sans guillemets.`, attachment) 
-
-} 
-
 if(r.emoji.name === "1⃣") {
 
 r.remove(message.author)
