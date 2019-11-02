@@ -197,7 +197,7 @@ collect.stop();
 
 r.remove(message.author)
 
-if(tentatives == 0){
+if(tentatives < 1){
 
 //il se fait kick
 message.channel.send("kick");
