@@ -196,7 +196,7 @@ if(r.emoji.name === "checkMark") {
 
 if(resp === result) {
 
-m.edit(`${this.client.findEmoteByName("checkmark")} ${!u ? message.author : u} Captcha validé !`) 
+m.edit(`${this.client.findEmoteByName("checkMark")} ${!u ? message.author : u} Captcha validé !`, attachment) 
 
 m.clearReactions();
 
@@ -208,7 +208,7 @@ r.remove(!u ? message.author : u)
 
 if(tentatives == 1){
 
-m.edit(`${this.client.findEmoteByName("wrongMark")} ${!u ? message.author : u} Code faux ! Le code était **${result}**`) 
+m.edit(`${this.client.findEmoteByName("wrongMark")} ${!u ? message.author : u} Code faux ! Le code était **${result}**`, attachment) 
 
 m.clearReactions();
 
@@ -218,7 +218,7 @@ collect.stop();
 
 tentatives = tentatives - 1;
 
-m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\nStatut: Code faux, ${tentatives} tentatives restantes.\n\n**NOTE**: Le captcha se fait comme ceci: somme et les trois chiffres sans espaces et sans guillemets.`, attachment) 
+m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\nStatut: Code faux, ${tentatives} tentatives restantes.\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.`, attachment) 
 
 } 
 
