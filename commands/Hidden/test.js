@@ -35,7 +35,9 @@ const background = await Canvas.loadImage("Images/background.png");
 
 ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
-ctx.font = this.client.applyText(canvas, `${firstNumber} + ${secondNumber} = ? + "${thirdNumber}"`)   
+ctx.font = '15px "Visitor2"';
+
+ctx.font = this.client.applyText(canvas, `${firstNumber} + ${secondNumber} = ? + "${thirdNumber}"`)
 
 ctx.fillStyle = "#0d1bde";
 
