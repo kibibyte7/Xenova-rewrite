@@ -83,7 +83,7 @@ class Xenova extends Client {
   
   postCaptcha(member){
 
-  const cmd = require("commands/Hidden/captcha.js")
+  const cmd = require("./commands/Hidden/captcha.js")
 
   const captcha = new cmd(this)
 
