@@ -43,7 +43,11 @@ ctx.fillText(`${firstNumber} + ${secondNumber} = ? + "${thirdNumber}"`, canvas.w
 
 const attachment = new Discord.Attachment(canvas.toBuffer(), 'captcha.png'); 
 
-message.channel.send("", attachment) 
+message.channel.send("Entre le code donné\n\n**Note: Le cpatcha se fait comme ceci: somme et les trois chiffres sans espaces et sans guillemets", attachment).then(m => {
+
+m.react("one")
+
+}) 
 
 } 
 
