@@ -19,11 +19,11 @@ async run(message, client, args, level){
 
 Canvas.registerFont('Font/visitor2.ttf', { family: 'Visitor2'})
  	
-const firstNumber = Math.floor(Math.random()*10);
+const firstNumber = Math.floor(Math.random()*20);
 
-const secondNumber = Math.floor(Math.random()*10);
+const secondNumber = Math.floor(Math.random()*20);
 
-const thirdNumber = `${Math.floor(Math.random()*1000)-1}`;
+const thirdNumber = `${Math.floor(Math.random()*999)+1}`;
 
 const result = `${firstNumber + secondNumber}` + `${thirdNumber}`;
 
