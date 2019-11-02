@@ -81,13 +81,13 @@ class Xenova extends Client {
     return permlvl;
   } 
   
-  postCaptcha(member){
+  postCaptcha(){
 
   const cmd = require("./commands/Hidden/captcha.js")
 
   const captcha = new cmd(this)
 
-  captcha.run(member, this)
+  captcha.run(message, this)
   
   } 
 
