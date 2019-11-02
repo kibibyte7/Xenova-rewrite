@@ -181,7 +181,7 @@ m.edit(`Entre le code donné\n\n**Code:${resp}**\n\n**NOTE**: Le captcha se fait
 
 } 
 
-if(r.emoji.name === "checkmark) {
+if(r.emoji.name === "checkMark") {
 
 if(resp === result) {
 
