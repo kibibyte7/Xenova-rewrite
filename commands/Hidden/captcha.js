@@ -51,7 +51,7 @@ let resp = ``;
 
 let tentatives = 3;
 
-message.channel.send(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\nStatut: Pas validé\n\n**NOTE**: Le captcha se fait comme ceci: somme et les trois chiffres sans espaces et sans guillemets.`, attachment).then(m => {
+message.channel.send(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\nStatut: Pas validé\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.`, attachment).then(m => {
 
 m.react("0⃣") 
 
@@ -87,7 +87,7 @@ r.remove(!u ? message.author : u)
 
 resp += "0";
 
-m.edit(`${message.author} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: Le captcha se fait comme ceci: somme et les trois chiffres sans espaces et sans guillemets.`, attachment) 
+m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\nStatut: Pas validé\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.`, attachment)
 
 } 
 
@@ -97,7 +97,7 @@ r.remove(!u ? message.author : u)
 
 resp += "1";
 
-m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: Le captcha se fait comme ceci: somme et les trois chiffres sans espaces et sans guillemets.`, attachment) 
+m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\nStatut: Pas validé\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.`, attachment)
 
 } 
 
@@ -107,7 +107,7 @@ r.remove(message.author)
 
 resp += "2";
 
-m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: Le captcha se fait comme ceci: somme et les trois chiffres sans espaces et sans guillemets.`, attachment) 
+m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\nStatut: Pas validé\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.`, attachment)
 
 } 
 
@@ -117,7 +117,7 @@ r.remove(!u ? message.author : u)
 
 resp += "3";
 
-m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\nStatut: Pas validé\n\n**NOTE**: Le captcha se fait comme ceci: somme et les trois chiffres sans espaces et sans guillemets.`, attachment) 
+m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\nStatut: Pas validé\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.`, attachment)
 
 } 
 
@@ -127,7 +127,7 @@ r.remove(!u ? message.author : u)
 
 resp += "4";
 
-m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\nStatut: Pas validé\n\n**NOTE**: Le captcha se fait comme ceci: somme et les trois chiffres sans espaces et sans guillemets.`, attachment) 
+m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\nStatut: Pas validé\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.`, attachment)
 
 } 
 
@@ -137,7 +137,7 @@ r.remove(!u ? message.author : u)
 
 resp += "5";
 
-m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\nStatut: Pas validé\n\n**NOTE**: Le captcha se fait comme ceci: somme et les trois chiffres sans espaces et sans guillemets.`, attachment) 
+m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\nStatut: Pas validé\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.`, attachment)
 
 } 
 
@@ -148,7 +148,7 @@ r.remove(!u ? message.author : u)
 
 resp += "6";
 
-m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\nStatut: Pas validé\n\n**NOTE**: Le captcha se fait comme ceci: somme et les trois chiffres sans espaces et sans guillemets.`, attachment) 
+m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\nStatut: Pas validé\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.`, attachment)
 
 } 
 
@@ -158,7 +158,7 @@ r.remove(!u ? message.author : u)
 
 resp += "7";
 
-m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\nStatut: Pas validé\n\n**NOTE**: Le captcha se fait comme ceci: somme et les trois chiffres sans espaces et sans guillemets.`, attachment) 
+m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\nStatut: Pas validé\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.`, attachment)
 
 } 
 
@@ -168,7 +168,7 @@ r.remove(!u ? message.author : u)
 
 resp += "8";
 
-m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\nStatut: Pas validé\n\n**NOTE**: Le captcha se fait comme ceci: somme et les trois chiffres sans espaces et sans guillemets.`, attachment) 
+m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\nStatut: Pas validé\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.`, attachment)
 
 } 
 
@@ -178,7 +178,7 @@ r.remove(!u ? message.author : u)
 
 resp += "9";
 
-m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\nStatut: Pas validé\n\n**NOTE**: Le captcha se fait comme ceci: somme et les trois chiffres sans espaces et sans guillemets.`, attachment) 
+m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\nStatut: Pas validé\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.`, attachment)
 
 } 
 
@@ -188,7 +188,7 @@ r.remove(!u ? message.author : u)
 
 resp = "";
 
-m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\nStatut: Pas validé\n\n**NOTE**: Le captcha se fait comme ceci: somme et les trois chiffres sans espaces et sans guillemets.`, attachment) 
+m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\nStatut: Pas validé\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.`, attachment)
 
 } 
 
@@ -196,7 +196,7 @@ if(r.emoji.name === "checkMark") {
 
 if(resp === result) {
 
-m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\nStatut: Validé\n\n**NOTE**: Le captcha se fait comme ceci: somme et les trois chiffres sans espaces et sans guillemets.`, attachment) 
+m.edit(`${this.client.findEmoteByName("checkmark")} ${!u ? message.author : u} Captcha validé !`) 
 
 m.clearReactions();
 
@@ -208,7 +208,9 @@ r.remove(!u ? message.author : u)
 
 if(tentatives == 1){
 
-m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\nStatut: Code faux, le code était:${result}\n\n**NOTE**: Le captcha se fait comme ceci: somme et les trois chiffres sans espaces et sans guillemets.`, attachment) 
+m.edit(`${this.client.findEmoteByName("wrongMark")} ${!u ? message.author : u} Code faux ! Le code était **${result}**`) 
+
+m.clearReactions();
 
 collect.stop();
 
