@@ -58,19 +58,15 @@ r.remove(message.author);
 
 con.query(`UPDATE inventory SET guildname = '${me[0].guildname}', guildowner = ${me[0].guildowner}, guildgrade = "Membre" WHERE id = ${mention.user.id}`) 
 
-setTimeout(() => {
-
 con.query(`SELECT * FROM inventory WHERE guildname = ${me[0].guildname}`,(err, guilde) => {
 
 for(var i in guilde){
 
-con.query(`UPDATE inventory SET guildmembers = ${me[0].guildmembers+1}, guildmaxmembers = ${me[0].guildmaxmembers}, guildlevel = ${me[0].guildlevel}, guildxp = ${me[0].guildxp}, guildtotalxp = ${me[0].guildtotalxp}, guildvictory = ${me[0].guildvictory}, guilddefeat = ${me[0].guilddefeat} WHERE id = ${guilde[i].id}`) 
+isNaN(i) ? "" : con.query(`UPDATE inventory SET guildmembers = ${me[0].guildmembers+1}, guildmaxmembers = 10, guildlevel = ${me[0].guildlevel}, guildxp = ${me[0].guildxp}, guildtotalxp = ${me[0].guildtotalxp}, guildvictory = ${me[0].guildvictory}, guilddefeat = ${me[0].guilddefeat} WHERE id = ${guilde[i].id}`) 
                 
 } 
 
 })
- 
-}, 1000)
 
 m.edit(`${check} ${mention} a rejoint: **${me[0].guildname}**`)
  
