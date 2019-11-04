@@ -21,12 +21,14 @@ let mention = message.mentions.members.first();
 
 if(!mention) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Mentionne un utilisateur.`); 
 
+//me
 con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, me) => {
 
 if(me.length == 0) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Tu n'es pas inscrit dans le jeu. Fais \`${this.client.config.defaultSettings.prefix}i\``) 
 
 if(me[0].guildname === "Non défini") return message.channel.send(":x: Tu as pas de guilde.");
-	 	  	 	
+
+//you	 	  	 	
 con.query(`SELECT * FROM inventory WHERE id = ${mention.user.id}`, (err, player) => {
 	  
 if(player.length == 0) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Cet utilisateur n'est pas inscrit dans le jeu.`) 
@@ -34,7 +36,8 @@ if(player.length == 0) return message.channel.send(`${this.client.emojis.find("n
 if(player[0].guildname !== "Non défini") return message.channel.send(":x: Tu as déjà une guilde.");
 	 	
 if(me[0].guildmembers == me[0].guildmaxmembers) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Ta guilde a atteint son nombre maximum de personnes.`)
- 	 
+
+//Confirmation	 
 message.channel.send(`${this.client.emojis.find("name", "typing")} ${mention}, ${message.author.tag} Souhaite que tu rejoigne sa guilde, clique sur les réactions pour accepter ou refuser.`).then(m => {
 
 m.react(check)
@@ -51,7 +54,7 @@ if(r.emoji.name == check.name){
 	     		
 r.remove(message.author);
 
-con.query(`UPDATE inventory SET guildname = '${me[0].guildname}', guildowner = ${me[0].ownerid}, guildgrade = "Membre" WHERE id = ${mention.user.id}`) 
+con.query(`UPDATE inventory SET guildname = '${me[0].guildname}', guildowner = ${me[0].guildowner}, guildgrade = "Membre" WHERE id = ${mention.user.id}`) 
 
 setTimeout(() => {
 
