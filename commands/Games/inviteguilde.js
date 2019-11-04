@@ -33,8 +33,8 @@ con.query(`SELECT * FROM inventory WHERE id = ${mention.user.id}`, (err, player)
 	  
 if(player.length == 0) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Cet utilisateur n'est pas inscrit dans le jeu.`) 
 
-if(player[0].guildname !== "null") return message.channel.send(":x: Cet utilisateur a déjà une guilde.");
-	 	
+if(player[0].guildname !== null){
+
 if(me[0].guildmembers == me[0].guildmaxmembers) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Ta guilde a atteint son nombre maximum de personnes.`)
 
 //Confirmation	 
@@ -84,11 +84,17 @@ m.clearReactions();
 
 collect.stop();
 
+}  
+	
+}) 
+	 	
+}) 
+
+} else {
+
+message.channel.send(":x: Cet utilisateur a déjà une guilde.");
+	 	
 } 
-	 	
-}) 
-	 	
-}) 
 
 }) 
 
