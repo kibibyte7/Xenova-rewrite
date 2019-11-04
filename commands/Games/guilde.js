@@ -164,6 +164,8 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, playe
 
                 let u = this.client.users.find(x => x.id === guilde[i].id)
 
+                if(!u) return;
+
                 resp += `${u.username} - **Grade: ${guilde[i].guildgrade}**\n`
 
 		} 
