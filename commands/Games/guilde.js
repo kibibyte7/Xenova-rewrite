@@ -58,12 +58,12 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, playe
 	 	}})
 
 		})
- 
+                
 	 	} 
 
                 if(args[0] === "toplvl"){
 
-                con.query(`SELECT * FROM inventory WHERE guildowner = ${player[0].guildowner} ORDER BY cast (niveau as SIGNED) DESC LIMIT 50`, (err, member) => {
+                con.query(`SELECT * FROM inventory ORDER BY cast (niveau as SIGNED) DESC LIMIT 50 WHERE guildowner = ${player[0].guildowner}`, (err, member) => {
 		
 		let resp = ``;
 
@@ -162,7 +162,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, playe
 
 		for(var i in rows) {
 
-                if(isNaN(i)) return;
+                if(isNaN(i)) return console.log(i);
 
                 let u = this.client.users.find(x => x.id === rows[i].id)
 
