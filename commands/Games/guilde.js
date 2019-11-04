@@ -61,6 +61,31 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, playe
                 
 	 	} 
 
+		if(args[0] === "list"){
+		
+		let resp = ``;
+                
+		con.query(`SELECT * FROM inventory WHERE guildowner = ${player[0].guildowner}`, (err, guilde) => {
+
+		for(var i in guilde) {
+
+                let u = this.client.users.find(x => x.id === guilde[i].id)
+
+                if(!u) return;
+
+                resp += `${u.username} - **Grade: ${guilde[i].guildgrade}**\n`
+
+		} 
+
+		message.channel.send({embed:{
+		color:0x010101,
+		title:`Liste des membres dans la guilde: ${guilde[0].guildname}:`, 
+		description:`${resp}`, 
+		timestamp:new Date()
+		}}) 
+		}) 
+                }
+
                 if(args[0] === "toplvl"){
 
                 con.query(`SELECT * FROM inventory ORDER BY cast (niveau as SIGNED) DESC LIMIT 50 WHERE guildowner = ${player[0].guildowner}`, (err, member) => {
@@ -153,35 +178,6 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, playe
                 }) 
 
                 } 
-
-                if(args[0] === "list"){
-		
-		let resp = ``;
-                
-		con.query(`SELECT * FROM inventory WHERE guildowner = ${player[0].guildowner}`, (err, guilde) => {
-
-		for(var i in guilde) {
-
-                let u = this.client.users.find(x => x.id === guilde[i].id)
-
-                if(!u) return;
-
-                resp += `${u.username} - **Grade: ${guilde[i].guildgrade}**\n`
-
-		} 
-
-		message.channel.send({embed:{
-		color:0x010101,
-		title:`Liste des membres dans la guilde: ${guilde[0].guildname}:`, 
-		description:`${resp}`, 
-		timestamp:new Date(), 
-		footer:{
-		icon_url:this.client.user.avatarURL,
-		text:"© Guilde list members | Xenova" 
-		} 
-		}}) 
-		}) 
-                }
 
                 
       }) 
