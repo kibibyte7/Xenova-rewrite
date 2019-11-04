@@ -60,11 +60,11 @@ setTimeout(() => {
 
 con.query(`SELECT * FROM inventory WHERE guildname = ${me[0].guildname}`,(err, guilde) => {
 
-guilde.forEach(function(g){
+for(var i in guilde){
 
-con.query(`UPDATE inventory SET guildmembers = ${me[0].guildmembers+1}, guildmaxmembers = ${me[0].guildmaxmembers}, guildlevel = ${me[0].guildlevel}, guildxp = ${me[0].guildxp}, guildtotalxp = ${me[0].guildtotalxp}, guildvictory = ${me[0].guildvictory}, guilddefeat = ${me[0].guilddefeat} WHERE id = ${g.id}`) 
+con.query(`UPDATE inventory SET guildmembers = ${me[0].guildmembers+1}, guildmaxmembers = ${me[0].guildmaxmembers}, guildlevel = ${me[0].guildlevel}, guildxp = ${me[0].guildxp}, guildtotalxp = ${me[0].guildtotalxp}, guildvictory = ${me[0].guildvictory}, guilddefeat = ${me[0].guilddefeat} WHERE id = ${guilde[i].id}`) 
                 
-}) 
+} 
 
 })
  
