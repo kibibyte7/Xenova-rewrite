@@ -51,7 +51,7 @@ if(r.emoji.name == check.name){
 	     		
 r.remove(message.author);
 
-con.query(`UPDATE inventory SET guildname = '${me[0].guildname}', guildowner = ${me[0].ownerid}, guildgrade = "Membre"`) 
+con.query(`UPDATE inventory SET guildname = '${me[0].guildname}', guildowner = ${me[0].ownerid}, guildgrade = "Membre" WHERE id = ${mention.user.id}`) 
 
 setTimeout(() => {
 
