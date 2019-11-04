@@ -48,7 +48,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, playe
 	 	},
 	 	{
 	 	name:"Nombre de membres:", 
-	 	value:rows[0].guildmembers+"/"+rows[0].guildmaxmember
+	 	value:rows.length+"/"+rows[0].guildmaxmembers
 	 	}
 	 	]
 	 	}}) 
