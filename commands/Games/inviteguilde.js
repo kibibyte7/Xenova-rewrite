@@ -35,6 +35,8 @@ if(player.length == 0) return message.channel.send(`${this.client.emojis.find("n
 
 if(player[0].guildname !== null){
 
+console.log(`${me[0].guildmembers}/${me[0].guildmaxmembers}`)
+
 if(me[0].guildmembers == me[0].guildmaxmembers) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Ta guilde a atteint son nombre maximum de personnes.`)
 
 //Confirmation	 
