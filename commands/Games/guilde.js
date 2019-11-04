@@ -60,17 +60,17 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, playe
 
                 if(args[0] === "toplvl"){
 
-                con.query(`SELECT * FROM inventory WHERE guildname = ${rows[0].guildname} ORDER BY CAST (niveau as SIGNED) DESC LIMIT ${rows.length}`, (err, members) => {
+                con.query(`SELECT * FROM inventory WHERE guildname = ${rows[0].guildname} ORDER BY CAST (niveau as SIGNED) DESC LIMIT 50`, (err, member) => {
 		
 		let resp = ``;
 
-                for(var i in members) {
+                for(var i in member) {
 
                 if(isNaN(i)) return;
 
-                let u = this.client.users.find(x => x.id === members[i].id)
+                let u = this.client.users.find(x => x.id === member[i].id)
 
-                resp += `[${parseInt(i)+1}] - ${u.username} - **Niveau: ${members[i].niveau}**\n`
+                resp += `[${parseInt(i)+1}] - ${u.username} - **Niveau: ${member[i].niveau}**\n`
 
 		} 
 
@@ -93,7 +93,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, playe
 				
 		let resp = ``;
 
-		con.query(`SELECT rep FROM inventory WHERE guildname = ${rows[0].guildname} ORDER BY CAST (rep as SIGNED) DESC LIMIT ${rows.length}`, (err, member) => {
+		con.query(`SELECT rep FROM inventory WHERE guildname = ${rows[0].guildname} ORDER BY CAST (rep as SIGNED) DESC LIMIT 50`, (err, member) => {
 
                 for(var i in member) {
 
@@ -124,7 +124,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, playe
 		
 		let resp = ``;
 
-		con.query(`SELECT niveau FROM inventory WHERE guildname = ${rows[0].guildname} ORDER BY CAST (pui as SIGNED) DESC LIMIT ${rows.length}`, (err, member) => {
+		con.query(`SELECT niveau FROM inventory WHERE guildname = ${rows[0].guildname} ORDER BY CAST (pui as SIGNED) DESC LIMIT 50`, (err, member) => {
 
                 for(var i in member) {
 
@@ -151,7 +151,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, playe
 
                 } 
 
-                if(args[0] === "listmembers"){
+                if(args[0] === "list"){
 		
 		let resp = ``;
 
