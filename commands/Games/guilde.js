@@ -71,9 +71,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, playe
 
                 let u = this.client.users.find(x => x.id === guilde[i].id)
 
-                if(!u) return;
-
-                resp += `${u.username} - **Grade: ${guilde[i].guildgrade}**\n`
+                isNaN(i) ? `` : resp += `${u.username} - **Grade: ${guilde[i].guildgrade}**\n`
 
 		} 
 
@@ -94,11 +92,9 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, playe
 
                 for(var i in member) {
 
-                if(isNaN(i)) return;
-
                 let u = this.client.users.find(x => x.id === member[i].id)
 
-                resp += `[${parseInt(i)+1}] - ${u.username} - **Niveau: ${member[i].niveau}**\n`
+                isNaN(i) ? `` : resp += `[${parseInt(i)+1}] - ${u.username} - **Niveau: ${member[i].niveau}**\n`
 
 		} 
 
@@ -125,11 +121,9 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, playe
 
                 for(var i in member) {
 
-                if(isNaN(i)) return;
-
                 let u = this.client.users.find(x => x.id === member[i].id)
 
-                resp += `[${parseInt(i)+1}] - ${u.username} - **Reps: ${member[i].rep}**\n`
+                isNaN(i) ? `` : resp += `[${parseInt(i)+1}] - ${u.username} - **Reps: ${member[i].rep}**\n`
 
 		} 
 
@@ -156,11 +150,9 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, playe
 
                 for(var i in member) {
 
-                if(isNaN(i)) return;
-
                 let u = this.client.users.find(x => x.id === member[i].id)
 
-                resp += `[${parseInt(i)+1}] - ${u.username} - **Puissance: ${member[i].pui}**\n`
+                isNaN(i) ? `` : resp += `[${parseInt(i)+1}] - ${u.username} - **Puissance: ${member[i].pui}**\n`
 
 		} 
 
