@@ -17,15 +17,11 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, playe
 	  
 	  if(player.length == 0) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} tu n'es pas inscrit dans le jeu fais +i pour commander le jeu.`) 
 	   	 	
-	 	con.query(`SELECT * FROM ${"guilde"+player[0].guildowner} WHERE ownerid = ${player[0].guildowner}`, (err, rows) => {
-	 	
-	 	if(err) {
-	 	if(err.code === 'ER_NO_SUCH_TABLE') return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Tu n'as pas de guilde.`) 
-	 	} 
+	 	con.query(`SELECT * FROM inventory WHERE guildowner = ${player[0].guildowner}`, (err, rows) => {
 	 	
 	 	message.channel.send({embed:{
 	 	color:0x010101,
-	 	title:rows[0].name,
+	 	title:rows[0].guildname,
 	 	thumbnail:{
 	 	url:message.author.avatarURL
 	 	},
@@ -36,28 +32,24 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, playe
 	 	},
 	 	{
 	 	name:"Xp de guilde :", 
-	 	value:rows[0].guildxp
+	 	value:rows[0].guildtotalxp
 	 	},
 	 	{
 	 	name:"Propriétaire :", 
-	 	value:this.client.users.get(rows[0].ownerid).tag
+	 	value:this.client.users.get(rows[0].guildowner).tag
 	 	},
 	 	{
 	 	name:"Nombre de victoires :", 
-	 	value:rows[0].victory
+	 	value:rows[0].guildvictory
 	 	},
 	 	{
 	 	name:"Nombre de défaites :", 
-	 	value:rows[0].defeat
+	 	value:rows[0].guilddefeat
 	 	},
 	 	{
 	 	name:"Nombre de membres:", 
-	 	value:rows[0].members+"/"+rows[0].maxmember
-	 	},
-	 	{
-	 	name:"Ouvert ?", 
-	 	value:rows[0].open === "true" ? "Ouvert" : "Invitation seulement" 
-	 	},
+	 	value:rows[0].guildmembers+"/"+rows[0].guildmaxmember
+	 	}
 	 	]
 	 	}}) 
 	 	
