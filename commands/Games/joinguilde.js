@@ -27,52 +27,61 @@ if(me.length == 0) return message.channel.send(`${this.client.emojis.find("name"
 
 if(me[0].niveau < 40) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Tu n'as pas le niveau pour cette fonction, tu dois être niveau 40.`);
 	  
-if(parseInt(me[0].guilde) !== 0) return message.channel.send(":x: Tu as déjà une guilde.");
+if(me[0].guildname !== "Non défini") return message.channel.send(":x: Tu as déjà une guilde.");
 	 	  	 	
 con.query(`SELECT * FROM inventory WHERE id = ${mention.user.id}`, (err, player) => {
 	  
 if(player.length == 0) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Cet utilisateur n'est pas inscrit dans le jeu.`) 
 
-	 	con.query(`SELECT * FROM ${"guilde"+mention.user.id} WHERE ownerid = ${mention.user.id}`, (err, rows) => {
+	 	con.query(`SELECT * FROM  WHERE ownerid = `, (err, rows) => {
 	 	
-	 	if(rows[0].members == rows[0].maxmember) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Cette guilde a atteint son nombre maximum de personnes.`)
+	 	if(player[0].guildmembers == player[0].guildmaxmembers) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Cette guilde a atteint son nombre maximum de personnes.`)
  	 
- 	 if(rows[0].open !== "true") return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Tu peux rejoindre cette guilde uniquement par invitation.`) 
- 	 	
-	 	if(err) {
-	 	if(err.code === 'ER_NO_SUCH_TABLE') return message.channel.send(`Cet utilisateur n'est pas le owner d'une guilde ou n'en a pas.`) 
-	 	} 
-	 	
 	 	message.channel.send(`${this.client.emojis.find("name", "typing")} ${mention}, ${message.author.tag} Souhaite rejoindre ta guilde, clique sur les réactions pour accepter ou refuser.`).then(m => {
+
 	 	m.react(check)
-                setTimeout(() =>{m.react(wrong)}) 
-	  const filter = (reaction, user) => reaction.emoji.name == check.name && user.id == mention.id || reaction.emoji.name == wrong.name && user.id == mention.id;
+
+                setTimeout(() =>{m.react(wrong)}, 1000) 
+
+	        const filter = (reaction, user) => reaction.emoji.name == check.name && user.id == mention.id || reaction.emoji.name == wrong.name && user.id == mention.id;
 	     
-   var collect = m.createReactionCollector(filter)
+                var collect = m.createReactionCollector(filter)
       
 	 	collect.on('collect', r => {
 	     	
- if(r.emoji.name == check.name){
+                if(r.emoji.name == check.name){
 	     		
- r.remove(message.author);
+                r.remove(message.author);
 
- con.query(`UPDATE inventory SET guilde = '${rows[0].name}', guildowner = ${rows[0].ownerid}`) 
+                con.query(`UPDATE inventory SET guildname = '${player[0].guildname}', guildowner = ${player[0].ownerid}, guildgrade = "Membre"`) 
 
- con.query(`UPDATE ${"guilde"+mention.id} SET members = ${parseInt(rows[0].members)+1}`)
+                setTimeout(() => {
+
+                con.query(`SELECT * FROM inventory WHERE guildname = ${player[0].guildname}`,(err, guilde) => {
+
+                guilde.forEach(function(g){
+
+                con.query(`UPDATE inventory SET guildmembers = ${player[0].guildmembers+1}, guildmaxmembers = ${player[0].guildmaxmembers}, guildlevel = ${player[0].guildlevel}, guildxp = ${player[0].guildxp}, guildtotalxp = ${player[0].guildtotalxp}, guildvictory = ${player[0].guildvictory}, guilddefeat = ${player[0].guilddefeat} WHERE id = ${g.id}`) 
+                
+                }) 
+
+                })
  
- m.edit(`${check} ${message.author} a rejoint **${rows[0].name}**`)
- 
- m.clearReactions()
+                }, 1000)
 
- collect.stop();
+                m.edit(`${check} ${message.author} a rejoint **${player[0].guildname}**`)
+ 
+                m.clearReactions()
+
+                collect.stop();
  	
-} else {
+                } else {
 
-m.edit(`${mention.user.tag} `) 
+                m.edit(`${wrong} ${message.author.id} n'a pas été dans la guilde: **${player[0].guildname}**`) 
 
-m.clearReactions();
+                m.clearReactions();
 
-collect.stop();
+                collect.stop();
 
 } 
 	 	
