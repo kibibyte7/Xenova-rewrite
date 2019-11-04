@@ -37,7 +37,7 @@ if(player[0].guildname !== null){
 
 console.log(`${me[0].guildmembers}/${me[0].guildmaxmembers}`)
 
-if(me[0].guildmembers == me[0].guildmaxmembers) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Ta guilde a atteint son nombre maximum de personnes.`)
+if(me[0].guildmembers == 10) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Ta guilde a atteint son nombre maximum de personnes.`)
 
 //Confirmation	 
 message.channel.send(`${this.client.emojis.find("name", "typing")} ${mention}, ${message.author.tag} Souhaite que tu rejoigne sa guilde, clique sur les réactions pour accepter ou refuser.`).then(m => {
