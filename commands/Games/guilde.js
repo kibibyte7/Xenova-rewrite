@@ -158,21 +158,21 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, playe
 		
 		let resp = ``;
                 
-		con.query(`SELECT * FROM inventory WHERE guildowner = ${player[0].guildowner}`, (err, rows) => {
+		con.query(`SELECT * FROM inventory WHERE guildowner = ${player[0].guildowner}`, (err, guilde) => {
 
-		for(var i in rows) {
+		for(var i in guilde) {
 
-                if(isNaN(i)) return console.log(i);
+                if(isNaN(i)) return;
 
-                let u = this.client.users.find(x => x.id === rows[i].id)
+                let u = this.client.users.find(x => x.id === guilde[i].id)
 
-                resp += `${u.username} - **Grade: ${rows[i].guildgrade}**\n`
+                resp += `${u.username} - **Grade: ${guilde[i].guildgrade}**\n`
 
 		} 
 
 		message.channel.send({embed:{
 		color:0x010101,
-		title:`Liste des membres dans la guilde: ${rows[0].guildname}:`, 
+		title:`Liste des membres dans la guilde: ${guilde[0].guildname}:`, 
 		description:`${resp}`, 
 		timestamp:new Date(), 
 		footer:{
