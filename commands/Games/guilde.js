@@ -63,7 +63,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, playe
 
                 if(args[0] === "toplvl"){
 
-                con.query(`SELECT * FROM inventory WHERE guildname = ${player[0].guildowner} ORDER BY CAST (niveau as SIGNED) DESC LIMIT 50`, (err, member) => {
+                con.query(`SELECT * FROM inventory WHERE guildname = ${player[0].guildname} ORDER BY CAST (niveau as SIGNED) DESC LIMIT 50`, (err, member) => {
 		
 		let resp = ``;
 
@@ -96,7 +96,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, playe
 				
 		let resp = ``;
 
-		con.query(`SELECT * FROM inventory WHERE guildname = ${player[0].guildowner} ORDER BY CAST (rep as SIGNED) DESC LIMIT 50`, (err, member) => {
+		con.query(`SELECT * FROM inventory WHERE guildname = ${player[0].guildname} ORDER BY CAST (rep as SIGNED) DESC LIMIT 50`, (err, member) => {
 
                 for(var i in member) {
 
@@ -127,7 +127,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, playe
 		
 		let resp = ``;
 
-		con.query(`SELECT * FROM inventory WHERE guildname = ${player[0].guildowner} ORDER BY CAST (pui as SIGNED) DESC LIMIT 50`, (err, member) => {
+		con.query(`SELECT * FROM inventory WHERE guildname = ${player[0].guildname} ORDER BY CAST (pui as SIGNED) DESC LIMIT 50`, (err, member) => {
 
                 for(var i in member) {
 
@@ -158,7 +158,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, playe
 		
 		let resp = ``;
                 
-		con.query(`SELECT * FROM inventory WHERE guildname = ${player[0].guildowner}`, (err, rows) => {
+		con.query(`SELECT * FROM inventory WHERE guildname = ${player[0].guildname}`, (err, rows) => {
 
 		for(var i in rows) {
 
