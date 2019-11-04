@@ -19,10 +19,10 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, playe
 	  
 	  if(player.length == 0) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} tu n'es pas inscrit dans le jeu fais +i pour commander le jeu.`) 
 	   	 	
-	 	con.query(`SELECT * FROM inventory WHERE guildowner = ${player[0].guildowner}`, (err, rows) => {
-	 	
                 if(args[0] === "info"){
 
+		con.query(`SELECT * FROM inventory WHERE guildowner = ${player[0].guildowner}`, (err, rows) => {
+	 	
 	 	message.channel.send({embed:{
 	 	color:0x010101,
 	 	title:rows[0].guildname,
@@ -55,12 +55,15 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, playe
 	 	value:rows.length+"/"+rows[0].guildmaxmembers
 	 	}
 	 	]
-	 	}}) 
+	 	}})
+
+		})
+ 
 	 	} 
 
                 if(args[0] === "toplvl"){
 
-                con.query(`SELECT * FROM inventory WHERE guildname = ${rows[0].guildname} ORDER BY CAST (niveau as SIGNED) DESC LIMIT 50`, (err, member) => {
+                con.query(`SELECT * FROM inventory WHERE guildname = ${player[0].guildowner} ORDER BY CAST (niveau as SIGNED) DESC LIMIT 50`, (err, member) => {
 		
 		let resp = ``;
 
@@ -93,7 +96,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, playe
 				
 		let resp = ``;
 
-		con.query(`SELECT rep FROM inventory WHERE guildname = ${rows[0].guildname} ORDER BY CAST (rep as SIGNED) DESC LIMIT 50`, (err, member) => {
+		con.query(`SELECT * FROM inventory WHERE guildname = ${player[0].guildowner} ORDER BY CAST (rep as SIGNED) DESC LIMIT 50`, (err, member) => {
 
                 for(var i in member) {
 
@@ -124,7 +127,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, playe
 		
 		let resp = ``;
 
-		con.query(`SELECT niveau FROM inventory WHERE guildname = ${rows[0].guildname} ORDER BY CAST (pui as SIGNED) DESC LIMIT 50`, (err, member) => {
+		con.query(`SELECT * FROM inventory WHERE guildname = ${player[0].guildowner} ORDER BY CAST (pui as SIGNED) DESC LIMIT 50`, (err, member) => {
 
                 for(var i in member) {
 
@@ -154,6 +157,8 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, playe
                 if(args[0] === "list"){
 		
 		let resp = ``;
+                
+		con.query(`SELECT * FROM inventory WHERE guildname = ${player[0].guildowner}`, (err, rows) => {
 
 		for(var i in rows) {
 
@@ -175,11 +180,8 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, playe
 		text:"© Guilde list members | Xenova" 
 		} 
 		}}) 
-
-                } 
-
-
-	 	}) 
+		}) 
+                }
 
                 
       }) 
