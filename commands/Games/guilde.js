@@ -15,8 +15,6 @@ run(message, args, level, con) {
 
 if(args.join(" ").length == 0) return message.channel.send(`${this.client.findEmoteByName("wrongMark")} Entre une option: \`info, toplvl, to prep, toppui, list\``) 
 
-let resp = ``;
-
 con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, player) => {
 	  
 	  if(player.length == 0) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} tu n'es pas inscrit dans le jeu fais +i pour commander le jeu.`) 
@@ -62,15 +60,17 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, playe
 
                 if(args[0] === "toplvl"){
 
-                con.query(`SELECT niveau FROM inventory WHERE guildname = ${rows[0].guildname} ORDER BY CAST (niveau as SIGNED) DESC LIMIT ${rows.length}`, (err, member) => {
+                con.query(`SELECT * FROM inventory WHERE guildname = ${rows[0].guildname} ORDER BY CAST (niveau as SIGNED) DESC LIMIT ${rows.length}`, (err, members) => {
+		
+		let resp = ``;
 
-                for(var i in member) {
+                for(var i in members) {
 
                 if(isNaN(i)) return;
 
-                let u = this.client.users.find(x => x.id === member[i].id)
+                let u = this.client.users.find(x => x.id === members[i].id)
 
-                resp += `[${parseInt(i)+1}] - ${u.username} - **Niveau: ${member[i].niveau}**\n`
+                resp += `[${parseInt(i)+1}] - ${u.username} - **Niveau: ${members[i].niveau}**\n`
 
 		} 
 
@@ -90,7 +90,9 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, playe
                 } 
                 
                 if(args[0] === "toprep"){
-		
+				
+		let resp = ``;
+
 		con.query(`SELECT rep FROM inventory WHERE guildname = ${rows[0].guildname} ORDER BY CAST (rep as SIGNED) DESC LIMIT ${rows.length}`, (err, member) => {
 
                 for(var i in member) {
@@ -120,6 +122,8 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, playe
                 
                 if(args[0] === "toppui"){
 		
+		let resp = ``;
+
 		con.query(`SELECT niveau FROM inventory WHERE guildname = ${rows[0].guildname} ORDER BY CAST (pui as SIGNED) DESC LIMIT ${rows.length}`, (err, member) => {
 
                 for(var i in member) {
@@ -149,6 +153,8 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, playe
 
                 if(args[0] === "listmembers"){
 		
+		let resp = ``;
+
 		for(var i in rows) {
 
                 if(isNaN(i)) return;
