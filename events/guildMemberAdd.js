@@ -74,13 +74,13 @@ module.exports = class {
     ctx.fillStyle = '#ffffff';
     ctx.fillText('Bienvenue sur le serveur,', canvas.width / 3, canvas.height / 3.7);
 
-    ctx.font = this.client.applyText(canvas, `${member.user.displayName}`) && '60px NFS';
+    ctx.font = this.client.applyText(canvas, `${member.user.displayName}`) && '50px NFS';
     ctx.fillStyle = '#ffffff';
     ctx.fillText(member.displayName, canvas.width / 3, canvas.height / 1.8);
     
-    ctx.font = `Amuses toi bien, nous sommes ${member.guild.members.size} Membres !` && '15px NFS';
+    ctx.font = `Amuses toi bien, nous sommes ${member.guild.members.size} Membres !` && '20px NFS';
     ctx.fillStyle = '#ffffff';
-    ctx.fillText(`Amuses toi bien, nous sommes ${member.guild.members.size} Membres !`, canvas.width / 3, canvas.height / 1.3);
+    ctx.fillText(`Amuses toi bien, nous sommes ${member.guild.members.size} Membres !`, canvas.width / 3, canvas.height / 1.1);
 
     ctx.beginPath();
 
