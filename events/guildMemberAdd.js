@@ -80,7 +80,7 @@ module.exports = class {
     
     ctx.font = `Amuses toi bien, nous sommes ${member.guild.members.size} Membres !` && '25px NFS';
     ctx.fillStyle = '#ffffff';
-    ctx.fillText(member.displayName, canvas.width / 2.9, canvas.height / 0.6);
+    ctx.fillText(member.displayName, canvas.width / 2.9, canvas.height / 1);
 
     ctx.beginPath();
 
