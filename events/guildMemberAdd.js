@@ -70,13 +70,13 @@ module.exports = class {
 
     ctx.strokeRect(0, 0, canvas.width, canvas.height);
     
-    ctx.font = '28px NFS';
+    ctx.font = '25px NFS';
     ctx.fillStyle = '#ffffff';
-    ctx.fillText('Bienvenue sur le serveur,', canvas.width / 2.25, canvas.height / 3.5);
+    ctx.fillText('Bienvenue sur le serveur,', canvas.width / 2.85, canvas.height / 3.5);
 
     ctx.font = this.client.applyText(canvas, `${member.user.displayName}`) && '60px NFS';
     ctx.fillStyle = '#ffffff';
-    ctx.fillText(member.displayName, canvas.width / 2.25, canvas.height / 1.8);
+    ctx.fillText(member.displayName, canvas.width / 2.85, canvas.height / 1.8);
 
     ctx.beginPath();
 
