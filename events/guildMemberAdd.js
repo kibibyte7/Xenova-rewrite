@@ -56,6 +56,8 @@ module.exports = class {
     
     if(rows.length == 0) return;
        
+    const canvas = Canvas.createCanvas(700, 250);
+	
     const ctx = canvas.getContext('2d');
     
     canvas.registerFont('Font/NFS.ttf', {family:"NFS"});
