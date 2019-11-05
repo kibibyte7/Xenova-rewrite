@@ -56,7 +56,7 @@ module.exports = class {
     
     if(rows.length == 0) return;
        
-    const canvas = Canvas.createCanvas(700, 250);
+    const canvas = Canvas.createCanvas(900, 250);
 	
     const ctx = canvas.getContext('2d');
     
@@ -74,7 +74,7 @@ module.exports = class {
     ctx.fillStyle = '#ffffff';
     ctx.fillText('Bienvenue sur le serveur,', canvas.width / 3, canvas.height / 3.7);
 
-    ctx.font = this.client.applyText(canvas, `${member.user.displayName}`) && '40px NFS';
+    ctx.font = this.client.applyText(canvas, `${member.user.displayName}`) && '35px NFS';
     ctx.fillStyle = '#ffffff';
     ctx.fillText(member.displayName, canvas.width / 3, canvas.height / 1.8);
     
