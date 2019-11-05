@@ -60,7 +60,7 @@ module.exports = class {
 	
     const ctx = canvas.getContext('2d');
     
-    canvas.registerFont('Font/NFS.ttf', {family:"NFS"});
+    Canvas.registerFont('Font/NFS.ttf', {family:"NFS"});
 
     const background = await Canvas.loadImage('Images/joinleave.jpg');
     
