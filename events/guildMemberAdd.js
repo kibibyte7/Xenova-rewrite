@@ -52,7 +52,7 @@ module.exports = class {
     
     }) 
     
-    con.query(`SELECT * FROM settings WHERE guild_id = ${member.guild.id}`, (err, rows) => {
+    con.query(`SELECT * FROM settings WHERE guild_id = ${member.guild.id}`, async (err, rows) => {
     
     if(rows.length == 0) return;
        
