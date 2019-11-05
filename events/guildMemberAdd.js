@@ -78,9 +78,9 @@ module.exports = class {
     ctx.fillStyle = '#ffffff';
     ctx.fillText(member.displayName, canvas.width / 2.8, canvas.height / 1.8);
     
-    ctx.font = `Amuses toi bien, nous sommes ${member.guild.members.size} Membres !` && '18px NFS';
+    ctx.font = `Amuses toi bien, nous sommes ${member.guild.members.size} Membres !` && '16px NFS';
     ctx.fillStyle = '#ffffff';
-    ctx.fillText(`Amuses toi bien, nous sommes ${member.guild.members.size} Membres !`, canvas.width / 2.8, canvas.height / 1.4);
+    ctx.fillText(`Amuses toi bien, nous sommes ${member.guild.members.size} Membres !`, canvas.width / 2.8, canvas.height / 1.2);
 
     ctx.beginPath();
 
