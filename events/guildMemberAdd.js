@@ -76,7 +76,7 @@ module.exports = class {
 
     ctx.font = this.client.applyText(canvas, `${member.user.displayName}`) && '50px NFS';
     ctx.fillStyle = '#ffffff';
-    ctx.fillText(member.displayName, canvas.width / 2.8, canvas.height / 2.4);
+    ctx.fillText(member.displayName, canvas.width / 2.8, canvas.height / 1.6);
     
     ctx.font = `Amuses toi bien, nous sommes ${member.guild.members.size} Membres !` && '17px NFS';
     ctx.fillStyle = '#ffffff';
