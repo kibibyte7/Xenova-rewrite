@@ -51,7 +51,7 @@ let resp = ``;
 
 let tentatives = 3;
 
-message.channel.send(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.`, attachment).then(m => {
+message.channel.send(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment).then(m => {
 
 m.react("0⃣") 
 
@@ -87,7 +87,7 @@ r.remove(!u ? message.author : u)
 
 resp += "0";
 
-m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.`, attachment)
+m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment)
 
 } 
 
@@ -97,7 +97,7 @@ r.remove(!u ? message.author : u)
 
 resp += "1";
 
-m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.`, attachment)
+m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment)
 
 } 
 
@@ -107,7 +107,7 @@ r.remove(message.author)
 
 resp += "2";
 
-m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.`, attachment)
+m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment)
 
 } 
 
@@ -117,7 +117,7 @@ r.remove(!u ? message.author : u)
 
 resp += "3";
 
-m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.`, attachment)
+m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment)
 
 } 
 
@@ -127,7 +127,7 @@ r.remove(!u ? message.author : u)
 
 resp += "4";
 
-m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.`, attachment)
+m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment)
 
 } 
 
@@ -137,7 +137,7 @@ r.remove(!u ? message.author : u)
 
 resp += "5";
 
-m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.`, attachment)
+m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment)
 
 } 
 
@@ -148,7 +148,7 @@ r.remove(!u ? message.author : u)
 
 resp += "6";
 
-m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.`, attachment)
+m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment)
 
 } 
 
@@ -158,7 +158,7 @@ r.remove(!u ? message.author : u)
 
 resp += "7";
 
-m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.`, attachment)
+m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment)
 
 } 
 
@@ -168,7 +168,7 @@ r.remove(!u ? message.author : u)
 
 resp += "8";
 
-m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.`, attachment)
+m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment)
 
 } 
 
@@ -178,7 +178,7 @@ r.remove(!u ? message.author : u)
 
 resp += "9";
 
-m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.`, attachment)
+m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment)
 
 } 
 
@@ -188,7 +188,7 @@ r.remove(!u ? message.author : u)
 
 resp = "";
 
-m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.`, attachment)
+m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment)
 
 } 
 
@@ -208,7 +208,7 @@ r.remove(!u ? message.author : u)
 
 if(tentatives == 1){
 
-m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\nAvertissement: Code faux, 0 tentatives restantes.\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.`, attachment) 
+m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\nAvertissement: Code faux, 0 tentatives restantes.\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment) 
 
 message.channel.send(`${this.client.findEmoteByName("wrongMark")} ${!u ? message.author : u} Code faux ! Le code était **${result}**`) 
 
@@ -220,7 +220,7 @@ collect.stop();
 
 tentatives = tentatives - 1;
 
-m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\nAvertissement: Code faux, ${tentatives} tentatives restantes.\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.`, attachment) 
+m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\nAvertissement: Code faux, ${tentatives} tentatives restantes.\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment) 
 
 } 
 
