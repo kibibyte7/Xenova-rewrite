@@ -137,7 +137,6 @@ aliases:["h"]
    
    if(this.client.commands.has(command.help.name)){
    	
-				command = this.client.commands.get(command)
 				if(level < this.client.levelCache[command.conf.permLevel]) return;
 				message.channel.send({embed:{
 				color:Math.floor(Math.random() * 16777214) + 1, 
