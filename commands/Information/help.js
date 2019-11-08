@@ -133,7 +133,7 @@ aliases:["h"]
    
    }
    
-   let command = this.client.commands.get(args[0]) || this.client.commands.get(this.client.aliases.get(args[0]));
+   let command = this.client.commands.get(args[0]).help.name || this.client.commands.get(this.client.aliases.get(args[0])).help.name;
    
    if(this.client.commands.has(command)){
    	
