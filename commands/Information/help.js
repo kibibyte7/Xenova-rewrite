@@ -147,7 +147,7 @@ aliases:["h"]
 				}, 
 				fields:[{
 				name:"Description:", 
-				value:command.help.description
+				value:command.help.FRdescription
 				},
 				{
 				name:"Utilisation:",
@@ -155,7 +155,7 @@ aliases:["h"]
 				}, 
 				{
 				name:"Aliases:", 
-				value:command.conf.aliases.length == 0 ? "Pas d'ailias" : command.conf.aliases.join	(", ") 
+				value:command.conf.aliases.length == 0 ? "Pas d'ailias" : command.conf.aliases.join(", ") 
 				},
 				{
 				name:"Note:",
