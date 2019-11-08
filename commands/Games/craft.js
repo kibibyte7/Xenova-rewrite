@@ -24,6 +24,8 @@ if(args[0] === "pioche") {
 		
    console.log(pioches.pioches[rows[0].pickaxe+1].cost)
    
+   if(rows[0].pickaxe == pioches.pioches.length) return message.channel.send(`${wrong} Ta pioche est au niveau maximum.`)
+
    var cost = pioches.pioches[rows[0].pickaxe+1].cost[0]
    
    var nextpioche = pioches.pioches[rows[0].pickaxe+1].name;
@@ -50,8 +52,6 @@ if(args[0] === "pioche") {
 
    const wrong = this.client.emojis.find(e => e.name === "wrongMark")
    
-   if(rows[0].pickaxe == pioches.pioches.length) return message.channel.send(`${wrong} Ta pioche est au niveau maximum.`)
-
    message.channel.send(`${this.client.emojis.find("name", "typing")} ${message.author}, Le prochain niveau de pioche est : **${nextpioche}**\n\n**Coût:**\n- ${wood} Bois\n- ${stone} Pierre\n- ${fer} Fer\n- ${gold} Or\n- ${diamant} Diamants\n- ${emeraude} Émeraudes\n- ${prismes} Prismes-parfaits\n- ${antimatter} Anti-matières\n- ${osrizk} Osrizk\n\n**Clique sur les réactions pour confirmer ou annuler.**`).then(m => {  
    
    function craft() {
