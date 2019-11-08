@@ -146,7 +146,8 @@ if(args[0] === "arme") {
    	m.edit(`${check} ${message.author}, Tu as débloqué l'arme **${nextarme}**`) 
    
    	setTimeout(() => {
-   	con.query(`UPDATE inventory SET wood = ${parseInt(rows[0].wood)-wood}, stone = ${parseInt(rows[0].stone)-stone}, fer = ${parseInt(rows[0].fer)-fer}, gold = ${parseInt(rows[0].gold)-gold}, diament = ${parseInt(rows[0].diament)-diamant}, emeraude = ${parseInt(rows[0].emeraude)-emeraude}, prismes = ${parseInt(rows[0].prismes)-prismes}, antimatter = ${parseInt(rows[0].antimatter)-antimatter},osrizk = ${parseInt(rows[0].osrizk)-osrizk}, weaponlevel = ${parseInt(rows[0].weaponlevel)+1}, attack = ${Math.round(rows[0].attack*1.5)}, pui = ${rows[0].pui+Math.round(rows[0].attack*1.5)+rows[0].defense} WHERE id = ${rows[0].id}`)
+   	con.query(`UPDATE inventory SET wood = ${parseInt(rows[0].wood)-wood}, stone = ${parseInt(rows[0].stone)-stone}, fer = ${parseInt(rows[0].fer)-fer}, gold = ${parseInt(rows[0].gold)-gold}, diament = ${parseInt(rows[0].diament)-diamant}, emeraude = ${parseInt(rows[0].emeraude)-emeraude}, prismes = ${parseInt(rows[0].prismes)-prismes}, antimatter = ${parseInt(rows[0].antimatter)-antimatter}, osrizk = ${parseInt(rows[0].osrizk)-osrizk}, weaponlevel = ${parseInt(rows[0].weaponlevel)+1}, attack = ${Math.round(rows[0].attack*1.2)}} WHERE id = ${rows[0].id}`)
+        con.query(`UPDATE inventory SET pui = ${rows[0].pui+(rows[0].attack+rows[0].défense)} WHERE id = ${rows[0].id}`)
    	}, 2000) 
    	
    } 
