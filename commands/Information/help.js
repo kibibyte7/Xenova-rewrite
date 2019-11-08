@@ -133,7 +133,7 @@ aliases:["h"]
    
    })
    
-   }
+   } else {
    
    let command = this.client.commands.get(args[0]) || this.client.commands.get(this.client.aliases.get(args[0]));
    
@@ -170,7 +170,7 @@ aliases:["h"]
 				}})
 				
    }
-   	
+ } 	
 }) 
 
 } 
