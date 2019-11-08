@@ -46,9 +46,11 @@ if(args[0] === "pioche") {
    
    var osrizk = cost.osrizk == undefined ? 0 : cost.osrizk;
    
-   const check = this.client.emojis.find("name", "checkMark")
+   const check = this.client.emojis.find(e => e.name ==="checkMark")
 
-   const wrong = this.client.emojis.find("name", "wrongMark")
+   const wrong = this.client.emojis.find(e => e.name === "wrongMark")
+   
+   if(rows[0].pickaxe == pioches.pioches.length) return message.channel.send(`${wrong} Ta pioche est au niveau maximum.`)
 
    message.channel.send(`${this.client.emojis.find("name", "typing")} ${message.author}, Le prochain niveau de pioche est : **${nextpioche}**\n\n**Coût:**\n- ${wood} Bois\n- ${stone} Pierre\n- ${fer} Fer\n- ${gold} Or\n- ${diamant} Diamants\n- ${emeraude} Émeraudes\n- ${prismes} Prismes-parfaits\n- ${antimatter} Anti-matières\n- ${osrizk} Osrizk\n\n**Clique sur les réactions pour confirmer ou annuler.**`).then(m => {  
    
@@ -88,13 +90,14 @@ if(args[0] === "pioche") {
    if(antimatter > rows[0].antimatter ) resp += `- Anti-matières: ${antimatter - rows[0].antimatter}\n`
    if(osrizk > rows[0].osrizk) resp += `- Osrizk: ${osrizk - rows[0].osrizk}`
 
-   if(resp !== ``) return m.edit(`Il te manque\n\n${resp}\n\nPour crafter cette pioche.`)
+   if(resp !== ``) return m.edit(`${wrong} ${message.author} Il te manque\n\n${resp}\n\nPour crafter cette pioche.`)
 
    else craft();
    
    m.clearReactions()
 
    collect.stop();
+
    } else {
    
    m.edit(`${wrong} ${message.author} craft annulé.`)
