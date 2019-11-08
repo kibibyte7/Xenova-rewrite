@@ -20,7 +20,7 @@ const check = this.client.emojis.find(e => e.name ==="checkMark")
 
 const wrong = this.client.emojis.find(e => e.name === "wrongMark")
     
-if(rows.length == 0) return message.channel.send(`${wrong} Tu n'es pas entré dans le jeu, fais +i pour t'inscrire.")
+if(rows.length == 0) return message.channel.send(`${wrong} Tu n'es pas entré dans le jeu, fais +i pour t'inscrire.`)
 	  
 if(!args[0] || args.length == 0) return message.channel.send(`${wrong} ${message.author}, spécifié un objet à crafter entre: **pioche, épée, bouclier**`);
 
