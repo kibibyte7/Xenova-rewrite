@@ -133,9 +133,9 @@ aliases:["h"]
    
    }
    
-   let command = this.client.commands.get(args[0]).help.name || this.client.commands.get(this.client.aliases.get(args[0])).help.name;
+   let command = this.client.commands.get(args[0]) || this.client.commands.get(this.client.aliases.get(args[0]));
    
-   if(this.client.commands.has(command)){
+   if(this.client.commands.has(command.help.name)){
    	
 				command = this.client.commands.get(command)
 				if(level < this.client.levelCache[command.conf.permLevel]) return;
