@@ -1,0 +1,38 @@
+{
+epee:[{
+"name":"Main nues", 
+"level": "0"
+},
+{
+"name":"Épée en bois", 
+"level":"1",
+"cost":[{"wood":"200"}]
+}, 
+{
+"name":"Épée en stone", 
+"level":"2",
+"cost":[{"wood":"600", "stone":"400"}]
+}, 
+{
+"name":"Épée en fer", 
+"level":"3",
+"cost":[{"wood":"1400", "stone":"900", "fer":"600"}]
+}, 
+{
+"name":"Épée en or", 
+"level":"4",
+"cost":[{"wood":"2600", "stone":"1700", "fer" :"1500", "gold": "1750"}]
+}, 
+{
+"name":"Épée en diamant", 
+"level":"5",
+"cost":[{"wood":"5700", "stone":"3650", "fer" :"3250", "gold": "2890","diamant":"2670"}]
+}, 
+{
+"name":"Épée en diamant renforcé", 
+"level":"6",
+"cost":[{"wood":"7570", "stone":"5970", "fer" :"4990", "gold": "4643","diamant":"3640","emeraude":"2000"}]
+}
+
+] 
+} 
