@@ -18,7 +18,6 @@ aliases:["h"]
 	 	const language = rows[0].lang
 	 	
 	 	const help_interface = [
-	 	"", 
 	 	this.client.commands.filter(c => c.help.category === "Système").map(cmd => `\`\`${this.client.config.defaultSettings.prefix}${cmd.help.name}\`\` : ${language == "en" ? cmd.help.ENdescription : cmd.help.FRdescription}`).join("\n"), 
 		this.client.commands.filter(c => c.help.category === "Admin").map(cmd => `\`\`${this.client.config.defaultSettings.prefix}${cmd.help.name}\`\` : ${language == "en" ? cmd.help.ENdescription : cmd.help.FRdescription}`).join("\n"), 
 		this.client.commands.filter(c => c.help.category === "Modérateur").map(cmd => `\`\`${this.client.config.defaultSettings.prefix}${cmd.help.name}\`\` : ${language == "en" ? cmd.help.ENdescription : cmd.help.FRdescription}`).join("\n"), 
@@ -48,7 +47,7 @@ aliases:["h"]
 			timestamp:new Date(), 
 			footer:{
 			icon_url:this.client.user.avatarURL,
-			text:`©️ Help | Page: ${page}\${maxpage} | Xenova`
+			text:`©️ Help | Page: ${page}/${maxpage} | Xenova`
 			}
 			}}).then(m => {
 			
@@ -134,6 +133,43 @@ aliases:["h"]
    
    }
    
+   let command = this.client.commands.has(args[0]) || this.client.commands.has(this.client.commands.get(this.client.aliases.get(args[0])));
+   
+   if(this.client.commands.has(command)){
+   	
+				command = this.client.commands.get(command)
+				if(level < this.client.levelCache[command.conf.permLevel]) return;
+				message.channel.send({embed:{
+				color:Math.floor(Math.random() * 16777214) + 1, 
+				author:{
+				name:`Help de la commande: ${command.help.name}`,
+				icon_url:message.author.avatarUrl
+				}, 
+				fields:[{
+				name:"Description:", 
+				value:command.help.description
+				},
+				{
+				name:"Utilisation:",
+				value:settings.prefix+command.help.usage
+				}, 
+				{
+				name:"Aliases:", 
+				value:command.conf.aliases.length == 0 ? "Pas d'ailias" : command.conf.aliases.join	(", ") 
+				},
+				{
+				name:"Note:",
+				value:"Tout ce qui se trouve dans des **<>** sont obligatoires et ce qui se trouve dans des **[]** sont optionnels."
+				}], 
+				timestamp:new Date(), 
+				footer:{
+				icon_url:this.client.user.avatarUrl,
+				text:`© Help ${command.help.name}` 
+				}
+				}})
+				
+   }
+   	
 }) 
 
 } 
