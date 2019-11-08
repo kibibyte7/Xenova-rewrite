@@ -12,7 +12,9 @@ aliases:["h"]
 }
 	
    run(message, args, level, con) {
-	 	
+
+	 	const settings = message.settings
+
 	 	con.query(`SELECT * FROM settings WHERE guild_id = ${message.guild.id}`, (err, rows) => {
 	 	
 	 	const language = rows[0].lang
