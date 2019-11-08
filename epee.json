@@ -32,7 +32,26 @@
 "name":"Épée en diamant renforcé", 
 "level":"6",
 "cost":[{"wood":"7570", "stone":"5970", "fer" :"4990", "gold": "4643","diamant":"3640","emeraude":"2000"}]
-}
-
+}, 
+{
+"name":"Épée en diamant gemmée", 
+"level":"7",
+"cost":[{"wood":"15000", "stone":"13550", "fer" :"12740", "gold": "9990","diamant":"7660","emeraude":"6666","prismes":"250"}]
+}, 
+{
+"name":"Épée en diamant cosmique", 
+"level":"8",
+"cost":[{"wood":"27640", "stone":"23130", "fer" :"20500", "gold": "19930","diamant":"17550","emeraude":"13665","prismes":"450", "antimatter":"250"}]
+}, 
+{
+"name":"Épée en diamant tri-gemmé", 
+"level":"9",
+"cost":[{"wood":"47910", "stone":"39600", "fer" :"35555", "gold": "32910","diamant":"29200","emeraude":"27395","prismes":"800", "antimatter":"500", "osrizk": "250"}]
+}, 
+{
+"name":"Épée en émeraude", 
+"level":"10",
+"cost":[{"wood":"65020", "stone":"59330", "fer" :"58310", "gold": "54730","diamant":"49390","emeraude":"34780","prismes":"1690", "antimatter":"1392", "osrizk": "755"}]
+}, 
 ] 
 } 
