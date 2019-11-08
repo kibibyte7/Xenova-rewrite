@@ -5,7 +5,7 @@ class Craft extends Command {
 constructor(client){
 super(client, {
 name:"craft", 
-description:"Améliorer la pioche", 
+FRdescription:"Améliorer la pioche", 
 category:"Game", 
 usage:"craft <objet>", 
 aliases:["fabriquer"] 
@@ -75,31 +75,26 @@ if(args[0] === "pioche") {
    if(r.emoji.name == check.name){
 	     		
    r.remove(message.author);
- 
-   if(wood > rows[0].wood) m.edit(`${wrong} ${message.author}, il te manque **${wood-rows[0].wood} de bois** pour crafter cette pioche`);
-     
-   else if(stone > rows[0].stone) m.edit(`${wrong} ${message.author}, il te manque **${stone-rows[0].stone} de stone** pour crafter cette pioche`);
-   
-   else if(fer > rows[0].fer) m.edit(`${wrong} ${message.author}, il te manque **${fer-rows[0].fer} de fer** pour crafter cette pioche`);
-   
-   else if(gold > rows[0].gold) m.edit(`${wrong} ${message.author}, il te manque **${gold-rows[0].gold} de gold** pour crafter cette pioche`);
-   
-   else if(diamant > rows[0].diament) m.edit(`${wrong} ${message.author}, il te manque **${diamant-rows[0].diament} de diamants** pour crafter cette pioche`);
-   
-   else if(emeraude > rows[0].emeraude) m.edit(`${wrong} ${message.author}, il te manque **${emeraude-rows[0].emeraude} de émeraudes** pour crafter cette pioche`);
-   
-   else if(prismes > rows[0].primes) m.edit(`${wrong} ${message.author}, il te manque **${prismes-rows[0].prismes} de prismes-parfaits** pour crafter cette pioche`);
-   
-   else if(antimatter > rows[0].antimatter) m.edit(`${wrong} ${message.author}, il te manque **${antimatter-rows[0].antimatter} d'anti-matières** pour crafter cette pioche`);
-   
-   else if(osrizk > rows[0].osrizk) m.edit(`${wrong} ${message.author}, il te manque **${osrizk-rows[0].osrizk} d'osrizk** pour crafter cette pioche`);
-   
+
+   let resp = ``;
+
+   if(wood > rows[0].wood) resp += `- Bois: ${wood - rows[0].wood}\n`
+   if(stone > rows[0].stone) resp += `- Stone: ${stone - rows[0].stone}\n`
+   if(fer > rows[0].fer) resp += `- Fer: ${fer - rows[0].fer}\n`
+   if(gold > rows[0].gold) resp += `- Gold: ${gold - rows[0].gold}\n`
+   if(diamant > rows[0].diament) resp += `- Diamant: ${diamant - rows[0].diament}\n`
+   if(emeraude > rows[0].emeraude) resp += `- Émeraude: ${emeraude - rows[0].emeraude}\n`
+   if(prismes > rows[0].primes) resp += `- Prismes-Parfait: ${prismes - rows[0].prismes}\n`
+   if(antimatter > rows[0].antimatter ) resp += `- Anti-matières: ${antimatter - rows[0].antimatter}\n`
+   if(osrizk > rows[0].osrizk) resp += `- Osrizk: ${osrizk - rows[0].osrizk}`
+
+   if(resp !== ``) return m.edit(`Il te manque\n\n${resp}\n\nPour crafter cette pioche.`)
+
    else craft();
    
    m.clearReactions()
 
    collect.stop();
-   
    } else {
    
    m.edit(`${wrong} ${message.author} craft annulé.`)
