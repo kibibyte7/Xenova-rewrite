@@ -23,6 +23,8 @@ var mention = message.mentions.users.first();
 
 if(!mention) return message.channel.send(`${wrong} Entre une mention.`)
 
+if(mention.id === message.author.id) return message.channel.send(`${wrong} Tu ne peux pas te give des ressources à toi-même.`)
+
 con.query(`SELECT * FROM inventory WHERE id = ${mention.id}`, (err, you) => {
 
 if(you.length == 0) return message.channel.send(`${wrong} Cet utilisateur n'est pas inscrit dans le jeu.`)
