@@ -15,10 +15,14 @@ aliases:["fabriquer"]
 run(message, args, level, con) {
 
 con.query(`SELECT * FROM inventory WHERE id = ${message.author.id} `, (err, rows) => {
-   
-if(rows.length == 0) return message.channel.send("Tu n'es pas entré dans le jeu, fais +i pour t'inscrire.")
+
+const check = this.client.emojis.find(e => e.name ==="checkMark")
+
+const wrong = this.client.emojis.find(e => e.name === "wrongMark")
+    
+if(rows.length == 0) return message.channel.send(`${wrong} Tu n'es pas entré dans le jeu, fais +i pour t'inscrire.")
 	  
-if(!args[0] || args.length == 0) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} ${message.author}, spécifié un objet à crafter entre: **pioche, épée, bouclier**`);
+if(!args[0] || args.length == 0) return message.channel.send(`${wrong} ${message.author}, spécifié un objet à crafter entre: **pioche, épée, bouclier**`);
 
 if(args[0] === "pioche") {
 
@@ -46,11 +50,7 @@ if(args[0] === "pioche") {
    
    var osrizk = cost.osrizk == undefined ? 0 : cost.osrizk;
    
-   const check = this.client.emojis.find(e => e.name ==="checkMark")
-
-   const wrong = this.client.emojis.find(e => e.name === "wrongMark")
-   
-   message.channel.send(`${this.client.emojis.find("name", "typing")} ${message.author}, Le prochain niveau de pioche est : **${nextpioche}**\n\n**Coût:**\n- ${wood} Bois\n- ${stone} Pierre\n- ${fer} Fer\n- ${gold} Or\n- ${diamant} Diamants\n- ${emeraude} Émeraudes\n- ${prismes} Prismes-parfaits\n- ${antimatter} Anti-matières\n- ${osrizk} Osrizk\n\n**Clique sur les réactions pour confirmer ou annuler.**`).then(m => {  
+   message.channel.send(`${this.client.emojis.find(e => e.name === "typing")} ${message.author}, Le prochain niveau de pioche est : **${nextpioche}**\n\n**Coût:**\n- ${wood} Bois\n- ${stone} Pierre\n- ${fer} Fer\n- ${gold} Or\n- ${diamant} Diamants\n- ${emeraude} Émeraudes\n- ${prismes} Prismes-parfaits\n- ${antimatter} Anti-matières\n- ${osrizk} Osrizk\n\n**Clique sur les réactions pour confirmer ou annuler.**`).then(m => {  
    
    function craft() {
    	
