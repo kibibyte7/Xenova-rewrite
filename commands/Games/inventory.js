@@ -190,7 +190,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
         } 
 	} else {
         var pioche = pioches.pioches[rows[0].pickaxe]
-        var epee = epees.epee[] 
+        var epee = epees.epee[rows[0].weaponlevel] 
 	message.channel.send({embed:{
 	author:{
 	name:`Inventaire de ${message.author.tag}`	
