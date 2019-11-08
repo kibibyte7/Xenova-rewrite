@@ -22,9 +22,7 @@ if(!args[0] || args.length == 0) return message.channel.send(`${this.client.emoj
 
 if(args[0] === "pioche") {
 
-   console.log(pioches.pioches.length)
-	
-   if(rows[0].pickaxe == pioches.pioches.length) return message.channel.send(`${wrong} Ta pioche est au niveau maximum.`)
+   if(rows[0].pickaxe+1 == pioches.pioches.length) return message.channel.send(`${wrong} Ta pioche est au niveau maximum.`)
 
    var cost = pioches.pioches[rows[0].pickaxe+1].cost[0]
    
