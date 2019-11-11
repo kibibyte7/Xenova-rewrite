@@ -99,14 +99,6 @@ module.exports = class {
     let channel = member.guild.channels.find("id", rows[0].welcome_id)
 
     if(!channel) return;
-
-    channel.send('', attachment) 
-
-    }) 
-
-    con.query(`SELECT * FROM settings WHERE guild_id = ${member.guild.id}`, (err, rows) => {
-    
-    if(rows.length == 0) return;
     
     let welcome = rows[0].welcome_msg == undefined? '' : rows[0].welcome_msg
     
@@ -118,11 +110,7 @@ module.exports = class {
     
     setTimeout(() => {
 
-    let channel = member.guild.channels.find("id", rows[0].welcome_id)
-
-    if(!channel) return;
-
-    channel.send(w)
+    channel.send(w, attachment) 
     
     }, 250)
 
