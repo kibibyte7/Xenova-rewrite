@@ -1,5 +1,6 @@
 const pokefusion = require("pokefusion-api")
 const Command = require("../../modules/Command.js")
+const puppeteer = require("puppeteer") 
 
 class Pokefusion extends Command {
 constructor(client){
@@ -12,9 +13,13 @@ aliases:[]
 }) 
 } 
 
-run(message, args, level, con) {
+async run(message, args, level, con) {
 
-pokefusion.getRandomFusion("https://www.google.com/").then(res => {
+let browser = await puppeteer.launch({
+ignoreDefaultArgs: ['--disable-extensions'],
+})
+
+pokefusion.getRandomFusion(browser).then(res => {
 console.log(res)
 });
 
