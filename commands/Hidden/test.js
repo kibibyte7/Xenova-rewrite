@@ -1,4 +1,4 @@
-const canvas = require("pokefusion-api")
+const pokefusion = require("pokefusion-api")
 const Command = require("../../modules/Command.js")
 
 class Pokefusion extends Command {
@@ -14,7 +14,7 @@ aliases:[]
 
 run(message, args, level, con) {
 
-console.log(canvas.toDataURL());
+console.log(pokefusion.getRandomFusion());
 
 } 
 }
