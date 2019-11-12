@@ -15,9 +15,7 @@ aliases:[]
 
 async run(message, args, level, con) {
 
-const browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});
-
-pokefusion.getRandomFusion(browser).then(res => {
+await pokefusion.getRandomFusion({args: ['--no-sandbox', '--disable-setuid-sandbox']}).then(res => {
 console.log(res)
 });
 
