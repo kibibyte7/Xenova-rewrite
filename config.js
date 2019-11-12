@@ -10,8 +10,8 @@ const config = {
     oauthSecret: process.env.oauthSecret,
     callbackUrl: process.env.callbackUrl,
     sSecret: process.env.sSecret,
-    domain: "xenova",
-    port: "6666"
+    domain: process.env.domain,
+    port: process.env.port
   },
   permLevels: [
     { level: 0, name: "Utilisateur", check: () => true },
