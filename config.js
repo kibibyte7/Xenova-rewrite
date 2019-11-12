@@ -6,6 +6,13 @@ const config = {
     adminRole: "XenoAdminPerm",
     systemNotice: true
   },
+  dashboard: {
+    oauthSecret: process.env.oauthSecret,
+    callbackUrl: process.env.callbackUrl,
+    sSecret: process.env.sSecret,
+    domain: "localhost",
+    port: "6666"
+  },
   permLevels: [
     { level: 0, name: "Utilisateur", check: () => true },
     {
