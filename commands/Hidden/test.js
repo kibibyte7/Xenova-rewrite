@@ -14,7 +14,9 @@ aliases:[]
 
 run(message, args, level, con) {
 
-console.log(pokefusion.getRandomFusion());
+pokefusion.getRandomFusion("https://www.japeal.com/pkm").then(res => {
+console.log(res)
+});
 
 } 
 }
