@@ -56,7 +56,7 @@ async run() {
 		} 
                 }}) 
 
-        require("../modules/dashboard.js")(this.client);
+        require("../modules/Dashboard.js")(this.client);
 
 	this.client.user.setActivity(`${this.client.config.defaultSettings.prefix}help | ${this.client.guilds.size} servs | ${this.client.users.size} utilisateurs`, {type:"STREAMING"})
 	
