@@ -15,7 +15,7 @@ aliases:[]
 
 run(message, args, level, con) {
 
-pokefusion.getRandomFusion("--no-sandbox").then(res => {
+pokefusion.getRandomFusion().then(res => {
 console.log(res)
 });
 
