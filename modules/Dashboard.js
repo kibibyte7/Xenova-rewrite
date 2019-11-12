@@ -27,7 +27,7 @@ module.exports = client => {
         clientID: client.user.id,
         clientSecret: client.config.dashboard.oauthSecret,
         callbackURL: client.config.dashboard.callbackUrl,
-        scope: ["identity", "guilds"]
+        scope: ["identify", "guilds"]
       },
       (accessToken, refreshToken, profile, done) => {
         process.nextTick(() => done(null, profile));
