@@ -14,7 +14,7 @@ aliases:[]
 
 run(message, args, level, con) {
 
-pokefusion.getRandomFusion("https://www.japeal.com/pkm").then(res => {
+pokefusion.getRandomFusion("https://www.google.com/").then(res => {
 console.log(res)
 });
 
