@@ -15,7 +15,7 @@ aliases:[]
 
 async run(message, args, level, con) {
 
-await pokefusion.getRandomFusion({args: ['--no-sandbox', '--disable-setuid-sandbox']}).then(res => {
+await pokefusion.getRandomFusion("https://www.google.com", {args: ['--no-sandbox', '--disable-setuid-sandbox']}).then(res => {
 console.log(res)
 });
 
