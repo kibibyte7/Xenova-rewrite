@@ -24,7 +24,7 @@ module.exports = client => {
   passport.use(
     new Strategy(
       {
-        clientID: client.appInfo.id,
+        clientID: client.user.id,
         clientSecret: client.config.dashboard.oauthSecret,
         callbackURL: client.config.dashboard.callbackUrl,
         scope: ["identity", "guilds"]
