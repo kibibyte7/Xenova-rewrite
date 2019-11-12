@@ -56,6 +56,8 @@ async run() {
 		} 
                 }}) 
 
+        require("../modules/dashboard.js")(this.client);
+
 	this.client.user.setActivity(`${this.client.config.defaultSettings.prefix}help | ${this.client.guilds.size} servs | ${this.client.users.size} utilisateurs`, {type:"STREAMING"})
 	
 	this.client.logger.log(`${this.client.user.tag} lancé avec succès.`, "ready") 
