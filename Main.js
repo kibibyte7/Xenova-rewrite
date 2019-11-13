@@ -1,6 +1,5 @@
 if (Number(process.version.slice(1).split(".")[0]) < 8) throw new Error("Node 8.0.0 ou version ultérieure requise. Update ton système node.");
 
-
 const { Client, Collection } = require("discord.js");
 const { promisify } = require("util");
 const readdir = promisify(require("fs").readdir);
@@ -13,7 +12,7 @@ const Twit = require("twit")
 const lib = require('lib');
 const pokefusion = lib.Hademar.pokefusion['@0.0.1'];
 const request = require("request") 
-const fs =require("fs") 
+const fs = require("fs") 
 
    var db_config = {
     host:process.env.host, 
@@ -51,7 +50,7 @@ var T = new Twit({
   consumer_secret:      process.env.consumer_secret,
   access_token:         process.env.access_token,
   access_token_secret:  process.env.access_token_secret,
-  timeout_ms:           60*1000,  // optional HTTP request timeout to apply to all requests.
+  timeout_ms:           60000*3,  // optional HTTP request timeout to apply to all requests.
   strictSSL:            true,     // optional - requires SSL certificates to be valid.
 })
 
@@ -218,9 +217,9 @@ class Xenova extends Client {
   
   async tweetFusion(){
   
-  let result = await pokefusion();
+   let result = await pokefusion();
 
-  var download =  function(uri, filename, callback){
+    var download = function(uri, filename, callback){
     request.head(uri, function(err, res, body){
     console.log('content-type:', res.headers['content-type']);
     console.log('content-length:', res.headers['content-length']);
@@ -229,7 +228,7 @@ class Xenova extends Client {
     });
   };
 
-  var image = await download(result.imageUrl, 'pokefusion.png', function(){
+  var image = download(result.imageUrl, 'pokefusion.png', function(){
   console.log("done")
   });
   
