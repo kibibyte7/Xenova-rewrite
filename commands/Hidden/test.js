@@ -1,5 +1,5 @@
 const lib = require('lib');
-const pokefusion = lib.Hademar.pokefusion['@0.0.1'];
+const pokefusion = lib.dan-jordan.pokefusion['@2.2.0'];
 
 const Command = require("../../modules/Command.js")
 
