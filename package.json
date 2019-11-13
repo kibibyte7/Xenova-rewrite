@@ -58,6 +58,7 @@
     "random-number": "0.0.9",
     "random-puppy": "^1.1.0",
     "readline-sync": "^1.4.9", 
+    "react":"^16.11.0", 
     "request": "^2.88.0",
     "snekfetch": "^4.0.0",
     "sodium":"3.0.2", 
