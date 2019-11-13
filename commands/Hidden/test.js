@@ -27,7 +27,7 @@ b64 = code.replace(/^data:image.+;base64,/, '');
 message.channel.send({embed:{
 color:Math.floor(Math.random()* 16777214) + 1,
 title:`Fusion (${res.fusionName})`,
-files:[{attachment:`${} `, name:"fusion.png"}] 
+files:[{attachment:`${b64} `, name:"fusion.png"}] 
 }})
 });
 
