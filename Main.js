@@ -219,22 +219,7 @@ class Xenova extends Client {
   
    let result = await pokefusion();
 
-    var download = function(uri, filename, callback){
-    request.head(uri, function(err, res, body){
-    console.log('content-type:', res.headers['content-type']);
-    console.log('content-length:', res.headers['content-length']);
-
-    request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
-    });
-  };
-
-  download(result.imageUrl, 'pokefusion.png', function(){
-     console.log("done") 
-  }); 
-
-  console.log(`${process.cwd()}`)
-
-  var base64 = await fs.readFileSync(path.resolve(`${process.cwd()}${path.sep}pokefusion.png`), {encoding:"base64"}) 
+   var base64 = await fs.readFileSync(result.imageUrl, {encoding:"base64"}) 
   
   T.post('media/upload', { media_data: base64 }, function (err, data, response) {
   var mediaIdStr = data.media_id_string
