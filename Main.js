@@ -1,5 +1,7 @@
 if (Number(process.version.slice(1).split(".")[0]) < 8) throw new Error("Node 8.0.0 ou version ultérieure requise. Update ton système node.");
 
+import * as React from 'react';
+
 const { Client, Collection } = require("discord.js");
 const { promisify } = require("util");
 const readdir = promisify(require("fs").readdir);
