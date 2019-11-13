@@ -220,9 +220,9 @@ class Xenova extends Client {
   
    let result = await pokefusion();
    
-   var fileUrl = new URL(result.imageUrl);
+   var fileUrl = url.parse(result.imageUrl);
 
-   var base64 = await fs.readFileSync(fileUrl, {encoding:"base64"}) 
+   var base64 = await fs.readFileSync(fileUrl.pathname, {encoding:"base64"}) 
   
   T.post('media/upload', { media_data: base64 }, function (err, data, response) {
   var mediaIdStr = data.media_id_string
