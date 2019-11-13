@@ -18,7 +18,7 @@ async run(message, args, level, con) {
 
 let result = await pokefusion();
 
-this.client.user.startTyping();
+message.channel.startTyping();
 
 message.channel.send({embed:{
 color:Math.floor(Math.random()* 16777214) + 1,
@@ -32,7 +32,9 @@ footer:{
 icon_url:this.client.user.avatarURL,
 text:"© Pokefusion | Xenova | Propulsé par l'api pokemon.alexonsager" 
 } 
-}})
+}}).then(m => {
+message.channel.stopTyping()
+})
 
 } 
 }
