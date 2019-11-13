@@ -18,9 +18,12 @@ async run(message, args, level, con) {
 
 let result = await pokefusion();
 
+this.client.user.startTyping();
+
 message.channel.send({embed:{
 color:Math.floor(Math.random()* 16777214) + 1,
-title:`Fusion (${result.name})`,
+title:`Fusion [${result.name}] (l'image ne s'affiche pas ? Clique ici)`,
+url:`${result.imageUrl}`, 
 image:{
 url:`${result.imageUrl}`
 },
