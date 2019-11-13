@@ -11,7 +11,7 @@ const mysql = require("mysql")
 const canvas = require("canvas") 
 const Twit = require("twit") 
 const lib = require('lib');
-const pokefusion = lib.Hademar.pokefusion['@2.0.0'];
+const pokefusion = lib.Hademar.pokefusion['@0.0.1'];
 const request = require("request") 
 
    var db_config = {
