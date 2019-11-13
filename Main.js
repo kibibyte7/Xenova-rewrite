@@ -228,15 +228,15 @@ class Xenova extends Client {
     });
   };
 
-  var image = download(result.imageUrl, 'pokefusion.png', function(){
+  var image = await download(result.imageUrl, 'pokefusion.png', function(){
   console.log("done")
   });
   
-  var base64 = fs.readFileSync(image, {encoding:"base64"}) 
+  var base64 = await fs.readFileSync(image, {encoding:"base64"}) 
   
   T.post('media/upload', { media_data: base64 }, function (err, data, response) {
   var mediaIdStr = data.media_id_string
-  var meta_params = { media_id: mediaIdStr}
+  var meta_params = { media_id: mediaIdStr, alt_text: { text: altText } }
 
   T.post('media/metadata/create', meta_params, function (err, data, response) {
     if (!err) {
