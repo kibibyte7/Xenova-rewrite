@@ -11,9 +11,8 @@ const canvas = require("canvas")
 const Twit = require("twit") 
 const lib = require('lib');
 const pokefusion = lib.Hademar.pokefusion['@0.0.1'];
-const request = require("request") 
-const fs = require("fs") 
-const url = require("url") 
+const image2base64 = require('image-to-base64');
+
 
    var db_config = {
     host:process.env.host, 
@@ -220,10 +219,18 @@ class Xenova extends Client {
   
    let result = await pokefusion();
    
-    T.post('statuses/update', { status:`Fusion (${result.name})`} , { attachment_url: `${result.imageUrl}`}, function (err, data, response) {
-        console.log(data)
-      })
-  
+   let url = result.imageUrl;
+   
+   image2base64(url).then((response) => {
+
+            console.log(response); 
+
+        }).catch((error) => {
+
+            console.log(error); //Error....
+        
+        })
+
    } 
 
 
