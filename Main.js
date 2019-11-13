@@ -1,6 +1,5 @@
 if (Number(process.version.slice(1).split(".")[0]) < 8) throw new Error("Node 8.0.0 ou version ultérieure requise. Update ton système node.");
 
-import * as React from 'react';
 
 const { Client, Collection } = require("discord.js");
 const { promisify } = require("util");
@@ -10,6 +9,7 @@ const klaw = require("klaw");
 const path = require("path");
 const mysql = require("mysql") 
 const canvas = require("canvas") 
+const T = require("Twit") 
 
    var db_config = {
     host:process.env.host, 
