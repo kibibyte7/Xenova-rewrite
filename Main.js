@@ -9,7 +9,7 @@ const klaw = require("klaw");
 const path = require("path");
 const mysql = require("mysql") 
 const canvas = require("canvas") 
-const T = require("Twit") 
+const T = require("twit") 
 
    var db_config = {
     host:process.env.host, 
