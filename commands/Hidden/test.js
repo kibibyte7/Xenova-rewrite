@@ -16,9 +16,9 @@ aliases:[]
 
 async run(message, args, level, con) {
 
-let result = await pokefusion();
-
 message.channel.startTyping();
+
+let result = await pokefusion();
 
 message.channel.send({embed:{
 color:Math.floor(Math.random()* 16777214) + 1,
