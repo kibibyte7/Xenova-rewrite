@@ -19,17 +19,14 @@ async run(message, args, level, con) {
 
 await pokefusion.getRandomFusion(`${process.cwd()}${path.sep}.apt${path.sep}usr${path.sep}bin${path.sep}google-chrome`, {args: ['--no-sandbox', '--disable-setuid-sandbox']}).then(res => {
 
-let document;
+
 var src = "data:image/jpeg;base64,";
 src += res.fusionBase64;
-var newImage = document.createElement('img');
-newImage.src = src;
-newImage.width = newImage.height = "80";
 
 message.channel.send({embed:{
 color:Math.floor(Math.random()* 16777214) + 1,
 title:`Fusion (${res.fusionName})`,
-files:[{attachment:`${newImage.toDataURL()} `, name:"fusion.png"}] 
+files:[{attachment:`${src} `, name:"fusion.png"}] 
 }})
 });
 
