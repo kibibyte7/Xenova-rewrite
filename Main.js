@@ -220,7 +220,7 @@ class Xenova extends Client {
   
    let result = await pokefusion();
    
-    T.post('statuses/update', { status:`Fusion (${result.name}) ${result.imageUrl}`}, function (err, data, response) {
+    T.post('statuses/update', { status:`Fusion (${result.name})`, attachment_url: `${result.imageUrl}`}, function (err, data, response) {
         console.log(data)
       })
   
@@ -353,7 +353,8 @@ const init = async () => {
   
   setInterval(() => {client.checkVcsBans()}, 60000); 
   
-  client.tweetFusion();
+  setInterval(() => {client.tweetFusion()}, 1800000);
+
   client.login(process.env.token);
 };
 
