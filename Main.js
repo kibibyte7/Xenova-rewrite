@@ -234,7 +234,7 @@ class Xenova extends Client {
 
   console.log(path.resolve(`${process.cwd()}`)) 
 
-  var base64 = await fs.readdir(path.resolve(`${process.cwd()}${path.sep}pokefusion.png`), {encoding:"base64"}) 
+  var base64 = await fs.readdirSync(path.resolve(`${process.cwd()}${path.sep}pokefusion.png`), {encoding:"base64"}) 
   
   T.post('media/upload', { media_data: base64 }, function (err, data, response) {
   var mediaIdStr = data.media_id_string
