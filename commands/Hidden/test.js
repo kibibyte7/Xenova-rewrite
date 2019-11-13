@@ -20,7 +20,7 @@ await pokefusion.getRandomFusion(`${process.cwd()}${path.sep}.apt${path.sep}usr$
 message.channel.send({embed:{
 color:Math.floor(Math.random()* 16777214) + 1,
 title:`Fusion (${res.fusionName})`,
-files:[{attachment:`${image} `, name:"fusion.png"}] 
+files:[{attachment:`${res.pokedexBase64} `, name:"fusion.png"}] 
 }})
 });
 
