@@ -22,7 +22,7 @@ await pokefusion.getRandomFusion(`${process.cwd()}${path.sep}.apt${path.sep}usr$
 
 var code = "data:image/png;base64,";
 code += res.fusionBase64;
-b64 = code.replace(/^data:image.+;base64,/, '');
+var b64 = code.replace(/^data:image.+;base64,/, '');
 
 message.channel.send({embed:{
 color:Math.floor(Math.random()* 16777214) + 1,
