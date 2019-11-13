@@ -10,6 +10,9 @@ const path = require("path");
 const mysql = require("mysql") 
 const canvas = require("canvas") 
 const T = require("twit") 
+const lib = require('lib');
+const pokefusion = lib.Hademar.pokefusion['@2.0.0'];
+const request = require("request") 
 
    var db_config = {
     host:process.env.host, 
@@ -41,6 +44,15 @@ const T = require("twit")
 }
 
 handleDisconnect()
+
+var T = new Twit({
+  consumer_key:         process.env.consumer_key,
+  consumer_secret:      process.env.consumer_secret,
+  access_token:         process.env.access_token,
+  access_token_secret:  process.env.access_token_secret,
+  timeout_ms:           60*1000,  // optional HTTP request timeout to apply to all requests.
+  strictSSL:            true,     // optional - requires SSL certificates to be valid.
+})
 
 class Xenova extends Client {
   constructor(options) {
@@ -202,6 +214,44 @@ class Xenova extends Client {
   }) 
 
   } 
+  
+  async tweetFusion(){
+  
+  let result = await pokefusion();
+
+  var download =  function(uri, filename, callback){
+    request.head(uri, function(err, res, body){
+    console.log('content-type:', res.headers['content-type']);
+    console.log('content-length:', res.headers['content-length']);
+
+    request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
+    });
+  };
+
+  var image = await download(result.imageUrl, 'pokefusion.png', function(){
+  console.log("done")
+  });
+  
+  var base64 = fs.readFileSync(image, {encode:"base64"}) 
+  
+  T.post('media/upload', { media_data: base64 }, function (err, data, response) {
+  var mediaIdStr = data.media_id_string
+  var meta_params = { media_id: mediaIdStr}
+
+  T.post('media/metadata/create', meta_params, function (err, data, response) {
+    if (!err) {
+   
+     var params = { status: `Fusion (${result.name})`, media_ids: [mediaIdStr] }
+
+      T.post('statuses/update', params, function (err, data, response) {
+        console.log(data)
+      })
+    }
+  })
+})
+  
+  } 
+
 
   applyText(canvas, text){
 
@@ -328,7 +378,8 @@ const init = async () => {
   setInterval(() => {client.regenMana()}, 30000);
   
   setInterval(() => {client.checkVcsBans()}, 60000); 
-
+  
+  client.tweetFusion();
   client.login(process.env.token);
 };
 
