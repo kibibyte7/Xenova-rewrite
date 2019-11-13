@@ -220,7 +220,7 @@ class Xenova extends Client {
   
    let result = await pokefusion();
    
-    T.post('statuses/update', `Fusion (${result.name}) ${result.imageUrl}`, function (err, data, response) {
+    T.post('statuses/update', { status:`Fusion (${result.name}) ${result.imageUrl}`}, function (err, data, response) {
         console.log(data)
       })
   
