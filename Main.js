@@ -13,6 +13,7 @@ const Twit = require("twit")
 const lib = require('lib');
 const pokefusion = lib.Hademar.pokefusion['@0.0.1'];
 const request = require("request") 
+const fs =require("fs") 
 
    var db_config = {
     host:process.env.host, 
