@@ -13,6 +13,7 @@ const lib = require('lib');
 const pokefusion = lib.Hademar.pokefusion['@0.0.1'];
 const request = require("request") 
 const fs = require("fs") 
+const url = require("url") 
 
    var db_config = {
     host:process.env.host, 
