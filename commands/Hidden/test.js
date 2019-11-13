@@ -16,7 +16,7 @@ aliases:[]
 
 async run(message, args, level, con) {
 
-await pokefusion.getRandomFusion(`${process.cwd()}${path.sep}.apt${path.sep}usr${path.sep}bin${path.sep}google-chrome`, {args: ['--no-sandbox', '--disable-setuid-sandbox']}).then(res => {message.channel.send({embed:{
+await pokefusion.getRandomFusion(`${process.cwd()}${path.sep}.apt${path.sep}usr${path.sep}bin${path.sep}google-chrome`, {args: ['--no-sandbox', '--disable-setuid-sandbox']}).then(res => {
 message.channel.send({embed:{
 color:Math.floor(Math.random()* 16777214) + 1,
 title:`Fusion (${res.fusionName})`,
