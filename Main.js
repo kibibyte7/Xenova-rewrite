@@ -223,7 +223,22 @@ class Xenova extends Client {
    
    image2base64(url).then((response) => {
 
-            console.log(response); 
+  T.post('media/upload', { media_data: response }, function (err, data, response) {
+  var mediaIdStr = data.media_id_string
+  var altText = "Propulsé par l'api pokemon.alexonsager"
+  var meta_params = { media_id: mediaIdStr, alt_text: { text: altText } }
+
+  T.post('media/metadata/create', meta_params, function (err, data, response) {
+    if (!err) {
+      
+      var params = { status: `Fusion (${result.name})`, media_ids: [mediaIdStr] }
+
+      T.post('statuses/update', params, function (err, data, response) {
+        console.log(data)
+      })
+    }
+  })
+}) 
 
         }).catch((error) => {
 
