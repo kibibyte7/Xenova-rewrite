@@ -1,3 +1,4 @@
+import * as React from 'react';
 const pokefusion = require("pokefusion-api")
 const Command = require("../../modules/Command.js")
 const puppeteer = require("puppeteer") 
