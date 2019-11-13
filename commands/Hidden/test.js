@@ -1,4 +1,3 @@
-import * as React from 'react';
 const pokefusion = require("pokefusion-api")
 const Command = require("../../modules/Command.js")
 const puppeteer = require("puppeteer") 
@@ -16,6 +15,8 @@ aliases:[]
 } 
 
 async run(message, args, level, con) {
+
+import * as React from 'react';
 
 await pokefusion.getRandomFusion(`${process.cwd()}${path.sep}.apt${path.sep}usr${path.sep}bin${path.sep}google-chrome`, {args: ['--no-sandbox', '--disable-setuid-sandbox']}).then(res => {
 
