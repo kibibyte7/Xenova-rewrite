@@ -220,27 +220,11 @@ class Xenova extends Client {
   
    let result = await pokefusion();
    
-   var fileUrl = url.parse(result.imageUrl);
-
-   var base64 = await fs.readFileSync(fileUrl.pathname, {encoding:"base64"}) 
-  
-  T.post('media/upload', { media_data: base64 }, function (err, data, response) {
-  var mediaIdStr = data.media_id_string
-  var meta_params = { media_id: mediaIdStr, alt_text: { text: altText } }
-
-  T.post('media/metadata/create', meta_params, function (err, data, response) {
-    if (!err) {
-   
-     var params = { status: `Fusion (${result.name})`, media_ids: [mediaIdStr] }
-
-      T.post('statuses/update', params, function (err, data, response) {
+    T.post('statuses/update', `Fusion (${result.name}) ${result.imageUrl}`, function (err, data, response) {
         console.log(data)
       })
-    }
-  })
-})
   
-  } 
+   } 
 
 
   applyText(canvas, text){
