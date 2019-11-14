@@ -45,7 +45,7 @@ if(m.content.toLowerCase() === 'b') number = 9;
 
 while(data.nextStep !== 81){
 
-await rep.has(m.content)
+await rep.includes(m.content)
 
 if(m.content.toLowerCase() === 'y') number = 0;
 if(m.content.toLowerCase() === 'n') number = 1;
