@@ -14,7 +14,7 @@ aliases:["aki"]
 
 async run(message, args, level, con) {
 
-if(args[0] === start){
+if(args[0] === "start"){
 
 message.channel.startTyping();
 
