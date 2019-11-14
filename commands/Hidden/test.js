@@ -32,7 +32,7 @@ collector.on("collect", m => {
 
 if(m.author.id !== message.author.id) return;
 
-let step = parseInt(1);
+let step = 1;
 
 async function question(number){
 
@@ -42,7 +42,7 @@ console.log(data.answers[number])
 
 const nextInfo = await aki.step("fr", `${data.session}`, `${data.signature}`, `${data.answers[number]}`, `${step}`);
 
-step = parseInt(nextInfo.nextStep);
+step = step + 1;
 
 console.log(step) 
 
