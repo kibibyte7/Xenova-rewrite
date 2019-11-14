@@ -32,6 +32,8 @@ collector.on("collect", async m => {
 
 if(m.author.id!== message.author.id) return;
 
+
+
 let number;
 
 if(m.content.toLowerCase() === 'y') number = 0;
@@ -41,11 +43,17 @@ if(m.content.toLowerCase() === 'py') number = 3;
 if(m.content.toLowerCase() === 'pn') number = 4;
 if(m.content.toLowerCase() === 'b') number = 9;
 
-const nextInfo = await aki.step("fr" , data.session, data.signature, data.answers[number], data.nextStep);
+let setp = 1
+
+const nextInfo = await aki.step("fr" , data.session, data.signature, data.answers[number], step);
+
+while(nextInfo.progress >= 70){
+
+step++;
 
 message.channel.send(nextInfo.nextQuestion)
 
-}) 
+} 
 
 }) 
 
