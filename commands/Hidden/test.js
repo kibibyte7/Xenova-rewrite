@@ -30,8 +30,6 @@ const collector = message.channel.createMessageCollector(filter, { time: 15000 }
 
 collector.on("collect", m => {
 
-console.log(`${m.content} - (${m.author})`)
-
 if(m.author.id !== message.author.id) return;
 
 let step;
