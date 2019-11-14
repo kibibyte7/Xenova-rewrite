@@ -36,7 +36,7 @@ if(m.author.id !== message.author.id) return;
 
 let step = 1;
 
-async function question(nextInfo){
+async function question(){
 
 message.channel.startTyping();
 
