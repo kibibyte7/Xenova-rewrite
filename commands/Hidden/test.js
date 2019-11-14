@@ -44,7 +44,7 @@ console.log(data.answers[number])
 
 const nextInfo = await aki.step("fr", `${data.session}`, `${data.signature}`, `${data.answers[number]}`, `${step}`);
 
-step = nextInfo.nextStep;
+step = parseInt(nextInfo.nextStep);
 
 console.log(step) 
 
