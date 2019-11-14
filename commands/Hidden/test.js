@@ -34,8 +34,6 @@ if(m.author.id!== message.author.id) return;
 
 let number;
 
-const rep = ["y", "n", "i", "py", "pn", "b"];
-
 if(m.content.toLowerCase() === 'y') number = 0;
 if(m.content.toLowerCase() === 'n') number = 1;
 if(m.content.toLowerCase() === 'i') number = 2;
@@ -43,30 +41,11 @@ if(m.content.toLowerCase() === 'py') number = 3;
 if(m.content.toLowerCase() === 'pn') number = 4;
 if(m.content.toLowerCase() === 'b') number = 9;
 
-const forLoop = async _ => {
+if(data.currentStep !== 80){
 
-for(var i = 0; i < 80; i++){
+const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[number], data.nextStep);
 
-await rep.includes(m.content)
-
-if(m.content.toLowerCase() === 'y') number = 0;
-if(m.content.toLowerCase() === 'n') number = 1;
-if(m.content.toLowerCase() === 'i') number = 2;
-if(m.content.toLowerCase() === 'py') number = 3;
-if(m.content.toLowerCase() === 'pn') number = 4;
-if(m.content.toLowerCase() === 'b') number = 9;
-
-message.channel.startTyping();
-
-const nextInfo = await aki.step("fr" , data.session, data.signature, data.answers[number], data.currentStep++);
-
-message.channel.send(nextInfo.nextQuestion).then(m => {
-
-message.channel.stopTyping();
-
-})
-
-} 
+message.channel.send(nextInfo.nextQuestion)
 
 } 
 
@@ -75,6 +54,8 @@ message.channel.stopTyping();
 }) 
 
 } 
+
+
 } 
 }
 
