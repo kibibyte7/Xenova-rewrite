@@ -42,11 +42,11 @@ message.channel.startTyping();
 
 console.log(data.answers[number])
 
-const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[number], step);
+const nextInfo = await aki.step("fr", `${data.session}`, `${data.signature}`, `${data.answers[number]}, `${step}`);
 
 step = nextInfo.nextStep;
 
-console.log(nextInfo) 
+console.log(step) 
 
 message.channel.send(nextInfo.nextQuestion)
 
