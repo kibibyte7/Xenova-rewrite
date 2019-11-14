@@ -41,18 +41,23 @@ if(m.content.toLowerCase() === 'py') number = 3;
 if(m.content.toLowerCase() === 'pn') number = 4;
 if(m.content.toLowerCase() === 'b') number = 9;
 
-let step = 1
+while(data.nextStep !== 81){
 
-const nextInfo = await aki.step("fr" , data.session, data.signature, data.answers[number], step);
-
-while(nextInfo.progress >= 70){
+if(m.content.toLowerCase() === 'y') number = 0;
+if(m.content.toLowerCase() === 'n') number = 1;
+if(m.content.toLowerCase() === 'i') number = 2;
+if(m.content.toLowerCase() === 'py') number = 3;
+if(m.content.toLowerCase() === 'pn') number = 4;
+if(m.content.toLowerCase() === 'b') number = 9;
 
 message.channel.startTyping();
 
-step++;
+const nextInfo = await aki.step("fr" , data.session, data.signature, data.answers[number], data.nextStep);
 
 message.channel.send(nextInfo.nextQuestion).then(m => {
-m.channel.stopTyping()
+
+message.channel.stopTyping();
+
 })
 
 } 
