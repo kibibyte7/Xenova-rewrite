@@ -22,11 +22,11 @@ message.channel.startTyping();
 
 const data = await aki.start("fr")
 
+await sleep;
+
 message.channel.send(data.question).then(async m => {
 
 message.channel.stopTyping();
-
-await sleep;
 
 const filter = m => m.content.toLowerCase() === 'y' || m.content.toLowerCase() === 'n' || m.content.toLowerCase() === 'py' || m.content.toLowerCase() === 'pn' || m.content.toLowerCase() === 'i' || m.content.toLowerCase() === 'b';
 
@@ -38,64 +38,86 @@ if(m.author.id !== message.author.id) return;
 
 let step = 1;
 
-async function question(number){
+message.channel.stopTyping(); 
+
+if(m.content.toLowerCase() === 'y'){
 
 message.channel.startTyping();
 
 step = step++;
 
-console.log(step) 
-
 await sleep;
 
-message.channel.stopTyping();
-
-} 
-
-if(m.content.toLowerCase() === 'y'){
-
-question(0);
-
-const nextInfo = await aki.step("fr", `${data.session}`, `${data.signature}`, `${data.answers[number]}`, parseInt(step));
+const nextInfo = await aki.step("fr", `${data.session}`, `${data.signature}`, `${data.answers[0]}`, parseInt(step));
 
 message.channel.send(nextInfo.nextQuestion);
+
+message.channel.stopTyping();
 
 }
 
 if(m.content.toLowerCase() === 'n'){ 
 
-question(1);
+message.channel.stopTyping();
 
-const nextInfo = await aki.step("fr", `${data.session}`, `${data.signature}`, `${data.answers[number]}`, parseInt(step));
+step = step++;
+
+await sleep;
+
+const nextInfo = await aki.step("fr", `${data.session}`, `${data.signature}`, `${data.answers[1]}`, parseInt(step));
 
 message.channel.send(nextInfo.nextQuestion);
+
+message.channel.stopTyping();
 
 } 
 
 if(m.content.toLowerCase() === 'i'){
 
-question(2);
+message.channel.stopTyping();
 
-const nextInfo = await aki.step("fr", `${data.session}`, `${data.signature}`, `${data.answers[number]}`, parseInt(step));
+step = step++;
+
+await sleep;
+
+const nextInfo = await aki.step("fr", `${data.session}`, `${data.signature}`, `${data.answers[2]}`, parseInt(step));
 
 message.channel.send(nextInfo.nextQuestion);
+
+message.channel.stopTyping();
 
 } 
 
 if(m.content.toLowerCase() === 'py'){
 
-question(3);
+message.channel.startTyping();
 
-const nextInfo = await aki.step("fr", `${data.session}`, `${data.signature}`, `${data.answers[number]}`, parseInt(step));message.channel.send(nextInfo.nextQuestion);
+step = step++;
+
+await sleep;
+
+const nextInfo = await aki.step("fr", `${data.session}`, `${data.signature}`, `${data.answers[3]}`, parseInt(step));message.channel.send(nextInfo.nextQuestion);message.channel.send(nextInfo.nextQuestion);
+
+message.channel.send(nextInfo.nextQuestion);
+
+message.channel.stopTyping();
 
 } 
 
 
 if(m.content.toLowerCase() === 'pn'){
- 
-question(4);
 
-const nextInfo = await aki.step("fr", `${data.session}`, `${data.signature}`, `${data.answers[number]}`, parseInt(step));message.channel.send(nextInfo.nextQuestion);
+message.channel.startTyping();
+ 
+step = step++;
+
+await sleep;
+
+const nextInfo = await aki.step("fr", `${data.session}`, `${data.signature}`, `${data.answers[4]}`, parseInt(step));message.channel.send(nextInfo.nextQuestion);message.channel.send(nextInfo.nextQuestion);
+
+message.channel.send(nextInfo.nextQuestion);
+
+message.channel.startTyping();
 
 } 
 
