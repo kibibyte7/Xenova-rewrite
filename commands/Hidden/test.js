@@ -43,17 +43,7 @@ if(m.content.toLowerCase() === 'b') number = 9;
 
 const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[number], data.nextStep);
 
-message.channel.send(nextInfo.nextQuestion).then(m => {
-
-if(data.currentStep !== 80){
-
-message.channel.send(nextInfo.nextQuestion);
-
-} 
-
-}) 
-
-
+return message.channel.send(nextInfo.nextQuestion)
 
 }) 
 
