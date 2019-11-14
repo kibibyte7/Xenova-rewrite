@@ -49,17 +49,21 @@ const nextInfo = await aki.step("fr" , data.session, data.signature, data.answer
 
 while(nextInfo.progress >= 70){
 
+message.channel.startTyping();
+
 step++;
 
-message.channel.send(nextInfo.nextQuestion)
+message.channel.send(nextInfo.nextQuestion).then(m => {
+m.channel.stopTyping()
+})
 
 } 
 
 }) 
 
+}) 
+
 } 
-
-
 } 
 }
 
