@@ -20,8 +20,6 @@ message.channel.startTyping();
 
 const data = await aki.start("fr")
 
-let number;
-
 message.channel.send(data.question).then(async m => {
 
 message.channel.stopTyping();
@@ -32,11 +30,15 @@ const collector = message.channel.createMessageCollector(filter, { time: 15000 }
 
 collector.on("collect", m => {
 
+console.log(`${m.content} - (${m.author})`)
+
 if(m.author.id !== message.author.id) return;
 
 let step;
 
 step = 1;
+
+let number;
 
 async function question(){
 
@@ -56,33 +58,33 @@ message.channel.stopTyping();
 
 } 
 
-if(m.content.toLowerCase() === 'y'){
+if(message.content.toLowerCase() === 'y'){
 question();
 number = 0;
 }
 
-if(m.content.toLowerCase() === 'n'){ 
+if(message.content.toLowerCase() === 'n'){ 
 question();
 number = 1;
 } 
 
-if(m.content.toLowerCase() === 'i'){ 
+if(message.content.toLowerCase() === 'i'){ 
 question();
 number = 2;
 } 
 
-if(m.content.toLowerCase() === 'py'){ 
+if(message.content.toLowerCase() === 'py'){ 
 question();
 number = 3;
 } 
 
 
-if(m.content.toLowerCase() === 'pn'){ 
+if(message.content.toLowerCase() === 'pn'){ 
 question();
 number = 4;
 } 
 
-if(m.content.toLowerCase() === 'b'){ 
+if(message.content.toLowerCase() === 'b'){ 
 number = 9;
 } 
 
