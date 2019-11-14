@@ -22,7 +22,26 @@ const data = await aki.start("fr")
 
 let number;
 
-let step = data.currentStep;
+message.channel.send(data.question).then(m => {
+
+message.channel.stopTyping();
+
+const filter = m => m.content.toLowerCase() === 'y' || m.content.toLowerCase() === 'n' || m.content.toLowerCase() === 'py' || m.content.toLowerCase() === 'pn' || m.content.toLowerCase() === 'i' || m.content.toLowerCase() === 'b';
+
+const collector = message.channel.createMessageCollector(filter, { time: 15000 });
+
+collector.on("collect", async m => {
+
+if(m.author.id !== message.author.id) return;
+
+if(m.content.toLowerCase() === 'y') number = 0;
+if(m.content.toLowerCase() === 'n') number = 1;
+if(m.content.toLowerCase() === 'i') number = 2;
+if(m.content.toLowerCase() === 'py') number = 3;
+if(m.content.toLowerCase() === 'pn') number = 4;
+if(m.content.toLowerCase() === 'b') number = 9;
+
+let step = 1;
 
 async function question(){
 
@@ -36,26 +55,7 @@ message.channel.stopTyping();
 
 } 
 
-message.channel.send(data.question).then(m => {
-
-message.channel.stopTyping();
-
-const filter = m => m.content.toLowerCase() === 'y' || m.content.toLowerCase() === 'n' || m.content.toLowerCase() === 'py' || m.content.toLowerCase() === 'pn' || m.content.toLowerCase() === 'i' || m.content.toLowerCase() === 'b';
-
-const collector = message.channel.createMessageCollector(filter, { time: 15000 });
-
-collector.on("collect", async m => {
-
-if(m.author.id!== message.author.id) return;
-
-if(m.content.toLowerCase() === 'y') number = 0;
-if(m.content.toLowerCase() === 'n') number = 1;
-if(m.content.toLowerCase() === 'i') number = 2;
-if(m.content.toLowerCase() === 'py') number = 3;
-if(m.content.toLowerCase() === 'pn') number = 4;
-if(m.content.toLowerCase() === 'b') number = 9;
-
-if(data.currentStep !== 80){
+if(step !== 80){
 
 message.channel.startTyping();
 
