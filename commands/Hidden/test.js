@@ -42,7 +42,7 @@ async function question(){
 
 message.channel.startTyping();
 
-console.log(data)
+console.log(data.answer[number])
 
 const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[number], step);
 
