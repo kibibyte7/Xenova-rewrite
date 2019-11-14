@@ -18,6 +18,8 @@ async run(message, args, level, con) {
 
 const data = await aki.start("fr");
 
+console.log(data)
+
 
 } 
 }
