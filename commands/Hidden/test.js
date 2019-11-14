@@ -22,9 +22,13 @@ const data = await aki.start("fr")
 
 let number;
 
+let step = data.currentStep;
+
 async function question(){
 
-const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[number], data.currentStep++);
+step++;
+
+const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[number], step);
 
 message.channel.send(nextInfo.nextQuestion)
 
