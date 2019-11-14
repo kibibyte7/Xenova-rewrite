@@ -44,7 +44,7 @@ if(m.content.toLowerCase() === 'y'){
 
 message.channel.startTyping();
 
-let step = nextInfo.nextStep;
+let step = step + 1;
 
 await sleep;
 
@@ -60,7 +60,7 @@ if(m.content.toLowerCase() === 'n'){
 
 message.channel.stopTyping();
 
-let step = nextInfo.nextStep;
+let step = step + 1;
 
 await sleep;
 
@@ -76,7 +76,7 @@ if(m.content.toLowerCase() === 'i'){
 
 message.channel.stopTyping();
 
-let step = nextInfo.nextStep;
+let step = step + 1;
 
 await sleep;
 
@@ -92,7 +92,7 @@ if(m.content.toLowerCase() === 'py'){
 
 message.channel.startTyping();
 
-let step = nextInfo.nextStep;
+let step = step + 1;
 
 await sleep;
 
