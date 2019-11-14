@@ -38,13 +38,6 @@ let step = 1;
 
 async function question(){
 
-if(m.content.toLowerCase() === 'y') number = 0;
-if(m.content.toLowerCase() === 'n') number = 1;
-if(m.content.toLowerCase() === 'i') number = 2;
-if(m.content.toLowerCase() === 'py') number = 3;
-if(m.content.toLowerCase() === 'pn') number = 4;
-if(m.content.toLowerCase() === 'b') number = 9;
-
 message.channel.startTyping();
 
 console.log(data)
