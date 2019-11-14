@@ -34,6 +34,8 @@ if(m.author.id!== message.author.id) return;
 
 let number;
 
+const rep = ["y", "n", "i", "py", "pn", "b"];
+
 if(m.content.toLowerCase() === 'y') number = 0;
 if(m.content.toLowerCase() === 'n') number = 1;
 if(m.content.toLowerCase() === 'i') number = 2;
@@ -42,6 +44,8 @@ if(m.content.toLowerCase() === 'pn') number = 4;
 if(m.content.toLowerCase() === 'b') number = 9;
 
 while(data.nextStep !== 81){
+
+await rep.has(m.content)
 
 if(m.content.toLowerCase() === 'y') number = 0;
 if(m.content.toLowerCase() === 'n') number = 1;
@@ -52,7 +56,7 @@ if(m.content.toLowerCase() === 'b') number = 9;
 
 message.channel.startTyping();
 
-const nextInfo = await aki.step("fr" , data.session, data.signature, data.answers[number], data.nextStep);
+const nextInfo = await aki.step("fr" , data.session, data.signature, data.answers[number], data.currentStep++);
 
 message.channel.send(nextInfo.nextQuestion).then(m => {
 
