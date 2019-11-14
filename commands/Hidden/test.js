@@ -42,7 +42,7 @@ async function question(number){
 
 message.channel.startTyping();
 
-step = step ++;
+step = step++;
 
 console.log(step) 
 
