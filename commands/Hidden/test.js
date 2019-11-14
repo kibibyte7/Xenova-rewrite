@@ -45,7 +45,11 @@ async function question(){
 
 console.log(data)
 
-let nextInfo = await aki.step("fr", data.session, data.signature, data.answers[number], 1);
+let step = 0;
+
+step++;
+
+const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[number], step);
 
 console.log(nextInfo) 
 
