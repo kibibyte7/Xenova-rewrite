@@ -36,9 +36,7 @@ let step;
 
 step = 1;
 
-let number;
-
-async function question(){
+async function question(number){
 
 message.channel.startTyping();
 
@@ -56,34 +54,30 @@ message.channel.stopTyping();
 
 } 
 
-if(message.content.toLowerCase() === 'y'){
-question();
-number = 0;
+if(m.content.toLowerCase() === 'y'){
+question(0);
 }
 
-if(message.content.toLowerCase() === 'n'){ 
-question();
-number = 1;
+if(m.content.toLowerCase() === 'n'){ 
+question(1);
 } 
 
-if(message.content.toLowerCase() === 'i'){ 
-question();
-number = 2;
+if(m.content.toLowerCase() === 'i'){ 
+question(2);
+
 } 
 
-if(message.content.toLowerCase() === 'py'){ 
-question();
-number = 3;
+if(m.content.toLowerCase() === 'py'){ 
+question(3);
 } 
 
 
-if(message.content.toLowerCase() === 'pn'){ 
-question();
-number = 4;
+if(m.content.toLowerCase() === 'pn'){ 
+question(4);
 } 
 
-if(message.content.toLowerCase() === 'b'){ 
-number = 9;
+if(m.content.toLowerCase() === 'b'){ 
+console.log("ok")
 } 
 
 }) 
