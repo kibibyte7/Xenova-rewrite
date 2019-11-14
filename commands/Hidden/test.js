@@ -36,15 +36,15 @@ if(m.author.id !== message.author.id) return;
 
 let step = 1;
 
-async function question(){
+async function question(nextInfo){
 
 message.channel.startTyping();
 
 console.log(data)
 
-step = step++;
+const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[number], step);
 
-let nextInfo = await aki.step("fr", data.session, data.signature, data.answers[number], step);
+step = nextInfo.nextStep;
 
 console.log(nextInfo) 
 
