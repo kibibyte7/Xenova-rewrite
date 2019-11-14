@@ -12,7 +12,7 @@ aliases:["aki"]
 }) 
 } 
 
-async run(message, args, level, con) {
+run(message, args, level, con) {
 
 if(args[0] === "start"){
 
@@ -22,7 +22,7 @@ const data = await aki.start("fr")
 
 let number;
 
-message.channel.send(data.question).then(m => {
+message.channel.send(data.question).then(async m => {
 
 message.channel.stopTyping();
 
@@ -30,7 +30,7 @@ const filter = m => m.content.toLowerCase() === 'y' || m.content.toLowerCase() =
 
 const collector = message.channel.createMessageCollector(filter, { time: 15000 });
 
-collector.on("collect", async m => {
+collector.on("collect", m => {
 
 if(m.author.id !== message.author.id) return;
 
@@ -41,13 +41,15 @@ if(m.content.toLowerCase() === 'py') number = 3;
 if(m.content.toLowerCase() === 'pn') number = 4;
 if(m.content.toLowerCase() === 'b') number = 9;
 
+let step = 0;
+
 async function question(){
+
+message.channel.startTyping();
 
 console.log(data)
 
-let step = 0;
-
-step++;
+step = step++;
 
 let nextInfo = await aki.step("fr", data.session, data.signature, data.answers[number], step);
 
@@ -55,11 +57,11 @@ console.log(nextInfo)
 
 message.channel.send(nextInfo.nextQuestion)
 
+message.channel.stopTyping();
+
 } 
 
 if(data.currentStep !== 80){
-
-message.channel.startTyping();
 
 question();
 
