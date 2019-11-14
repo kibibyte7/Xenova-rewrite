@@ -34,6 +34,12 @@ if(m.author.id !== message.author.id) return;
 
 let step = 1;
 
+const sleep => {
+
+this.client.wait(2000);
+
+};
+
 async function question(number){
 
 message.channel.startTyping();
@@ -44,7 +50,7 @@ step = step + 1;
 
 console.log(step) 
 
-await this.client.wait(2000);
+await sleep();
 
 var nextInfo = await aki.step("fr", `${data.session}`, `${data.signature}`, `${data.answers[number]}`, `${parseInt(step)}`);
 
