@@ -32,11 +32,11 @@ collector.on("collect", m => {
 
 if(m.author.id !== message.author.id) return;
 
-let step = 1;
+let step = 0;
 
 const sleep = this.client.wait(2000);
 
-async function question(number){
+async function question(number, nextInfo){
 
 message.channel.startTyping();
 
@@ -46,9 +46,7 @@ console.log(step)
 
 await sleep;
 
-const nextInfo = await aki.step("fr", `${data.session}`, `${data.signature}`, `${data.answers[number]}`, parseInt(step));
-
-console.log(data)
+nextInfo = await aki.step("fr", `${data.session}`, `${data.signature}`, `${data.answers[number]}`, parseInt(step));
 
 message.channel.send(nextInfo.nextQuestion)
 
