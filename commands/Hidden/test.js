@@ -50,8 +50,6 @@ const nextInfo = await aki.step("fr", `${data.session}`, `${data.signature}`, `$
 
 console.log(data)
 
-console.log(nextInfo)
-
 message.channel.send(nextInfo.nextQuestion)
 
 message.channel.stopTyping();
