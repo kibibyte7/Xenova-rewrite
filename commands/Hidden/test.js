@@ -26,7 +26,7 @@ async function question(){
 
 const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[number], data.currentStep++);
 
-return message.channel.send(nextInfo.nextQuestion)
+message.channel.send(nextInfo.nextQuestion)
 
 message.channel.stopTyping();
 
