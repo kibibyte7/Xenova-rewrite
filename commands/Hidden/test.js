@@ -60,7 +60,6 @@ message.channel.send(nextInfo.nextQuestion)
 message.channel.stopTyping();
 
 } 
-} 
 
 
 if(step !== 80){
