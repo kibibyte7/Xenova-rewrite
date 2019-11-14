@@ -57,7 +57,7 @@ con.query(`SELECT * FROM inventory WHERE id =${message.author.id}`, (err, rows) 
         turn++;
     	}
         
-    	message.channel.send(resp+"\n"+bosspv <= 0 ? `**${bosses.bosses[args[1]-1].name}** est mort ! \n**${message.author.tag}** remporte la victoire ! Récompenses:\n\n-Xp: ${bossxp}\n-Fragments d'attaque: ${atk_rune}\n-Fragments de défense: ${def_rune}\n-Fragments de pioche: ${pick}\n-Fragments d'armure: ${armor}` : `${message.author.tag}** est mort ! \n**${bosses.bosses[args[1]-1].name}** remporte la victoire !`)
+    	message.channel.send(`${resp}\n`+bosspv <= 0 ? `**${bosses.bosses[args[1]-1].name}** est mort ! \n**${message.author.tag}** remporte la victoire ! Récompenses:\n\n-Xp: ${bossxp}\n-Fragments d'attaque: ${atk_rune}\n-Fragments de défense: ${def_rune}\n-Fragments de pioche: ${pick}\n-Fragments d'armure: ${armor}` : `${message.author.tag}** est mort ! \n**${bosses.bosses[args[1]-1].name}** remporte la victoire !`)
     	
     	con.query(`UPDATE inventory SET pv = ${playerpv < 0 ? 0 : playerpv} WHERE id = ${message.author.id}`)
   
