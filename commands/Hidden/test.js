@@ -32,9 +32,7 @@ collector.on("collect", m => {
 
 if(m.author.id !== message.author.id) return;
 
-let step;
-
-step = 1;
+let step = parseInt(1);
 
 async function question(number){
 
