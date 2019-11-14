@@ -61,7 +61,7 @@ message.channel.stopTyping();
 
 } 
 
-while(data.currentStep !== 80){
+async while(data.currentStep !== 80){
 
 await question();
 
