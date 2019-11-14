@@ -34,7 +34,9 @@ collector.on("collect", m => {
 
 if(m.author.id !== message.author.id) return;
 
-let step = 1;
+let step;
+
+step = 1;
 
 async function question(){
 
