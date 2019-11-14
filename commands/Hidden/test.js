@@ -20,6 +20,8 @@ message.channel.startTyping();
 
 const data = await aki.start("fr")
 
+let number;
+
 async function question(){
 
 const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[number], data.currentStep++);
@@ -41,8 +43,6 @@ const collector = message.channel.createMessageCollector(filter, { time: 15000 }
 collector.on("collect", async m => {
 
 if(m.author.id!== message.author.id) return;
-
-let number;
 
 if(m.content.toLowerCase() === 'y') number = 0;
 if(m.content.toLowerCase() === 'n') number = 1;
