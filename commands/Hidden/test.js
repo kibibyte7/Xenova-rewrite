@@ -41,7 +41,7 @@ if(m.content.toLowerCase() === 'py') number = 3;
 if(m.content.toLowerCase() === 'pn') number = 4;
 if(m.content.toLowerCase() === 'b') number = 9;
 
-let step = 0;
+let step = 1;
 
 async function question(){
 
@@ -61,9 +61,9 @@ message.channel.stopTyping();
 
 } 
 
-if(data.currentStep !== 80){
+while(data.currentStep !== 80){
 
-question();
+await question();
 
 }
 
