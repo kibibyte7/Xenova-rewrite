@@ -20,7 +20,7 @@ message.channel.startTyping();
 
 const data = await aki.start("fr")
 
-function question(){
+async function question(){
 
 const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[number], data.currentStep++);
 
