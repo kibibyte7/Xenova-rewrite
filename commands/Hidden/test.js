@@ -34,16 +34,46 @@ collector.on("collect", m => {
 
 if(m.author.id !== message.author.id) return;
 
+if(m.content.toLowerCase() === 'y'){
+question();
+number = 0;
+}
+
+if(m.content.toLowerCase() === 'n'){ 
+question();
+number = 1;
+} 
+
+if(m.content.toLowerCase() === 'i'){ 
+question();
+number = 2;
+} 
+
+if(m.content.toLowerCase() === 'py'){ 
+question();
+number = 3;
+} 
+
+
+if(m.content.toLowerCase() === 'pn'){ 
+question();
+number = 4;
+} 
+
+if(m.content.toLowerCase() === 'b'){ 
+number = 9;
+} 
+
+let step = 1;
+
+async function question(){
+
 if(m.content.toLowerCase() === 'y') number = 0;
 if(m.content.toLowerCase() === 'n') number = 1;
 if(m.content.toLowerCase() === 'i') number = 2;
 if(m.content.toLowerCase() === 'py') number = 3;
 if(m.content.toLowerCase() === 'pn') number = 4;
 if(m.content.toLowerCase() === 'b') number = 9;
-
-let step = 1;
-
-async function question(){
 
 message.channel.startTyping();
 
@@ -58,13 +88,6 @@ console.log(nextInfo)
 message.channel.send(nextInfo.nextQuestion)
 
 message.channel.stopTyping();
-
-} 
-
-
-if(step !== 80){
-
-question();
 
 } 
 
