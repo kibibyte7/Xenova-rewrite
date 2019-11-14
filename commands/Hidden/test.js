@@ -43,7 +43,7 @@ if(m.content.toLowerCase() === 'py') number = 3;
 if(m.content.toLowerCase() === 'pn') number = 4;
 if(m.content.toLowerCase() === 'b') number = 9;
 
-async while(data.nextStep !== 81){
+for(var i = 0; i < 80; i++){
 
 await rep.includes(m.content)
 
