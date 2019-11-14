@@ -32,7 +32,7 @@ const filter = m => m.content.toLowerCase() === 'y' || m.content.toLowerCase() =
 
 const collector = message.channel.createMessageCollector(filter, { time: 15000 });
 
-collector.on("collect", m => {
+collector.on("collect", async m => {
 
 if(m.author.id !== message.author.id) return;
 
