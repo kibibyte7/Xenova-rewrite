@@ -16,13 +16,11 @@ async run(message, args, level, con) {
 
 //message.channel.startTyping();
 
-const data = await aki.start("fr").then(d => {
+const data = await aki.start("fr")
 
-console.log(d);
-
-}) 
+message.channel.send(data.question)
 
 } 
 }
 
-module.exports = Pokefusion;
+module.exports = Akinator;
