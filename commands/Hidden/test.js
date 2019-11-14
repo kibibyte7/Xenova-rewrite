@@ -44,6 +44,8 @@ step = step + 1;
 
 console.log(step) 
 
+await this.client.wait(2000);
+
 var nextInfo = await aki.step("fr", `${data.session}`, `${data.signature}`, `${data.answers[number]}`, `${parseInt(step)}`);
 
 message.channel.send(nextInfo.nextQuestion)
