@@ -41,13 +41,11 @@ if(m.content.toLowerCase() === 'py') number = 3;
 if(m.content.toLowerCase() === 'pn') number = 4;
 if(m.content.toLowerCase() === 'b') number = 9;
 
-let step = 1;
-
 async function question(){
 
-step++;
+console.log(data.currentStep) 
 
-const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[number], step);
+const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[number], data.nextStep);
 
 message.channel.send(nextInfo.nextQuestion)
 
@@ -55,7 +53,7 @@ message.channel.stopTyping();
 
 } 
 
-if(step !== 80){
+if(data.currentStep !== 80){
 
 message.channel.startTyping();
 
