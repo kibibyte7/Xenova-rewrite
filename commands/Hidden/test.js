@@ -43,13 +43,11 @@ if(m.content.toLowerCase() === 'b') number = 9;
 
 async function question(){
 
-console.log(data.currentStep) 
+console.log(data.currentStep)
 
-const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[number], data.nextStep);
+let nextInfo = await aki.step("fr", data.session, data.signature, data.answers[number], data.nextStep);
 
 message.channel.send(nextInfo.nextQuestion)
-
-message.channel.stopTyping();
 
 } 
 
