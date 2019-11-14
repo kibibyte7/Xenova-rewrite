@@ -14,6 +14,12 @@ aliases:["aki"]
 
 async run(message, args, level, con) {
 
+if(args[0] === "start"){
+
+message.channel.startTyping();
+
+const data = await aki.start("fr")
+
 function question(){
 
 const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[number], data.currentStep++);
@@ -23,12 +29,6 @@ return message.channel.send(nextInfo.nextQuestion)
 message.channel.stopTyping();
 
 } 
-
-if(args[0] === "start"){
-
-message.channel.startTyping();
-
-const data = await aki.start("fr")
 
 message.channel.send(data.question).then(m => {
 
