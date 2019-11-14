@@ -48,7 +48,8 @@ con.query(`SELECT * FROM inventory WHERE id =${message.author.id}`, (err, rows) 
         var def_rune = Math.floor(Math.random()*4)*parseInt(args[1]) //def_fragments
         var pick = Math.floor(Math.random()*4)*parseInt(args[1]) //pick_fragments
         var armor = Math.floor(Math.random()*4)*parseInt(args[1]) //armor_fragments
-    	while(playerpv > 0 && bosspv > 0){
+    	
+        while(playerpv > 0 && bosspv > 0){
         bosspv > 0 ? bosspv = bosspv-(rows[0].attack - bossdef < 0 ? 1 : rows[0].attack - bossdef): bosspv;
         playerpv > 0 ? playerpv = playerpv -(bossattack - rows[0].defense < 0 ? 1 : bossattack - rows[0].defense) : playerpv; 
         resp+= bosspv == 0 ? `` :`**${bosses.bosses[args[1]-1].name}** inflige ${bossattack - rows[0].defense < 0 ? 1 : bossattack - rows[0].defense} de dégâts à **${message.author.tag}** il lui reste ${playerpv} pv\n` 
@@ -56,7 +57,7 @@ con.query(`SELECT * FROM inventory WHERE id =${message.author.id}`, (err, rows) 
         turn++;
     	}
         
-    	message.channel.send(resp+"\n"bosspv <= 0 ? `**${bosses.bosses[args[1]-1].name}** est mort ! \n**${message.author.tag}** remporte la victoire ! Récompenses:\n\n-Xp: ${bossxp}\n-Fragments d'attaque: ${atk_rune}\n-Fragments de défense: ${def_rune}\n-Fragments de pioche: ${pick}\n-Fragments d'armure: ${armor}` : `${message.author.tag}** est mort ! \n**${bosses.bosses[args[1]-1].name}** remporte la victoire !`)
+    	message.channel.send(resp+"\n"+bosspv <= 0 ? `**${bosses.bosses[args[1]-1].name}** est mort ! \n**${message.author.tag}** remporte la victoire ! Récompenses:\n\n-Xp: ${bossxp}\n-Fragments d'attaque: ${atk_rune}\n-Fragments de défense: ${def_rune}\n-Fragments de pioche: ${pick}\n-Fragments d'armure: ${armor}` : `${message.author.tag}** est mort ! \n**${bosses.bosses[args[1]-1].name}** remporte la victoire !`)
     	
     	con.query(`UPDATE inventory SET pv = ${playerpv < 0 ? 0 : playerpv} WHERE id = ${message.author.id}`)
   
