@@ -43,6 +43,8 @@ if(m.content.toLowerCase() === 'py') number = 3;
 if(m.content.toLowerCase() === 'pn') number = 4;
 if(m.content.toLowerCase() === 'b') number = 9;
 
+const forLoop = async _ => {
+
 for(var i = 0; i < 80; i++){
 
 await rep.includes(m.content)
@@ -63,6 +65,8 @@ message.channel.send(nextInfo.nextQuestion).then(m => {
 message.channel.stopTyping();
 
 })
+
+} 
 
 } 
 
