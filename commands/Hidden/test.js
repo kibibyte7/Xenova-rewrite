@@ -42,42 +42,61 @@ async function question(number){
 
 message.channel.startTyping();
 
-step++;
-
-step = step;
+step = step++;
 
 console.log(step) 
 
 await sleep;
-
-const nextInfo = await aki.step("fr", `${data.session}`, `${data.signature}`, `${data.answers[number]}`, parseInt(step));
-
-message.channel.send(nextInfo.nextQuestion);
 
 message.channel.stopTyping();
 
 } 
 
 if(m.content.toLowerCase() === 'y'){
+
 question(0);
+
+const nextInfo = await aki.step("fr", `${data.session}`, `${data.signature}`, `${data.answers[number]}`, parseInt(step));
+
+message.channel.send(nextInfo.nextQuestion);
+
 }
 
 if(m.content.toLowerCase() === 'n'){ 
+
 question(1);
+
+const nextInfo = await aki.step("fr", `${data.session}`, `${data.signature}`, `${data.answers[number]}`, parseInt(step));
+
+message.channel.send(nextInfo.nextQuestion);
+
 } 
 
-if(m.content.toLowerCase() === 'i'){ 
+if(m.content.toLowerCase() === 'i'){
+
 question(2);
 
+const nextInfo = await aki.step("fr", `${data.session}`, `${data.signature}`, `${data.answers[number]}`, parseInt(step));
+
+message.channel.send(nextInfo.nextQuestion);
+
 } 
 
-if(m.content.toLowerCase() === 'py'){ 
+if(m.content.toLowerCase() === 'py'){
+
 question(3);
+
+const nextInfo = await aki.step("fr", `${data.session}`, `${data.signature}`, `${data.answers[number]}`, parseInt(step));message.channel.send(nextInfo.nextQuestion);
+
 } 
 
 
-if(m.content.toLowerCase() === 'pn'){ 
+if(m.content.toLowerCase() === 'pn'){
+ 
 question(4);
+
+const nextInfo = await aki.step("fr", `${data.session}`, `${data.signature}`, `${data.answers[number]}`, parseInt(step));message.channel.send(nextInfo.nextQuestion);
+
 } 
 
 if(m.content.toLowerCase() === 'b'){ 
