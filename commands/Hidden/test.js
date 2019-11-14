@@ -41,13 +41,19 @@ if(m.content.toLowerCase() === 'py') number = 3;
 if(m.content.toLowerCase() === 'pn') number = 4;
 if(m.content.toLowerCase() === 'b') number = 9;
 
-if(data.currentStep !== 80){
-
 const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[number], data.nextStep);
 
-message.channel.send(nextInfo.nextQuestion)
+message.channel.send(nextInfo.nextQuestion).then(m => {
+
+if(data.currentStep !== 80){
+
+message.channel.send(nextInfo.nextQuestion);
 
 } 
+
+}) 
+
+
 
 }) 
 
