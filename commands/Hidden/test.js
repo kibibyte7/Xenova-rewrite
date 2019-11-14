@@ -42,7 +42,9 @@ async function question(number){
 
 message.channel.startTyping();
 
-step = step++;
+step++;
+
+step = step;
 
 console.log(step) 
 
@@ -50,7 +52,7 @@ await sleep;
 
 const nextInfo = await aki.step("fr", `${data.session}`, `${data.signature}`, `${data.answers[number]}`, parseInt(step));
 
-message.channel.send(nextInfo.nextQuestion)
+message.channel.send(nextInfo.nextQuestion);
 
 message.channel.stopTyping();
 
