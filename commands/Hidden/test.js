@@ -45,6 +45,8 @@ let step = 1;
 
 async function question(){
 
+while(data.currentStep !== 80){
+
 message.channel.startTyping();
 
 console.log(data)
@@ -60,12 +62,9 @@ message.channel.send(nextInfo.nextQuestion)
 message.channel.stopTyping();
 
 } 
+} 
 
-async while(data.currentStep !== 80){
-
-await question();
-
-}
+question();
 
 }) 
 
