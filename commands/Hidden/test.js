@@ -16,10 +16,11 @@ async run(message, args, level, con) {
 
 //message.channel.startTyping();
 
-const data = await aki.start("fr");
+const data = await aki.start("fr").then(d => {
 
-console.log(data)
+console.log(d);
 
+}) 
 
 } 
 }
