@@ -43,9 +43,11 @@ if(m.content.toLowerCase() === 'b') number = 9;
 
 async function question(){
 
-console.log(data.currentStep)
+console.log(data)
 
 let nextInfo = await aki.step("fr", data.session, data.signature, data.answers[number], data.nextStep);
+
+console.log(nextInfo) 
 
 message.channel.send(nextInfo.nextQuestion)
 
