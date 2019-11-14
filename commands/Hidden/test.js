@@ -12,7 +12,7 @@ aliases:["aki"]
 }) 
 } 
 
-run(message, args, level, con) {
+async run(message, args, level, con) {
 
 if(args[0] === "start"){
 
