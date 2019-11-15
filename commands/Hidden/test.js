@@ -38,10 +38,12 @@ const filtre = (reaction, user) => reaction.emoji.name === "🇾" && user.id ===
 
 var collect = m.createReactionCollector(filtre);
 
-var step = 1;
+con.query(`SELECT * FROM aki WHERE id = ${message.author.id}`, (err, rows) => {
+
+if(rows.length == 0) con.query(`INSERT Into aki(step, id) VALUES(1, ${message.author.id}`);
 
 function stepcount(){
-step++;
+con.query(`UPDATE aki SET step = ${rows[0].step + 1} WHERE id = ${message.author.id}`)
 } 
 
 collect.on("collect", async r => {
@@ -50,7 +52,7 @@ if(r.emoji.name === "🇾"){
 
 stepcount();
 
-const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], step);
+const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], rows[0].step);
 
 m.edit(nextInfo.nextQuestion)
 
@@ -60,7 +62,7 @@ if(r.emoji.name === "🇳"){
 
 stepcount();
 
-const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], step);
+const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], rows[0].step);
 
 m.edit(nextInfo.nextQuestion)
 
@@ -70,7 +72,7 @@ if(r.emoji.name === "🇮"){
 
 stepcount();
 
-const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], step);
+const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], rows[0].step);
 
 m.edit(nextInfo.nextQuestion)
 
@@ -80,7 +82,7 @@ if(r.emoji.name === "😋"){
 
 stepcount();
 
-const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], step);
+const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], rows[0].step);
 
 m.edit(nextInfo.nextQuestion)
 
@@ -90,7 +92,7 @@ if(r.emoji.name === "😬"){
 
 stepcount();
 
-const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], step);
+const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], rows[0].step);
 
 m.edit(nextInfo.nextQuestion)
 
@@ -100,6 +102,7 @@ m.edit(nextInfo.nextQuestion)
 
 }) 
 
+}) 
 } 
 
 
