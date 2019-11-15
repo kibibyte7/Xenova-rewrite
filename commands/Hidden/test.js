@@ -39,7 +39,7 @@ color:0x010101,
 description:`[${step}] ${data.question} 🇾 = Oui\n🇳 = Non\n🇮 = Je sais pas\n😋 = Probablement oui\n😬 = Probablement non.`, 
 timestamp:new Date(), 
 footer:{
-icon_url:message.author.avatar,
+icon_url:message.author.avatarURL,
 text:"© Akinator | Xenova" 
 } 
 }})
@@ -57,7 +57,7 @@ color:0x010101,
 description:`[${step}] ${nextInfo.nextQuestion} 🇾 = Oui\n🇳 = Non\n🇮 = Je sais pas\n😋 = Probablement oui\n😬 = Probablement non.`, 
 timestamp:new Date(), 
 footer:{
-icon_url:message.author.avatar,
+icon_url:message.author.avatarURL,
 text:"© Akinator | Xenova" 
 } 
 }})
@@ -73,7 +73,7 @@ color:0x010101,
 description:`[${step}] ${nextInfo.nextQuestion} 🇾 = Oui\n🇳 = Non\n🇮 = Je sais pas\n😋 = Probablement oui\n😬 = Probablement non.`, 
 timestamp:new Date(), 
 footer:{
-icon_url:message.author.avatar,
+icon_url:message.author.avatarURL,
 text:"© Akinator | Xenova" 
 } 
 }})
@@ -89,7 +89,7 @@ color:0x010101,
 description:`[${step}] ${nextInfo.nextQuestion} 🇾 = Oui\n🇳 = Non\n🇮 = Je sais pas\n😋 = Probablement oui\n😬 = Probablement non.`, 
 timestamp:new Date(), 
 footer:{
-icon_url:message.author.avatar,
+icon_url:message.author.avatarURL,
 text:"© Akinator | Xenova" 
 } 
 }})
@@ -105,7 +105,7 @@ color:0x010101,
 description:`[${step}] ${nextInfo.nextQuestion} 🇾 = Oui\n🇳 = Non\n🇮 = Je sais pas\n😋 = Probablement oui\n😬 = Probablement non.`, 
 timestamp:new Date(), 
 footer:{
-icon_url:message.author.avatar,
+icon_url:message.author.avatarURL,
 text:"© Akinator | Xenova" 
 } 
 }})
@@ -121,7 +121,7 @@ color:0x010101,
 description:`[${step}] ${nextInfo.nextQuestion} 🇾 = Oui\n🇳 = Non\n🇮 = Je sais pas\n😋 = Probablement oui\n😬 = Probablement non.`, 
 timestamp:new Date(), 
 footer:{
-icon_url:message.author.avatar,
+icon_url:message.author.avatarURL,
 text:"© Akinator | Xenova" 
 } 
 }})
