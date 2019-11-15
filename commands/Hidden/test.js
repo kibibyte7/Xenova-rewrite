@@ -30,6 +30,8 @@ message.channel.startTyping();
 
 const data = await aki.start("fr");
 
+message.channel.send(data.question).then(m => {
+
 async function Oui(){
 
 const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], step);
@@ -69,8 +71,6 @@ const nextInfo = await aki.step("fr", data.session, data.signature, data.answers
 m.edit(nextInfo.nextQuestion)
 
 } 
-
-message.channel.send(data.question).then(m => {
 
 message.channel.stopTyping();
 
