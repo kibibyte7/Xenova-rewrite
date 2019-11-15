@@ -38,15 +38,15 @@ const filtre = (reaction, user) => reaction.emoji.name === "🇾" && user.id ===
 
 var collect = m.createReactionCollector(filtre);
 
-let step = 1;
+var step = 1;
 
 collect.on("collect", async r => {
 
 if(r.emoji.name === "🇾"){
 
-const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], step);
-
 step++;
+
+const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], step);
 
 m.edit(nextInfo.nextQuestion)
 
@@ -54,8 +54,9 @@ m.edit(nextInfo.nextQuestion)
 
 if(r.emoji.name === "🇳"){
 
-const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], step);
 step++;
+
+const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], step);
 
 m.edit(nextInfo.nextQuestion)
 
@@ -63,9 +64,9 @@ m.edit(nextInfo.nextQuestion)
 
 if(r.emoji.name === "🇮"){
 
-const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], step);
-
 step++;
+
+const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], step);
 
 m.edit(nextInfo.nextQuestion)
 
@@ -73,9 +74,9 @@ m.edit(nextInfo.nextQuestion)
 
 if(r.emoji.name === "😋"){
 
-const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], step);
-
 step++;
+
+const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], step);
 
 m.edit(nextInfo.nextQuestion)
 
@@ -83,9 +84,9 @@ m.edit(nextInfo.nextQuestion)
 
 if(r.emoji.name === "😬"){
 
-const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], step);
-
 step++;
+
+const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], step);
 
 m.edit(nextInfo.nextQuestion)
 
