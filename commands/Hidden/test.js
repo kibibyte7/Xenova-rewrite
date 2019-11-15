@@ -11,6 +11,25 @@ console.log(step)
 
 } 
 
+class Akinator extends Command {
+constructor(client){
+super(client, {
+name:"akinator", 
+FRdescription:"Le bot te pose des questions pour deviner le personnage auquel tu penses.", 
+category:"Fun", 
+usage:"akinator", 
+aliases:["aki"] 
+}) 
+} 
+
+async run(message, args, level, con) {
+
+if(args[0] === "start"){
+
+message.channel.startTyping();
+
+const data = await aki.start("fr");
+
 async function Oui(){
 
 const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], step);
@@ -50,25 +69,6 @@ const nextInfo = await aki.step("fr", data.session, data.signature, data.answers
 m.edit(nextInfo.nextQuestion)
 
 } 
-
-class Akinator extends Command {
-constructor(client){
-super(client, {
-name:"akinator", 
-FRdescription:"Le bot te pose des questions pour deviner le personnage auquel tu penses.", 
-category:"Fun", 
-usage:"akinator", 
-aliases:["aki"] 
-}) 
-} 
-
-async run(message, args, level, con) {
-
-if(args[0] === "start"){
-
-message.channel.startTyping();
-
-const data = await aki.start("fr");
 
 message.channel.send(data.question).then(m => {
 
