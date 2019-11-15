@@ -22,8 +22,6 @@ message.channel.startTyping();
 
 const data = await aki.start("fr")
 
-await sleep;
-
 message.channel.send(data.question).then(m => {
 
 message.channel.stopTyping();
@@ -40,13 +38,15 @@ var collect = m.createReactionCollector(filtre);
 
 con.query(`SELECT * FROM akinator WHERE id = ${message.author.id}`, (err, rows) => {
 
-if(!rows) con.query(`INSERT Into akinator(step, id) VALUES(1, ${message.author.id})`);
+if(!rows) await con.query(`INSERT INTO akinator(step, id) VALUES(1, ${message.author.id})`);
 
-function stepcount(){
-con.query(`UPDATE akinator SET step = ${rows[0].step + 1} WHERE id = ${message.author.id}`)
-} 
+await sleep;
 
 collect.on("collect", async r => {
+
+async function stepcount(){
+await con.query(`UPDATE akinator SET step = ${rows[0].step+1} WHERE id = ${message.author.id}`)
+} 
 
 if(r.emoji.name === "🇾"){
 
