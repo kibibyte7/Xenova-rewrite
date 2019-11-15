@@ -38,17 +38,15 @@ var collect = m.createReactionCollector(filtre);
 
 con.query(`SELECT * FROM akinator WHERE id = ${message.author.id}`, async (err, rows) => {
 
-await con.query(`INSERT INTO akinator(step, id) VALUES(1, ${message.author.id})`);
+con.query(`INSERT INTO akinator(step, id) VALUES(1, ${message.author.id})`);
+
+await sleep;
 
 collect.on("collect", async r => {
 
-function stepcount(){
-con.query(`UPDATE akinator SET step = ${rows[0].step+1} WHERE id = ${message.author.id}`)
-} 
-
 if(r.emoji.name === "🇾"){
 
-stepcount();
+con.query(`UPDATE akinator SET step = ${rows[0].step+1} WHERE id = ${message.author.id}`)
 
 const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], rows[0].step);
 
@@ -58,7 +56,7 @@ m.edit(nextInfo.nextQuestion)
 
 if(r.emoji.name === "🇳"){
 
-stepcount();
+con.query(`UPDATE akinator SET step = ${rows[0].step+1} WHERE id = ${message.author.id}`)
 
 const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], rows[0].step);
 
@@ -68,7 +66,7 @@ m.edit(nextInfo.nextQuestion)
 
 if(r.emoji.name === "🇮"){
 
-stepcount();
+con.query(`UPDATE akinator SET step = ${rows[0].step+1} WHERE id = ${message.author.id}`)
 
 const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], rows[0].step);
 
@@ -78,7 +76,7 @@ m.edit(nextInfo.nextQuestion)
 
 if(r.emoji.name === "😋"){
 
-stepcount();
+con.query(`UPDATE akinator SET step = ${rows[0].step+1} WHERE id = ${message.author.id}`)
 
 const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], rows[0].step);
 
@@ -88,7 +86,7 @@ m.edit(nextInfo.nextQuestion)
 
 if(r.emoji.name === "😬"){
 
-stepcount();
+con.query(`UPDATE akinator SET step = ${rows[0].step+1} WHERE id = ${message.author.id}`)
 
 const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], rows[0].step);
 
