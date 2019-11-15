@@ -26,6 +26,8 @@ async function Start(){
 
 let data = await aki.start("fr");
 
+let question = data.question;
+
 } 
 
 async function question(nextInfo){
