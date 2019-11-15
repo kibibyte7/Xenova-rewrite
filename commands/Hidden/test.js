@@ -26,7 +26,7 @@ async function Start(){
 
 let data = await aki.start("fr");
 
-let question = data.question;
+return let quest = data.question;
 
 } 
 
@@ -38,7 +38,7 @@ m.edit(nextInfo.nextQuestion)
 
 } 
 
-message.channel.send(Start().question).then(m => {
+message.channel.send(Start()).then(m => {
 
 message.channel.stopTyping();
 
