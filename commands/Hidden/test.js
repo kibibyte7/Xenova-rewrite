@@ -36,7 +36,7 @@ collector.on("collect", async m => {
 
 if(m.author.id !== message.author.id) return;
 
-let step = 1;
+var step = 1;
 
 message.channel.stopTyping(); 
 
@@ -44,7 +44,7 @@ if(m.content.toLowerCase() === 'y'){
 
 message.channel.startTyping();
 
-let step = step + 1;
+step = step + 1;
 
 await sleep;
 
@@ -60,7 +60,7 @@ if(m.content.toLowerCase() === 'n'){
 
 message.channel.stopTyping();
 
-let step = step + 1;
+step = step + 1;
 
 await sleep;
 
@@ -76,7 +76,7 @@ if(m.content.toLowerCase() === 'i'){
 
 message.channel.stopTyping();
 
-let step = step + 1;
+step = step + 1;
 
 await sleep;
 
@@ -92,7 +92,7 @@ if(m.content.toLowerCase() === 'py'){
 
 message.channel.startTyping();
 
-let step = step + 1;
+step = step + 1;
 
 await sleep;
 
@@ -109,7 +109,7 @@ if(m.content.toLowerCase() === 'pn'){
 
 message.channel.startTyping();
  
-let step = nextInfo.nextStep;
+step = nextInfo.nextStep;
 
 await sleep;
 
