@@ -44,11 +44,11 @@ if(m.content.toLowerCase() === 'y'){
 
 message.channel.startTyping();
 
-step = step + 1;
-
-await sleep;
+step = step++;
 
 const nextInfo = await aki.step("fr", `${data.session}`, `${data.signature}`, `${data.answers[0]}`, parseInt(step));
+
+await sleep;
 
 message.channel.send(nextInfo.nextQuestion);
 
@@ -60,11 +60,11 @@ if(m.content.toLowerCase() === 'n'){
 
 message.channel.stopTyping();
 
-step = step + 1;
-
-await sleep;
+step = step++;
 
 const nextInfo = await aki.step("fr", `${data.session}`, `${data.signature}`, `${data.answers[1]}`, parseInt(step));
+
+await sleep;
 
 message.channel.send(nextInfo.nextQuestion);
 
@@ -76,11 +76,11 @@ if(m.content.toLowerCase() === 'i'){
 
 message.channel.stopTyping();
 
-step = step + 1;
-
-await sleep;
+step = step++;
 
 const nextInfo = await aki.step("fr", `${data.session}`, `${data.signature}`, `${data.answers[2]}`, parseInt(step));
+
+await sleep;
 
 message.channel.send(nextInfo.nextQuestion);
 
@@ -92,11 +92,11 @@ if(m.content.toLowerCase() === 'py'){
 
 message.channel.startTyping();
 
-step = step + 1;
-
-await sleep;
+step = step++;
 
 const nextInfo = await aki.step("fr", `${data.session}`, `${data.signature}`, `${data.answers[3]}`, parseInt(step));message.channel.send(nextInfo.nextQuestion);message.channel.send(nextInfo.nextQuestion);
+
+await sleep;
 
 message.channel.send(nextInfo.nextQuestion);
 
@@ -109,11 +109,13 @@ if(m.content.toLowerCase() === 'pn'){
 
 message.channel.startTyping();
  
-step = nextInfo.nextStep;
+step = step++;
 
-await sleep;
+
 
 const nextInfo = await aki.step("fr", `${data.session}`, `${data.signature}`, `${data.answers[4]}`, parseInt(step));message.channel.send(nextInfo.nextQuestion);message.channel.send(nextInfo.nextQuestion);
+
+await sleep;
 
 message.channel.send(nextInfo.nextQuestion);
 
