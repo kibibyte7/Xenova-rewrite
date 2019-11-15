@@ -38,7 +38,7 @@ var collect = m.createReactionCollector(filtre);
 
 con.query(`SELECT * FROM akinator WHERE id = ${message.author.id}`, async (err, rows) => {
 
-con.query(`INSERT INTO akinator(step, id) VALUES(1, ${message.author.id})`);
+if(rows.length == 0) con.query(`INSERT INTO akinator(step, id) VALUES(1, ${message.author.id})`);
 
 collect.on("collect", async r => {
 
