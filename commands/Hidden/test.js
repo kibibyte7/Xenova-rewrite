@@ -1,6 +1,15 @@
 const aki = require("aki-api") 
 const Command = require("../../modules/Command.js")
+
 let step = 0;
+
+function stepCounter(){
+
+step = step++;
+
+console.log(step)
+
+} 
 
 class Akinator extends Command {
 constructor(client){
@@ -16,12 +25,6 @@ aliases:["aki"]
 async run(message, args, level, con) {
 
 if(args[0] === "start"){
-
-function stepCounter(){
-
-step = step++;
-
-} 
 
 message.channel.startTyping();
 
@@ -47,7 +50,7 @@ if(r.emoji.name === "🇾"){
 
 const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], step);
 
-m.edit(this.nextInfo.nextQuestion)
+m.edit(nextInfo.nextQuestion)
 
 stepCounter();
 
@@ -55,9 +58,9 @@ stepCounter();
 
 if(r.emoji.name === "🇳"){
 
-const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], step);
+const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[1], step);
 
-m.edit(this.nextInfo.nextQuestion)
+m.edit(nextInfo.nextQuestion)
 
 stepCounter();
 
@@ -65,9 +68,9 @@ stepCounter();
 
 if(r.emoji.name === "🇮"){
 
-const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], step);
+const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[2], step);
 
-m.edit(this.nextInfo.nextQuestion)
+m.edit(nextInfo.nextQuestion)
 
 stepCounter();
 
@@ -75,9 +78,9 @@ stepCounter();
 
 if(r.emoji.name === "😋"){
 
-const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], step);
+const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[3], step);
 
-m.edit(this.nextInfo.nextQuestion)
+m.edit(nextInfo.nextQuestion)
 
 stepCounter();
 
@@ -85,9 +88,9 @@ stepCounter();
 
 if(r.emoji.name === "😬"){
 
-const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], step);
+const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[4], step);
 
-m.edit(this.nextInfo.nextQuestion)
+m.edit(nextInfo.nextQuestion)
 
 stepCounter();
 
