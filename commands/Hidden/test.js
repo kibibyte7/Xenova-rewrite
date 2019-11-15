@@ -18,15 +18,17 @@ if(args[0] === "start"){
 
 message.channel.startTyping();
 
-let data;
+
 
 let nextInfo;
 
 let step = 0;
 
-async function Start(data){
+async function Start(){
 
-return data = await aki.start("fr");
+let data = await aki.start("fr");
+
+message.channel.send(data.question)
 
 } 
 
@@ -38,9 +40,7 @@ m.edit(nextInfo.nextQuestion)
 
 } 
 
-Start(data)
-
-message.channel.send(data.question).then(async m => {
+Start().then(m => {
 
 message.channel.stopTyping();
 
