@@ -28,13 +28,13 @@ if(args[0] === "start"){
 
 message.channel.startTyping();
 
-const start = async _ => {
+const x = message.channel.send("Charement...")
+
+x.then(async m => {
 
 const data = await aki.start("fr");
 
-} 
-
-message.channel.send(start.data.question).then(m => {
+m.edit(data.question)
 
 async function Oui(){
 
@@ -86,7 +86,7 @@ setTimeout(() =>  { m.react("😋")}, 4000)
 
 const filtre = (reaction, user) => reaction.emoji.name === "🇾" && user.id === message.author.id || reaction.emoji.name === "🇳" && user.id === message.author.id || reaction.emoji.name === "🇮" && user.id === message.author.id || reaction.emoji.name === "😋" && user.id === message.author.id ||reaction.emoji.name === "😬" && user.id === message.author.id;  
 
-var collect = m.createReactionCollector(filtre);
+var collect = x.createReactionCollector(filtre);
 
 collect.on("collect", r => {
 
@@ -132,7 +132,7 @@ stepCounter();
 
 }) 
 
-}) 
+})
 
 } 
 
