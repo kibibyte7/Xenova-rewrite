@@ -54,6 +54,8 @@ message.channel.send(nextInfo.nextQuestion);
 
 message.channel.stopTyping();
 
+return;
+
 }
 
 if(m.content.toLowerCase() === 'n'){ 
@@ -69,6 +71,8 @@ await sleep;
 message.channel.send(nextInfo.nextQuestion);
 
 message.channel.stopTyping();
+
+return;
 
 } 
 
@@ -86,6 +90,8 @@ message.channel.send(nextInfo.nextQuestion);
 
 message.channel.stopTyping();
 
+return;
+
 } 
 
 if(m.content.toLowerCase() === 'py'){
@@ -102,6 +108,8 @@ message.channel.send(nextInfo.nextQuestion);
 
 message.channel.stopTyping();
 
+return;
+
 } 
 
 
@@ -111,8 +119,6 @@ message.channel.startTyping();
  
 step = step++;
 
-
-
 const nextInfo = await aki.step("fr", `${data.session}`, `${data.signature}`, `${data.answers[4]}`, parseInt(step));message.channel.send(nextInfo.nextQuestion);message.channel.send(nextInfo.nextQuestion);
 
 await sleep;
@@ -120,6 +126,8 @@ await sleep;
 message.channel.send(nextInfo.nextQuestion);
 
 message.channel.startTyping();
+
+return;
 
 } 
 
