@@ -44,11 +44,9 @@ collect.on("collect", async r => {
 
 if(r.emoji.name === "🇾"){
 
-con.query(`UPDATE akinator SET step = ${rows[0].step+1} WHERE id = ${message.author.id}`)
-
-await sleep;
-
 const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], rows[0].step);
+
+con.query(`UPDATE akinator SET step = ${nextInfo.nextStep} WHERE id = ${message.author.id}`)
 
 m.edit(nextInfo.nextQuestion)
 
@@ -56,11 +54,9 @@ m.edit(nextInfo.nextQuestion)
 
 if(r.emoji.name === "🇳"){
 
-con.query(`UPDATE akinator SET step = ${rows[0].step+1} WHERE id = ${message.author.id}`)
-
-await sleep;
-
 const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[1], rows[0].step);
+
+con.query(`UPDATE akinator SET step = ${nextInfo.nextStep} WHERE id = ${message.author.id}`)
 
 m.edit(nextInfo.nextQuestion)
 
@@ -68,11 +64,9 @@ m.edit(nextInfo.nextQuestion)
 
 if(r.emoji.name === "🇮"){
 
-con.query(`UPDATE akinator SET step = ${rows[0].step+1} WHERE id = ${message.author.id}`)
-
-await sleep;
-
 const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[2], rows[0].step);
+
+con.query(`UPDATE akinator SET step = ${nextInfo.nextStep} WHERE id = ${message.author.id}`)
 
 m.edit(nextInfo.nextQuestion)
 
@@ -92,11 +86,9 @@ m.edit(nextInfo.nextQuestion)
 
 if(r.emoji.name === "😬"){
 
-con.query(`UPDATE akinator SET step = ${rows[0].step+1} WHERE id = ${message.author.id}`)
-
-await sleep;
-
 const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[4], rows[0].step);
+
+con.query(`UPDATE akinator SET step = ${nextInfo.nextStep} WHERE id = ${message.author.id}`)
 
 m.edit(nextInfo.nextQuestion)
 
