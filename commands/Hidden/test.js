@@ -1,5 +1,6 @@
 const aki = require("aki-api") 
 const Command = require("../../modules/Command.js")
+let step = 0;
 
 class Akinator extends Command {
 constructor(client){
@@ -11,8 +12,6 @@ usage:"akinator",
 aliases:["aki"] 
 }) 
 } 
-
-let step = 0;
 
 async run(message, args, level, con) {
 
