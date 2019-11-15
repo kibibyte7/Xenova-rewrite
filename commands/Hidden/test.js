@@ -1,7 +1,7 @@
 const aki = require("aki-api") 
 const Command = require("../../modules/Command.js")
 
-let step = 0;
+let step = 1;
 
 function stepCounter(){
 
@@ -52,7 +52,7 @@ async function Oui(){
 
 const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], step);
 
-if(nextInfo.progress >= 70){
+if(nextInfo.progress > 99){
 
 const win = await aki.win("fr", data.session, data.signature, step);
 
@@ -89,7 +89,7 @@ async function Non(){
 
 const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[1], step);
 
-if(nextInfo.progress >= 70){
+if(nextInfo.progress > 99){
 
 const win = await aki.win("fr", data.session, data.signature, step);
 
@@ -126,7 +126,7 @@ async function Idk(){
 
 const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[2], step);
 
-if(nextInfo.progress >= 70){
+if(nextInfo.progress > 99){
 
 const win = await aki.win("fr", data.session, data.signature, step);
 
@@ -163,7 +163,7 @@ async function Py(){
 
 const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[3], step);
 
-if(nextInfo.progress >= 70){
+if(nextInfo.progress > 99){
 
 const win = await aki.win("fr", data.session, data.signature, step);
 
@@ -200,7 +200,7 @@ async function Pn(){
 
 const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[4], step);
 
-if(nextInfo.progress >= 70){
+if(nextInfo.progress > 99){
 
 const win = await aki.win("fr", data.session, data.signature, step);
 
