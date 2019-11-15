@@ -14,13 +14,15 @@ aliases:["aki"]
 
 let step = 0;
 
-function stepCounter(){
-step = step++;
-} 
-
 async run(message, args, level, con) {
 
 if(args[0] === "start"){
+
+function stepCounter(){
+
+step = step++;
+
+} 
 
 message.channel.startTyping();
 
