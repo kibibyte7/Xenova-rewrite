@@ -52,6 +52,24 @@ async function Oui(){
 
 const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], step);
 
+if(nextInfo.progress >= 70){
+
+const win = await aki.win("fr", data.session, data.signature, step);
+
+const firstGuess = win.answers[0];
+
+m.edit({embed:{
+color:0x010101,
+description:`${} ${}`, 
+timestamp:new Date(), 
+footer:{
+icon_url:message.author.avatarURL,
+text:"© Akinator | Xenova" 
+} 
+}})
+
+} else {
+
 m.edit({embed:{
 color:0x010101,
 description:`[${step}] ${nextInfo.nextQuestion} 🇾 = Oui\n🇳 = Non\n🇮 = Je sais pas\n😋 = Probablement oui\n😬 = Probablement non.`, 
@@ -61,13 +79,31 @@ icon_url:message.author.avatarURL,
 text:"© Akinator | Xenova" 
 } 
 }})
-
+} 
 }
 
 async function Non(){
 
 const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[1], step);
 
+if(nextInfo.progress >= 70){
+
+const win = await aki.win("fr", data.session, data.signature, step);
+
+const firstGuess = win.answers[0];
+
+m.edit({embed:{
+color:0x010101,
+description:`${} ${}`, 
+timestamp:new Date(), 
+footer:{
+icon_url:message.author.avatarURL,
+text:"© Akinator | Xenova" 
+} 
+}})
+
+} else {
+
 m.edit({embed:{
 color:0x010101,
 description:`[${step}] ${nextInfo.nextQuestion} 🇾 = Oui\n🇳 = Non\n🇮 = Je sais pas\n😋 = Probablement oui\n😬 = Probablement non.`, 
@@ -77,13 +113,31 @@ icon_url:message.author.avatarURL,
 text:"© Akinator | Xenova" 
 } 
 }})
-
+} 
 }
   
 async function Idk(){
 
 const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[2], step);
 
+if(nextInfo.progress >= 70){
+
+const win = await aki.win("fr", data.session, data.signature, step);
+
+const firstGuess = win.answers[0];
+
+m.edit({embed:{
+color:0x010101,
+description:`${} ${}`, 
+timestamp:new Date(), 
+footer:{
+icon_url:message.author.avatarURL,
+text:"© Akinator | Xenova" 
+} 
+}})
+
+} else {
+
 m.edit({embed:{
 color:0x010101,
 description:`[${step}] ${nextInfo.nextQuestion} 🇾 = Oui\n🇳 = Non\n🇮 = Je sais pas\n😋 = Probablement oui\n😬 = Probablement non.`, 
@@ -93,13 +147,31 @@ icon_url:message.author.avatarURL,
 text:"© Akinator | Xenova" 
 } 
 }})
-
+} 
 } 
 
 async function Py(){
 
 const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[3], step);
 
+if(nextInfo.progress >= 70){
+
+const win = await aki.win("fr", data.session, data.signature, step);
+
+const firstGuess = win.answers[0];
+
+m.edit({embed:{
+color:0x010101,
+description:`${} ${}`, 
+timestamp:new Date(), 
+footer:{
+icon_url:message.author.avatarURL,
+text:"© Akinator | Xenova" 
+} 
+}})
+
+} else {
+
 m.edit({embed:{
 color:0x010101,
 description:`[${step}] ${nextInfo.nextQuestion} 🇾 = Oui\n🇳 = Non\n🇮 = Je sais pas\n😋 = Probablement oui\n😬 = Probablement non.`, 
@@ -109,13 +181,31 @@ icon_url:message.author.avatarURL,
 text:"© Akinator | Xenova" 
 } 
 }})
-
+} 
 } 
 
 async function Pn(){
 
 const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[4], step);
 
+if(nextInfo.progress >= 70){
+
+const win = await aki.win("fr", data.session, data.signature, step);
+
+const firstGuess = win.answers[0];
+
+m.edit({embed:{
+color:0x010101,
+description:`${} ${}`, 
+timestamp:new Date(), 
+footer:{
+icon_url:message.author.avatarURL,
+text:"© Akinator | Xenova" 
+} 
+}})
+
+} else {
+
 m.edit({embed:{
 color:0x010101,
 description:`[${step}] ${nextInfo.nextQuestion} 🇾 = Oui\n🇳 = Non\n🇮 = Je sais pas\n😋 = Probablement oui\n😬 = Probablement non.`, 
@@ -126,6 +216,7 @@ text:"© Akinator | Xenova"
 } 
 }})
 
+} 
 } 
 
 message.channel.stopTyping();
