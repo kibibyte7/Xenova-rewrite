@@ -22,23 +22,25 @@ let nextInfo;
 
 let step = 0;
 
-async function Start(){
+async function Start(data, quest){
 
-let data = await aki.start("fr");
+this.data = await aki.start("fr");
 
-return let quest = data.question;
+this.quest = data.question;
 
 } 
 
 async function question(nextInfo){
 
-nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], step);
+this.nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], step);
 
-m.edit(nextInfo.nextQuestion)
+m.edit(this.nextInfo.nextQuestion)
 
 } 
 
-message.channel.send(Start()).then(m => {
+const x = new Start();
+
+message.channel.send(x.quest).then(m => {
 
 message.channel.stopTyping();
 
