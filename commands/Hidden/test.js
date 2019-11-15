@@ -60,7 +60,10 @@ const firstGuess = win.answers[0];
 
 m.edit({embed:{
 color:0x010101,
-description:`${} ${}`, 
+description:`Ton personnage est: **${firstGuess.name}**\n\nRanking: **${firstGuess.ranking}**`,
+tumbnail:{
+url:`${firstGuess.absolute_picture_path}
+}, 
 timestamp:new Date(), 
 footer:{
 icon_url:message.author.avatarURL,
@@ -94,7 +97,10 @@ const firstGuess = win.answers[0];
 
 m.edit({embed:{
 color:0x010101,
-description:`${} ${}`, 
+description:`Ton personnage est: **${firstGuess.name}**\n\nRanking: **${firstGuess.ranking}**`,
+tumbnail:{
+url:`${firstGuess.absolute_picture_path}
+}, 
 timestamp:new Date(), 
 footer:{
 icon_url:message.author.avatarURL,
@@ -128,7 +134,10 @@ const firstGuess = win.answers[0];
 
 m.edit({embed:{
 color:0x010101,
-description:`${} ${}`, 
+description:`Ton personnage est: **${firstGuess.name}**\n\nRanking: **${firstGuess.ranking}**`,
+tumbnail:{
+url:`${firstGuess.absolute_picture_path}
+}, 
 timestamp:new Date(), 
 footer:{
 icon_url:message.author.avatarURL,
@@ -162,7 +171,10 @@ const firstGuess = win.answers[0];
 
 m.edit({embed:{
 color:0x010101,
-description:`${} ${}`, 
+description:`Ton personnage est: **${firstGuess.name}**\n\nRanking: **${firstGuess.ranking}**`,
+tumbnail:{
+url:`${firstGuess.absolute_picture_path}
+}, 
 timestamp:new Date(), 
 footer:{
 icon_url:message.author.avatarURL,
@@ -196,7 +208,10 @@ const firstGuess = win.answers[0];
 
 m.edit({embed:{
 color:0x010101,
-description:`${} ${}`, 
+description:`Ton personnage est: **${firstGuess.name}**\n\nRanking: **${firstGuess.ranking}**`,
+tumbnail:{
+url:`${firstGuess.absolute_picture_path}
+}, 
 timestamp:new Date(), 
 footer:{
 icon_url:message.author.avatarURL,
