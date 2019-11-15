@@ -28,9 +28,14 @@ function question(){
 
 this.nextInfo = aki.step("fr", data.session, data.signature, data.answers[0], step);
 
+setTimeout(() => {
+
 m.edit(this.nextInfo.nextQuestion)
 
+}, 2000)
 } 
+
+setTimeout(() => {
 
 message.channel.send(data.question).then(m => {
 
@@ -91,6 +96,8 @@ step = step++;
 }) 
 
 }) 
+
+}, 2000)
 
 } 
 
