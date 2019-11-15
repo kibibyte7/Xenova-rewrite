@@ -34,18 +34,33 @@ x.then(async m => {
 
 const data = await aki.start("fr");
 
-m.edit(data.question)
+m.edit({embed:{
+color:0x010101,
+description:`[${step}] ${data.question} 🇾 = Oui\n🇳 = Non\n🇮 = Je sais pas\n😋 = Probablement oui\n😬 = Probablement non.`, 
+timestamp:new Date(), 
+footer:{
+icon_url:message.author.avatar,
+text:"© Akinator | Xenova" 
+} 
+}})
 
 const filtre = (reaction, user) => reaction.emoji.name === "🇾" && user.id === message.author.id || reaction.emoji.name === "🇳" && user.id === message.author.id || reaction.emoji.name === "🇮" && user.id === message.author.id || reaction.emoji.name === "😋" && user.id === message.author.id ||reaction.emoji.name === "😬" && user.id === message.author.id;  
 
 var collect = await m.createReactionCollector(filtre);
 
-
 async function Oui(){
 
 const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], step);
 
-m.edit(nextInfo.nextQuestion)
+m.edit({embed:{
+color:0x010101,
+description:`[${step}] ${nextInfo.nextQuestion} 🇾 = Oui\n🇳 = Non\n🇮 = Je sais pas\n😋 = Probablement oui\n😬 = Probablement non.`, 
+timestamp:new Date(), 
+footer:{
+icon_url:message.author.avatar,
+text:"© Akinator | Xenova" 
+} 
+}})
 
 }
 
@@ -53,7 +68,15 @@ async function Non(){
 
 const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[1], step);
 
-m.edit(nextInfo.nextQuestion)
+m.edit({embed:{
+color:0x010101,
+description:`[${step}] ${nextInfo.nextQuestion} 🇾 = Oui\n🇳 = Non\n🇮 = Je sais pas\n😋 = Probablement oui\n😬 = Probablement non.`, 
+timestamp:new Date(), 
+footer:{
+icon_url:message.author.avatar,
+text:"© Akinator | Xenova" 
+} 
+}})
 
 }
   
@@ -61,7 +84,15 @@ async function Idk(){
 
 const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[2], step);
 
-m.edit(nextInfo.nextQuestion)
+m.edit({embed:{
+color:0x010101,
+description:`[${step}] ${nextInfo.nextQuestion} 🇾 = Oui\n🇳 = Non\n🇮 = Je sais pas\n😋 = Probablement oui\n😬 = Probablement non.`, 
+timestamp:new Date(), 
+footer:{
+icon_url:message.author.avatar,
+text:"© Akinator | Xenova" 
+} 
+}})
 
 } 
 
@@ -69,7 +100,15 @@ async function Py(){
 
 const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[3], step);
 
-m.edit(nextInfo.nextQuestion)
+m.edit({embed:{
+color:0x010101,
+description:`[${step}] ${nextInfo.nextQuestion} 🇾 = Oui\n🇳 = Non\n🇮 = Je sais pas\n😋 = Probablement oui\n😬 = Probablement non.`, 
+timestamp:new Date(), 
+footer:{
+icon_url:message.author.avatar,
+text:"© Akinator | Xenova" 
+} 
+}})
 
 } 
 
@@ -77,7 +116,15 @@ async function Pn(){
 
 const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[4], step);
 
-m.edit(nextInfo.nextQuestion)
+m.edit({embed:{
+color:0x010101,
+description:`[${step}] ${nextInfo.nextQuestion} 🇾 = Oui\n🇳 = Non\n🇮 = Je sais pas\n😋 = Probablement oui\n😬 = Probablement non.`, 
+timestamp:new Date(), 
+footer:{
+icon_url:message.author.avatar,
+text:"© Akinator | Xenova" 
+} 
+}})
 
 } 
 
