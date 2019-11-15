@@ -24,116 +24,72 @@ const data = await aki.start("fr")
 
 await sleep;
 
-message.channel.send(data.question).then(async m => {
+message.channel.send(data.question).then(m => {
 
 message.channel.stopTyping();
 
-const filter = m => m.content.toLowerCase() === 'y' || m.content.toLowerCase() === 'n' || m.content.toLowerCase() === 'py' || m.content.toLowerCase() === 'pn' || m.content.toLowerCase() === 'i' || m.content.toLowerCase() === 'b';
+m.react("🇾")
+setTimeout(() =>  { m.react("🇳")}, 1000) 
+setTimeout(() =>  { m.react("🇮")}, 2000)
+setTimeout(() =>  { m.react("😬")}, 3000)
+setTimeout(() =>  { m.react("😋")}, 4000)
 
-const collector = message.channel.createMessageCollector(filter, { time: 15000 });
+const filtre = (reaction, user) => reaction.emoji.name === "🇾" && user.id === message.author.id || reaction.emoji.name === "🇳" && user.id === message.author.id || reaction.emoji.name === "🇮" && user.id === message.author.id || reaction.emoji.name === "😋" && user.id === message.author.id ||reaction.emoji.name === "😬" && user.id === message.author.id;  
 
-collector.on("collect", async m => {
+var collect = m.createReactionsCollector(filtre);
 
-if(m.author.id !== message.author.id) return;
+let step = 1;
 
-var step = 1;
+collect.on("collect", async r => {
 
-message.channel.stopTyping(); 
+if(r.emoji.name === "🇾"){
 
-if(m.content.toLowerCase() === 'y'){
+const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], step);
 
-message.channel.startTyping();
+step++;
 
-step = step++;
-
-const nextInfo = await aki.step("fr", `${data.session}`, `${data.signature}`, `${data.answers[0]}`, parseInt(step));
-
-await sleep;
-
-message.channel.send(nextInfo.nextQuestion);
-
-message.channel.stopTyping();
-
-return;
+m.edit(nextInfo.nextQuestion)
 
 }
 
-if(m.content.toLowerCase() === 'n'){ 
+if(r.emoji.name === "🇳"){
 
-message.channel.stopTyping();
+const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], step);
+step++;
 
-step = step++;
+m.edit(nextInfo.nextQuestion)
 
-const nextInfo = await aki.step("fr", `${data.session}`, `${data.signature}`, `${data.answers[1]}`, parseInt(step));
+}
 
-await sleep;
+if(r.emoji.name === "🇮"){
 
-message.channel.send(nextInfo.nextQuestion);
+const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], step);
 
-message.channel.stopTyping();
+step++;
 
-return;
+m.edit(nextInfo.nextQuestion)
 
-} 
+}
 
-if(m.content.toLowerCase() === 'i'){
+if(r.emoji.name === "😋"){
 
-message.channel.stopTyping();
+const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], step);
 
-step = step++;
+step++;
 
-const nextInfo = await aki.step("fr", `${data.session}`, `${data.signature}`, `${data.answers[2]}`, parseInt(step));
+m.edit(nextInfo.nextQuestion)
 
-await sleep;
+}
 
-message.channel.send(nextInfo.nextQuestion);
+if(r.emoji.name === "😬"){
 
-message.channel.stopTyping();
+const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], step);
 
-return;
+step++;
 
-} 
+m.edit(nextInfo.nextQuestion)
 
-if(m.content.toLowerCase() === 'py'){
-
-message.channel.startTyping();
-
-step = step++;
-
-const nextInfo = await aki.step("fr", `${data.session}`, `${data.signature}`, `${data.answers[3]}`, parseInt(step));message.channel.send(nextInfo.nextQuestion);message.channel.send(nextInfo.nextQuestion);
-
-await sleep;
-
-message.channel.send(nextInfo.nextQuestion);
-
-message.channel.stopTyping();
-
-return;
-
-} 
-
-
-if(m.content.toLowerCase() === 'pn'){
-
-message.channel.startTyping();
- 
-step = step++;
-
-const nextInfo = await aki.step("fr", `${data.session}`, `${data.signature}`, `${data.answers[4]}`, parseInt(step));message.channel.send(nextInfo.nextQuestion);message.channel.send(nextInfo.nextQuestion);
-
-await sleep;
-
-message.channel.send(nextInfo.nextQuestion);
-
-message.channel.startTyping();
-
-return;
-
-} 
-
-if(m.content.toLowerCase() === 'b'){ 
-console.log("ok")
-} 
+}
 
 }) 
 
