@@ -12,30 +12,19 @@ aliases:["aki"]
 }) 
 } 
 
-run(message, args, level, con) {
+let step = 0;
+
+function stepCounter(){
+step = step++;
+} 
+
+async run(message, args, level, con) {
 
 if(args[0] === "start"){
 
 message.channel.startTyping();
 
-let nextInfo;
-
-let step = 0;
-
-const data = aki.start("fr");
-
-function question(){
-
-this.nextInfo = aki.step("fr", data.session, data.signature, data.answers[0], step);
-
-setTimeout(() => {
-
-m.edit(this.nextInfo.nextQuestion)
-
-}, 2000)
-} 
-
-setTimeout(() => {
+const data = await aki.start("fr");
 
 message.channel.send(data.question).then(m => {
 
@@ -51,53 +40,61 @@ const filtre = (reaction, user) => reaction.emoji.name === "🇾" && user.id ===
 
 var collect = m.createReactionCollector(filtre);
 
-collect.on("collect", r => {
+collect.on("collect", async r => {
 
 if(r.emoji.name === "🇾"){
 
-question(nextInfo);
+const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], step);
 
-step = step++;
+m.edit(this.nextInfo.nextQuestion)
+
+stepCounter();
 
 }
 
 if(r.emoji.name === "🇳"){
 
-question(nextInfo);
+const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], step);
 
-step = step++;
+m.edit(this.nextInfo.nextQuestion)
+
+stepCounter();
 
 }
 
 if(r.emoji.name === "🇮"){
 
-question(nextInfo);
+const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], step);
 
-step = step++;
+m.edit(this.nextInfo.nextQuestion)
+
+stepCounter();
 
 }
 
 if(r.emoji.name === "😋"){
 
-question(nextInfo);
+const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], step);
 
-step = step++;
+m.edit(this.nextInfo.nextQuestion)
+
+stepCounter();
 
 }
 
 if(r.emoji.name === "😬"){
 
-question(nextInfo);
+const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], step);
 
-step = step++;
+m.edit(this.nextInfo.nextQuestion)
+
+stepCounter();
 
 }
 
 }) 
 
 }) 
-
-}, 2000)
 
 } 
 
