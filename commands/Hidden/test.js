@@ -34,7 +34,7 @@ const data = await aki.start("fr");
 
 } 
 
-message.channel.send(_.data.question).then(m => {
+message.channel.send(start.data.question).then(m => {
 
 async function Oui(){
 
