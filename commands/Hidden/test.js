@@ -12,15 +12,33 @@ aliases:["aki"]
 }) 
 } 
 
-async run(message, args, level, con) {
+run(message, args, level, con) {
 
 if(args[0] === "start"){
 
-const sleep = this.client.wait(2000);
-
 message.channel.startTyping();
 
-const data = await aki.start("fr")
+let data;
+
+let nextInfo;
+
+let step = 0;
+
+async function Start(data){
+
+return data = await aki.start("fr");
+
+} 
+
+async function question(nextInfo){
+
+nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], step);
+
+m.edit(nextInfo.nextQuestion)
+
+} 
+
+Start(data)
 
 message.channel.send(data.question).then(async m => {
 
@@ -36,61 +54,45 @@ const filtre = (reaction, user) => reaction.emoji.name === "🇾" && user.id ===
 
 var collect = m.createReactionCollector(filtre);
 
-con.query(`SELECT * FROM akinator WHERE id = ${message.author.id}`, async (err, rows) => {
-
-if(rows.length == 0) con.query(`INSERT INTO akinator(step, id) VALUES(1, ${message.author.id})`);
-
-collect.on("collect", async r => {
+collect.on("collect", r => {
 
 if(r.emoji.name === "🇾"){
 
-const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], rows[0].step);
+question(nextInfo);
 
-con.query(`UPDATE akinator SET step = ${nextInfo.nextStep} WHERE id = ${message.author.id}`)
-
-m.edit(nextInfo.nextQuestion)
+step = step++;
 
 }
 
 if(r.emoji.name === "🇳"){
 
-const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[1], rows[0].step);
+question(nextInfo);
 
-con.query(`UPDATE akinator SET step = ${nextInfo.nextStep} WHERE id = ${message.author.id}`)
-
-m.edit(nextInfo.nextQuestion)
+step = step++;
 
 }
 
 if(r.emoji.name === "🇮"){
 
-const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[2], rows[0].step);
+question(nextInfo);
 
-con.query(`UPDATE akinator SET step = ${nextInfo.nextStep} WHERE id = ${message.author.id}`)
-
-m.edit(nextInfo.nextQuestion)
+step = step++;
 
 }
 
 if(r.emoji.name === "😋"){
 
-con.query(`UPDATE akinator SET step = ${rows[0].step+1} WHERE id = ${message.author.id}`)
+question(nextInfo);
 
-await sleep;
-
-const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[3], rows[0].step);
-
-m.edit(nextInfo.nextQuestion)
+step = step++;
 
 }
 
 if(r.emoji.name === "😬"){
 
-const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[4], rows[0].step);
+question(nextInfo);
 
-con.query(`UPDATE akinator SET step = ${nextInfo.nextStep} WHERE id = ${message.author.id}`)
-
-m.edit(nextInfo.nextQuestion)
+step = step++;
 
 }
 
@@ -98,7 +100,6 @@ m.edit(nextInfo.nextQuestion)
 
 }) 
 
-}) 
 } 
 
 
