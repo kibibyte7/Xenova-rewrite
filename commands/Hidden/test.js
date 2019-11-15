@@ -1,7 +1,7 @@
 const aki = require("aki-api") 
 const Command = require("../../modules/Command.js")
 
-let step = 1;
+let step = 0;
 
 function stepCounter(){
 
@@ -36,7 +36,7 @@ const data = await aki.start("fr");
 
 m.edit({embed:{
 color:0x010101,
-description:`[${step}] ${data.question} 🇾 = Oui\n🇳 = Non\n🇮 = Je sais pas\n😋 = Probablement oui\n😬 = Probablement non.`, 
+description:`[${step+1}] ${data.question} 🇾 = Oui\n🇳 = Non\n🇮 = Je sais pas\n😋 = Probablement oui\n😬 = Probablement non.`, 
 timestamp:new Date(), 
 footer:{
 icon_url:message.author.avatarURL,
@@ -75,7 +75,7 @@ text:"© Akinator | Xenova"
 
 m.edit({embed:{
 color:0x010101,
-description:`[${step}] ${nextInfo.nextQuestion} 🇾 = Oui\n🇳 = Non\n🇮 = Je sais pas\n😋 = Probablement oui\n😬 = Probablement non.`, 
+description:`[${step+1}] ${nextInfo.nextQuestion} 🇾 = Oui\n🇳 = Non\n🇮 = Je sais pas\n😋 = Probablement oui\n😬 = Probablement non.`, 
 timestamp:new Date(), 
 footer:{
 icon_url:message.author.avatarURL,
@@ -112,7 +112,7 @@ text:"© Akinator | Xenova"
 
 m.edit({embed:{
 color:0x010101,
-description:`[${step}] ${nextInfo.nextQuestion} 🇾 = Oui\n🇳 = Non\n🇮 = Je sais pas\n😋 = Probablement oui\n😬 = Probablement non.`, 
+description:`[${step+1}] ${nextInfo.nextQuestion} 🇾 = Oui\n🇳 = Non\n🇮 = Je sais pas\n😋 = Probablement oui\n😬 = Probablement non.`, 
 timestamp:new Date(), 
 footer:{
 icon_url:message.author.avatarURL,
@@ -149,7 +149,7 @@ text:"© Akinator | Xenova"
 
 m.edit({embed:{
 color:0x010101,
-description:`[${step}] ${nextInfo.nextQuestion} 🇾 = Oui\n🇳 = Non\n🇮 = Je sais pas\n😋 = Probablement oui\n😬 = Probablement non.`, 
+description:`[${step+1}] ${nextInfo.nextQuestion} 🇾 = Oui\n🇳 = Non\n🇮 = Je sais pas\n😋 = Probablement oui\n😬 = Probablement non.`, 
 timestamp:new Date(), 
 footer:{
 icon_url:message.author.avatarURL,
@@ -186,7 +186,7 @@ text:"© Akinator | Xenova"
 
 m.edit({embed:{
 color:0x010101,
-description:`[${step}] ${nextInfo.nextQuestion} 🇾 = Oui\n🇳 = Non\n🇮 = Je sais pas\n😋 = Probablement oui\n😬 = Probablement non.`, 
+description:`[${step+1}] ${nextInfo.nextQuestion} 🇾 = Oui\n🇳 = Non\n🇮 = Je sais pas\n😋 = Probablement oui\n😬 = Probablement non.`, 
 timestamp:new Date(), 
 footer:{
 icon_url:message.author.avatarURL,
@@ -223,7 +223,7 @@ text:"© Akinator | Xenova"
 
 m.edit({embed:{
 color:0x010101,
-description:`[${step}] ${nextInfo.nextQuestion} 🇾 = Oui\n🇳 = Non\n🇮 = Je sais pas\n😋 = Probablement oui\n😬 = Probablement non.`, 
+description:`[${step+1}] ${nextInfo.nextQuestion} 🇾 = Oui\n🇳 = Non\n🇮 = Je sais pas\n😋 = Probablement oui\n😬 = Probablement non.`, 
 timestamp:new Date(), 
 footer:{
 icon_url:message.author.avatarURL,
