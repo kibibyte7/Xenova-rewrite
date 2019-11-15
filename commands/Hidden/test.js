@@ -11,6 +11,46 @@ console.log(step)
 
 } 
 
+async function Oui(){
+
+const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], step);
+
+m.edit(nextInfo.nextQuestion)
+
+}
+
+async function Non(){
+
+const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[1], step);
+
+m.edit(nextInfo.nextQuestion)
+
+}
+  
+async function Idk(){
+
+const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[2], step);
+
+m.edit(nextInfo.nextQuestion)
+
+} 
+
+async function Py(){
+
+const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[3], step);
+
+m.edit(nextInfo.nextQuestion)
+
+} 
+
+async function Pn(){
+
+const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[4], step);
+
+m.edit(nextInfo.nextQuestion)
+
+} 
+
 class Akinator extends Command {
 constructor(client){
 super(client, {
@@ -44,13 +84,11 @@ const filtre = (reaction, user) => reaction.emoji.name === "🇾" && user.id ===
 
 var collect = m.createReactionCollector(filtre);
 
-collect.on("collect", async r => {
+collect.on("collect", r => {
 
 if(r.emoji.name === "🇾"){
 
-const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], step);
-
-m.edit(nextInfo.nextQuestion)
+Oui();
 
 stepCounter();
 
@@ -58,9 +96,7 @@ stepCounter();
 
 if(r.emoji.name === "🇳"){
 
-const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[1], step);
-
-m.edit(nextInfo.nextQuestion)
+Non();
 
 stepCounter();
 
@@ -68,9 +104,7 @@ stepCounter();
 
 if(r.emoji.name === "🇮"){
 
-const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[2], step);
-
-m.edit(nextInfo.nextQuestion)
+Idk();
 
 stepCounter();
 
@@ -78,9 +112,7 @@ stepCounter();
 
 if(r.emoji.name === "😋"){
 
-const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[3], step);
-
-m.edit(nextInfo.nextQuestion)
+Py();
 
 stepCounter();
 
@@ -88,9 +120,7 @@ stepCounter();
 
 if(r.emoji.name === "😬"){
 
-const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[4], step);
-
-m.edit(nextInfo.nextQuestion)
+Pn();
 
 stepCounter();
 
