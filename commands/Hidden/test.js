@@ -36,6 +36,11 @@ const data = await aki.start("fr");
 
 m.edit(data.question)
 
+const filtre = (reaction, user) => reaction.emoji.name === "🇾" && user.id === message.author.id || reaction.emoji.name === "🇳" && user.id === message.author.id || reaction.emoji.name === "🇮" && user.id === message.author.id || reaction.emoji.name === "😋" && user.id === message.author.id ||reaction.emoji.name === "😬" && user.id === message.author.id;  
+
+var collect = await m.createReactionCollector(filtre);
+
+
 async function Oui(){
 
 const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], step);
@@ -83,10 +88,6 @@ setTimeout(() =>  { m.react("🇳")}, 1000)
 setTimeout(() =>  { m.react("🇮")}, 2000)
 setTimeout(() =>  { m.react("😬")}, 3000)
 setTimeout(() =>  { m.react("😋")}, 4000)
-
-const filtre = (reaction, user) => reaction.emoji.name === "🇾" && user.id === message.author.id || reaction.emoji.name === "🇳" && user.id === message.author.id || reaction.emoji.name === "🇮" && user.id === message.author.id || reaction.emoji.name === "😋" && user.id === message.author.id ||reaction.emoji.name === "😬" && user.id === message.author.id;  
-
-var collect = x.createReactionCollector(filtre);
 
 collect.on("collect", r => {
 
