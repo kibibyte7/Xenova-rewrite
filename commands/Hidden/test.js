@@ -5,7 +5,7 @@ let step = 0;
 
 function stepCounter(){
 
-step = step++;
+step = step + 1;
 
 console.log(step)
 
@@ -22,15 +22,19 @@ aliases:["aki"]
 }) 
 } 
 
-async run(message, args, level, con) {
+run(message, args, level, con) {
 
 if(args[0] === "start"){
 
 message.channel.startTyping();
 
+const start = async _ => {
+
 const data = await aki.start("fr");
 
-message.channel.send(data.question).then(m => {
+} 
+
+message.channel.send(_.data.question).then(m => {
 
 async function Oui(){
 
