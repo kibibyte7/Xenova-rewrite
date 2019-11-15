@@ -22,7 +22,7 @@ message.channel.startTyping();
 
 const data = await aki.start("fr")
 
-message.channel.send(data.question).then(m => {
+message.channel.send(data.question).then(async m => {
 
 message.channel.stopTyping();
 
