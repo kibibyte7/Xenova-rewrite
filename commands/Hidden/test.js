@@ -36,7 +36,7 @@ setTimeout(() =>  { m.react("😋")}, 4000)
 
 const filtre = (reaction, user) => reaction.emoji.name === "🇾" && user.id === message.author.id || reaction.emoji.name === "🇳" && user.id === message.author.id || reaction.emoji.name === "🇮" && user.id === message.author.id || reaction.emoji.name === "😋" && user.id === message.author.id ||reaction.emoji.name === "😬" && user.id === message.author.id;  
 
-var collect = m.createReactionsCollector(filtre);
+var collect = m.createReactionCollector(filtre);
 
 let step = 1;
 
