@@ -58,7 +58,7 @@ if(step == 60){
 
 const win = await aki.win("fr", data.session, data.signature, step);
 
-console.log(win.answer.map(w => `${w.name} - ${w.proba}`))
+console.log(win.answers(w => `${w.name} - ${w.proba}`))
 
 const firstGuess = win.answers[0]; 
 
@@ -98,7 +98,7 @@ console.log(nextInfo.progress)
 if(step == 60){
 
 const win = await aki.win("fr", data.session, data.signature, step);
-console.log(win.answer.map(w => `${w.name} - ${w.proba}`))
+console.log(win.answers.map(w => `${w.name} - ${w.proba}`))
 
 const firstGuess = win.answers[0];
 
@@ -140,7 +140,7 @@ if(step == 60){
 const win = await aki.win("fr", data.session, data.signature, step);
 
 const firstGuess = win.answers[0];
-console.log(win.answer.map(w => `${w.name} - ${w.proba}`))
+console.log(win.answers.map(w => `${w.name} - ${w.proba}`))
 m.edit({embed:{
 color:0x010101,
 description:`Ton personnage est: **${firstGuess.name}**\n\nRanking: **${firstGuess.ranking}**`,
@@ -177,7 +177,7 @@ console.log(nextInfo.progress)
 if(step == 60){
 
 const win = await aki.win("fr", data.session, data.signature, step);
-console.log(win.answer.map(w => `${w.name} - ${w.proba}`))
+console.log(win.answers.map(w => `${w.name} - ${w.proba}`))
 
 const firstGuess = win.answers[0];
 
@@ -217,7 +217,7 @@ console.log(nextInfo.progress)
 if(step == 60){
 
 const win = await aki.win("fr", data.session, data.signature, step);
-console.log(win.answer.map(w => `${w.name} - ${w.proba}`))
+console.log(win.answers.map(w => `${w.name} - ${w.proba}`))
 
 const firstGuess = win.answers[0];
 
