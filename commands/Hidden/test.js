@@ -51,7 +51,7 @@ var collect = await m.createReactionCollector(filtre);
 async function Oui(){
 
 const nextInfo = await aki.step("fr", data.session, data.signature, data.answers[0], step);
-
+ 
 console.log(nextInfo.progress)
 
 if(step == 60){
