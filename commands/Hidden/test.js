@@ -52,15 +52,15 @@ name:"Localisation:",
 value:clan.location.name
 }, 
 {
-name:"Niveau du clan:" 
+name:"Niveau du clan:", 
 value:clan.clanLevel
 }, 
 {
-name:"Points du clan:" 
+name:"Points du clan:", 
 value:`${clan.clanPoints} - ${clan.clanVersusPoints}`
 },
 {
-name:"Guerres de clans gagnées d'affilié:" 
+name:"Guerres de clans gagnées d'affilié:", 
 value:clan.warWinStreak
 },
 {
