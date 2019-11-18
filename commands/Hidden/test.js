@@ -3,6 +3,9 @@ const Command =require("../../modules/Command.js")
 const clashApi = require("clash-of-clans-api")
 
 const clash = clashApi({
+request: {
+    proxy: process.env.FIXIE_URL,
+},
 token:process.env.coctoken
 })
 
