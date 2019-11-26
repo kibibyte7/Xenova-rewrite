@@ -1,6 +1,5 @@
 const Command = require("../../modules/Command.js");
 const ytdl = require("ytdl-core");
-const ytdlDiscord = require("ytdl-core-discord");
 const search = require("yt-search");
 const { Util } = require("discord.js");
 
@@ -54,7 +53,7 @@ class Play extends Command {
     
 
     const queueConstruct = {
-      textChannel: message.channel,
+      textChannel: message.channel.id,
       voiceChannel,
       connection: null,
       songs: [],
@@ -71,11 +70,12 @@ class Play extends Command {
       if (!song) {
         queue.voiceChannel.leave();
         message.client.queue.delete(message.guild.id);
+        message.guild.channels.find("id", queue.textChannel).send(`${this.client.emojis.find(e => e.name === "wrongMark")} La playlist est vide, je quitte le channel vocal.`)
         return;
       }
 
       const dispatcher = queue.connection
-        .playOpusStream(await ytdlDiscord(song.url), { passes: 3 })
+        .playOpusStream(await ytdl(song.url), { passes: 3 })
         .on("end", reason => {
           if (reason === "Récupération trop lente !")
             console.log("La musique s'est arrêtée !");
