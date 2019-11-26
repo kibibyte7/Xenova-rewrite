@@ -38,7 +38,7 @@ module.exports = class {
     this.client = client;
   }
 
-  async run (member) {
+  run (member) {
 
     this.client.user.setActivity(`${this.client.config.defaultSettings.prefix}help | ${this.client.guilds.size} servs | ${this.client.users.size} utilisateurs`, {type:"STREAMING"});
     con.query(`SELECT * FROM settings WHERE guild_id = ${member.guild.id}`, async (err, rows) => {
