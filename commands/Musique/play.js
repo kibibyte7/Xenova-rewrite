@@ -74,8 +74,8 @@ class Play extends Command {
         return;
       }
 
-      const dispatcher = await queue.connection
-        .playStream(ytdl(song.url, {filter:"audioonly"}), { passes: 1, bitrate: 200000})
+      const dispatcher = queue.connection
+        .playStream(await ytdl(song.url, {filter:"audioonly"}), { passes: 1, bitrate: 200000})
         .on("end", reason => {
           if (reason === "Récupération trop lente !")
             console.log("La musique s'est arrêtée !");
