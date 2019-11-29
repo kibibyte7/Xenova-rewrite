@@ -210,11 +210,33 @@ if(tentatives == 1){
 
 m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\nAvertissement: Code faux, 0 tentatives restantes.\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment) 
 
-message.channel.send(`${this.client.findEmoteByName("wrongMark")} ${!u ? message.author : u} Code faux ! Le code était **${result}**`) 
+if(args[1] === "server"){
+
+message.channel.send(`${this.client.emojis.find(e => e.name === "wrongMark")} **${u.username}** a été kick, pour captcha non résolu.`, `Captcha non résolu`) 
+
+message.guild.kick(u.id);
 
 m.clearReactions();
 
 collect.stop();
+
+} 
+
+if(args[1] === "game"){
+
+con.query("SELECT * FROM inventory WHERE id = ${u}`, (err, rows) => {
+
+message.channel.send(`${this.client.findEmoteByName("wrongMark")} ${!u ? message.author : u} Code faux ! Le code était **${result}**`) 
+
+con.query(`UPDATE inventory SET hrcombo = 0 WHERE id = ${message.author.id}`) 
+
+m.clearReactions();
+
+collect.stop();
+
+}) 
+
+} 
 
 } else {
 
@@ -230,8 +252,6 @@ m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\n
 
 
 }) 
-
-
 
 }) 
 
