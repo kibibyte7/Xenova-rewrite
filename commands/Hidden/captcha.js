@@ -224,7 +224,7 @@ collect.stop();
 
 if(args[1] === "game"){
 
-con.query("SELECT * FROM inventory WHERE id = ${u}`, (err, rows) => {
+con.query(`SELECT * FROM inventory WHERE id = ${u}`, (err, rows) => {
 
 message.channel.send(`${this.client.findEmoteByName("wrongMark")} ${!u ? message.author : u} Code faux ! Le code était **${result}**`) 
 
