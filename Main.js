@@ -97,11 +97,11 @@ class Xenova extends Client {
 
   async postCaptcha(user, chan, guild, type){
 
-  let u = await this.users.find(x => x.id === user) 
+  let u = this.users.find(x => x.id === user) 
   
-  let channel = await this.channels.find(c => c.id === chan)
+  let serveur = this.guilds.find(g => g.id === guild)
 
-  let serveur = await this.guilds.find(g => g.id === guild)
+  let channel = serveur.channels.find(c => c.id === chan)
 
   await console.log(`${u.username} - ${channel.id} - ${serveur.name}`)
 
