@@ -95,7 +95,7 @@ class Xenova extends Client {
     return permlvl;
   } 
 
-  postCaptcha(id, cible, guild, type){
+  async postCaptcha(id, cible, guild, type){
 
   let u = this.client.users.find(x => x.id === id)
   
