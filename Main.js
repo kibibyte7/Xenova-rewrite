@@ -123,7 +123,7 @@ class Xenova extends Client {
 
   ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
-  ctx.font = this.client.applyText(canvas, `${firstNumber} + ${secondNumber} = ? + "${thirdNumber}"`) && '55px "Visitor2"';
+  ctx.font = this.applyText(canvas, `${firstNumber} + ${secondNumber} = ? + "${thirdNumber}"`) && '55px "Visitor2"';
 
   ctx.fillStyle = "#0d1bde";
 
