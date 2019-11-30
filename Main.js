@@ -95,11 +95,13 @@ class Xenova extends Client {
     return permlvl;
   } 
 
-  async postCaptcha(user, chan, type){
+  async postCaptcha(user, chant, serveur, type){
 
   let u = this.users.find(x => x.id === user) 
   
-  let channel = message.guild.channels.find(c => c.id === chan)
+  let guild = this.guilds.get(serveur)
+
+  let channel = guild.channels.find(c => c.id === chan)
 
   console.log(`${u.username} - ${channel.id}`)
 
