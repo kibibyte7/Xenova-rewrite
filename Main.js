@@ -99,9 +99,9 @@ class Xenova extends Client {
 
   let u = this.users.find(x => x.id === id)
   
-  let channel = this.channels.get(cible)
+  let channel = this.channels.find(c => c.id === cible)
 
-  let serveur = this.guilds.get(guild)
+  let serveur = this.guilds.find(g => g.id === guild)
 
   const filter = (reaction, user) => user.id === u.id;
 
