@@ -97,11 +97,11 @@ class Xenova extends Client {
 
   async postCaptcha(id, cible, guild, type){
 
-  let u = this.client.users.find(x => x.id === id)
+  let u = this.users.find(x => x.id === id)
   
-  let channel = this.client.channels.get(cible)
+  let channel = this.channels.get(cible)
 
-  let serveur = this.client.guilds.get(guild)
+  let serveur = this.guilds.get(guild)
 
   const filter = (reaction, user) => user.id === u.id;
 
