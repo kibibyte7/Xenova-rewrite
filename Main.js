@@ -95,15 +95,13 @@ class Xenova extends Client {
     return permlvl;
   } 
 
-  async postCaptcha(user, chan, guild, type){
+  async postCaptcha(user, chan, type){
 
   let u = this.users.find(x => x.id === user) 
   
-  let serveur = this.guilds.find(g => g.id === guild)
+  let channel = message.guild.channels.find(c => c.id === chan)
 
-  let channel = serveur.channels.find(c => c.id === chan)
-
-  await console.log(`${u.username} - ${channel.id} - ${serveur.name}`)
+  console.log(`${u.username} - ${channel.id}`)
 
   const filter = (reaction, user) => user.id === u.id;
 
@@ -299,7 +297,7 @@ class Xenova extends Client {
 
   channel.send(`${this.client.emojis.find(e => e.name === "wrongMark")} **${u.username}** a été kick, pour captcha non résolu.`, `Captcha non résolu`) 
 
-  serveur.kick(u.id);
+  message.guild.kick(u.id);
 
   m.clearReactions();
 
