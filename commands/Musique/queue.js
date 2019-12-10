@@ -6,7 +6,8 @@ class Queue extends Command {
       name: "queue",
       description: "Afficher la liste de musique.",
       usage: "queue", 
-      category:"Musique"
+      category:"Musique", 
+      aliases:["q"] 
     });
   }
 
@@ -19,7 +20,7 @@ class Queue extends Command {
       return message.channel.send(`${this.client.findEmoteByName("wrongMark")} Il n'y a aucune musique en cours !`);
     let songs = serverQueue.songs;
     for(var i in songs){
-    resp += isNaN(i) ? `` : `[${parseInt(i)+1}] - **${songs[parseInt(i)+1].title}** - Demandé par: **${songs[parseInt(i)+1].requester}**\n`
+    resp += isNaN(parseInt(i)+1) ? `Ajoute d'autres musiques avec +play <url/titre>` : `[${parseInt(i)+1}] - **${songs[parseInt(i)+1].title}** - Demandé par: **${songs[parseInt(i)+1].requester}**\n`
     } 
     
 message.channel.send(`
