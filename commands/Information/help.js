@@ -30,9 +30,9 @@ aliases:["h"]
 	 	this.client.commands.filter(c => c.help.category === "Utilitaire").map(cmd => `\`\`${this.client.config.defaultSettings.prefix}${cmd.help.name}\`\` : ${language == "en" ? cmd.help.ENdescription : cmd.help.FRdescription}`).join("\n"), 		
 	 	] 
 	  
-	  let page = 1;
+	  let page = 0;
 	  
-	  const maxpage = help_interface.length-1;
+	  const maxpage = help_interface.length;
 	  
 	  const right = this.client.emojis.find(e => e.name === "droite") 
 
