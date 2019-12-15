@@ -64,7 +64,7 @@ con.query(`SELECT * FROM vcs_user WHERE id = ${message.author.id}`, (err, me) =>
 for(var i in rows){
 
 if(isNaN(i)) return;
-console.log(`${rows[i].i} - ${this.client.channels.find(c => c.id === rows[i].id)}`)
+console.log(`${rows[i].id} - ${this.client.channels.find(c => c.id === rows[i].id)}`)
 this.client.channels.find(c => c.id === rows[i].id).send({embed:{
 color:Math.floor(Math.random() * 16777214) + 1,
 thumbnail:{
