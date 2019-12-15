@@ -41,7 +41,7 @@ if(rows.length == 0) con.query(`INSERT INTO vcs_user(id, grade, banned, bannedti
 
 con.query(`SELECT * FROM vcs WHERE id = ${message.channel.id}`, (err, rows) => {
 
-if(rows.length == 0) return message.channel.send(`${this.client.emojis.find(e => e.name === "wrongMark")} Ce channel n'est pas un channel de discussion interserveur.`).then(m => {
+if(!rows) return message.channel.send(`${this.client.emojis.find(e => e.name === "wrongMark")} Ce channel n'est pas un channel de discussion interserveur.`).then(m => {
 
 m.delete(4000)
 
