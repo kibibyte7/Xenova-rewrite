@@ -44,7 +44,12 @@ async run() {
 	this.client.fetchApplication()
 	}, 60000)
 	
-        this.client.channels.get("586596535165386759").send({embed:{
+        
+        try{
+	
+	let c = this.client.channels.get("586596535165386759");
+        
+        c.send({embed:{
 		color:0x010101, 
 		author:{
                 name:"Lancement réussi"
@@ -55,6 +60,11 @@ async run() {
                 icon_url:this.client.user.avatarURL,text:"lancé"
 		} 
                 }}) 
+	} catch(e) {
+
+	console.log(e.message)
+
+	} 
 
         require("../modules/Dashboard.js")(this.client);
 
