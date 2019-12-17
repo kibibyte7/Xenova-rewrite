@@ -7,7 +7,7 @@ name:"createchannel",
 FRdescription:"Créer un salon textuel.",
 ENdescription:"Create a text channel.", 
 category:"Admin", 
-usage:"createchannel <name>"
+usage:"createchannel <name>", 
 cooldown: 5,
 permissions:["MANAGE_CHANNELS"], 
 permLevel:"XenoAdminPerm", 
