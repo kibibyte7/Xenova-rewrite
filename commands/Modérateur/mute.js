@@ -4,7 +4,8 @@ class Mute extends Command {
 constructor(client){
 super(client, {
 name :"mute",
-description :"Empêche un utilisateur de parler temporairement.",
+FRdescription :"Empêche un utilisateur de parler temporairement.",
+Endescription:"Prevents a user from speaking temporarily.", 
 usage:"mute <@mention> <nombre> <min/h>",
 category:"Modérateur", 
 permLevel:"XenoModPerm"
