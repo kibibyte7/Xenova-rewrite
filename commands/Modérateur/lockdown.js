@@ -4,7 +4,8 @@ class Lockdown extends Command {
 constructor(client){
 super(client, {
 name :"lockdown",
-description :"Empêche les utilisateurs de parler temporairement dans le channel.",
+FRdescription :"Empêche les utilisateurs de parler temporairement dans le channel.",
+ENdescription:"Prevents users from talking temporarily in the channel.", 
 usage:"lockdown <nombre> <min/h>",
 category:"Modérateur", 
 permLevel:"XenoModPerm", 
