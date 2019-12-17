@@ -8,8 +8,7 @@ name:"ball",
 FRdescription:"Le bot répond à la question posée.", 
 ENdescriprion:"The bot answer to the asked question.", 
 category:"Fun", 
-FRusage:"ball <texte>",
-ENusage:"ball <texte>", 
+usage:"ball <texte>", 
 aliases:["b"] 
 })
 } 
