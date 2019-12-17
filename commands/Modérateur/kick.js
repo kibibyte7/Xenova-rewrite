@@ -5,7 +5,8 @@ constructor (client) {
 super(client, {
 name:"kick",
 category:"Modérateur", 
-description:"Kick un membre du serveur.",
+FRdescription:"Kick un membre du serveur.",
+ENdescription:"Kick a guild member.", 
 usage:"kick <@mention>",
 permLevel:"XenoModPerm"
 })
