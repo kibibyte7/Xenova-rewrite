@@ -18,7 +18,7 @@ aliases:[]
 
   run(message, args, level, con) {
   
-  if(args.length == 0) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Entre fr ou en.`) 
+  if(args.length == 0) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Entre \`fr\` ou \`en\`.`) 
   
   if(args[0] === "fr") {
 
