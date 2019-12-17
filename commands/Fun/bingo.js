@@ -10,8 +10,7 @@ name:"bingo",
 FRdescription:"Deviner le nombre entre 0 et le nombre souhaité. (100 par défaut)", 
 ENdescription:"Guess the number between 0 and the desired number. (100 by default)", 
 category:"Fun",
-FRusage:"bingo [nombre]", 
-ENusage:"bingo [nombre]",
+usage:"bingo [nombre]",
 permissions:["USE_EXTERNAL_EMOJIS", "ADD_REACTION"], 
 permLevel:"XenoModPerm" 
 }) 
