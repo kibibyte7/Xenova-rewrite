@@ -7,7 +7,7 @@ name:"createcategory",
 FRdescription:"Créer une catégorie.",
 ENdescription:"Create a category.", 
 category:"Admin", 
-usage:"createcategory <name>"
+usage:"createcategory <name>", 
 cooldown: 5,
 permissions:["MANAGE_CHANNELS"], 
 permLevel:"XenoAdminPerm", 
