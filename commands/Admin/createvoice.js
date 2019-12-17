@@ -8,7 +8,7 @@ FRdescription:"Créer un salon vocal.",
 ENdescription:"Create a voice channel.", 
 category:"Admin", 
 FRusage:"createvoice <nom>",
-ENusage:"createvoice <name>"
+ENusage:"createvoice <name>", 
 cooldown: 5,
 permissions:["MANAGE_CHANNELS"], 
 permLevel:"XenoAdminPerm", 
