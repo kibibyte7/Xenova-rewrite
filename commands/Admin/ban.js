@@ -50,6 +50,10 @@ var waiting_msg = this.client.toValues(waiting_author, "{user}", mention.user.us
 var dm = this.client.toValues(lang.ban.dm, "{server}", message.guild.name)
 
 var dm_msg = this.client.toValues(dm, "{reason}", !args[1] ? lang.ban.no_reason : args.slice(1).join(" ")) 
+
+const check = this.client.findEmoteByName("checkMark");
+
+const wrong = this.client.findEmoteByName("wrongMark");
 	   	
 message.channel.send(waiting_msg).then(m => {
 	   	 
