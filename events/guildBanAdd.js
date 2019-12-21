@@ -40,6 +40,10 @@ async run(guild, user){
 
 con.query(`SELECT * FROM settings WHERE guild_id = ${guild.id}`, (err, rows) => {
     
+    let channel = guild.channels.find("id", rows[0].ban_id)
+
+    if(!channel) return;
+
     if(rows.length == 0) return;
     
     let b = rows[0].ban_msg
@@ -50,7 +54,7 @@ con.query(`SELECT * FROM settings WHERE guild_id = ${guild.id}`, (err, rows) => 
     
     var u = n.replace("{membercount}", guild.members.size) 
 
-    this.client.channels.get(rows[0].ban_id).send(u)
+    channel.send(u)
 
     }) 
 
