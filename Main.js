@@ -385,7 +385,7 @@ const init = async () => {
   
   setInterval(() => {client.checkVcsBans()}, 60000); 
   
-  setInterval(() => {client.checkHourly()}) 
+  setInterval(() => {client.checkHourly()}, 60000);
 
   setInterval(() => {client.tweetFusion()}, 1800000);
 
