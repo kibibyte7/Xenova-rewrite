@@ -95,252 +95,6 @@ class Xenova extends Client {
     return permlvl;
   } 
 
-  async postCaptcha(user, chan, serveur, type){
-
-  let u = this.users.find(x => x.id === user) 
-  
-  let guild = this.guilds.get(serveur)
-
-  let channel = guild.channels.find(c => c.id === chan)
-
-  console.log(`${u.username} - ${channel.id}`)
-
-  const filter = (reaction, user) => user.id === u.id;
-
-  Canvas.registerFont('Font/visitor2.ttf', { family: 'Visitor2'})
- 	
-  const firstNumber = Math.floor(Math.random()*20);
-
-  const secondNumber = Math.floor(Math.random()*20);
-
-  const thirdNumber = `${Math.floor(Math.random()*999)+1}`;
-
-  const result = `${firstNumber + secondNumber}` + `${thirdNumber}`;
-
-  const canvas = Canvas.createCanvas(700, 250); 
-
-  const ctx = canvas.getContext('2d'); 
-
-  const background = await Canvas.loadImage("Images/background.png");
-
-  ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
-
-  ctx.font = this.applyText(canvas, `${firstNumber} + ${secondNumber} = ? + "${thirdNumber}"`) && '55px "Visitor2"';
-
-  ctx.fillStyle = "#0d1bde";
-
-  ctx.fillText(`${firstNumber} + ${secondNumber} = ? + "${thirdNumber}"`, canvas.width / 4.4, canvas.height / 1.8);
-
-  const attachment = new Attachment(canvas.toBuffer(), 'captcha.png'); 
-
-  let resp = ``;
-
-  let tentatives = 3;
-
-  channel.send(`${u} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment).then(m => {
-
-  m.react("0⃣") 
-
-  setTimeout(() => { m.react("1⃣")}, 1000)
-
-  setTimeout(() => { m.react("2⃣")}, 2000)
-
-  setTimeout(() => { m.react("3⃣")}, 3000)
-
-  setTimeout(() => { m.react("4⃣")}, 4000)
-
-  setTimeout(() => { m.react("5⃣")}, 5000)
-
-  setTimeout(() => { m.react("6⃣")}, 6000)
-
-  setTimeout(() => { m.react("7⃣")}, 7000)
-
-  setTimeout(() => { m.react("8⃣")}, 8000)
-
-  setTimeout(() => { m.react("9⃣")}, 9000)
-
-  setTimeout(() => { m.react("↩")}, 10000)
-
-  setTimeout(() => { m.react(this.client.findEmoteByName("checkMark"))}, 11000)
-
-  let collect = m.createReactionCollector(filter)
-
-  collect.on("collect", (r) => {
-
-  if(r.emoji.name === "0⃣") {
-
-  r.remove(u)
-
-  resp += "0";
-
-  m.edit(`${u} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment)
-
-  } 
-
-  if(r.emoji.name === "1⃣") {
-
-  r.remove(u)
-
-  resp += "1";
-
-  m.edit(`${u} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment)
-
-  } 
-
-  if(r.emoji.name === "2⃣") {
-
-  r.remove(u)
-
-  resp += "2";
-
-  m.edit(`${u} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment)
-
-  } 
-
-  if(r.emoji.name === "3⃣") {
-
-  r.remove(u)
-
-  resp += "3";
-
-  m.edit(`${u} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment)
-
-  } 
-
-  if(r.emoji.name === "4⃣") {
-
-  r.remove(u)
-
-  resp += "4";
-
-  m.edit(`${u} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment)
-
-  } 
-
-  if(r.emoji.name === "5⃣") {
-
-  r.remove(u)
-
-  resp += "5";
-
-  m.edit(`${u} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment)
-
-  } 
-
-  if(r.emoji.name === "6⃣") {
-
-  r.remove(u)
-
-  resp += "6";
-
-  m.edit(`${u} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment)
-
-  } 
-
-  if(r.emoji.name === "7⃣") {
-
-  r.remove(u)
-
-  resp += "7";
-
-  m.edit(`${u} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment)
-
-  } 
-
-  if(r.emoji.name === "8⃣") {
-
-  r.remove(u)
-
-  resp += "8";
-
-  m.edit(`${u} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment)
-
-  } 
-
-  if(r.emoji.name === "9⃣") {
-
-  r.remove(u)
-
-  resp += "9";
-
-  m.edit(`${u} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment)
-
-  } 
-
-  if(r.emoji.name === "↩") {
-
-  r.remove(u)
-
-  resp = "";
-
-  m.edit(`${u} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment)
-
-  } 
-
-  if(r.emoji.name === "checkMark") {
-
-  if(resp === result) {
-
-  channel.send(`${this.client.findEmoteByName("checkMark")} ${u} Captcha validé ! Tu es un bon humain.`) 
-
-  m.clearReactions();
-
-  collect.stop();
-
-  } else {
-
-  r.remove(u)
-
-  if(tentatives == 1){
-
-  m.edit(`${u} Entre le code donné\n\n**Code: ${resp}**\n\nAvertissement: Code faux, 0 tentatives restantes.\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment) 
-
-  if(args[1] === "server"){
-
-  channel.send(`${this.client.emojis.find(e => e.name === "wrongMark")} **${u.username}** a été kick, pour captcha non résolu.`, `Captcha non résolu`) 
-
-  message.guild.kick(u.id);
-
-  m.clearReactions();
-
-  collect.stop();
-
-  } 
-
-  if(type === "game"){
-
-  con.query(`SELECT * FROM inventory WHERE id = ${u.id}`, (err, rows) => {
-
-  channel.send(`${this.client.findEmoteByName("wrongMark")} ${!u ? message.author : u} Code faux ! Le code était **${result}**`) 
-
-  con.query(`UPDATE inventory SET hrcombo = 0 WHERE id = ${u.id}`) 
-
-  m.clearReactions();
-
-  collect.stop();
-
-  }) 
-
-  } 
-
-  } else {
-
-  tentatives = tentatives - 1;
-
-  m.edit(`${u} Entre le code donné\n\n**Code: ${resp}**\n\nAvertissement: Code faux, ${tentatives} tentatives restantes.\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment) 
-
-  } 
-
-  } 
-
-  } 
-
-  }) 
-
-  }) 
-
-  } 
-
   toWrongMark(input) {
 
   return input = input.replace('{wrong}', this.emojis.find(e => e.name === "wrongMark"))
@@ -451,6 +205,26 @@ class Xenova extends Client {
 
   } 
   
+  checkHourly(){
+
+  con.query("SELECT * FROM inventory", (err, rows) => {
+  
+  for(var i in rows){
+
+  if(isNaN(i)) return;
+  
+  const TempsHr = new Date(rows[0].hr_ratelimit).getTime();
+
+  if((TempsHr > Date.now()) && (TempsHr !== 0)) return;
+  
+  con.query(`UPDATE inventory SET hrcombo = 0, hr_ratelimit = 0 WHERE id = ${rows[i].id}`)
+
+  } 
+ 
+  }) 
+
+  } 
+
   async tweetFusion(){
   
    let result = await pokefusion();
@@ -611,6 +385,8 @@ const init = async () => {
   
   setInterval(() => {client.checkVcsBans()}, 60000); 
   
+  setInterval(() => {client.checkHourly()}) 
+
   setInterval(() => {client.tweetFusion()}, 1800000);
 
   client.login(process.env.token);
