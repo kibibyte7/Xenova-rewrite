@@ -15,9 +15,9 @@ class Captcha extends Command {
     });
   }
 
-async run(message, client, args, level){
+run(message, client, args, level){
 
-con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows) => {
+con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, async (err, rows) => {
 
 if(!rows) return;
 
