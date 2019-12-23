@@ -17,9 +17,13 @@ class Captcha extends Command {
 
 async run(message, client, args, level){
 
-let u = this.client.users.find(x => x.id === args[0])
+con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows) => {
 
-const filter = (reaction, user) => !u ? user.id === message.author.id : user.id === u.id;
+if(!rows) return;
+
+if(rows[0].verified_captcha == true) return message.channel.send(`${this.client.findEmoteByName("wrongMark")} ${message.author} Ne te préoccupe pas de ça pour le moment.`)
+
+const filter = (reaction, user) => user.id === message.author;
 
 Canvas.registerFont('Font/visitor2.ttf', { family: 'Visitor2'})
  	
@@ -51,7 +55,7 @@ let resp = ``;
 
 let tentatives = 3;
 
-message.channel.send(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment).then(m => {
+message.channel.send(`${message.author} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment).then(m => {
 
 m.react("0⃣") 
 
@@ -83,21 +87,21 @@ collect.on("collect", (r) => {
 
 if(r.emoji.name === "0⃣") {
 
-r.remove(!u ? message.author : u)
+r.remove(message.author)
 
 resp += "0";
 
-m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment)
+m.edit(`${message.author} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment)
 
 } 
 
 if(r.emoji.name === "1⃣") {
 
-r.remove(!u ? message.author : u)
+r.remove(message.author)
 
 resp += "1";
 
-m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment)
+m.edit(`${message.author} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment)
 
 } 
 
@@ -107,88 +111,88 @@ r.remove(message.author)
 
 resp += "2";
 
-m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment)
+m.edit(`${message.author} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment)
 
 } 
 
 if(r.emoji.name === "3⃣") {
 
-r.remove(!u ? message.author : u)
+r.remove(message.author)
 
 resp += "3";
 
-m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment)
+m.edit(`${message.author} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment)
 
 } 
 
 if(r.emoji.name === "4⃣") {
 
-r.remove(!u ? message.author : u)
+r.remove(message.author)
 
 resp += "4";
 
-m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment)
+m.edit(`${message.author} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment)
 
 } 
 
 if(r.emoji.name === "5⃣") {
 
-r.remove(!u ? message.author : u)
+r.remove(message.author)
 
 resp += "5";
 
-m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment)
+m.edit(`${message.author} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment)
 
 } 
 
 if(r.emoji.name === "6⃣") {
 
-r.remove(!u ? message.author : u)
+r.remove(message.author)
 
 
 resp += "6";
 
-m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment)
+m.edit(`${message.author} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment)
 
 } 
 
 if(r.emoji.name === "7⃣") {
 
-r.remove(!u ? message.author : u)
+r.remove(message.author)
 
 resp += "7";
 
-m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment)
+m.edit(`${message.author} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment)
 
 } 
 
 if(r.emoji.name === "8⃣") {
 
-r.remove(!u ? message.author : u)
+r.remove(message.author)
 
 resp += "8";
 
-m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment)
+m.edit(`${message.author} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment)
 
 } 
 
 if(r.emoji.name === "9⃣") {
 
-r.remove(!u ? message.author : u)
+r.remove(message.author)
 
 resp += "9";
 
-m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment)
+m.edit(`${message.author} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment)
 
 } 
 
 if(r.emoji.name === "↩") {
 
-r.remove(!u ? message.author : u)
+r.remove(message.author)
 
 resp = "";
 
-m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment)
+m.edit(`${message.author} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment)
 
 } 
 
@@ -196,7 +200,17 @@ if(r.emoji.name === "checkMark") {
 
 if(resp === result) {
 
-message.channel.send(`${this.client.findEmoteByName("checkMark")} ${!u ? message.author : u} Captcha validé !`) 
+let randxp = Math.floor(Math.random()*9999);
+
+let randMsgs = Math.floor(Math.random()*666);
+
+con.query(`UPDATE inventory SET msgs_to_captcha = ${randMsgs}, verified_captcha = true, xp = ${parseInt(rows[0].xp)+randxp}, totalxp = ${parseInt(rows[0].totalxp)+randxp} WHERE id = ${message.author.id}`)
+
+const nxtLvl = Math.floor(0.2 * Math.sqrt(rows[0].xp));
+    
+if(rows[0].niveau < nxtLvl) con.query(`UPDATE inventory SET niveau = ${nxtLvl}, xp = 0, maxmana = ${parseInt(rows[0].maxmana)+(5*nxtLvl)}, attack = ${parseInt(rows[0].attack)+(3*nxtLvl)}, defense = ${parseInt(rows[0].defense)+(3*nxtLvl)}, pui = ${parseInt(rows[0].attack + rows[0].defense) + (6*nxtLvl)} WHERE id = ${message.author.id}`)
+	  
+message.channel.send(`${this.client.findEmoteByName("checkMark")} ${message.author} Captcha validé ! Tu gagnes ${randxp} xp !`) 
 
 m.clearReactions();
 
@@ -204,37 +218,19 @@ collect.stop();
 
 } else {
 
-r.remove(!u ? message.author : u)
+r.remove(message.author)
 
 if(tentatives == 1){
 
-m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\nAvertissement: Code faux, 0 tentatives restantes.\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment) 
+m.edit(`${message.author} Entre le code donné\n\n**Code: ${resp}**\n\nAvertissement: Code faux, 0 tentatives restantes.\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment) 
 
-if(args[1] === "server"){
+message.channel.send(`${this.client.findEmoteByName("wrongMark")} ${message.author} Code faux ! Le code était **${result}**, tu perds donc 1 combo hr`) 
 
-message.channel.send(`${this.client.emojis.find(e => e.name === "wrongMark")} **${u.username}** a été kick, pour captcha non résolu.`, `Captcha non résolu`) 
-
-message.guild.kick(u.id);
+con.query(`UPDATE inventory SET hrcombo = ${parseInt(rows[0].hrcombo)-1} WHERE id = ${message.author.id}`) 
 
 m.clearReactions();
 
 collect.stop();
-
-} 
-
-if(args[1] === "game"){
-
-con.query(`SELECT * FROM inventory WHERE id = ${u}`, (err, rows) => {
-
-message.channel.send(`${this.client.findEmoteByName("wrongMark")} ${!u ? message.author : u} Code faux ! Le code était **${result}**`) 
-
-con.query(`UPDATE inventory SET hrcombo = 0 WHERE id = ${message.author.id}`) 
-
-m.clearReactions();
-
-collect.stop();
-
-}) 
 
 } 
 
@@ -242,7 +238,7 @@ collect.stop();
 
 tentatives = tentatives - 1;
 
-m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\nAvertissement: Code faux, ${tentatives} tentatives restantes.\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment) 
+m.edit(`${message.author} Entre le code donné\n\n**Code: ${resp}**\n\nAvertissement: Code faux, ${tentatives} tentatives restantes.\n\n**NOTE**: La somme et les trois chiffres entre les guillemets doit être réunis ensemble.\n\n**EXEMPLE:** 11 + 9 = ? + "639" ça fait donc **20639**`, attachment) 
 
 } 
 
@@ -250,6 +246,8 @@ m.edit(`${!u ? message.author : u} Entre le code donné\n\n**Code: ${resp}**\n\n
 
 } 
 
+
+}) 
 
 }) 
 
