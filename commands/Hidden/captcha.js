@@ -232,8 +232,6 @@ m.clearReactions();
 
 collect.stop();
 
-} 
-
 } else {
 
 tentatives = tentatives - 1;
