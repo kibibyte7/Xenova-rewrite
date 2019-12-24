@@ -23,7 +23,7 @@ if(!rows) return;
 
 if(rows[0].verified_captcha == true) return message.channel.send(`${this.client.findEmoteByName("wrongMark")} ${message.author} Ne te préoccupe pas de ça pour le moment.`)
 
-const filter = (reaction, user) => user.id === message.author;
+const filter = (reaction, user) => user.id === message.author.id;
 
 Canvas.registerFont('Font/visitor2.ttf', { family: 'Visitor2'})
  	
