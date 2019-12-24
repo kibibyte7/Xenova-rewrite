@@ -202,7 +202,7 @@ if(resp === result) {
 
 let randxp = Math.floor(Math.random()*9999);
 
-let randMsgs = Math.floor(Math.random()*666);
+let randMsgs = Math.floor(Math.random()*50);
 
 con.query(`UPDATE inventory SET msgs_to_captcha = ${randMsgs}, verified_captcha = true, xp = ${parseInt(rows[0].xp)+randxp}, totalxp = ${parseInt(rows[0].totalxp)+randxp} WHERE id = ${message.author.id}`)
 
