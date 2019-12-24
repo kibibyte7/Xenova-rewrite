@@ -175,7 +175,7 @@ module.exports = class {
 
 	if(player[0].msgs_to_captcha !== 0){
 
-        con.query(`UPDATE inventory SET msgs_to_captcha = ${player[0].msgs_to_captcha) - 1} WHERE id = ${message.author.id}`)
+        con.query(`UPDATE inventory SET msgs_to_captcha = ${parseInt(player[0].msgs_to_captcha) - 1} WHERE id = ${message.author.id}`)
 
 	cmd.run(message, args, level, con, lang)
 
