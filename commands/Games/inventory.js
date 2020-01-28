@@ -1,6 +1,7 @@
 const Command = require("../../modules/Command.js")
 const pioches = require("../../pioches.json") 
 const epees = require("../../epee.json") 
+const boucliers = require("../../bouclier.json")
 
 class Inventory extends Command {
 constructor(client){
@@ -190,7 +191,8 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
         } 
 	} else {
         var pioche = pioches.pioches[rows[0].pickaxe]
-        var epee = epees.epee[rows[0].weaponlevel] 
+        var epee = epees.epee[rows[0].weaponlevel]
+	var bouclier = boucliers.bouclier[rows[0].armorlevel]
 	message.channel.send({embed:{
 	author:{
 	name:`Inventaire de ${message.author.tag}`	
@@ -243,7 +245,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	}, 
         {
         name:"⚒️ Items:", 
-        value:`Pioche: ${pioche.name} (Level - ${pioche.level})\nArme: ${epee.name} - (Level - ${epee.level})\nArmure:${rows[0].armorlevel}`
+        value:`Pioche: ${pioche.name} (Level - ${pioche.level})\nArme: ${epee.name} - (Level - ${epee.level})\nBouclier: ${bouclier.name} (Level - bouclier.level)`
 	}, 
 	{
         name:"⚔️ Stats:", 
