@@ -245,7 +245,7 @@ con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows)
 	}, 
         {
         name:"⚒️ Items:", 
-        value:`Pioche: ${pioche.name} (Level - ${pioche.level})\nArme: ${epee.name} - (Level - ${epee.level})\nBouclier: ${bouclier.name} (Level - bouclier.level)`
+        value:`Pioche: ${pioche.name} (Level - ${pioche.level})\nArme: ${epee.name} - (Level - ${epee.level})\nBouclier: ${bouclier.name} (Level - ${bouclier.level})`
 	}, 
 	{
         name:"⚔️ Stats:", 
