@@ -7,7 +7,7 @@ class Craft extends Command {
 constructor(client){
 super(client, {
 name:"craft", 
-FRdescription:"Améliorer la pioche", 
+FRdescription:"Améliorer les items", 
 category:"Game", 
 usage:"craft <objet>", 
 aliases:["fabriquer"] 
@@ -207,9 +207,9 @@ if(args[0] === "arme") {
 
    if(rows[0].weaponlevel+1 == boucliers.bouclier.length) return message.channel.send(`${wrong} Ton bouclier est au niveau maximum.`)
 
-   var cost = boucliers.bouclier[rows[0].weaponlevel+1].cost[0]
+   var cost = boucliers.bouclier[rows[0].armorlevel+1].cost[0]
 
-   var nextbouclier = boucliers.bouclier[rows[0].+1].name;
+   var nextbouclier = boucliers.bouclier[rows[0].armorlevel+1].name;
 
    var wood = cost.wood == undefined ? 0 : cost.wood;
 
@@ -237,7 +237,7 @@ if(args[0] === "arme") {
 
    	setTimeout(() => {
 
-   	con.query(`UPDATE inventory SET wood = ${parseInt(rows[0].wood)-wood}, stone = ${parseInt(rows[0].stone)-stone}, fer = ${parseInt(rows[0].fer)-fer}, gold = ${parseInt(rows[0].gold)-gold}, diament = ${parseInt(rows[0].diament)-diamant}, emeraude = ${parseInt(rows[0].emeraude)-emeraude}, prismes = ${parseInt(rows[0].prismes)-prismes}, antimatter = ${parseInt(rows[0].antimatter)-antimatter}, osrizk = ${parseInt(rows[0].osrizk)-osrizk}, weaponlevel = ${parseInt(rows[0].weaponlevel)+1}, attack = ${Math.round(rows[0].attack*1.2)} WHERE id = ${rows[0].id}`)
+   	con.query(`UPDATE inventory SET wood = ${parseInt(rows[0].wood)-wood}, stone = ${parseInt(rows[0].stone)-stone}, fer = ${parseInt(rows[0].fer)-fer}, gold = ${parseInt(rows[0].gold)-gold}, diament = ${parseInt(rows[0].diament)-diamant}, emeraude = ${parseInt(rows[0].emeraude)-emeraude}, prismes = ${parseInt(rows[0].prismes)-prismes}, antimatter = ${parseInt(rows[0].antimatter)-antimatter}, osrizk = ${parseInt(rows[0].osrizk)-osrizk}, armorlevel = ${parseInt(rows[0].armorlevel)+1}, defense = ${Math.round(rows[0].defense*1.2)} WHERE id = ${rows[0].id}`)
 
         con.query(`UPDATE inventory SET pui = ${rows[0].pui+(rows[0].attack+rows[0].defense)} WHERE id = ${rows[0].id}`)
 
