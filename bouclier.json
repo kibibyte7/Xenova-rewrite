@@ -1,0 +1,113 @@
+{
+
+"epee":[{
+
+"name":"Main nues", 
+
+"level": "0"
+
+},
+
+{
+
+"name":"Bouclier en bois", 
+
+"level":"1",
+
+"cost":[{"wood":"200"}]
+
+}, 
+
+{
+
+"name":"Bouclier en stone", 
+
+"level":"2",
+
+"cost":[{"wood":"600", "stone":"400"}]
+
+}, 
+
+{
+
+"name":"Bouclier en fer", 
+
+"level":"3",
+
+"cost":[{"wood":"1400", "stone":"900", "fer":"600"}]
+
+}, 
+
+{
+
+"name":"Bouclier en or", 
+
+"level":"4",
+
+"cost":[{"wood":"2600", "stone":"1700", "fer" :"1500", "gold": "1750"}]
+
+}, 
+
+{
+
+"name":"Bouclier en diamant", 
+
+"level":"5",
+
+"cost":[{"wood":"5700", "stone":"3650", "fer" :"3250", "gold": "2890","diamant":"2670"}]
+
+}, 
+
+{
+
+"name":"Bouclier en diamant renforcé", 
+
+"level":"6",
+
+"cost":[{"wood":"7570", "stone":"5970", "fer" :"4990", "gold": "4643","diamant":"3640","emeraude":"2000"}]
+
+}, 
+
+{
+
+"name":"Bouclier en diamant gemmée", 
+
+"level":"7",
+
+"cost":[{"wood":"15000", "stone":"13550", "fer" :"12740", "gold": "9990","diamant":"7660","emeraude":"6666","prismes":"250"}]
+
+}, 
+
+{
+
+"name":"Bouclier en diamant cosmique", 
+
+"level":"8",
+
+"cost":[{"wood":"27640", "stone":"23130", "fer" :"20500", "gold": "19930","diamant":"17550","emeraude":"13665","prismes":"450", "antimatter":"250"}]
+
+}, 
+
+{
+
+"name":"Bouclier en diamant tri-gemmé", 
+
+"level":"9",
+
+"cost":[{"wood":"47910", "stone":"39600", "fer" :"35555", "gold": "32910","diamant":"29200","emeraude":"27395","prismes":"800", "antimatter":"500", "osrizk": "250"}]
+
+}, 
+
+{
+
+"name":"Bouclier en émeraude", 
+
+"level":"10",
+
+"cost":[{"wood":"65020", "stone":"59330", "fer" :"58310", "gold": "54730","diamant":"49390","emeraude":"34780","prismes":"1690", "antimatter":"1392", "osrizk": "755"}]
+
+}
+
+] 
+
+} 
