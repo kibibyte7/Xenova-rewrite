@@ -205,7 +205,7 @@ if(args[0] === "arme") {
 
    if(args[0] === "bouclier") {
 
-   if(rows[0].weaponlevel+1 == boucliers.bouclier.length) return message.channel.send(`${wrong} Ton bouclier est au niveau maximum.`)
+   if(rows[0].armorlevel+1 == boucliers.bouclier.length) return message.channel.send(`${wrong} Ton bouclier est au niveau maximum.`)
 
    var cost = boucliers.bouclier[rows[0].armorlevel+1].cost[0]
 
