@@ -1,7 +1,7 @@
 const Command = require("../../modules/Command.js")
 const pioches = require("../../pioches.json")
 const epees = require("../../epee.json")
-const
+const boucliers = require("../../bouclier.json")
 
 class Craft extends Command {
 constructor(client){
