@@ -175,19 +175,19 @@ module.exports = class {
 
 	if(player[0].msgs_to_captcha !== 0){
 
-        con.query(`UPDATE inventory SET msgs_to_captcha = ${parseInt(player[0].msgs_to_captcha) - 1} WHERE id = ${message.author.id}`)
-
-	cmd.run(message, args, level, con, lang)
-
-	} else {
-
 	con.query(`SELECT *FROM inventory WHERE id = ${message.author.id}`, (err, player) => {
 
 	con.query(`UPDATE inventory SET verified_captcha = false WHERE id = ${message.author.id}`);
 
 	if(cmd.help.name !== "captcha") return message.reply(`Tu dois d'abord prouver que tu n'es pas un robot, fais \`+captcha\` pour te faire vérifier.`)
 
-	}) 
+	}) 	
+		
+	} else {
+
+	con.query(`UPDATE inventory SET msgs_to_captcha = ${parseInt(player[0].msgs_to_captcha) - 1} WHERE id = ${message.author.id}`)
+
+	cmd.run(message, args, level, con, lang);
 
 	} 
 
