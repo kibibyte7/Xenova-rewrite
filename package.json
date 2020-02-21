@@ -78,8 +78,7 @@
     "ytdl-core-discord" :"^1.0.3"
   },
   "engines": {
-    "node": "^13.9.0",
-    "npm":"^6.13.7"
+   
   }, 
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
