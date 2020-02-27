@@ -6,7 +6,6 @@
   "dependencies": {
     "@k3rn31p4nic/google-translate-api": "^1.0.5",
     "@types/node":"^13.7.4",
-    "aki-api" :"^3.2.1", 
     "anifetch": "^2.1.4",
     "anime-dl": "^4.0.7",
     "better-sqlite-pool": "^0.2.0",
@@ -50,7 +49,8 @@
     "node-kitsu":"^1.1.1", 
     "node-lolibooru": "0.0.3",
     "node-opus": "^0.3.1",
-    "nodemon": "^1.17.5",
+    "node-pre-gyp":"^0.14.0",
+    "node-gyp":"^6.1.0",
     "opusscript":"^0.0.6",
     "passport": "^0.4.0",
     "passport-discord": "^0.1.3",
