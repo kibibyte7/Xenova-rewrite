@@ -153,7 +153,7 @@ module.exports = class {
     
     if(rows.length == 1) return;
 
-    const cooltime = cmd.conf.cooldown*1000
+    const cooltime = cmd.conf.cooldown*1000;
     
     con.query(`SELECT * FROM cooldown WHERE id = ${message.author.id} AND cmd = "${cmd.help.name}"`, (err, cooldown) => {
 
@@ -168,30 +168,14 @@ module.exports = class {
         this.client.config.permLevels.find(l => l.level === level).name
       }) lance la commande ${cmd.help.name}`
       );
-        
-        if(cmd.help.category === "Game") {
 
-	con.query(`SELECT *FROM inventory WHERE id = ${message.author.id}`, (err, player) => {
+        this.client.captchaCounter(message.author.id);
 
-	con.query(`UPDATE inventory SET msgs_to_captcha = ${parseInt(player[0].msgs_to_captcha) - 1} WHERE id = ${message.author.id}`)	
-		
-	if(player[0].verified_captcha == 0){
+        var msg = this.client.askCaptcha(message.author.id, cmd.help.name, cmd.help.category, message);
 
-	con.query(`UPDATE inventory SET verified_captcha = false WHERE id = ${message.author.id}`);
+        if(msg === false) return;
 
-	if(player[0].verified_captcha == false){
-		
-	if(cmd.help.name !== "captcha") return message.reply(`Tu dois d'abord prouver que tu n'es pas un robot, fais \`+captcha\` pour te faire vérifier.`)
-		
-	} else {
-		
-	cmd.run(message, args, level, con, lang);
-
-	}
-		
-	})
-	
-	}
+       cmd.run(message, args, level, con, lang);
 		  
         if(!cmd.conf.cooldown == 0){
 
@@ -201,14 +185,16 @@ module.exports = class {
           con.query(`DELETE FROM cooldown WHERE id = ${message.author.id} AND cmd = "${cmd.help.name}"`) 
         }, cooltime);
 
-        } 
+        }
 
     }
-    }) 
 
-    
-    }) 
-    
-   }) 
-  }
+}) 
+   
+})
+
+})
+
+}
+
 };
