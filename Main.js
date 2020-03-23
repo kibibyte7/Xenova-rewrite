@@ -7,12 +7,10 @@ const Enmap = require("enmap");
 const klaw = require("klaw");
 const path = require("path");
 const mysql = require("mysql") 
-const canvas = require("canvas") 
 const Twit = require("twit") 
 const lib = require('lib');
 const pokefusion = lib.Hademar.pokefusion['@0.0.1'];
 const image2base64 = require('image-to-base64');
-const Canvas = require("canvas")
 
    var db_config = {
     host:process.env.host, 
@@ -22,36 +20,23 @@ const Canvas = require("canvas")
     useUnicode:true
     } 
 
-    function handleDisconnect() {
-    con = mysql.createConnection(db_config); // Recreate the connection, since
-                                                  // the old one cannot be reused.
+    
+  var con = mysql.createConnection(db_config);
+                                                  
 
-  con.connect(function(err) {              // The server is either down
-    if(err) {                                     // or restarting (takes a while sometimes).
+  con.connect(function(err) {             
+    if(err) {                                     
       console.log('error when connecting to db:', err);
-      setTimeout(handleDisconnect, 2000); // We introduce a delay before attempting to reconnect,
-    }                                     // to avoid a hot loop, and to allow our node script to
-  });                                     // process asynchronous requests in the meantime.
-                                          // If you're also serving http, display a 503 error.
-  con.on('error', function(err) {
-    //console.log('db error', err);
-    if(err.code === 'PROTOCOL_CONNECTION_LOST') { // Connection to the MySQL server is usually
-      handleDisconnect();                         // lost due to either server restart, or a
-    } else {                                      // connnection idle timeout (the wait_timeout
-      throw err;                                  // server variable configures this)
-    }
-  });
-}
-
-handleDisconnect()
+    }                                     
+  });                                                                             
 
 var T = new Twit({
   consumer_key:         process.env.consumer_key,
   consumer_secret:      process.env.consumer_secret,
   access_token:         process.env.access_token,
   access_token_secret:  process.env.access_token_secret,
-  timeout_ms:           60000*3,  // optional HTTP request timeout to apply to all requests.
-  strictSSL:            true,     // optional - requires SSL certificates to be valid.
+  timeout_ms:           60000*3,  
+  strictSSL:            true,     
 })
 
 class Xenova extends Client {
@@ -224,6 +209,50 @@ class Xenova extends Client {
   }) 
 
   } 
+
+  askCaptcha(id, command, category, msg){
+  
+    con.query(`SELECT * FROM inventory WHERE id = ${id}`, (err, player) => {
+    
+      if(!player) return;
+
+        if(player[0].verified_captcha == false){
+      
+          if(category === "Game" && command !== "captcha"){
+            
+          msg.reply(`Tu dois d'abord prouver que tu n'es pas un robot, fais \`+captcha\` pour te faire vérifier.`);
+          
+          return false;
+
+        } else {
+
+          return true;
+
+        }
+
+      }
+
+    })
+
+    
+
+  }
+
+  captchaCounter(id){
+
+    con.query(`SELECT * FROM inventory WHERE id = ${id}`, (err, player) => {
+
+      con.query(`UPDATE inventory SET msgs_to_captcha = ${parseInt(player[0].msgs_to_captcha) - 1} WHERE id = ${id}`)	
+		
+      if(player[0].msgs_to_captcha == 0){
+  
+        con.query(`UPDATE inventory SET verified_captcha = false WHERE id = ${id}`);
+  
+      }
+
+    })
+
+  }
 
   async tweetFusion(){
   
