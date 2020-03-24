@@ -82,19 +82,19 @@ class Xenova extends Client {
 
   toWrongMark(input) {
 
-  return input = input.replace('{wrong}', this.emojis.find(e => e.name === "wrongMark"))
+  return input = input.split('{wrong}').join(this.emojis.find(e => e.name === "wrongMark"))
 
   }
 
   toCheckMark(input) {
 
-  return input = input.replace('{check}', this.emojis.find(e => e.name === "checkMark"))
+  return input = input.split('{check}').join(this.emojis.find(e => e.name === "checkMark"))
 
   }
 
   toTyping(input) {
 
-  return input = input.replace('{typing}', this.emojis.find(e => e.name === "typing"))
+  return input = input.split('{typing}').join(this.emojis.find(e => e.name === "typing"))
 
   }
 
