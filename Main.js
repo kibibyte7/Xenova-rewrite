@@ -242,7 +242,9 @@ class Xenova extends Client {
 
     con.query(`SELECT * FROM inventory WHERE id = ${id}`, (err, player) => {
 
-      con.query(`UPDATE inventory SET msgs_to_captcha = ${parseInt(player[0].msgs_to_captcha) - 1} WHERE id = ${id}`)	
+    if(!player) return;
+	    
+     con.query(`UPDATE inventory SET msgs_to_captcha = ${parseInt(player[0].msgs_to_captcha) - 1} WHERE id = ${id}`)	
 		
       if(player[0].msgs_to_captcha == 0){
   
