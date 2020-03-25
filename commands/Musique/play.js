@@ -17,7 +17,7 @@ class Play extends Command {
   async run(message, args) {
     const { voiceChannel } = message.member;
     if (!voiceChannel)
-      return message.channel.send(`${this.client.emojis.find(e => e.name === "wrongMark")} Tu dois être dans un salon vocal pour utiliser cette commande !`);
+      return message.channel.send(`${this.client.emojis.cache.find(e => e.name === "wrongMark")} Tu dois être dans un salon vocal pour utiliser cette commande !`);
       
       let validate = ytdl.validateURL(args[0]);
 
@@ -49,7 +49,7 @@ class Play extends Command {
     
     if (serverQueue) {
       serverQueue.songs.push(song);
-      return message.channel.send(`${message.client.emojis.find("name", "Add")} **${song.title}** est ajoutée à la queue !`);
+      return message.channel.send(`${message.client.emojis.cache.find("name", "Add")} **${song.title}** est ajoutée à la queue !`);
     }
     
 
@@ -69,7 +69,7 @@ class Play extends Command {
     const play = async song => {
       const queue = message.client.queue.get(message.guild.id);
       if (!song) {
-        queue.textChannel.send(this.client.toWrongMark(`{wrong} La playlist est vide, je quitte le channel vocal.`))
+        queue.textChannel.send(`${this.client.emojis.cache.find(e => e.name === "wrongMark")} La playlist est vide, je quitte le channel vocal.`)
         queue.voiceChannel.leave();
         message.client.queue.delete(message.guild.id);
         return;
@@ -93,7 +93,7 @@ class Play extends Command {
         })
         .on("error", error => console.error(error));
       dispatcher.setVolumeLogarithmic(queue.volume / 5);
-      queue.textChannel.send(`${message.client.emojis.find(e => e.name === "Playing")} Je joue: **${song.title}** demandé par : **${song.requester}**`);
+      queue.textChannel.send(`${message.client.cache.emojis.find(e => e.name === "Playing")} Je joue: **${song.title}** demandé par : **${song.requester}**`);
     };
 
     try {
