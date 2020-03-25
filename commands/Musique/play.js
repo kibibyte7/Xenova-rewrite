@@ -17,7 +17,7 @@ class Play extends Command {
   async run(message, args) {
     const { voiceChannel } = message.member;
     if (!voiceChannel)
-      return message.channel.send(`${this.client.emojis.find("name","wrongMark")} Tu dois être dans un salon vocal pour utiliser cette commande !`);
+      return message.channel.send(`${this.client.emojis.find(e => e.name === "wrongMark")} Tu dois être dans un salon vocal pour utiliser cette commande !`);
       
       let validate = ytdl.validateURL(args[0]);
 
@@ -37,6 +37,7 @@ class Play extends Command {
     
  
     const songInfo = await ytdl.getInfo(args[0]);
+    console.log(songInfo)
     const song = {
       id: songInfo.video_id,
       title: songInfo.title,
@@ -92,7 +93,7 @@ class Play extends Command {
         })
         .on("error", error => console.error(error));
       dispatcher.setVolumeLogarithmic(queue.volume / 5);
-      queue.textChannel.send(`${message.client.emojis.find("name", "Playing")} Je joue: **${song.title}** demandé par : **${song.requester}**`);
+      queue.textChannel.send(`${message.client.emojis.find(e => e.name === "Playing")} Je joue: **${song.title}** demandé par : **${song.requester}**`);
     };
 
     try {
