@@ -68,7 +68,7 @@ class Play extends Command {
     const play = async song => {
       const queue = message.client.queue.get(message.guild.id);
       if (!song) {
-        queue.textChannel.send(`${this.client.emojis.find(e => e.name === "wrongMark")} La playlist est vide, je quitte le channel vocal.`)
+        queue.textChannel.send(this.client.toWrongMark(`{wrong} La playlist est vide, je quitte le channel vocal.`))
         queue.voiceChannel.leave();
         message.client.queue.delete(message.guild.id);
         return;
