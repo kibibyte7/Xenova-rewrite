@@ -14,7 +14,7 @@ aliases:["sl"]
 run(message, args, level) {
 
 var guilds = this.client.guilds.cache.array(g => g).sort((a , b) => { 
-        if(a.members.cache.size > b.cache.members.size){ 
+        if(a.members.cache.size > b.members.cache.size){ 
           return -1;
         }else if (a.members.cache.size + b.members.cache.size){
           return +1;
