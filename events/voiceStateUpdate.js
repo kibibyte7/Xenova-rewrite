@@ -20,12 +20,12 @@ newMember.setVoiceChannel(c.id)
 } else if(newUserChannel === undefined){ 
 	console.log(`${oldUserChannel.name} - ${oldUserChannel.members.size}`)
 	let u = oldMember.user
-let voice = oldMember.guild.channels.find(vc => vc.name === "✨"+ u.username)
-let nombre = oldUserChannel.members.size;
+let voice = oldMember.guild.channels.cache.find(vc => vc.name === "✨"+ u.username)
+let nombre = oldUserChannel.members.cache.size;
 let user_name = oldUserChannel.name.slice(1)
-let member = this.client.users.find(c => c.username === user_name) 
+let member = this.client.users.cache.find(c => c.username === user_name) 
 if(!member) return;
-if(oldUserChannel.name === "✨"+member.username && oldUserChannel.members.size == 0){
+if(oldUserChannel.name === "✨"+member.username && oldUserChannel.members.cache.size == 0){
 voice.delete();
 } 
 } 
