@@ -93,16 +93,16 @@ value: !Author.presence.game ? "Pas de jeu." : Author.presence.game.name
 },
 {
 name:":gear: -> Liste de rôles:", 
-value:message.member.roles.size > 25 ? "Il a trop de rôles." : message.member.roles.map(r => r).join(" ")
+value:message.member.roles.cache.size > 25 ? "Il a trop de rôles." : message.member.roles.cache.map(r => r).join(" ")
 }, 
 {
 name:":gear: -> Liste de permissions", 
-value:message.member.permissions.toArray().join(", ").toLowerCase() 
+value:message.member.permissions.cache.toArray().join(", ").toLowerCase() 
 } 
 ],
 timestamp:new Date(), 
 footer:{
-icon_url:this.client.user.avatarURL,
+icon_url:this.client.user.avatarURL(),
 text:"© Userinfo | Xenova" 
 } 
 }}) 
@@ -162,16 +162,16 @@ value: !User.presence.game ? "Pas de jeu." : User.presence.game.name
 },
 {
 name:":gear: -> Liste de rôles:", 
-value:mention.roles.size > 25 ? "Il a trop de rôles." : mention.roles.map(r => r).join(" ")
+value:mention.roles.cache.size > 25 ? "Il a trop de rôles." : mention.roles.cache.map(r => r).join(" ")
 }, 
 {
 name:":gear: -> Liste de permissions", 
-value:mention.permissions.toArray().join(", ").toUpperCase() 
+value:mention.permissions.cache.toArray().join(", ").toUpperCase() 
 } 
 ],
 timestamp:new Date(), 
 footer:{
-icon_url:this.client.user.avatarURL,
+icon_url:this.client.user.avatarURL(),
 text:"© Userinfo | Xenova" 
 } 
 }}) 
