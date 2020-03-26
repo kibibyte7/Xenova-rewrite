@@ -24,7 +24,7 @@ async run() {
 		description:"Bot démarré avec succès !",
 		timestamp:new Date(),
 		footer:{
-                icon_url:this.client.user.avatarURL,text:"lancé"
+                icon_url:this.client.user.avatarURL(), text:"lancé"
 		} 
                 }}) 
 	} catch(e) {
