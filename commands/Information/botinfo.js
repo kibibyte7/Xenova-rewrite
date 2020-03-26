@@ -22,7 +22,7 @@ message.channel.send({embed:{
         color: Math.floor(Math.random() * 16777214) + 1, //pour une couleur en mode random
         fields:[{
         name:"Owner du bot",
-        value: this.client.users.find("id", "524996881198219276").tag, //pas oublier le s de client.users
+        value: this.client.users.cache.find("id", "524996881198219276").tag, //pas oublier le s de client.users
         inline: false //field en ligne : Vrai ou Faux true/false
         },
         {
@@ -56,12 +56,12 @@ message.channel.send({embed:{
       }, 
        {
         name:"Nombre de serveurs", 
-        value:`Je suis dans : ${this.client.guilds.size} serveurs.`, 
+        value:`Je suis dans : ${this.client.guilds.cache.size} serveurs.`, 
         inline:false
        }, 
         {
         name:"Nombre d'utilisateurs", 
-        value:`Je suis avec : ${this.client.users.size} utilisateurs.`, 
+        value:`Je suis avec : ${this.client.users.cache.size} utilisateurs.`, 
         inline:false
       },
         {
