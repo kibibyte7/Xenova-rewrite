@@ -40,7 +40,7 @@ module.exports = class {
 
   async run (member) {
 
-    this.client.user.setActivity(`${this.client.config.defaultSettings.prefix}help | ${this.client.guilds.size} servs | ${this.client.users.size} utilisateurs`, {type:"STREAMING"});
+    this.client.user.setActivity(`${this.client.config.defaultSettings.prefix}help | ${this.client.guilds.cache.size} servs | ${this.client.users.cache.size} utilisateurs`, {type:"WATCHING"});
     
     con.query(`SELECT * FROM gban WHERE id = ${member.user.id}`, (err, rows) => {
 
@@ -48,7 +48,7 @@ module.exports = class {
 
     member.guild.owner.user.send(`J'ai ban **${member.user.username}** parce qu'il a été gban du bot, la raison : **${rows[0].reason}**`) 
 
-    member.guild.ban(member.user.id, rows[0].reason, 7)
+    member.ban(member.user.id, {reason: rows[0].reason}, {days: 7})
     
     }) 
     
@@ -96,7 +96,7 @@ module.exports = class {
 
     const attachment = new Discord.Attachment(canvas.toBuffer(), 'welcome_image.png');
 
-    let channel = member.guild.channels.find("id", rows[0].welcome_id)
+    let channel = member.guild.channels.cache.find("id", rows[0].welcome_id)
 
     if(!channel) return;
     
@@ -106,7 +106,7 @@ module.exports = class {
     
     var wel = come.replace("{server}", member.guild.name) 
     
-    var w = wel.replace("{membercount}", member.guild.members.size) 
+    var w = wel.replace("{membercount}", member.guild.members.cache.size) 
     
     setTimeout(() => {
 
@@ -120,11 +120,11 @@ module.exports = class {
 
     if(rows.length == 0) return;
     
-    let userrole = member.guild.roles.find("id", rows[0].user_autorole)
+    let userrole = member.guild.roles.cache.find(r => r.id === rows[0].user_autorole)
 
     if(!userrole) return;
 
-    if(!member.user.bot) return member.addRole(userrole, "[USER] Rôle automatique")
+    if(!member.user.bot) return member.roles.add(userrole, "[USER] Rôle automatique")
 
     }) 
 
@@ -132,11 +132,11 @@ module.exports = class {
 
     if(rows.length == 0) return;
     
-    let botrole = member.guild.roles.find("id", rows[0].bot_autorole)
+    let botrole = member.guild.roles.cache.find(r => r.id === rows[0].bot_autorole)
 
     if(!botrole) return;
 
-    if(member.user.bot) return member.addRole(botrole, "[BOT] Rôle automatique")
+    if(member.user.bot) return member.roles.add(botrole, "[BOT] Rôle automatique")
 
     }) 
 
