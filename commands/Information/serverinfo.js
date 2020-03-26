@@ -24,7 +24,7 @@ icon_url: message.author.avatarURL,
 title: `${message.guild.name}`,
 url: '',
 thumbnail:{
-url:message.guild.iconURL
+url:message.guild.iconURL()
 },
 fields: [
 {
@@ -49,51 +49,51 @@ inline:false
 }, 
 {
 name: ':gear: -> Nombre de membres humain ',
-value: message.guild.members.filter(f => !f.user.bot).size,
+value: message.guild.members.cache.filter(f => !f.user.bot).size,
 inline: false
 },
 {
 name: ':gear: -> Nombre de bots ',
-value: message.guild.members.filter(f => f.user.bot).size,
+value: message.guild.members.cache.filter(f => f.user.bot).size,
 inline: false
 },
 {
 name: ':gear: -> Nombre de membres total ',
-value: message.guild.members.size,
+value: message.guild.members.cahce.size,
 inline: false
 },
 {
 name:":gear: -> Nombre d'utilisateurs en ligne", 
-value:message.guild.members.filter(f => f.user.presence.status === "online").size, 
+value:message.guild.members.cache.filter(f => f.user.presence.status === "online").size, 
 inline:false
 }, 
 {
 name:":gear: -> nombre d'utilisateurs en hors ligne", 
-value:message.guild.members.filter(f => f.user.presence.status === "offline").size, 
+value:message.guild.members.cache.filter(f => f.user.presence.status === "offline").size, 
 inline:false
 }, 
 {
 name: ':gear: -> Nombre de rôles',
-value: `${message.guild.roles.size == 0 ? "Pas de rôles" : message.guild.roles.size}`,
+value: `${message.guild.roles.cache.size == 0 ? "Pas de rôles" : message.guild.roles.cache.size}`,
 inline: false
 },
 {
 name: ':gear: -> Nombre de channels',
-value: `${message.guild.channels.size}`,
+value: `${message.guild.channels.cache.size}`,
 inline: false
 },
 {
 name: ':gear: -> Liste des rôles',
-value: message.guild.roles.map(r => r).join(", ").length > 1024 ? "Trop de rôles" : message.guild.roles.map(r => r).join(", "),
+value: message.guild.roles.cache.map(r => r).join(", ").length > 1024 ? "Trop de rôles" : message.guild.roles.cache.map(r => r).join(", "),
 inline: false
 }, 
 {
 name:":gear: -> Liste des emojis", 
-value:message.guild.emojis.size == 0 ? "Aucun emojis." : message.guild.emojis.map(e => e).join(" ").length > 1024 ? "Trop d'emojis" : message.guild.emojis.map(e => e).join(" ") 
+value:message.guild.emojis.cache.size == 0 ? "Aucun emojis." : message.guild.emojis.cache.map(e => e).join(" ").length > 1024 ? "Trop d'emojis" : message.guild.emojis.cache.map(e => e).join(" ") 
 }],
 timestamp:new Date(), 
 footer: {
-icon_url: this.client.user.avatarURL,
+icon_url: this.client.user.avatarURL(),
 text: `©️ Serverinfo | Xenova`
 }
 }})
