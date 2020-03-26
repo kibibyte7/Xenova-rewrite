@@ -59,7 +59,7 @@ inline: false
 },
 {
 name: ':gear: -> Nombre de membres total ',
-value: message.guild.members.cahce.size,
+value: message.guild.members.cache.size,
 inline: false
 },
 {
