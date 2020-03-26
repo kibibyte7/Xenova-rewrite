@@ -14,7 +14,7 @@ async run() {
         
         try{
 	
-	let c = this.client.channels.get("586596535165386759");
+	let c = this.client.channels.cache.get("586596535165386759");
         
         c.send({embed:{
 		color:0x010101, 
@@ -35,7 +35,7 @@ async run() {
 
         require("../modules/Dashboard.js")(this.client);
 
-	this.client.user.setActivity(`${this.client.config.defaultSettings.prefix}help | ${this.client.guilds.size} servs | ${this.client.users.size} utilisateurs`, {type:"STREAMING"})
+	this.client.user.setActivity(`${this.client.config.defaultSettings.prefix}help | ${this.client.guilds.cache.size} servs | ${this.client.users.cache.size} utilisateurs`, {type:"WATCHING"})
 	
 	this.client.logger.log(`${this.client.user.tag} lancé avec succès.`, "ready") 
 	
