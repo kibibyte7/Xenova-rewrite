@@ -17,15 +17,15 @@ run(message, args, level) {
 
 let roles = [];
 
-const right = this.client.emojis.find(e => e.name === "droite") 
+const right = this.client.emojis.cache.find(e => e.name === "droite") 
 
-const left =this.client.emojis.find(e => e.name === "gauche") 
+const left =this.client.emojis.cache.find(e => e.name === "gauche") 
 
-const wrong = this.client.emojis.find(e => e.name === "wrongMark") 
+const wrong = this.client.emojis.cache.find(e => e.name === "wrongMark") 
 
 let indexes = [];
 
-message.guild.roles.forEach(role => {
+message.guild.roles.cache.forEach(role => {
 
 roles.push(role.name)
 
@@ -42,14 +42,14 @@ let toMention = message.guild.roles.get(indexes[roles.indexOf(rolename)])
 var toFind = message.guild.roles.find("name", args.join(" ")) || toMention;
     
     if(!toFind || toFind === undefined){
-        message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Je n'ai pas trouvé le role \`args.join(" ")}\` essaie la mention, l'id ou le nom.`)
+        message.channel.send(`${this.client.emojis.cache.find(e => e.name === "wrongMark")} Je n'ai pas trouvé le role \`args.join(" ")}\` essaie la mention, l'id ou le nom.`)
         return;
     }else{
        
         var filter = m => m.roles.find(r => r.name === toFind.name)
         let membres = [];
         
-        message.guild.members.filter(filter).forEach(function(membre){
+        message.guild.members.cache.filter(filter).forEach(function(membre){
         membres.push(membre.user.username)
         })
 
@@ -61,7 +61,7 @@ var toFind = message.guild.roles.find("name", args.join(" ")) || toMention;
         message.channel.send({embed:{
             color:Math.floor(Math.random() * 16777214) + 1,
             author:{
-                name:`Liste des membres ayant le role ${toFind.name} [${message.guild.members.filter(filter).size}]`,
+                name:`Liste des membres ayant le role ${toFind.name} [${message.guild.members.cache.filter(filter).size}]`,
                 icon_url:message.author.avatarURL
             },
             description:`${membres.slice(start, end).join("\n")}`,
@@ -97,7 +97,7 @@ var toFind = message.guild.roles.find("name", args.join(" ")) || toMention;
         m.edit({embed:{
             color:Math.floor(Math.random() * 16777214) + 1,
             author:{
-                name:`Liste des membres ayant le role ${toFind.name} [${message.guild.members.filter(filter).size}]`,
+                name:`Liste des membres ayant le role ${toFind.name} [${message.guild.members.cache.filter(filter).size}]`,
                 icon_url:message.author.avatarURL
             },
             description:`${membres.slice(start, end).join("\n")}`,
@@ -125,7 +125,7 @@ var toFind = message.guild.roles.find("name", args.join(" ")) || toMention;
         m.edit({embed:{
             color:Math.floor(Math.random() * 16777214) + 1,
             author:{
-                name:`Liste des membres ayant le role ${toFind.name} [${message.guild.members.filter(filter).size}]`,
+                name:`Liste des membres ayant le role ${toFind.name} [${message.guild.members.cache.filter(filter).size}]`,
                 icon_url:message.author.avatarURL
             },
             description:`${membres.slice(start, end).join("\n")}`,
