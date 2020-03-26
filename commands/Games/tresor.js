@@ -31,7 +31,7 @@ con.query("SELECT * FROM tresor", (err, rows) => {
 	  	 
    if((rows[0].temps > Date.now()) && (rows[0].temps !== 0)){  
       con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, player) => {
-      message.channel.send(`Le trésor n'est pas disponible, il le sera dans **${minutes == 0 ? "" : minutes + " minutes"} ${seconds == 0 ? "" : seconds + " secondes"}**, tu l'as récupéré **${player[0].tresors}x**, le dernier trésor a été pris par ${rows[0].taker == "Xenova"? "Xenova" : this.client.users.find("id", `${rows[0].taker}`).tag} depuis le serveur ${rows[0].server == "Xenova" ? "Xenova Support" : rows[0].server}\nNOTE: Les messages envoyés par l'utilisateur et le bot sont supprimés pour réduire au maximum leurs nombres.`).then(m => {
+      message.channel.send(`Le trésor n'est pas disponible, il le sera dans **${minutes == 0 ? "" : minutes + " minutes"} ${seconds == 0 ? "" : seconds + " secondes"}**, tu l'as récupéré **${player[0].tresors}x**, le dernier trésor a été pris par ${rows[0].taker == "Xenova"? "Xenova" : this.client.users.cache.find("id", `${rows[0].taker}`).tag} depuis le serveur ${rows[0].server == "Xenova" ? "Xenova Support" : rows[0].server}\nNOTE: Les messages envoyés par l'utilisateur et le bot sont supprimés pour réduire au maximum leurs nombres.`).then(m => {
       	m.delete(5000)
       	message.delete(5050)
       	}) 
@@ -43,7 +43,7 @@ con.query("SELECT * FROM tresor", (err, rows) => {
   	  	
 	  con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, player) => {
 	 
-          if(player.length == 0) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Tu n'es pas entré dans le jeu fais +i pour t'inscrire.`) 
+          if(player.length == 0) return message.channel.send(`${this.client.emojis.cache.find(e => e.name === "wrongMark")} Tu n'es pas entré dans le jeu fais +i pour t'inscrire.`) 
 	
           var randxp = Math.floor(Math.random()*100)*(player[0].tresors+1)+10
 	   
