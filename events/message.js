@@ -49,7 +49,7 @@ module.exports = class {
     
     if (message.content.match(prefixMention)) {
       
-    return message.channel.send(`${this.client.emojis.find("name", "checkMark")} Le préfixe du serveur est \`${settings.prefix}\``);
+    return message.channel.send(`${this.client.emojis.cache.find("name", "checkMark")} Le préfixe du serveur est \`${settings.prefix}\``);
     
     } 
     
@@ -67,7 +67,7 @@ module.exports = class {
    
     const AfkTime = new Date(rows[0].time);
 
-    message.channel.send(`${this.client.emojis.find(e => e.name === "LoadBoost")} **${mention.user.username}** est en afk pour : **${rows[0].reason}** - (**${moment(AfkTime, "DD").locale("fr-FR").fromNow()}**)`)
+    message.channel.send(`${this.client.emojis.cache.find(e => e.name === "LoadBoost")} **${mention.user.username}** est en afk pour : **${rows[0].reason}** - (**${moment(AfkTime, "DD").locale("fr-FR").fromNow()}**)`)
 
     }) 
 
@@ -85,7 +85,7 @@ module.exports = class {
 
     con.query(`DELETE FROM afk WHERE id = ${message.author.id} AND guild_id = ${message.guild.id}`)
 
-    message.channel.send(`${this.client.emojis.find(e => e.name === "Youpi")} ${message.author} Tu es de retour ! J'ai enlevé ton afk !`).then(m => m.delete(3000))
+    message.channel.send(`${this.client.emojis.cache.find(e => e.name === "Youpi")} ${message.author} Tu es de retour ! J'ai enlevé ton afk !`).then(m => m.delete(3000))
 
     }) 
 
@@ -111,7 +111,7 @@ module.exports = class {
     if (level < this.client.levelCache[cmd.conf.permLevel]) {
       if (settings.systemNotice == true) {
         return message.channel
-          .send(`${this.client.emojis.find("name", "wrongMark")} Tu n'as pas la permission pour utiliser cette commande.\nTon niveau de permission est **${level} (${this.client.config.permLevels.find(l => l.level === level).name})**\nCette commande requirt le niveau de permission: **${ this.client.levelCache[cmd.conf.permLevel]} (${cmd.conf.permLevel})**`);
+          .send(`${this.client.emojis.cache.find(e => e.name === "wrongMark")} Tu n'as pas la permission pour utiliser cette commande.\nTon niveau de permission est **${level} (${this.client.config.permLevels.find(l => l.level === level).name})**\nCette commande requirt le niveau de permission: **${ this.client.levelCache[cmd.conf.permLevel]} (${cmd.conf.permLevel})**`);
       } else {
         return;
       }
@@ -127,21 +127,17 @@ module.exports = class {
     if(cmd.conf.enabled === false){
     if(settings.systemNotice == true) {
         return message.channel
-         .send(`${this.client.emojis.find("name", "wrongMark")} Cette commande est désactivée suite à des bugs ou une maintenance de celle-ci.`)
+         .send(`${this.client.emojis.find(e => e.name === "wrongMark")} Cette commande est désactivée suite à des bugs ou une maintenance de celle-ci.`)
        } 
      } 
      
-     if(cmd.conf.guildOnly == true){
-
-     if(message.channel.type === "dm") return message.author.send(`${this.client.emojis.find("name", "wrongMark")} Tu ne peux pas faire cette commande ici.`)
-
-     } 
+     if(cmd.conf.guildOnly == true && message.channel.type !== "text") return message.author.send(`${this.client.emojis.find(e => e.name === "wrongMark")} Tu ne peux pas faire cette commande ici.`)
      
      if(!message.guild.me.permissionsIn(message.channel.id).has("SEND_MESSAGES")) return message.author.send(`${this.client.emojis.find(e => e.name === "wrongMark")} je n'ai pas la permission \`SEND_MESSAGES\` dans le channel **${message.channel.name}**.`) 
 
      if(!message.guild.me.permissions.has(cmd.conf.permissions)){
      
-     return message.channel.send(`${message.guild.me.permissions.has("USE_EXTERNAL_EMOJIS") ? this.client.emojis.find(e => e.name === "wrongMark") : ":x:"} Je n'ai pas les permissions nécessaires vérifie que j'aie les permission : ${cmd.conf.permissions}`) 
+     return message.channel.send(`${message.guild.me.permissions.has("USE_EXTERNAL_EMOJIS") ? this.client.emojis.cache.find(e => e.name === "wrongMark") : ":x:"} Je n'ai pas les permissions nécessaires vérifie que j'aie les permission : ${cmd.conf.permissions}`) 
 
      }
 
