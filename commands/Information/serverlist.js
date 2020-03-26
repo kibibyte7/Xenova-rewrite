@@ -14,9 +14,9 @@ aliases:["sl"]
 run(message, args, level) {
 
 var guilds = this.client.guilds.cache.array(g => g).sort((a , b) => { 
-        if(a.members.size > b.members.size){ 
+        if(a.members.cache.size > b.cache.members.size){ 
           return -1;
-        }else if (a.members.size + b.members.size){
+        }else if (a.members.cache.size + b.members.cache.size){
           return +1;
         }else{
           return 0;
@@ -25,7 +25,7 @@ var guilds = this.client.guilds.cache.array(g => g).sort((a , b) => {
 
     let resp = '';
         for(var i in guilds){
-          isNaN(i) ? "" : resp += `${parseInt(i)+1}. ${guilds[i].name} : **${guilds[i].members.size} Membres**\n`
+          isNaN(i) ? "" : resp += `${parseInt(i)+1}. ${guilds[i].name} : **${guilds[i].members.cache.size} Membres**\n`
         }
 
         message.channel.send(resp)
