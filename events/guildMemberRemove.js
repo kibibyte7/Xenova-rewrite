@@ -40,7 +40,7 @@ module.exports = class {
 
   run (member) {
 
-    this.client.user.setActivity(`${this.client.config.defaultSettings.prefix}help | ${this.client.guilds.size} servs | ${this.client.users.size} utilisateurs`, {type:"STREAMING"});
+    this.client.user.setActivity(`${this.client.config.defaultSettings.prefix}help | ${this.client.guilds.cache.size} servs | ${this.client.users.cache.size} utilisateurs`, {type:"WATCHING"});
     con.query(`SELECT * FROM settings WHERE guild_id = ${member.guild.id}`, async (err, rows) => {
     
     if(!rows) return;
@@ -67,9 +67,9 @@ module.exports = class {
     ctx.fillStyle = '#ffffff';
     ctx.fillText(member.displayName, canvas.width / 3, canvas.height / 1.8);
     
-    ctx.font = `Tu vas nous manquer, nous sommes ${member.guild.members.size} membres !` && '17px NFS';
+    ctx.font = `Tu vas nous manquer, nous sommes ${member.guild.members.cache.size} membres !` && '17px NFS';
     ctx.fillStyle = '#ffffff';
-    ctx.fillText(`Tu vas nous manquer, nous sommes ${member.guild.members.size} membres !`, canvas.width / 3, canvas.height / 1.2);
+    ctx.fillText(`Tu vas nous manquer, nous sommes ${member.guild.members.cache.size} membres !`, canvas.width / 3, canvas.height / 1.2);
 
     ctx.beginPath();
 
@@ -85,19 +85,19 @@ module.exports = class {
 
     const attachment = new Discord.Attachment(canvas.toBuffer(), 'leave_image.png');
 
-    let channel = member.guild.channels.find("id", rows[0].leave_id)
+    let channel = member.guild.channels.cache.find("id", rows[0].leave_id)
 
     let leave = rows[0].leave_msg
     
-    var usertag = leave.replace("{user}", member.user.tag)
+    var usertag = leave.replace("{user}").join(member.user.tag);
         
-    var server = usertag.replace("{server}", member.guild.name) 
+    var server = usertag.replace("{server}").join(member.guild.name);
     
-    var l = server.replace("{membercount}", member.guild.members.size) 
+    var l = server.split("{membercount}").join(member.guild.members.cache.size);
     
     if(!channel) return;
 
-    channel.send(this.client.toValues(l, "{user}", member.user.tag), attachment)
+    channel.send(l, attachment)
 
     }) 
 
