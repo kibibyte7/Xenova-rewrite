@@ -45,7 +45,7 @@ let roles = [];
 
       }else{
 
-      	var filtre = m => m.roles.find(r => r.name === toInfo.name)
+      	var filtre = m => m.roles.cache.find(r => r.name === toInfo.name)
 
       	message.channel.send({embed:{
       	color:toInfo.color,
