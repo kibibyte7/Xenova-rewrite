@@ -18,7 +18,7 @@ return;
 }
 
 if(args[0] === "list"){
-message.channel.send(message.guild.emojis.size == 0 ? `${this.client.emojis.cache.find(e => e.name === "wrongMark")} Il n'y a aucun emojis dans ce serveur.` : `${this.client.emojis.cache.find(e => e.name === "checkMark")} Voici la liste des emojis du serveur :\n${message.guild.emojis.cahce.map(e => e).join(" ")}`)
+message.channel.send(message.guild.emojis.cache.size == 0 ? `${this.client.emojis.cache.find(e => e.name === "wrongMark")} Il n'y a aucun emojis dans ce serveur.` : `${this.client.emojis.cache.find(e => e.name === "checkMark")} Voici la liste des emojis du serveur :\n${message.guild.emojis.cache.map(e => e).join(" ")}`)
 return;
 } 
 
