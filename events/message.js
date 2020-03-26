@@ -127,7 +127,7 @@ module.exports = class {
     if(cmd.conf.enabled === false){
     if(settings.systemNotice == true) {
         return message.channel
-         .send(`${this.client.emojis.find(e => e.name === "wrongMark")} Cette commande est désactivée suite à des bugs ou une maintenance de celle-ci.`)
+         .send(`${this.client.emojis.cache.find(e => e.name === "wrongMark")} Cette commande est désactivée suite à des bugs ou une maintenance de celle-ci.`)
        } 
      } 
      
@@ -155,7 +155,7 @@ module.exports = class {
 
     if (cooldown.length == 1) {
 
-            message.channel.send(`${this.client.emojis.find(e => e.name === "wrongMark")} ${message.author} attends encore **${Math.round((cooldown[0].time - new Date().getTime())/1000)} secondes** avant de faire cette commande`).then(m => m.delete(3000));
+            message.channel.send(`${this.client.emojis.cahce.find(e => e.name === "wrongMark")} ${message.author} attends encore **${Math.round((cooldown[0].time - new Date().getTime())/1000)} secondes** avant de faire cette commande`).then(m => m.delete(3000));
 
     } else {
 
