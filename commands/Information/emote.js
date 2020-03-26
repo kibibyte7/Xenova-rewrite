@@ -13,19 +13,19 @@ usage:"emote <list>"
 run(message, args, level) {
 
 if(!args || args.length == 0){
-message.channel.send(`${this.client.emojis.find("name","wrongMark")} Spécifie le nom ou la liste complète des emojis.`)
+message.channel.send(`${this.client.emojis.cache.find(e => e.name === "wrongMark")} Spécifie le nom ou la liste complète des emojis.`)
 return;
 }
 
 if(args[0] === "list"){
-message.channel.send(message.guild.emojis.size == 0 ? `${this.client.emojis.find("name","wrongMark")} Il n'y a aucun emojis dans ce serveur.` : `${this.client.emojis.find("name","checkMark")} Voici la liste des emojis du serveur :\n${message.guild.emojis.map(e => e).join(" ")}`)
+message.channel.send(message.guild.emojis.size == 0 ? `${this.client.emojis.cache.find(e => e.name === "wrongMark")} Il n'y a aucun emojis dans ce serveur.` : `${this.client.emojis.cache.find(e => e.name === "checkMark")} Voici la liste des emojis du serveur :\n${message.guild.emojis.cahce.map(e => e).join(" ")}`)
 return;
 } 
 
 try{
-var e = this.client.emojis.find(emote => emote.name === args[0])
+var e = this.client.emojis.chache.find(emote => emote.name === args[0]);
 message.channel.send({embed:{author:{
-icon_url:message.author.avatarURL,
+icon_url:message.author.avatarURL(),
 name:message.author.username
 }, 
 color:0xffff00,
