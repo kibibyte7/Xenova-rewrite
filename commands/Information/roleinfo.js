@@ -21,7 +21,7 @@ let roles = [];
 
         let indexes = [];
 
-        message.guild.roles.forEach(function(role){
+        message.guild.roles.cache.forEach(function(role){
 
             roles.push(role.name)
 
@@ -33,19 +33,19 @@ let roles = [];
 
         let rolename = match.bestMatch.target;
 
-        let toMention = message.guild.roles.get(indexes[roles.indexOf(rolename)])
+        let toMention = message.guild.roles.cache.get(indexes[roles.indexOf(rolename)])
 
-        let toInfo = message.guild.roles.find("name", args.join(" ")) || message.guild.roles.find("id", args.join(" ")) || toMention ;
+        let toInfo = message.guild.roles.cache.find(r => r.name === args.join(" ")) || message.guild.roles.cache.find(r => r.id === args.join(" ")) || toMention ;
 
         if(!toInfo){
 
-       message.channel.send(`${message.client.emojis.find("name", "wrongMark")} Je ne trouve pas ce rôle.`) 
+       message.channel.send(`${message.client.emojis.cache.find(e => e.name === "wrongMark")} Je ne trouve pas ce rôle.`) 
 
        return;
 
       }else{
 
-      	var filtre = m => m.roles.find("name", toInfo.name)
+      	var filtre = m => m.roles.find(r => r.name === toInfo.name)
 
       	message.channel.send({embed:{
       	color:toInfo.color,
@@ -79,7 +79,7 @@ let roles = [];
       	}, 
       	{
       	name:"Nombre de membres ayant ce rôle", 
-      	value:`${message.guild.members.filter(filtre).size} (${(message.guild.members.filter(filtre).size / message.guild.members.size) * 100}%)`
+      	value:`${message.guild.members.cache.filter(filtre).size} (${(message.guild.members.cache.filter(filtre).size / message.guild.members.cache.size) * 100}%)`
       	}
       	],
       	timestamp:new Date(), 
