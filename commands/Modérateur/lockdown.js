@@ -52,7 +52,7 @@ var mention = message.mentions.members.first();
 	     	
 	     	if(r.emoji.name == check.name){
 	     		
-	     r.remove(message.author);
+	     r..remove(message.author);
         
       message.channel.overwritePermissions(message.guild.id, {
       "SEND_MESSAGES":false, 
@@ -69,12 +69,12 @@ var mention = message.mentions.members.first();
       message.channel.send(`${check} Salon débloqué.`) 
     }, parseInt(args[0].substr(0, args[0].length-1))*multiplicateur);
       
-      m.clearReactions(); 
+      m.reactions.removeAll(); 
       m.edit(`${check} **${message.channel.name}** a été bloqué pour une durée de : **${parseInt(args[0].substr(0, args[0].length-1))} ${unity}**`)        
       collect.stop();
       } else {
       	m.edit(`${wrong} lockdown annulé.`) 
-      	m.clearReactions();
+      	m.reactions.removeAll();
       	collect.stop();
       	} 
       	
