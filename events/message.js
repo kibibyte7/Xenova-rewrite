@@ -167,7 +167,7 @@ module.exports = class {
 
         this.client.captchaCounter(message.author.id);
 
-        var msg = this.client.askCaptcha(message.author.id, cmd.help.name, cmd.help.category, message);
+        var msg = this.client.askCaptcha(message.author.id, cmd.help.name, message);
 	
 	 console.log(msg);   
 	    
