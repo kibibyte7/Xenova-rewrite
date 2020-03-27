@@ -167,14 +167,18 @@ module.exports = class {
 
         this.client.captchaCounter(message.author.id);
 
-        var msg = this.client.askCaptcha(message.author.id, cmd.help.name, message);   
+	 con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, player) => {
+	    
+        var msg = this.client.askCaptcha(message.author.id, player[0].verified_captcha  ,cmd.help.name, message);   
 	 
 	console.log(msg)
 	    
         if(msg == false) return;
 
        cmd.run(message, args, level, con, lang);
-		  
+	
+	 })
+	    
         if(!cmd.conf.cooldown == 0){
 
         con.query(`INSERT INTO cooldown (id, cmd, time) VALUES (${message.author.id}, "${cmd.help.name}", ${new Date().getTime() + cooltime})`)
@@ -184,7 +188,9 @@ module.exports = class {
         }, cooltime);
 
         }
-
+	
+		 
+	 
     }
 
 }) 
