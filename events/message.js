@@ -169,7 +169,7 @@ module.exports = class {
 
         var msg = this.client.askCaptcha(message.author.id, cmd.help.name, cmd.help.category, message);
 	
-	 console.log(msg.output);   
+	 console.log(msg);   
 	    
         if(msg === false) return;
 
