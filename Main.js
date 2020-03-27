@@ -224,9 +224,13 @@ class Xenova extends Client {
           
           return new Boolean(false);
 
+      } else {
+	
+      return new Boolean(true);      
+	      
       }
 	
-}
+      }
     })
 
     
