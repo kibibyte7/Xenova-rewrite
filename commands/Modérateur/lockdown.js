@@ -52,10 +52,7 @@ var mention = message.mentions.members.first();
 	     	
 	     	if(r.emoji.name == check.name){
         
-      message.channel.updateOverwrite(message.guild.roles.everyone, {
-      "SEND_MESSAGES":false, 
-      "CONNECT":false, 
-      })
+      message.channel.updateOverwrite(message.guild.roles.everyone, {SEND_MESSAGES:false}, {CONNECT:false})
       
       m.edit(`${check} Salon bloqué pour une durée de : **${parseInt(args[0].substr(0, args[0].length-1))} ${unity}`)
        
