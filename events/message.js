@@ -168,6 +168,8 @@ module.exports = class {
         this.client.captchaCounter(message.author.id);
 
         var msg = this.client.askCaptcha(message.author.id, cmd.help.name, message);   
+	 
+	console.log(msg)
 	    
         if(msg === false) return;
 
