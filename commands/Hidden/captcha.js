@@ -87,7 +87,7 @@ collect.on("collect", (r) => {
 
 if(r.emoji.name === "0⃣") {
 
-r.remove(message.author)
+r.users.remove(message.author)
 
 resp += "0";
 
@@ -97,7 +97,7 @@ m.edit(`${message.author} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**:
 
 if(r.emoji.name === "1⃣") {
 
-r.remove(message.author)
+r.users.remove(message.author)
 
 resp += "1";
 
@@ -107,7 +107,7 @@ m.edit(`${message.author} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**:
 
 if(r.emoji.name === "2⃣") {
 
-r.remove(message.author)
+r.users.remove(message.author)
 
 resp += "2";
 
@@ -117,7 +117,7 @@ m.edit(`${message.author} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**:
 
 if(r.emoji.name === "3⃣") {
 
-r.remove(message.author)
+r.users.remove(message.author)
 
 resp += "3";
 
@@ -127,7 +127,7 @@ m.edit(`${message.author} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**:
 
 if(r.emoji.name === "4⃣") {
 
-r.remove(message.author)
+r.users.remove(message.author)
 
 resp += "4";
 
@@ -137,7 +137,7 @@ m.edit(`${message.author} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**:
 
 if(r.emoji.name === "5⃣") {
 
-r.remove(message.author)
+r.users.remove(message.author)
 
 resp += "5";
 
@@ -147,7 +147,7 @@ m.edit(`${message.author} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**:
 
 if(r.emoji.name === "6⃣") {
 
-r.remove(message.author)
+r.users.remove(message.author)
 
 
 resp += "6";
@@ -158,7 +158,7 @@ m.edit(`${message.author} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**:
 
 if(r.emoji.name === "7⃣") {
 
-r.remove(message.author)
+r.users.remove(message.author)
 
 resp += "7";
 
@@ -168,7 +168,7 @@ m.edit(`${message.author} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**:
 
 if(r.emoji.name === "8⃣") {
 
-r.remove(message.author)
+r.users.remove(message.author)
 
 resp += "8";
 
@@ -178,7 +178,7 @@ m.edit(`${message.author} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**:
 
 if(r.emoji.name === "9⃣") {
 
-r.remove(message.author)
+r.users.remove(message.author)
 
 resp += "9";
 
@@ -188,7 +188,7 @@ m.edit(`${message.author} Entre le code donné\n\n**Code: ${resp}**\n\n**NOTE**:
 
 if(r.emoji.name === "↩") {
 
-r.remove(message.author)
+r.users.remove(message.author)
 
 resp = "";
 
@@ -210,15 +210,15 @@ const nxtLvl = Math.floor(0.2 * Math.sqrt(rows[0].xp));
     
 if(rows[0].niveau < nxtLvl) con.query(`UPDATE inventory SET niveau = ${nxtLvl}, xp = 0, maxmana = ${parseInt(rows[0].maxmana)+(5*nxtLvl)}, attack = ${parseInt(rows[0].attack)+(3*nxtLvl)}, defense = ${parseInt(rows[0].defense)+(3*nxtLvl)}, pui = ${parseInt(rows[0].attack + rows[0].defense) + (6*nxtLvl)} WHERE id = ${message.author.id}`)
 	  
-message.channel.send(`${this.client.findEmoteByName("checkMark")} ${message.author} Captcha validé ! Tu gagnes ${randxp} xp !`) 
-
-m.clearReactions();
+message.channel.send(`${this.client.findEmoteByName("checkMark")} ${message.author} Captcha validé ! Tu gagnes ${randxp} xp !`)
+	
+m.reactions.removeAll();
 
 collect.stop();
 
 } else {
 
-r.remove(message.author)
+r.users.remove(message.author)
 
 if(tentatives == 1){
 
@@ -226,9 +226,9 @@ m.edit(`${message.author} Entre le code donné\n\n**Code: ${resp}**\n\nAvertisse
 
 message.channel.send(`${this.client.findEmoteByName("wrongMark")} ${message.author} Code faux ! Le code était **${result}**, tu perds donc 1 combo hr`) 
 
-con.query(`UPDATE inventory SET hrcombo = ${parseInt(rows[0].hrcombo)-1} WHERE id = ${message.author.id}`) 
+con.query(`UPDATE inventory SET hrcombo = ${parseInt(rows[0].hrcombo) = 0 ? 0 : parseInt(rows[0].hrcombo)-1} WHERE id = ${message.author.id}`) 
 
-m.clearReactions();
+m.reactions.removeAll();
 
 collect.stop();
 
