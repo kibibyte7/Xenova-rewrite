@@ -211,8 +211,6 @@ class Xenova extends Client {
   } 
 
   askCaptcha(id, command, category, msg){
-  
-   let output;
 	  
     con.query(`SELECT * FROM inventory WHERE id = ${id}`, (err, player) => {
     
@@ -224,7 +222,7 @@ class Xenova extends Client {
             
           msg.reply(`Tu dois d'abord prouver que tu n'es pas un robot, fais \`+captcha\` pour te faire vérifier.`);
           
-          return output = false;
+          return Boolean(false);
 
       }
 	
