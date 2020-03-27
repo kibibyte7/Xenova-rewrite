@@ -169,9 +169,9 @@ module.exports = class {
 
         var msg = this.client.askCaptcha(message.author.id, cmd.help.name, message);   
 	 
-	console.log(msg.valueOf())
+	console.log(msg)
 	    
-        if(msg === false) return;
+        if(msg == false) return;
 
        cmd.run(message, args, level, con, lang);
 		  
