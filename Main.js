@@ -222,12 +222,8 @@ class Xenova extends Client {
             
           msg.reply(`Tu dois d'abord prouver que tu n'es pas un robot, fais \`+captcha\` pour te faire vérifier.`);
           
-          return new Boolean(false);
+          return false
 
-      } else {
-	
-      return new Boolean(true);      
-	      
       }
 	
       }
