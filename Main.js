@@ -210,7 +210,7 @@ class Xenova extends Client {
 
   } 
 
-  askCaptcha(id, command, category, msg){
+  askCaptcha(id, command, msg){
 	  
     con.query(`SELECT * FROM inventory WHERE id = ${id}`, (err, player) => {
     
@@ -218,11 +218,11 @@ class Xenova extends Client {
 
         if(player[0].verified_captcha == false){
       
-          if(category === "Game" && command !== "captcha"){
+          if(command !== "captcha"){
             
           msg.reply(`Tu dois d'abord prouver que tu n'es pas un robot, fais \`+captcha\` pour te faire vérifier.`);
           
-          return Boolean(false);
+          return new Boolean(false);
 
       }
 	
