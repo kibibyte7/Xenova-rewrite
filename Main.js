@@ -210,27 +210,19 @@ class Xenova extends Client {
 
   } 
 
-  askCaptcha(id, command, msg){
-	  
-    con.query(`SELECT * FROM inventory WHERE id = ${id}`, (err, player) => {
-    
-      if(!player) return;
+  askCaptcha(id, verified, command, msg){ 
       
-          if(player[0].verified_captcha == false && command !== "captcha"){
+          if(verified = false && command !== "captcha"){
             
           msg.reply(`Tu dois d'abord prouver que tu n'es pas un robot, fais \`+captcha\` pour te faire vérifier.`);
           
-          let Output = false;
+          return false;
 
       } else {
 	
-	  let Output = true;
+	  return true;
 	      
       }
-	    
-    })
-
-    return Output;
 
   }
 
