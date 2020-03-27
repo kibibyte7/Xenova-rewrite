@@ -49,7 +49,7 @@ ctx.fillStyle = "#0d1bde";
 
 ctx.fillText(`${firstNumber} + ${secondNumber} = ? + "${thirdNumber}"`, canvas.width / 4.4, canvas.height / 1.8);
 
-const attachment = new Discord.Attachment(canvas.toBuffer(), 'captcha.png'); 
+const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'captcha.png'); 
 
 let resp = ``;
 
