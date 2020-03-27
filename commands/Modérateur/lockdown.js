@@ -35,8 +35,8 @@ var mention = message.mentions.members.first();
     else if (args[0].endsWith("h")) unity = "heures"
 
     if(args[0].endsWith("s")) multiplicateur = 1000
-    else if(args[0].endsWith("m")) multiplicateur = 6000
-    else if (args[0].endsWith("h")) multiplicateur = 36000
+    else if(args[0].endsWith("m")) multiplicateur = 60000
+    else if (args[0].endsWith("h")) multiplicateur = 360000
     
     message.channel.send(`${this.client.emojis.cache.find(e => e.name === "typing")} Veux tu vraiment bloquer le channel **${message.channel.name}** pour une durée de **${parseInt(args[0].substr(0, args[0].length-1))} ${unity}** ?`).then(m => {
       
