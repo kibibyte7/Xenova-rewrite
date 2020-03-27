@@ -212,7 +212,7 @@ class Xenova extends Client {
 
   askCaptcha(id, verified, command, msg){ 
       
-          if(verified = false && command !== "captcha"){
+          if(verified == false && command !== "captcha"){
             
           msg.reply(`Tu dois d'abord prouver que tu n'es pas un robot, fais \`+captcha\` pour te faire vérifier.`);
           
