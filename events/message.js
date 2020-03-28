@@ -140,7 +140,7 @@ module.exports = class {
      var perms = cmd.conf.permissions;
      let missingPermissions = ``;
      for(var i in perms){
-     console.log(perms[i])
+     if(isNaN(i)) undefined;
      if(!message.guild.me.permissions.has(`${perms[i]}`.toString())) missingPermissions += `- ${perms[i]}\n` 
 
      }
