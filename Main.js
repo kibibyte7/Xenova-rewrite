@@ -130,7 +130,7 @@ class Xenova extends Client {
 
   findChannelByName(channel){
 
-  return channel = this.channels.cache.find(c => c.name === channem)
+  return channel = this.channels.cache.find(c => c.name === channel)
 
   } 
 
