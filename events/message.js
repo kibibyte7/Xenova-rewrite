@@ -173,7 +173,7 @@ module.exports = class {
       }) lance la commande ${cmd.help.name}`
       );
 
-        this.client.captchaCounter(message.author.id);
+        this.client.captchaCounter(message.author.id, cmd.help.category);
 
 	 con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, player) => {
 	    
