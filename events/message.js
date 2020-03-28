@@ -145,7 +145,7 @@ module.exports = class {
 
      }
 	     
-     return message.channel.send(`${message.guild.me.permissions.has("USE_EXTERNAL_EMOJIS") ? this.client.emojis.cache.find(e => e.name === "wrongMark") : ":x:"} Je n'ai pas les permissions nécessaires vérifie que j'aie les permission : \`\`\`diff\n${missingPermissions}\`\`\` `) 
+     return message.channel.send(`${!message.guild.me.permissions.has("USE_EXTERNAL_EMOJIS") ? ":x:" : this.client.emojis.cache.find(e => e.name === "wrongMark")} Je n'ai pas les permissions nécessaires vérifie que j'aie les permission : \`\`\`diff\n${missingPermissions}\`\`\` `) 
 
      }
 
