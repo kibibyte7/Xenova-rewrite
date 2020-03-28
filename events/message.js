@@ -141,7 +141,7 @@ module.exports = class {
      let missingPermissions = ``;
      for(var i in perms){
 
-     if(!message.guild.me.permissions.has(`${perms[i]}`)) missingPermissions += `- ${perms[i]}\n` 
+     if(!message.guild.me.permissions.has(`${perms[i]}`.toString())) missingPermissions += `- ${perms[i]}\n` 
 
      }
 	     
