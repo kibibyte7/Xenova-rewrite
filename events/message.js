@@ -131,9 +131,9 @@ module.exports = class {
        } 
      } 
      
-     if(cmd.conf.guildOnly == true && message.channel.type !== "text") return message.author.send(`${this.client.emojis.find(e => e.name === "wrongMark")} Tu ne peux pas faire cette commande ici.`)
+     if(cmd.conf.guildOnly == true && message.channel.type !== "text") return message.author.send(`${this.client.emojis.cache.find(e => e.name === "wrongMark")} Tu ne peux pas faire cette commande ici.`)
      
-     if(!message.guild.me.permissionsIn(message.channel.id).has("SEND_MESSAGES")) return message.author.send(`${this.client.emojis.find(e => e.name === "wrongMark")} je n'ai pas la permission \`SEND_MESSAGES\` dans le channel **${message.channel.name}**.`) 
+     if(!message.guild.me.permissionsIn(message.channel.id).has("SEND_MESSAGES")) return message.author.send(`${this.client.emojis.cache.find(e => e.name === "wrongMark")} je n'ai pas la permission \`SEND_MESSAGES\` dans le channel **${message.channel.name}**.`) 
 
      if(!message.guild.me.permissions.has(cmd.conf.permissions)){
      
