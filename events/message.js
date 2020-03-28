@@ -141,7 +141,7 @@ module.exports = class {
      let missingPermissions = ``;
      for(var i in perms){
      
-     if(!message.guild.me.permissions.has(isNaN(i) ? "" : perms[i])) missingPermissions += `- ${isNaN(i) ? "" : perms[i] }\n` 
+     isNaN(i) ? "" : !message.guild.me.permissions.has(perms[i]) ? missingPermissions += `- ${perms[i] }\n` : ``; 
 
      }
 	     
