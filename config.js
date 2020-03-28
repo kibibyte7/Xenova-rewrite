@@ -20,7 +20,7 @@ const config = {
       name: "XenoModPerm",
       check: message => {
         try {
-          const modRole = message.guild.roles.find(
+          const modRole = message.guild.roles.cache.find(
             r => r.name.toLowerCase() === message.settings.modRole.toLowerCase()
           );
           if (modRole && message.member.roles.has(modRole.id)) return true;
@@ -34,7 +34,7 @@ const config = {
       name: "XenoAdminPerm",
       check: message => {
         try {
-          const adminRole = message.guild.roles.find(
+          const adminRole = message.guild.roles.cache.find(
             r =>
               r.name.toLowerCase() === message.settings.adminRole.toLowerCase()
           );
