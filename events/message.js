@@ -145,7 +145,7 @@ module.exports = class {
 
      }
 	     
-     return message.channel.send(`:x: Je n'ai pas les permissions nécessaires vérifie que j'aie les permission : \`\`\`diff\n${missingPermissions}\`\`\` `) 
+     return message.channel.send(`${this.client.emojis.cache.find(e => e.name === "wrongMark")} Je n'ai pas les permissions nécessaires vérifie que j'aie les permission : \`\`\`diff\n${missingPermissions}\`\`\` `) 
 
      }
 
