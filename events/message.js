@@ -49,7 +49,7 @@ module.exports = class {
     
     if (message.content.match(prefixMention)) {
       
-    return message.channel.send(`${this.client.emojis.cache.find("name", "checkMark")} Le préfixe du serveur est \`${settings.prefix}\``);
+    return message.channel.send(`${this.client.emojis.cache.find(e => e.name === "checkMark")} Le préfixe du serveur est \`${settings.prefix}\``);
     
     } 
     
