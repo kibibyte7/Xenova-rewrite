@@ -226,18 +226,21 @@ class Xenova extends Client {
 
   }
 
-  captchaCounter(id){
+  captchaCounter(id, category){
 
     con.query(`SELECT * FROM inventory WHERE id = ${id}`, (err, player) => {
 
     if(!player) return;
-	    
+    
+    if(category === "Game"){
+       
      con.query(`UPDATE inventory SET msgs_to_captcha = ${parseInt(player[0].msgs_to_captcha) - 1} WHERE id = ${id}`)	
 		
       if(player[0].msgs_to_captcha == 0){
   
         con.query(`UPDATE inventory SET verified_captcha = false WHERE id = ${id}`);
-  
+  	
+      	}
       }
 
     })
