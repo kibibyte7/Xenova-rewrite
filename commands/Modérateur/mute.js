@@ -27,7 +27,7 @@ run(message, args, level) {
 
     let multiplicateur;
 
-    let role = message.guild.roles.caches.find(r => r.name === "XenoMute")
+    let role = message.guild.roles.cache.find(r => r.name === "XenoMute")
     
     if(!role){
 
