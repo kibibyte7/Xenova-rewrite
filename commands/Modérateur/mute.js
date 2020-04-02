@@ -31,12 +31,14 @@ run(message, args, level) {
     
     if(!role){
 
-    var muteRole = message.guild.roles.create({data:{name:"XenoMute", color:0x010101, permissions:["VIEW_CHANNEL"]}})
+    var muteRole = message.guild.roles.create({data:{name:"XenoMute", color:0x010101, permissions:["VIEW_CHANNEL"]}}).then(r => {
 
     message.guild.channels.cache.map(c => c.updateOverwrite(muteRole.id, { SEND_MESSAGES:false, STREAM:false, CONNECT:false, ADD_REACTION:false}))
 
-    return message.channel.send(`${this.client.emojis.cache.find(e => e.name === "checkMark")} J'ai créé le rôle \`${muteRole.name}\` pour toi car il était inexistant dans la guilde.`)
+    return message.channel.send(`${this.client.emojis.cache.find(e => e.name === "checkMark")} J'ai créé le rôle \`${r.name}\` pour toi car il était inexistant dans la guilde.`)
     
+   })
+
     }
     
     if(!mention || isNaN(args[1].substr(0, args[1].length-1))) return message.channel.send(`${wrong} Utilise la commande comme ceci : **${this.client.config.defaultSettings.prefix}${this.client.commands.get("mute").help.usage}**`);
