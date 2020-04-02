@@ -39,15 +39,15 @@ run(message, args, level) {
     
     }
     
-    if(!mention || isNaN(args[1])) return message.channel.send(`${wrong} Utilise la commande comme ceci : **${this.client.config.defaultSettings.prefix}${this.client.commands.get("mute").help.usage}**`);
+    if(!mention || isNaN(args[1].substr(0, args[1].length-1))) return message.channel.send(`${wrong} Utilise la commande comme ceci : **${this.client.config.defaultSettings.prefix}${this.client.commands.get("mute").help.usage}**`);
 
     var missingFilters = !args[1].endsWith("s") || !args[1].endsWith("m") || !args[1].endsWith("h");
 
-    if (missingFiltersFilters) return message.channel.send(`${wrong} Entre une unitée de temps.`)
+    if (missingFilters) return message.channel.send(`${wrong} Entre une unitée de temps.`)
       
       if(args[1].endsWith("s")) unity = "secondes"
       else if(args[1].endsWith("m")) unity = "minutes"
-      else if(args[1].endsWith("h")) utity = "heures"
+      else if(args[1].endsWith("h")) unity = "heures"
 
       if(args[1].endsWith("s")) multiplicateur = 1000
       else if(args[1].endsWith("m")) multiplicateur = 60000
