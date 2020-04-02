@@ -76,7 +76,9 @@ run(message, args, level) {
       setTimeout(() => {        
 
       mention.roles.remove(role.id);
-       
+      
+      message.channel.send(`${check} **${mention.user.tag}** a été démute.`)	      
+
       }, parseInt(args[1].substr(0, args[1].length-1))*multiplicateur);
       
       m.reactions.removeAll(); 
