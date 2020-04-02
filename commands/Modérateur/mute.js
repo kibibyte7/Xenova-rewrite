@@ -41,9 +41,11 @@ run(message, args, level) {
     
     if(!mention || isNaN(args[1].substr(0, args[1].length-1))) return message.channel.send(`${wrong} Utilise la commande comme ceci : **${this.client.config.defaultSettings.prefix}${this.client.commands.get("mute").help.usage}**`);
 
-    var filters = ["s", "m", "h"];
 
-    if (!args[1].includes(filters)) return message.channel.send(`${wrong} Entre une unitée de temps.`)
+    if(args[1].includes("s")) console.log("Secondes")
+    else if(args[1].endsWith("m")) console.log("Minutes")
+    else if(args[1].endsWith("h")) console.log("Heures")
+    else return message.channel.send(`${wrong} Entre une unitée de temps.`)
       
       if(args[1].endsWith("s")) unity = "secondes"
       else if(args[1].endsWith("m")) unity = "minutes"
