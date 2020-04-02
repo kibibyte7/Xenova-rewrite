@@ -31,27 +31,23 @@ run(message, args, level) {
     
     if(!role){
 
-    var muteRole = message.guild.roles.create({data:{name:"XenoMute", color:0x010101, permissions:["VIEW_CHANNEL"]}}).then(r => {
+    var muteRole = message.guild.roles.create({data:{name:"XenoMute", color:0x010101, permissions:["VIEW_CHANNEL"]}})
 
-    message.guild.channels.cache.map(c => c.updateOverwrite(r.id, { SEND_MESSAGES:false, STREAM:false, CONNECT:false, ADD_REACTION:false}))
+    message.guild.channels.cache.map(c => c.updateOverwrite(muteRole.id, { SEND_MESSAGES:false, STREAM:false, CONNECT:false, ADD_REACTION:false}))
 
-    return message.channel.send(`${this.client.emojis.cache.find(e => e.name === "checkMark")} J'ai créé le rôle \`${r.name}\` pour toi car il était inexistant dans la guilde.`)
+    message.channel.send(`${this.client.emojis.cache.find(e => e.name === "checkMark")} J'ai créé le rôle \`${muteRole.name}\` pour toi car il était inexistant dans la guilde.`)
     
-   })
-
-    }
+  } else {
     
-    if(!mention || isNaN(args[1].substr(0, args[1].length-1))) return message.channel.send(`${wrong} Utilise la commande comme ceci : **${this.client.config.defaultSettings.prefix}${this.client.commands.get("mute").help.usage}**`);
+    if(!mention || isNaN(args[1])) return message.channel.send(`${wrong} Utilise la commande comme ceci : **${this.client.config.defaultSettings.prefix}${this.client.commands.get("mute").help.usage}**`);
 
+    var missingFilters = !args[1].endsWith("s") || !args[1].endsWith("m") || !args[1].endsWith("h");
 
-    if(args[1].includes("s")) console.log("Secondes")
-    else if(args[1].endsWith("m")) console.log("Minutes")
-    else if(args[1].endsWith("h")) console.log("Heures")
-    else return message.channel.send(`${wrong} Entre une unitée de temps.`)
+    if (missingFilters) return message.channel.send(`${wrong} Entre une unitée de temps.`)
       
       if(args[1].endsWith("s")) unity = "secondes"
       else if(args[1].endsWith("m")) unity = "minutes"
-      else if(args[1].endsWith("h")) unity = "heures"
+      else if(args[1].endsWith("h")) utity = "heures"
 
       if(args[1].endsWith("s")) multiplicateur = 1000
       else if(args[1].endsWith("m")) multiplicateur = 60000
@@ -78,9 +74,7 @@ run(message, args, level) {
       setTimeout(() => {        
 
       mention.roles.remove(role.id);
-      
-      message.channel.send(`${check} **${mention.user.tag}** a été démute.`)	      
-
+       
       }, parseInt(args[1].substr(0, args[1].length-1))*multiplicateur);
       
       m.reactions.removeAll(); 
@@ -93,12 +87,10 @@ run(message, args, level) {
       	} 
       	
       	}) 
-        
-        
+                
       	})
-        
-      	
-
+             	
+}
 
 }  
 
