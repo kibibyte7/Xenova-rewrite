@@ -96,7 +96,7 @@ class Play extends Command {
         })
         .on("error", error => console.error(error));
       dispatcher.setVolumeLogarithmic(queue.volume / 5);
-      queue.textChannel.send(`${message.client.cache.emojis.find(e => e.name === "Playing")} Je joue: **${song.title}** demandé par : **${song.requester}**`);
+      queue.textChannel.send(`${message.client.emojis.cache.find(e => e.name === "Playing")} Je joue: **${song.title}** demandé par : **${song.requester}**`);
     };
 
     try {
