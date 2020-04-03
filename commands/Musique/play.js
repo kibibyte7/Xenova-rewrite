@@ -73,19 +73,22 @@ class Play extends Command {
     const play = async song => {
       const queue = message.client.queue.get(message.guild.id);
       if (!song) {
+        this.client.channels.cache.get(queue.textChannel.id).send(`${this.client.emojis.cache.find(e => e.name === "wrongMark")} La playlist est vide.`);
         
-        queue.textChannel.send(`${this.client.emojis.cache.find(e => e.name === "wrongMark")} La playlist est vide.`);
+        await queue.voiceChannel.leave();
         
         setTimeout(() => {
-        queue.voiceChannel.leave();
+          
         message.client.queue.delete(message.guild.id);
+          
+        }, 5000);
+        
         return;
-        }, 3000);
       }
 
       const dispatcher = queue.connection
-        .play(await ytdl(song.url, {filter:"audioonly"}), {bitrate: 200000})
-        .on("finish", reason => {
+        .play(await ytdl(song.url, {type:"opus"} {filter:"audioonly"}), {bitrate: 200000})
+        .on("finish", () => {
           
           if(queue.loop == true) {
             
@@ -94,7 +97,6 @@ class Play extends Command {
           } else {
             
           queue.songs.shift();
-          queue.last_song.shift();
           play(queue.songs[0]);
             
           }
