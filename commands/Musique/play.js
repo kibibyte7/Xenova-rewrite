@@ -73,6 +73,8 @@ class Play extends Command {
       if (queue.songs.length == 0) {
         message.client.channels.cache.get(queue.textChannel.id).send(`${message.client.emojis.cache.find(e => e.name === "wrongMark")} La playlist est vide.`);
         
+        queue.songs.shift();
+        
         await queue.voiceChannel.leave();
         
         setTimeout(() => {
@@ -95,7 +97,7 @@ class Play extends Command {
           } else {
           
           var nextSong = queue.songs.shift();
-           
+          
           setTimeout(() => {
             
           play(ytdl(nextSong.url, {type:"opus"}))
