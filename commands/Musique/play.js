@@ -45,7 +45,8 @@ class Play extends Command {
       id: songInfo.video_id,
       title: songInfo.title,
       url: songInfo.video_url, 
-      requester:message.author.username
+      requester:message.author.username,
+      duration:songInfo.length_seconds
     };
     console.log(song) 
      
@@ -63,7 +64,7 @@ class Play extends Command {
       songs: [],
       volume: 1,
       playing: true, 
-      loop:false
+      loop:false,
     };
 
     message.client.queue.set(message.guild.id, queueConstruct);
@@ -81,9 +82,7 @@ class Play extends Command {
       const dispatcher = queue.connection
         .play(await ytdl(song.url, {filter:"audioonly"}), { passes: 1, bitrate: 200000})
         .on("finish", reason => {
-          if (reason === "Récupération trop lente !")
-            console.log("La musique s'est arrêtée !");
-          else console.log(reason);
+         
           if(queue.loop == true) {
           return play(queue.songs[0])
           }
@@ -91,7 +90,7 @@ class Play extends Command {
           if(queue.loop == false) {
           queue.songs.shift();
           play(queue.songs[0]);
-          } 
+          }
           
         })
         .on("error", error => console.error(error));
