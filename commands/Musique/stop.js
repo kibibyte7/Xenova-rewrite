@@ -11,7 +11,7 @@ class Stop extends Command {
   }
 
   run(message) {
-    const stop = message.client.emojis.find("name","Stop")
+    const stop = message.client.emojis.cache.find(e => e.name ==="Stop")
     const { voiceChannel } = message.member;
     if (!voiceChannel)
       return message.channel.send(
@@ -19,7 +19,7 @@ class Stop extends Command {
       );
     const serverQueue = message.client.queue.get(message.guild.id);
     if (!serverQueue)
-      return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Il n'y a aucune musique dans la playlist.`);
+      return message.channel.send(`${this.client.emojis.cache.find(e => e.name === "wrongMark")} Il n'y a aucune musique dans la playlist.`);
     serverQueue.songs = [];
     serverQueue.connection.dispatcher.end("La musique a été stoppée !");
     message.channel.send(`${stop} La musique a été stoppée et j'ai quitté le vocal.`) 
