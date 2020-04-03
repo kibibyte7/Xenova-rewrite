@@ -94,13 +94,13 @@ class Play extends Command {
             
           } else {
           
-          queue.songs.shift();
+          var nextSong = queue.songs[0].shift();
            
           queue.connection.detroy();
            
           setTimeout(() => {
             
-          play(queue.songs[0].url, {type:"opus"})
+          play(nextSong.url, {type:"opus"})
           
           }, 1000)
                      
@@ -109,7 +109,7 @@ class Play extends Command {
         })
         .on("error", error => console.error(error));
       dispatcher.setVolumeLogarithmic(queue.volume / 5);
-      queue.textChannel.send(`${message.client.emojis.cache.find(e => e.name === "Playing")} Je joue: **${song.title}** demandé par : **${song.requester}**`);
+      queue.textChannel.send(`${message.client.emojis.cache.find(e => e.name === "Playing")} Je joue: **${queue.songs[0].title}** demandé par : **${queue.songs[0].requester}**`);
     };
 
     try {
