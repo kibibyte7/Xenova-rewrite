@@ -90,7 +90,7 @@ class Play extends Command {
           
           if(queue.loop == true) {
             
-          return play(queue.songs[0])
+          return play(await ytdl(queue.songs[0].url, {type:"opus"}))
             
           } else {
           
@@ -100,7 +100,7 @@ class Play extends Command {
            
           setTimeout(() => {
             
-          play(queue.songs.slice(1));
+          play(await ytdl(queue.songs[0].url, {type:"opus"}))
           
           }, 1000)
                      
