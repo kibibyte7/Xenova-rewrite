@@ -20,15 +20,18 @@ class Queue extends Command {
       return message.channel.send(`${this.client.findEmoteByName("wrongMark")} Il n'y a aucune musique en cours !`);
     let songs = serverQueue.songs.slice(1);
     
-    if(songs.length == 1) return message.channel.send(`**Musique actuelle:** ${serverQueue.songs[0].title} demandé par **${serverQueue.songs[0].requester}**`);
-    
+    if(songs.length == 1){
+     
+      message.channel.send(`**Musique actuelle:** ${serverQueue.songs[0].title} demandé par **${serverQueue.songs[0].requester}**`);
+    } else {
     for(var i in songs){
-    !isNaN(i) ? resp += `[${parseInt(i)+1}] - **${songs[parseInt(i)].title}** - Demandé par: **${songs[parseInt(i)].requester}**\n` :_``;
+    !isNaN(i) ? resp += `[${parseInt(i)+1}] - **${songs[parseInt(i)].title}** - Demandé par: **${songs[parseInt(i)].requester}**\n` :``;
     } 
     
 message.channel.send(`
 **Musique actuelle:** ${serverQueue.songs[0].title} demandé par **${serverQueue.songs[0].requester}**\n\n${resp}\n\nAjoute d'autres musiques avec +play <url/titre>`
 );
+    }
   }
 }
 
