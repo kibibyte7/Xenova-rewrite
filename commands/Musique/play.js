@@ -93,9 +93,17 @@ class Play extends Command {
           return play(queue.songs[0])
             
           } else {
+          
+          queue.songs.shift();
+           
+          dispatcher.detroy();
+           
+          setTimeout(() => {
             
           play(queue.songs.slice(1));
-            
+          
+          }, 1000)
+                     
           }
           
         })
