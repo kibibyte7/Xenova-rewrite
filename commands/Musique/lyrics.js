@@ -99,7 +99,7 @@ class Lyrics extends Command {
 
         r.reactions.remove(message.author) 
 
-        if(page == finalpage || finalpage < page) return;
+        if(page == finalpage) return;
 
         page++;
         
