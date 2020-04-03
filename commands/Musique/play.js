@@ -17,8 +17,8 @@ class Play extends Command {
   }
 
   async run(message, args) {
-    const { voice } = message.member.voice.channel;
-    if (!voice)
+    const { voiceChannel } = message.member.voice.channel;
+    if (!voiceChannel)
       return message.channel.send(`${this.client.emojis.cache.find(e => e.name === "wrongMark")} Tu dois être dans un salon vocal pour utiliser cette commande !`);
       
       let validate = ytdl.validateURL(args[0]);
