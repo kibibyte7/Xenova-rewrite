@@ -87,7 +87,7 @@ class Play extends Command {
       }
 
       const dispatcher = queue.connection
-        .play(await ytdl(song.url, {type:"opus"} {filter:"audioonly"}), {bitrate: 200000})
+        .play(await ytdl(song.url, {type:"opus"}))
         .on("finish", () => {
           
           if(queue.loop == true) {
