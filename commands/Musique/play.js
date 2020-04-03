@@ -56,14 +56,6 @@ class Play extends Command {
       return message.channel.send(`${message.client.emojis.cache.find(e => e.name === "Add")} **${song.title}** est ajoutée à la queue !`);
     }
 
-    const lastSong = {
-    title:songInfo.title,
-    url: songInfo.url,
-    requester:message.author.username,
-    duration:songInfo.length_seconds,
-    textChannel:message.channel
-    }
-
     const queueConstruct = {
       textChannel: message.channel,
       voiceChannel,
@@ -81,10 +73,14 @@ class Play extends Command {
     const play = async song => {
       const queue = message.client.queue.get(message.guild.id);
       if (!song) {
-        queue.last_song[0].textChannel.send(`${this.client.emojis.cache.find(e => e.name === "wrongMark")} La playlist est vide.`);
+        
+        queue.textChannel.send(`${this.client.emojis.cache.find(e => e.name === "wrongMark")} La playlist est vide.`);
+        
+        setTimeout(() => {
         queue.voiceChannel.leave();
         message.client.queue.delete(message.guild.id);
         return;
+        }, 3000);
       }
 
       const dispatcher = queue.connection
