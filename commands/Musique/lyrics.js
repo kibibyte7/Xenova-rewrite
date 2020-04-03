@@ -18,21 +18,23 @@ class Lyrics extends Command {
 
     const serverQueue = message.client.queue.get(message.guild.id);   
     
-    message.channel.send(`${this.client.emojis.find("name", "typing")} Recherche de \`${!args ? serverQueue.songs[0].title : args.join(" ")}\`.`).then(m => m.delete(4000))
+    if(!serverQueue) return message.channel.send(`${this.client.emojis.cache.find(e => e.name === "wrongMark")} La playlist est vide, entre un titre de musique à rechercher.`);
+    
+    message.channel.send(`${this.client.emojis.cache.find(e => e.name === "typing")} Recherche de \`${serverQueue.songs.length === 0 ? args.join(" ") : serverQueue.songs[0].title}\`.`).then(m => m.delete(4000))
         
-    fetch(`https://api.ksoft.si/lyrics/search?q=${encodeURIComponent(!args ? serverQueue.songs[0].title : args.join(" "))}`, {
+    fetch(`https://api.ksoft.si/lyrics/search?q=${encodeURIComponent(serverQueue.songs.length === 0 ? args.join(" ") : serverQueue.songs[0].title)}`, {
     method: "GET",
     headers: {  Authorization: process.env.ksoft }
     }).then(res => {
     res.json().then(lyrics => {
     	
-        if(!lyrics.data[0]) return message.channel.send(`${this.client.emojis.find("name", "wrongMark")} Aucuns résultats trouvés.`); 
+        if(!lyrics.data[0]) return message.channel.send(`${this.client.emojis.cache.find(e => e.name === "wrongMark")} Aucuns résultats trouvés.`); 
         
-        const right = this.client.emojis.find(e => e.name === "droite") 
+        const right = this.client.emojis.cache.find(e => e.name === "droite") 
 
-        const left =this.client.emojis.find(e => e.name === "gauche") 
+        const left =this.client.emojis.cache.find(e => e.name === "gauche") 
 
-        const wrong = this.client.emojis.find(e => e.name === "wrongMark") 
+        const wrong = this.client.emojis.cache.find(e => e.name === "wrongMark") 
 
         let page = 1;
         
