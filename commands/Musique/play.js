@@ -96,11 +96,9 @@ class Play extends Command {
           
           var nextSong = queue.songs.shift();
            
-          queue.connection.destroy();
-           
           setTimeout(() => {
             
-          play(nextSong.url, {type:"opus"})
+          play(ytdl(nextSong.url, {type:"opus"}))
           
           }, 1000)
                      
