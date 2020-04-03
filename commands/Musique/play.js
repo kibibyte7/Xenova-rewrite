@@ -85,7 +85,7 @@ class Play extends Command {
       }
 
       const dispatcher = queue.connection
-        .play(await ytdl(song.url, {type:"opus"}))
+        .play(await ytdl(queue.songs[0].url, {type:"opus"}))
         .on("finish", () => {
           
           if(queue.loop == true) {
