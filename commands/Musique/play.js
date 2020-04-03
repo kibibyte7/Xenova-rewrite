@@ -52,7 +52,7 @@ class Play extends Command {
     
     if (serverQueue) {
       serverQueue.songs.push(song);
-      return message.channel.send(`${message.client.emojis.cache.find("name", "Add")} **${song.title}** est ajoutée à la queue !`);
+      return message.channel.send(`${message.client.emojis.cache.find(e => e.name === "Add")} **${song.title}** est ajoutée à la queue !`);
     }
     
 
