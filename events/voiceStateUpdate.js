@@ -18,7 +18,7 @@ newMember.setVoiceChannel(c.id)
 })
 } 
 } else if(newUserChannel === undefined){ 
-	console.log(`${oldUserChannel.name} - ${oldUserChannel.members.size}`)
+	if(oldUserChannel === undefined) return;
 	let u = oldMember.user
 let voice = oldMember.guild.channels.cache.find(vc => vc.name === "✨"+ u.username)
 let nombre = oldUserChannel.members.cache.size;
