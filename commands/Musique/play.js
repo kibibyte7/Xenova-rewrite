@@ -17,7 +17,7 @@ class Play extends Command {
   }
 
   async run(message, args) {
-    const { voiceChannel } = message.member.voice.channel ? true : false;
+    const { voiceChannel } = message.member.voice.channel ? message.member.voice.channel : false;
     if (voiceChannel == false)
       return message.channel.send(`${this.client.emojis.cache.find(e => e.name === "wrongMark")} Tu dois être dans un salon vocal pour utiliser cette commande !`);
       
