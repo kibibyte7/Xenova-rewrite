@@ -96,7 +96,7 @@ class Play extends Command {
           
           var nextSong = queue.songs.shift();
            
-          queue.connection.detroy();
+          queue.connection.destroy();
            
           setTimeout(() => {
             
