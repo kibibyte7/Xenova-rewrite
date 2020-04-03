@@ -10,7 +10,9 @@ class Play extends Command {
       description: "Jouer et ajouter de la musique.",
       category:"Musique", 
       usage: "play", 
-      enabled:true
+      enabled:true,
+      permissions:["CONNECT", "USE_EXTERNAL_EMOJIS"],
+      aliases:["p"]
     });
   }
 
@@ -76,8 +78,8 @@ class Play extends Command {
       }
 
       const dispatcher = queue.connection
-        .playStream(await ytdl(song.url, {filter:"audioonly"}), { passes: 1, bitrate: 200000})
-        .on("end", reason => {
+        .play(await ytdl(song.url, {filter:"audioonly"}), { passes: 1, bitrate: 200000})
+        .on("finish", reason => {
           if (reason === "Récupération trop lente !")
             console.log("La musique s'est arrêtée !");
           else console.log(reason);
