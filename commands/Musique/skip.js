@@ -10,7 +10,7 @@ class Skip extends Command {
   }
 
   run(message) {
-    const skip = this.client.emojis.cache.find(e => e.name ===,"Skip")
+    const skip = this.client.emojis.cache.find(e => e.name === "Skip")
     const { voiceChannel } = message.member;
     if (!voiceChannel)
       return message.channel.send(`${this.client.emojis.cache.find(e => e.name === "wrongMark")} Tu dois être dans un salon vocal pour utiliser cette commande !`);
