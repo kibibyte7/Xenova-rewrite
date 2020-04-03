@@ -115,7 +115,7 @@ class Play extends Command {
     try {
       const connection = await voiceChannel.join();
       queueConstruct.connection = connection;
-      play(queueConstruct.songs[0]);
+      play(await ytdl(queueConstruct.songs[0].url, {type:"opus"}));
     } catch (error) {
       console.error(`Je n'ai pas pu rejoindre le salon: ${error}`);
       message.client.queue.delete(message.guild.id);
