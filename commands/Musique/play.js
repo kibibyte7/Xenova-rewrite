@@ -81,14 +81,14 @@ class Play extends Command {
     const play = async song => {
       const queue = message.client.queue.get(message.guild.id);
       if (!song) {
-        queue.last_song[0].textChannel.send(`${} `):
+        queue.last_song[0].textChannel.send(`${this.client.emojis.cache.find(e => e.name === "wrongMark")} La playlist est vide.`):
         queue.voiceChannel.leave();
         message.client.queue.delete(message.guild.id);
         return;
       }
 
       const dispatcher = queue.connection
-        .play(await ytdl(song.url, {filter:"audioonly"}), { passes: 1, bitrate: 200000})
+        .play(await ytdl(song.url, {filter:"audioonly"}), {bitrate: 200000})
         .on("finish", reason => {
           if(queue.loop == true) {
           return play(queue.songs[0])
