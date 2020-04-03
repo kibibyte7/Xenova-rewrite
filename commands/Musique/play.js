@@ -82,7 +82,7 @@ class Play extends Command {
         }, 5000);
         
         return;
-      }
+      } else {
 
       const dispatcher = queue.connection
         .play(await ytdl(queue.songs[0].url, {type:"opus"}))
@@ -108,6 +108,7 @@ class Play extends Command {
         .on("error", error => console.error(error));
       dispatcher.setVolumeLogarithmic(queue.volume / 5);
       queue.textChannel.send(`${message.client.emojis.cache.find(e => e.name === "Playing")} Je joue: **${queue.songs[0].title}** demandé par : **${queue.songs[0].requester}**`);
+      }
     };
 
     try {
