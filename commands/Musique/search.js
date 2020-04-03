@@ -36,7 +36,7 @@ class Search extends Command {
    	
    	const filter = m => !isNaN(m.content) && m.content < videos.length+1 && m.content > 0 && message.author || m.content ==="cancel" && message.author;
    	
-   	const collector = message.channel.createCollector(filter); 
+   	const collector = message.channel.createMessageCollector(filter); 
    	
    	collector.videos = videos; 
    	
