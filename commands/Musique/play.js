@@ -70,7 +70,7 @@ class Play extends Command {
     queueConstruct.songs.push(song);
     const play = async song => {
       const queue = message.client.queue.get(message.guild.id);
-      if (!song) {
+      if (queue.songs.length == 0) {
         this.client.channels.cache.get(queue.textChannel.id).send(`${this.client.emojis.cache.find(e => e.name === "wrongMark")} La playlist est vide.`);
         
         await queue.voiceChannel.leave();
