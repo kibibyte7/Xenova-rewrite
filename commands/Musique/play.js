@@ -90,18 +90,17 @@ class Play extends Command {
       const dispatcher = queue.connection
         .play(await ytdl(song.url, {filter:"audioonly"}), {bitrate: 200000})
         .on("finish", reason => {
+          
           if(queue.loop == true) {
+            
           return play(queue.songs[0])
-          }
-
-          if(queue.loop == false) {
+            
+          } else {
+            
           queue.songs.shift();
-
-          if(queue.songs.length != 0){
           queue.last_song.shift();
-          }
-
           play(queue.songs[0]);
+            
           }
           
         })
