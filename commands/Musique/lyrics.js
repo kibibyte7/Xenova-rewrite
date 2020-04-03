@@ -69,7 +69,7 @@ class Lyrics extends Command {
         
         if(r.emoji.name == left.name){
 
-        r.reactions.remove(message.author) 
+        r.users.remove(message.author) 
 
         if(page == 1) return;
 
@@ -97,7 +97,7 @@ class Lyrics extends Command {
         
         if(r.emoji.name == right.name){
 
-        r.reactions.remove(message.author) 
+        r.users.remove(message.author) 
 
         if(page == finalpage) return;
 
