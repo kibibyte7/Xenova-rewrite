@@ -20,7 +20,7 @@ class Lyrics extends Command {
     
     if(!serverQueue) return message.channel.send(`${this.client.emojis.cache.find(e => e.name === "wrongMark")} La playlist est vide, entre un titre de musique à rechercher.`);
     
-    message.channel.send(`${this.client.emojis.cache.find(e => e.name === "typing")} Recherche de \`${serverQueue.songs.length === 0 ? args.join(" ") : serverQueue.songs[0].title}\`.`).then(m => m.delete(4000))
+    message.channel.send(`${this.client.emojis.cache.find(e => e.name === "typing")} Recherche de \`${serverQueue.songs.length === 0 ? args.join(" ") : serverQueue.songs[0].title}\`.`).then(m => m.delete({timeout: 5000}))
         
     fetch(`https://api.ksoft.si/lyrics/search?q=${encodeURIComponent(serverQueue.songs.length === 0 ? args.join(" ") : serverQueue.songs[0].title)}`, {
     method: "GET",
@@ -69,7 +69,7 @@ class Lyrics extends Command {
         
         if(r.emoji.name == left.name){
 
-        r.remove(message.author) 
+        r.reactions.remove(message.author) 
 
         if(page == 1) return;
 
@@ -97,7 +97,7 @@ class Lyrics extends Command {
         
         if(r.emoji.name == right.name){
 
-        r.remove(message.author) 
+        r.reactions.remove(message.author) 
 
         if(page == finalpage || finalpage < page) return;
 
@@ -134,11 +134,11 @@ class Lyrics extends Command {
         text:`©️ Lyrics | Xenova | Page ${page}/${finalpage} | Propulsé par l'api Ksoft.si`
         }
         }}).then(msg => {
-        message.delete(4000)
-        msg.delete(3000)
+        message.delete({timeout:4000})
+        msg.delete({timeout:3000})
         }) 
 
-        m.clearReactions();
+        m.reactions.removeAll();
 
         collect.stop();
 
