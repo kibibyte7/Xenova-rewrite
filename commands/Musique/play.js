@@ -94,7 +94,7 @@ class Play extends Command {
             
           } else {
           
-          var nextSong = queue.songs[0].shift();
+          var nextSong = queue.songs.shift();
            
           queue.connection.detroy();
            
