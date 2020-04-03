@@ -61,7 +61,6 @@ class Play extends Command {
       voiceChannel,
       connection: null,
       songs: [],
-      last_song:[],
       volume: 1,
       playing: true, 
       loop:false,
@@ -69,7 +68,6 @@ class Play extends Command {
     
     message.client.queue.set(message.guild.id, queueConstruct);
     queueConstruct.songs.push(song);
-    queueConstruct.last_song.push(song);
     const play = async song => {
       const queue = message.client.queue.get(message.guild.id);
       if (!song) {
@@ -96,8 +94,7 @@ class Play extends Command {
             
           } else {
             
-          queue.songs.shift();
-          play(queue.songs[0]);
+          play(queue.songs.slice(1));
             
           }
           
