@@ -19,7 +19,7 @@ class Skip extends Command {
       return message.channel.send(`${this.client.emojis.cache.find(e => e.name === "wrongMark")} Il n'y a aucune musique dans la playlist.`);
     
     message.channel.send(`${skip} La musique : **${serverQueue.songs[0].title}** a été skip.`)
-    serverQueue.connection.dispatcher.end("La musique a été skip.");
+    serverQueue.connection.dispatcher.emit("finish");
     
   }
 }
