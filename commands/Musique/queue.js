@@ -49,7 +49,7 @@ class Queue extends Command {
      },
      {
      name:`File d'attente:`,
-     value:`${songs.length == 1 ? "Aucunes autres musiques dans la file d'attente, ajoute en d'autres musiques avec +play <url/titre>" : resp}`
+     value:`${parseInt(songs.length)-1 === 0 ? "Aucunes autres musiques dans la file d'attente, ajoute en d'autres musiques avec +play <url/titre>" : resp}`
      },
      {
      name:`Durée totale:`,
