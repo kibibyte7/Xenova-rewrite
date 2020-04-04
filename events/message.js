@@ -175,8 +175,10 @@ module.exports = class {
 
         this.client.captchaCounter(message.author.id, cmd.help.category);
 
-	 con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, player) => {
-	    
+	con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, player) => {
+	
+	if(player.length == 0) return;
+		
         var msg = this.client.askCaptcha(message.author.id, player[0].verified_captcha  ,cmd.help.name, message);   
 	 
 	console.log(msg)
