@@ -60,13 +60,6 @@ class Queue extends Command {
      icon_url:this.client.user.avatarURL(), 
      }
      }});
-    
-      
-    } else {
-      
-    message.channel.send(`**Musique actuelle:** ${serverQueue.songs[0].title} demandé par **${serverQueue.songs[0].requester}**`);
-      
-    }
   }
 }
 
