@@ -26,7 +26,7 @@ class Queue extends Command {
     !isNaN(i) ? resp += `[${parseInt(i)+1}] - **${songs[parseInt(i)].title}** - Demandé par: **${songs[parseInt(i)].requester}**\n` :``;
     } 
     
-    +eval var songs = message.client.queue.get(message.guild.id).songs;
+    var songs = message.client.queue.get(message.guild.id).songs;
 
     var time = 0;
 
