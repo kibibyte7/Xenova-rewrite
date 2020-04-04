@@ -32,7 +32,7 @@ class Queue extends Command {
 
    for(var i in songsdurations){
 
-   isNaN(i) ? `` : time = parseInt(time)+parseInt(songs[i].duration);
+   isNaN(i) ? `` : time = parseInt(time)+parseInt(songsdurations[i].duration);
 
    }
 
