@@ -96,7 +96,7 @@ class Play extends Command {
             
           } else {
           
-          var nextSong = queue.songs.shift();
+          delete queue.songs[0];
           
           setTimeout(() => {
             
