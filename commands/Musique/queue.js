@@ -39,7 +39,25 @@ class Queue extends Command {
    var minutes = Math.floor(time/60);
    var seconds = Math.floor(time%60);
       
-   message.channel.send(`**Musique actuelle:** ${serverQueue.songs[0].title} demandé par **${serverQueue.songs[0].requester}**\n\nDurée totale: **${minutes} Minutes et ${seconds} Secondes**\n\n${resp}\n\nAjoute d'autres musiques avec +play <url/titre>`);
+   message.channel.send({embed:{
+   color:0x070a29,
+   fields:[{
+     name:`Musique actuelle:`,
+     value:`${serverQueue.songs[0].title} demandé par **${serverQueue.songs[0].requester}**`
+     },
+     {
+     name:`File d'attente:`,
+     value:`${resp}`
+     },
+     {
+     name:`Durée totale:`,
+     value:`${minutes} Minutes et ${seconds} Secondes`
+     }],
+     footer:{
+     text:`© Queue | Xenova | Ajoute d'autres musiques avec +play <url/titre>`,
+     image_url:this.client.user.avatarURL(), 
+     }
+     }});
     
       
     } else {
