@@ -96,13 +96,13 @@ class Play extends Command {
             
           } else {
           
-          delete queue.songs[0];
+          delete queue.songs[0];;
           
           setTimeout(() => {
             
-          play(ytdl(nextSong.url, {type:"opus"}))
+          play(ytdl(queue.songs[0].url, {type:"opus"}))
           
-          }, 1000)
+          }, 500)
                      
           }
           
