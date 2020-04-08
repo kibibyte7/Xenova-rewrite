@@ -26,7 +26,15 @@ var newzero = Date.now()+(1000 * 60 * 60 * 2);
 
 var randgold = rows[0].hrcombo = 0 ? Math.floor(Math.random()*100)*1 : Math.floor(Math.random()*100)*rows[0].hrcombo
 
-if(hzero > Date.now() && (hzero == 0)){
+var now = new Date().getTime();
+
+var distance = hr - now;
+  
+var minutes = Math.floor((distance % 1000 * 60 * 60) / (1000 * 60))
+
+var secondes = Math.floor((distance % 1000 * 60) / (1000))
+
+if(hzero > Date.now() && (hzero == 0) && hr > Date.now() && (hr == 0)){
 
 con.query(`UPDATE inventory SET hrcombo = 0 WHERE id = ${message.author.id}`)
 
@@ -58,7 +66,13 @@ message.channel.send(`${this.client.emojis.cache.find(e => e.name === "checkMark
 
 }, 1000)
   
+} else {
+
+message.channel.send(`${this.client.emojis.cache.find(e => e.name === "wrongMark")} Tu as déjà pris ton hourly passe dans **${minutes} Minutes ${secondes} Secondes**`);
+  
 }
+  
+  
 })
 
 }
