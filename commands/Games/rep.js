@@ -37,7 +37,7 @@ var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 var heures = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 *60));
 
-message.channel.send(`Tu as déjà donné ton point de réputaion à quelqu'un, reviens dans ${heures} heures ${minutes} minutes et ${seconds} secondes`)
+message.channel.send(`${this.client.emojis.find(e => e.name === "wrongMark")} Tu as déjà donné ton point de réputation à quelqu'un, reviens dans **${heures} heures ${minutes} minutes et ${seconds} secondes**`)
 
 } else {
 
