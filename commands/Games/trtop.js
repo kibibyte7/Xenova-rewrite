@@ -19,7 +19,7 @@ let resp = ``;
  		
 for(var i in rows){
 
-let u = this.client.users.find("id", `${rows[i].id}`) 
+let u = this.client.users.cache.find("id", `${rows[i].id}`) 
 			
 isNaN(i) ? `` : resp += `[${parseInt(i)+1}] - **${!u ? "invalid-user" : u.username}** - **Trésors: ${rows[i].tresors}**\n`
 
