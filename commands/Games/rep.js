@@ -1,7 +1,7 @@
 const Command = require("../../modules/Command")
 
-class Rep extends Command{
-constructor(){
+class Rep extends Command {
+constructor(client){
 super(client,{
 name:"rep",
 FRdescription:"Donner un point de réputation à un utilisateur.",
