@@ -191,32 +191,7 @@ class Xenova extends Client {
   }) 
 
   } 
-  
-  /*
-  checkHourly(){
-
-  con.query("SELECT * FROM inventory", (err, rows) => {
-  
-  for(var i in rows){
-
-  if(isNaN(i)) return false;
-  
-  const TempsHr = new Date(rows[0].hr_ratelimit).getTime();
-
-  if((TempsHr < Date.now()) && (TempsHr == 0)){
-  
-  con.query(`UPDATE inventory SET hrcombo = 0 WHERE id = ${rows[i].id}`)
-
-  con.query(`UPDATE inventory SET hr_ratelimit = 0 WHERE id = ${rows[i].id}`)
-
-  }
-	  
-  }
  
-  }) 
-
-  } 
-  */
   askCaptcha(id, verified, command, msg){ 
       
           if(verified == false && command !== "captcha"){
@@ -412,9 +387,7 @@ const init = async () => {
 
   setInterval(() => {client.regenMana()}, 30000);
   
-  setInterval(() => {client.checkVcsBans()}, 60000); 
-  
-  /*setInterval(() => {client.checkHourly()}, 60000);*/
+  setInterval(() => {client.checkVcsBans()}, 360000);
 
   setInterval(() => {client.tweetFusion()}, 1800000);
 
@@ -427,14 +400,14 @@ client.on("disconnect", () => client.logger.warn("Bot en déconnection..."))
   .on("reconnecting", () => client.logger.log("Bot en reconnection...", "log"))
   .on("error", async e => {
 
-await client.channels.find("id", "630001781161852928").send({embed:{
+await client.channels.cache.find(c => c.id === "630001781161852928").send({embed:{
 color:0xff0c69, 
 title:"Error :",
 description:e.stack, 
 timestamp:new Date(),
 footer:{
 text:"© Error | Xenova", 
-icon_url:client.user.avartarURL
+icon_url:client.user.avartarURL()
 } 
 }})
 
