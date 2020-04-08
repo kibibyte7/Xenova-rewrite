@@ -13,6 +13,8 @@ permissions:["USE_EXTERNAL_EMOJIS"]
 
 run(message, args){
 
+con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows) => {  
+  
 var hr = rows[0].hr_ratelimit;
 
 var zero = rows[0].combo_to_zero;
@@ -52,6 +54,7 @@ con.query(`UPDATE inventory SET gold = ${parseInt(rows[0].gold)+randgold} WHERE 
 message.channel.send(`${this.client.emojis.cache.find(e => e.name === "checkMark")} Tu gagnes **${randgold} Or** et tu passes au combo : **${rows[0].hrcombo}**, à dans une heure !`);
 
 }
+})
 
 }
 }
