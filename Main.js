@@ -192,6 +192,7 @@ class Xenova extends Client {
 
   } 
   
+  /*
   checkHourly(){
 
   con.query("SELECT * FROM inventory", (err, rows) => {
@@ -215,7 +216,7 @@ class Xenova extends Client {
   }) 
 
   } 
-
+  */
   askCaptcha(id, verified, command, msg){ 
       
           if(verified == false && command !== "captcha"){
