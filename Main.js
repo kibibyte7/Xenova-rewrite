@@ -144,8 +144,12 @@ class Xenova extends Client {
   
   con.query("SELECT * FROM inventory", (err, rows) => {
 	
-  for(var i = 0; i < rows.length; i++;)){
+  for(var i = 0; i < rows.length; i++)){
 	  
+  var boolean = isNaN(i) ? false : true
+  
+  if(boolean == true){
+  
   let p = parseInt(rows[i].pv);
 
   p++;
@@ -161,7 +165,7 @@ class Xenova extends Client {
   con.query(`UPDATE inventory SET mana = ${v} WHERE id = ${rows[i].id}`)
 
   }) 
- 
+  }
   })
 
   } 
