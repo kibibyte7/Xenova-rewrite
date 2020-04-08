@@ -21,13 +21,13 @@ if(me.length == 0) return message.channel.send(`${this.client.emojis.cache.find(
 
 if(!mention) return message.channel.send(`${this.client.emojis.cache.find(e => e.name === "wrongMark")} Tu dois mentionner un utilisateur.`);
 
-con.query(`SELECT * FROM inventory WHERE id = ${mention.id}`, (err, you) => {
+if(mention.user.id === message.author.id) return message.channel.send(`${this.client.emojis.cache.find(e => e.name === "wrongMark")} Tu ne peux pas te donner un point de réputation. (ça serait trop simple)`)  
+ 
+if(mention.user.bot) return message.channel.send(`${this.client.emojis.cache.find(e => e.name === "wrongMark")} Tu ne peux pas donner un point de réputation aux bots !`)
+  
+con.query(`SELECT * FROM inventory WHERE id = ${mention.user.id}`, (err, you) => {
 
 if(you.length == 0) return message.channel.send(`${this.client.emojis.cache.find(e => e.name === "wrongMark")} Cet utilisateur n'est pas inscrit dans le jeu.`)
-
-if(mention.user.bot) return message.channel.send(`${this.client.emojis.cache.find(e => e.name === "wrongMark")} Tu ne peux pas donner un point de réputation aux bots !`)
-
-if(mention.id == message.author.id) return message.channel.send(`${this.client.emojis.cache.find(e => e.name === "wrongMark")} Tu ne peux pas te donner un point de réputation. (ça serait trop simple)`)
 
 if((me[0].rep_ratelimit > Date.now()) && (me[0].rep_ratelimit !== 0)){
 
@@ -43,7 +43,7 @@ message.channel.send(`Tu as déjà donné ton point de réputaion à quelqu'un, 
 
 var ratelimit = 1*3600000*24 
 
-con.query(`UPDATE inventory SET rep = ${parseInt(you[0].rep)+1} WHERE id = ${mention.id}`)
+con.query(`UPDATE inventory SET rep = ${parseInt(you[0].rep)+1} WHERE id = ${mention.user.id}`)
 
 con.query(`UPDATE inventory SET rep_ratelimit = ${ratelimit} WHERE id = ${message.author.id}`)
 
