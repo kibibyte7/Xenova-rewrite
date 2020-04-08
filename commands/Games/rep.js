@@ -45,8 +45,8 @@ var ratelimit = 1*3600000*24
 
 con.query(`UPDATE inventory SET rep = ${parseInt(you[0].rep)+1} WHERE id = ${mention.user.id}`)
 
-con.query(`INSERT INTO inventory(rep_ratelimit) VALUES (${ratelimit}) WHERE id = ${message.author.id}`)
-
+con.query(`UPDATE inventory SET rep_ratelimit = ${ratelimit} WHERE id = ${message.author.id}`)
+ 
 message.channel.send(`${this.client.emojis.cache.find(e => e.name === "checkMark")} Tu as donné un point de réputation à **${mention.user.username}**`)
 
 }
