@@ -38,7 +38,9 @@ con.query(`UPDATE inventory SET gold = ${parseInt(rows[0].gold)+randgold} WHERE 
 
 setTimeout(() => {
   
-message.channel.send(`${this.client.emojis.cache.find(e => e.name === "wrongMark")} Oups, tu as perdu ton combo hr tu as pris plus de deux heures pour faire la commande, mais tu gagnes : **${randgold} Or**, Ne loupes pas le prochain !`);
+message.channel.send(`${this.client.emojis.cache.find(e => e.name === "wrongMark")} Oups, tu as perdu ton combo hr tu as pris plus de deux heures pour faire la commande, mais tu gagnes : **${randgold} Or**, Ne loupes pas le prochain !`).catch((e) => {
+console.log(e);
+});
 
 }, 1000)  
   
@@ -54,7 +56,9 @@ con.query(`UPDATE inventory SET gold = ${parseInt(rows[0].gold)+randgold} WHERE 
 
 setTimeout(() => {
   
-message.channel.send(`${this.client.emojis.cache.find(e => e.name === "checkMark")} Tu gagnes **${randgold} Or** et tu passes au combo : **${rows[0].hrcombo}**, à dans une heure !`);
+message.channel.send(`${this.client.emojis.cache.find(e => e.name === "checkMark")} Tu gagnes **${randgold} Or** et tu passes au combo : **${rows[0].hrcombo}**, à dans une heure !`).catch((e) => {
+console.log(e);
+});
 
 }, 1000)
   
