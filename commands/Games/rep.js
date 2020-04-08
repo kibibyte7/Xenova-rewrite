@@ -11,9 +11,9 @@ permissions:["USE_EXTERNAL_EMOJIS"]
 })
 }
 
-run(message, args{
+run(message, args){
 
-con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, me) = > {
+con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, me) => {
 
 var mention = message.mentions.members.first();
 
@@ -29,7 +29,7 @@ if(mention.user.bot) return message.channel.send(`${this.client.emojis.cache.fin
 
 if(mention.id == message.author.id) return message.channel.send(`${this.client.emojis.cache.find(e => e.name === "wrongMark")} Tu ne peux pas te donner un point de réputation. (ça serait trop simple)`)
 
-if((rows[0].rep_ratelimit > Date.now()) && (rows[0].rep_ratelimit !== 0)){
+if((me[0].rep_ratelimit > Date.now()) && (me[0].rep_ratelimit !== 0)){
 
 var now = new Date().getTime();
 var distance = me[0].rep_ratelimit - now;
