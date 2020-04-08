@@ -146,9 +146,7 @@ class Xenova extends Client {
 	
   for(var i = 0; i < rows.length; i++){
 	  
-  var boolean = isNaN(i) ? false : true
-  
-  if(boolean == true){
+ if(isNaN(i)) return false;
   
   let p = parseInt(rows[i].pv);
 
@@ -163,11 +161,11 @@ class Xenova extends Client {
   v++;
 
   con.query(`UPDATE inventory SET mana = ${v} WHERE id = ${rows[i].id}`)
-
-  }) 
+  
   }
+	  
   })
-
+  
   } 
   
   checkVcsBans(){
