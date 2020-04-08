@@ -41,7 +41,7 @@ message.channel.send(`Tu as déjà donné ton point de réputaion à quelqu'un, 
 
 } else {
 
-const ratelimit = Date().getTime()+(3600000*24);
+const ratelimit = Date.now()+(3600000*24);
 
 con.query(`UPDATE inventory SET rep = ${parseInt(you[0].rep)+1} WHERE id = ${mention.user.id}`)
 
