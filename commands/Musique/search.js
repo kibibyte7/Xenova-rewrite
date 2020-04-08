@@ -29,10 +29,19 @@ class Search extends Command {
    	resp += isNaN(i) ? `` : `**[${parseInt(i)+1}]**\`${videos[i].title}\`\n`; 
    	
    	} 
-   	
-   	resp += `\`Choisi un résultat de entre 1 et ${videos.length} ou cancel pour annuler\`` 
-   	
-   	message.channel.send(resp) 
+   	 
+   	resp+= `**Choisi un résultat de entre 1 et ${videos.length} ou cancel pour annuler**`
+     
+   	message.channel.send({embed:{
+    color:0x010101,
+    title:"Menu:",
+    description:resp,
+    timestamp:new Date(),
+    footer:{
+    text:`© Play | Xenova`,
+    icon_url:message.client.user.avatarURL()
+    }
+    }}) 
    	
    	const filter = m => !isNaN(m.content) && m.content < videos.length+1 && m.content > 0 && message.author || m.content ==="cancel" && message.author;
    	
