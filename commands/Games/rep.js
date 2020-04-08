@@ -21,7 +21,7 @@ if(me.length == 0) return message.channel.send(`${this.client.emojis.cache.find(
 
 if(!mention) return message.channel.send(`${this.client.emojis.cache.find(e => e.name === "wrongMark")} Tu dois mentionner un utilisateur.`);
 
-if(mention.user.id === message.author.id) return message.channel.send(`${this.client.emojis.cache.find(e => e.name === "wrongMark")} Tu ne peux pas te donner un point de réputation. (ça serait trop simple)`)  
+if(mention.user.id == message.author.id) return message.channel.send(`${this.client.emojis.cache.find(e => e.name === "wrongMark")} Tu ne peux pas te donner un point de réputation. (ça serait trop simple)`)  
  
 if(mention.user.bot) return message.channel.send(`${this.client.emojis.cache.find(e => e.name === "wrongMark")} Tu ne peux pas donner un point de réputation aux bots !`)
   
@@ -45,7 +45,7 @@ var ratelimit = 1*3600000*24
 
 con.query(`UPDATE inventory SET rep = ${parseInt(you[0].rep)+1} WHERE id = ${mention.user.id}`)
 
-con.query(`UPDATE inventory SET rep_ratelimit = ${ratelimit} WHERE id = ${message.author.id}`)
+con.query(`INSERT INTO inventory(rep_ratelimit) VALUES (${ratelimit}) WHERE id = ${message.author.id}`)
 
 message.channel.send(`${this.client.emojis.cache.find(e => e.name === "checkMark")} Tu as donné un point de réputation à **${mention.user.username}**`)
 
