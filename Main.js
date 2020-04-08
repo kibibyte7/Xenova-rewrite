@@ -154,7 +154,7 @@ class Xenova extends Client {
 
   con.query(`UPDATE inventory SET pv = ${p} WHERE id = ${rows[i].id}`)
 
-  if(rows[i].mana == rows[i].maxmana) return;
+  if(rows[i].mana == rows[i].maxmana) return false;
  
   let v = parseInt(rows[i].mana);
  
@@ -174,7 +174,7 @@ class Xenova extends Client {
   
   for(var i in rows){
 
-  if(isNaN(i)) return;
+  if(isNaN(i)) return false;
   
   if(rows[i].banned == false) return;
 
@@ -198,7 +198,7 @@ class Xenova extends Client {
   
   for(var i in rows){
 
-  if(isNaN(i)) return;
+  if(isNaN(i)) return false;
   
   const TempsHr = new Date(rows[0].hr_ratelimit).getTime();
 
