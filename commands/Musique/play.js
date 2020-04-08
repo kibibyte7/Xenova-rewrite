@@ -47,8 +47,7 @@ class Play extends Command {
       url: songInfo.video_url, 
       requester:message.author.username,
       duration:songInfo.length_seconds,
-    };
-    console.log(song) 
+    }; 
      
     
     if (serverQueue) {
