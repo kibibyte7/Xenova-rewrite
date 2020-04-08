@@ -202,12 +202,14 @@ class Xenova extends Client {
   
   const TempsHr = new Date(rows[0].hr_ratelimit).getTime();
 
-  if((TempsHr > Date.now()) && (TempsHr !== 0)) return false;
+  if((TempsHr < Date.now()) && (TempsHr == 0)){
   
   con.query(`UPDATE inventory SET hrcombo = 0 WHERE id = ${rows[i].id}`)
 
   con.query(`UPDATE inventory SET hr_ratelimit = 0 WHERE id = ${rows[i].id}`)
 
+  }
+	  
   }
  
   }) 
