@@ -144,21 +144,21 @@ class Xenova extends Client {
   
   con.query("SELECT * FROM inventory", (err, rows) => {
 	
-  rows.forEach(function(player){
-
-  let p = parseInt(player.pv);
+  for(var i = 0; i < rows.length; i++;)){
+	  
+  let p = parseInt(rows[i].pv);
 
   p++;
 
-  con.query(`UPDATE inventory SET pv = ${p} WHERE id = ${player.id}`)
+  con.query(`UPDATE inventory SET pv = ${p} WHERE id = ${rows[i].id}`)
 
-  if(player.mana == player.maxmana) return;
+  if(rows[i].mana == rows[i].maxmana) return;
  
-  let v = parseInt(player.mana);
+  let v = parseInt(rows[i].mana);
  
   v++;
 
-  con.query(`UPDATE inventory SET mana = ${v} WHERE id = ${player.id}`)
+  con.query(`UPDATE inventory SET mana = ${v} WHERE id = ${rows[i].id}`)
 
   }) 
  
