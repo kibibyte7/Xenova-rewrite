@@ -12,7 +12,7 @@ aliases:["hr"]
 })
 }
 
-run(message, args){
+run(message, args, level, con){
 
 con.query(`SELECT * FROM inventory WHERE id = ${message.author.id}`, (err, rows) => {  
   
