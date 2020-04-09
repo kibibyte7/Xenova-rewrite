@@ -24,7 +24,7 @@ var newhr = Date.now()+(1000* 60 *60);
 
 var newzero = Date.now()+(1000 * 60 * 60 * 2);
 
-var randgold = rows[0].hrcombo = 0 ? Math.floor(Math.random()*100)*1 : Math.floor(Math.random()*100)*rows[0].hrcombo
+var randgold = Math.floor(Math.random()*100)*1.2
 
 var now = new Date().getTime();
 
