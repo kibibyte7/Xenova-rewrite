@@ -34,7 +34,7 @@ var minutes = Math.floor((distance % 1000 * 60 * 60) / (1000 * 60))
 
 var secondes = Math.floor((distance % 1000 * 60) / (1000))
 
-if(hzero < Date.now() && (hzero == 0)){
+if(hzero > Date.now() && (hzero == 0)){
 
 con.query(`UPDATE inventory SET hrcombo = 0 WHERE id = ${message.author.id}`)
 
@@ -46,7 +46,7 @@ con.query(`UPDATE inventory SET gold = ${parseInt(rows[0].gold)+randgold} WHERE 
   
 message.channel.send(`${this.client.emojis.cache.find(e => e.name === "wrongMark")} Oups, tu as perdu ton combo hr tu as pris plus de deux heures pour faire la commande, mais tu gagnes : **${randgold} Or**, Ne loupes pas le prochain !`);  
   
-} else if(hr < Date.now() && (hr == 0)){
+} else if(hr > Date.now() && (hr == 0)){
 
 con.query(`UPDATE inventory SET hrcombo = ${parseInt(rows[0].hrcombo)+1} WHERE id = ${message.author.id}`)
 
