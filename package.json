@@ -37,7 +37,7 @@
     "lib":"^4.0.5",
     "libnpmsearch": "^2.0.0",
     "libsodium-wrappers":"0.7.5", 
-    "marked": "^0.6.1",
+    "marked": "^1.1.1",
     "mathjs": "^6.0.3",
     "memorystore": "^1.6.0",
     "moment": "^2.22.2",
