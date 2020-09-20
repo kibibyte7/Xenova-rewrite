@@ -11,7 +11,7 @@ const Twit = require("twit")
 const lib = require('lib');
 const pokefusion = lib.Hademar.pokefusion['@0.0.1'];
 const image2base64 = require('image-to-base64');
-/*
+
    var db_config = {
     host:process.env.host, 
     user:process.env.user, 
@@ -29,7 +29,7 @@ const image2base64 = require('image-to-base64');
       console.log('error when connecting to db:', err);
     }                                     
   });                                                                             
-*/
+
 var T = new Twit({
   consumer_key: process.env.consumer_key,
   consumer_secret: process.env.consumer_secret,
