@@ -49,14 +49,14 @@ class Xenova extends Client {
     this.aliases = new Collection();
 
     this.queue = new Map();
-    /*
+    
     this.settings = new Enmap({
       name: "settings",
       cloneLevel: "deep",
       fetchAll: false,
       autoFetch: true
     });
-    */
+    
     this.logger = require("./modules/Logger");
     this.wait = require("util").promisify(setTimeout);
   }
