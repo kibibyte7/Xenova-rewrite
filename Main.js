@@ -11,7 +11,6 @@ const Twit = require("twit")
 const lib = require('lib');
 const pokefusion = lib.Hademar.pokefusion['@0.0.1'];
 const image2base64 = require('image-to-base64');
-const dotenv = require("dotenv").config()
 /*
    var db_config = {
     host:process.env.host, 
