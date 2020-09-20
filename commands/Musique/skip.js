@@ -11,8 +11,9 @@ class Skip extends Command {
 
   run(message) {
     const skip = this.client.emojis.cache.find(e => e.name === "Skip")
-    const { voiceChannel } = message.member.voice.channel;
-    if (!voiceChannel !== undefined)
+    const { voiceChannelBoolean } = message.member.voice.channel ? true : false;
+    const voiceChannel = message.member.voice.channel;
+    if (voiceChannelBoolean == false)
       return message.channel.send(`${this.client.emojis.cache.find(e => e.name === "wrongMark")} Tu dois être dans un salon vocal pour utiliser cette commande !`);
     const serverQueue = message.client.queue.get(message.guild.id);
     if (!serverQueue)
