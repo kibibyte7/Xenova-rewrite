@@ -10,8 +10,9 @@ class Volume extends Command {
   }
 
   run(message, args) {
-    const { voiceChannel } = message.member;
-    if (!voiceChannel)
+    const { voiceChannelBoolean } = message.member.voice.channel ? true : false;
+    const voiceChannel = message.member.voice.channel;
+    if (voiceChannelBoolean == false)
       return message.channel.send(
         `${message.client.emojis.cache.find(e => e.name === "wrongMark")} Tu être dans un salon vocal pour utiliser cette commande !`
       );
