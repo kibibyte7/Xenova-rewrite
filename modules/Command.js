@@ -1,23 +1,21 @@
 class Command {
  constructor(
  	client, {
- 	name = null, 
- 	FRdescription = "Aucune description définie.",
-        ENdescription = "Description is not defined.", 
+ 	name = "null", 
+ 	description = "Aucune description définie.",
  	category = "Utilisateur", 
- 	FRusage = "Aucune utilisation définie.",
-        ENusage = "Usage is not defined.",
-        cooldown = 3,
+ 	usage = "Aucune utilisation définie.",
+    cooldown = 3,
  	enabled = true, 
  	guildOnly = true,
-        permissions = new Array(), 
+    permissions = new Array(), 
  	aliases = new Array(),
  	permLevel = "Utilisateur" 
  	}
  	) {
  	this.client = client;
  	this.conf = {cooldown, enabled, guildOnly, aliases, permissions ,permLevel}; 
- 	this.help = {name, FRdescription, ENdescription, category, FRusage, ENusage};
+ 	this.help = {name, description, category, usage};
  	} 
 }
 
