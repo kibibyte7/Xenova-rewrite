@@ -105,7 +105,7 @@ class Help extends Command {
 
 					if (r.emoji.name == left.name) {
 
-						r.remove(message.author)
+						r.users.remove(message.author)
 
 						if (page == 1) return;
 
@@ -128,7 +128,7 @@ class Help extends Command {
 
 					if (r.emoji.name == right.name) {
 
-						r.removeUser(message.author)
+						r.users.remove(message.author)
 
 						if (page == maxpage) return;
 
