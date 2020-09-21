@@ -60,7 +60,7 @@ class Play extends Command {
       voiceChannel,
       connection: null,
       songs: [],
-      volume: 2.5,
+      volume: 2,
       playing: true, 
       loop:false,
     };
