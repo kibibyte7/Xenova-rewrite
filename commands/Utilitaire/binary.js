@@ -14,6 +14,14 @@ class Binary extends Command {
 
     run(message, args, level) {
 
+        const letters = {
+            accepted:["s", "n"]
+        }
+
+        if(!args[0]) return this.client.getHelp();
+        
+        if(!args[0].endsWith(letters.accepted.find(l => l === args[0]))) return this.client.getHelp(message, this.help.name, level);
+
         if (args[1] === "info") {
 
             return message.channel.send({
@@ -42,13 +50,12 @@ class Binary extends Command {
             })
         }
 
-        if (!args[0] || isNaN(args[1])) {
+        if (isNaN(args[1])) return this.client.getHelp(message, this.help.name, level);
 
-            this.client.getHelp(message, this.help.name, level);
-
-            return;
-
-        }
+        if(args[0] === "n" && args[1] > 255) return message.channel.send(`${this.client.findEmoteByName("wrongMark")} Le binare naturel comporte un nombre des nombres entre 0 et 255 ni plus ni moins.`);
+        if(args[0] === "n" && args[1] < 0) return message.channel.send(`${this.client.findEmoteByName("wrongMark")} Le binare naturel comporte un nombre des nombres entre 0 et 255 ni plus ni moins.`);
+        if(args[0] === "s" && args[1] > 127) return message.channel.send(`${this.client.findEmoteByName("wrongMark")} Le binare signé comporte un nombre des nombres entre 127 et -128 ni plus ni moins.`);
+        if(args[0] === "s" && args[1] < -128) return message.channel.send(`${this.client.findEmoteByName("wrongMark")} Le binare signé comporte un nombre des nombres entre 127 et -128 ni plus ni moins.`);
 
         var natural = file.natural_binary.filter(b => b.decimal == args[1]).find(d => d.decimal == args[1]);
         var signed = file.signed_binary.filter(b => b.decimal == args[1]).find(d => d.decimal == args[1]);
