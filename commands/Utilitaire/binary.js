@@ -18,7 +18,7 @@ class Binary extends Command {
             accepted:["s", "n"]
         }
 
-        if(!args[0]) return this.client.getHelp();
+        if(!args[0]) return this.client.getHelp(message, this.help.name, level);
         
         if(!args[0].endsWith(letters.accepted.find(l => l === args[0]))) return this.client.getHelp(message, this.help.name, level);
 
