@@ -17,11 +17,11 @@ run(message, args, level) {
 
 let roles = [];
 
-const right = this.client.emojis.cache.find(e => e.name === "droite") 
+const right = this.client.findEmoteByName("droite") 
 
-const left =this.client.emojis.cache.find(e => e.name === "gauche") 
+const left =this.client.findEmoteByName("gauche") 
 
-const wrong = this.client.emojis.cache.find(e => e.name === "wrongMark") 
+const wrong = this.client.findEmoteByName("wrongMark") 
 
 let indexes = [];
 
@@ -46,7 +46,7 @@ var toFind = message.guild.roles.find("name", args.join(" ")) || toMention;
         return;
     }else{
        
-        var filter = m => m.roles.find(r => r.name === toFind.name)
+        var filter = m => m.roles.cache.find(r => r.name === toFind.name)
         let membres = [];
         
         message.guild.members.cache.filter(filter).forEach(function(membre){
