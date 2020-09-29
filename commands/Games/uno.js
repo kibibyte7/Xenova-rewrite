@@ -31,14 +31,14 @@ class Uno extends Command {
 
             const maxplayers = args[1] > 10 || args[1] < 2 || !args[1] ? 2 : args[1];
 
-            var filter = m => m.content === "*join" && message.author || m.content === "*start" && host[0].id;
+            var filter = m => m.content === "+join" && message.author || m.content === "+start" && host[0].dm;
 
             message.channel.send(`En attente de joueurs... ${players.length}/${maxplayers}.  Faites : *join pour rejoindre la partie.`).then(m => {
 
                 var collector = m.channel.createMessageCollector(filter);
 
                 collector.on("collect", msg => {
-                    if("*join"){
+                    if(msg.content === "+join" && message.content !== "+start"){
                     //if (players.find(p => p.id === msg.author.id)) return msg.channel.send(`${this.client.findEmoteByName("wrongMark")} ${msg.author} Tu es déja dans la partie.`)
 
                     if (players.length == maxplayers) return msg.channel.send(`${this.client.findEmoteByName("wrongMark")} ${msg.author} La partie est pleine`)
@@ -51,7 +51,7 @@ class Uno extends Command {
 
                     }
                     
-                    if (msg.content === "*start") {
+                    if (msg.content === "+start" && message.content === "+join") {
 
                         const customRules = [CumulativeDrawTwo];
 
