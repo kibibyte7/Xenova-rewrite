@@ -5,7 +5,7 @@ class Help extends Command {
 	constructor(client) {
 		super(client, {
 			name: "help",
-			FRdescription: "Affiche la page d'aide ou l'aide d'une commande.",
+			description: "Affiche la page d'aide ou l'aide d'une commande.",
 			category: "Information",
 			usage: "help [commande]",
 			aliases: ["h"]
@@ -57,14 +57,14 @@ class Help extends Command {
 		} else {
 
 			const help_interface = [
-				this.client.commands.filter(c => c.help.category === "Système").map(cmd => `\`\`${this.client.config.defaultSettings.prefix}${cmd.help.name}\`\``),
-				this.client.commands.filter(c => c.help.category === "Admin").map(cmd => `\`\`${this.client.config.defaultSettings.prefix}${cmd.help.name}\`\``),
-				this.client.commands.filter(c => c.help.category === "Modérateur").map(cmd => `\`\`${this.client.config.defaultSettings.prefix}${cmd.help.name}\`\``),
-				this.client.commands.filter(c => c.help.category === "Information").map(cmd => `\`\`${this.client.config.defaultSettings.prefix}${cmd.help.name}\`\``),
-				this.client.commands.filter(c => c.help.category === "Musique").map(cmd => `\`\`${this.client.config.defaultSettings.prefix}${cmd.help.name}\`\``),
-				this.client.commands.filter(c => c.help.category === "Game").map(cmd => `\`\`${this.client.config.defaultSettings.prefix}${cmd.help.name}\`\``),
-				this.client.commands.filter(c => c.help.category === "Vcs").map(cmd => `\`\`${this.client.config.defaultSettings.prefix}${cmd.help.name}\`\``),
-				this.client.commands.filter(c => c.help.category === "Utilitaire").map(cmd => `\`\`${this.client.config.defaultSettings.prefix}${cmd.help.name}\`\``),
+				this.client.commands.filter(c => c.help.category === "Système").map(cmd => `\`\`${this.client.config.defaultSettings.prefix}${cmd.help.name}\`\`: ${cmd.help.description}`).join("\n"),
+				this.client.commands.filter(c => c.help.category === "Admin").map(cmd => `\`\`${this.client.config.defaultSettings.prefix}${cmd.help.name}\`\`: ${cmd.help.description}`).join("\n"),
+				this.client.commands.filter(c => c.help.category === "Modérateur").map(cmd => `\`\`${this.client.config.defaultSettings.prefix}${cmd.help.name}\`\`: ${cmd.help.description}`).join("\n"),
+				this.client.commands.filter(c => c.help.category === "Information").map(cmd => `\`\`${this.client.config.defaultSettings.prefix}${cmd.help.name}\`\`: ${cmd.help.description}`).join("\n"),
+				this.client.commands.filter(c => c.help.category === "Musique").map(cmd => `\`\`${this.client.config.defaultSettings.prefix}${cmd.help.name}\`\`: ${cmd.help.description}`).join("\n"),
+				this.client.commands.filter(c => c.help.category === "Game").map(cmd => `\`\`${this.client.config.defaultSettings.prefix}${cmd.help.name}\`\`: ${cmd.help.description}`).join("\n"),
+				this.client.commands.filter(c => c.help.category === "Vcs").map(cmd => `\`\`${this.client.config.defaultSettings.prefix}${cmd.help.name}\`\`: ${cmd.help.description}`).join("\n"),
+				this.client.commands.filter(c => c.help.category === "Utilitaire").map(cmd => `\`\`${this.client.config.defaultSettings.prefix}${cmd.help.name}\`\`: ${cmd.help.description}`).join("\n"),
 			]
 
 			let page = 0;
@@ -115,7 +115,7 @@ class Help extends Command {
 							embed: {
 								color: Math.floor(Math.random() * 16777214) + 1,
 								title: `Interface d'aide [${this.client.commands.size - 1}]`,
-								description: help_interface[page],
+								description:`${help_interface[page]}`,
 								timestamp: new Date(),
 								footer: {
 									icon_url: this.client.user.avatarURL,
@@ -138,7 +138,7 @@ class Help extends Command {
 							embed: {
 								color: Math.floor(Math.random() * 16777214) + 1,
 								title: `Interface d'aide [${this.client.commands.size - 1}]`,
-								description: help_interface[page],
+								description: `${help_interface[page]}`,
 								timestamp: new Date(),
 								footer: {
 									icon_url: this.client.user.avatarURL,
