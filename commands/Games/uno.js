@@ -38,7 +38,7 @@ class Uno extends Command {
                 var collector = m.channel.createMessageCollector(filter);
 
                 collector.on("collect", msg => {
-
+                    if("*join"){
                     //if (players.find(p => p.id === msg.author.id)) return msg.channel.send(`${this.client.findEmoteByName("wrongMark")} ${msg.author} Tu es déja dans la partie.`)
 
                     if (players.length == maxplayers) return msg.channel.send(`${this.client.findEmoteByName("wrongMark")} ${msg.author} La partie est pleine`)
@@ -49,6 +49,8 @@ class Uno extends Command {
 
                     msg.channel.send(`**${msg.author.username}** a rejoint la partie.`)
 
+                    }
+                    
                     if (msg.content === "*start") {
 
                         const customRules = [CumulativeDrawTwo];
@@ -57,7 +59,7 @@ class Uno extends Command {
 
                         m.edit("Commencement du jeu...");
 
-                        dm.send(game.currentPlayer.hand);
+                        players[0].dm.send(game.currentPlayer.hand);
 
                         message.channel.send("Nous commençons par un: " + game.discardedCard);
 
