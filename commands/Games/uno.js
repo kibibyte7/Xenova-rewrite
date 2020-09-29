@@ -53,7 +53,7 @@ class Uno extends Command {
                     
                     if (msg.content === "+start" && message.content === "+join") {
 
-                        const customRules = [CumulativeDrawTwo];
+                        const customRules = ["CumulativeDrawTwo"];
 
                         const game = new Game(players, customRules);
 
