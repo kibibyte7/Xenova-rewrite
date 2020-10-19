@@ -18,11 +18,14 @@ run(message, args, level){
  
 
 const duration = moment.duration(this.client.uptime).format("D [J], H [h], m [mins], s [secs] ")
+
+var owner = this.client.users.cache.find("id", "524996881198219276");
+
 message.channel.send({embed:{
         color: Math.floor(Math.random() * 16777214) + 1, //pour une couleur en mode random
         fields:[{
         name:"Owner du bot",
-        value: this.client.users.cache.find("id", "524996881198219276").tag, //pas oublier le s de client.users
+        value: owner.tag, //pas oublier le s de client.users
         inline: false //field en ligne : Vrai ou Faux true/false
         },
         {
