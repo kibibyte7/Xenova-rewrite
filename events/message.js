@@ -1,6 +1,6 @@
 const moment = require("moment")
-
 const mysql = require("mysql")
+const { Collection } = require("discord.js");
 
 var db_config = {
   host: process.env.host,
@@ -32,6 +32,8 @@ function handleDisconnect() {
 }
 
 handleDisconnect()
+
+const cooldowns = new Collection();
 
 module.exports = class {
   constructor(client) {
@@ -149,18 +151,32 @@ module.exports = class {
 
     }
 
-    con.query(`SELECT * FROM settings WHERE guild_id = ${message.guild.id}`, (err, rows) => {
-
-      const lang = rows[0].lang === "fr" ? require("../fr.json") : require("../en.json")
-
       con.query(`SELECT * FROM gban WHERE id = ${message.author.id} `, (err, rows) => {
 
         if (rows.length == 1) return;
 
-        const cooltime = cmd.conf.cooldown * 1000;
+        if (!cooldowns.has(cmd.help.name)) {
+      cooldowns.set(cmd.help.name, new Collection());
+    }
+    
+    const now = Date.now();
+    const timestamps = cooldowns.get(cmd.help.name);
+    const cooldownAmount = (cmd.conf.cooldown || 3) * 1000;
+    
+    if (timestamps.has(message.author.id)) {
+      const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
+    
+      if (now < expirationTime) {
+        const timeLeft = (expirationTime - now) / 1000;
+        return message.channel.send(`${this.client.findEmoteByName("wrongMark")} ${message.author} tu dois attendre **${timeLeft.toFixed(1)} secondes** avant de refaire la commande: \`${cmd.help.name}\`.`).then(m => {
+          m.delete({timeout: 2500})
+          message.delete({timeout: 3500});
+      })
+    }
+  }
 
-
-
+    timestamps.set(message.author.id, now);
+    setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
         this.client.logger.log(
           `${message.author.username} (${message.author.id} - ${this.client.config.permLevels.find(l => l.level === level).name
@@ -179,10 +195,7 @@ module.exports = class {
 
           if (msg == false) return;
 
-          cmd.run(message, args, level, con, lang);
-
-
-        })
+          cmd.run(message, args, level, con);
 
       })
 
